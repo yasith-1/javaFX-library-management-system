@@ -22,6 +22,10 @@ public class DashboardFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadChartData();
+        setDashboardData();
+    }
+
+    private void setDashboardData(){
         bookCountLbl.setText(String.valueOf(dashboardService.getBookCount()));
         memberCountLbl.setText(String.valueOf(dashboardService.getMemberCount()));
     }
