@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
+    <children>
+        <Rectangle fill="#0a3d62" height="613.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="981.0" />
+        <Rectangle fill="#0a3d62" height="80.0" layoutY="-1.0" stroke="#797979" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="0.5" width="981.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="484.0" layoutY="21.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Admin Dashboard" textFill="WHITE">
+            <font>
+                <Font name="Poppins Bold" size="28.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="55.0" fitWidth="51.0" layoutX="410.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/admin.png" />
+            </image>
+        </ImageView>
+        <Rectangle fill="#0e25616c" height="533.0" layoutX="2.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+        <JFXButton layoutX="16.0" layoutY="297.0" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 15;" text="Issue Book" textFill="WHITE">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </JFXButton>
+        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="119.0" layoutX="328.0" layoutY="116.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="264.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="412.0" layoutY="128.0" prefHeight="41.0" prefWidth="157.0" text="Total Members" textFill="WHITE">
+            <font>
+                <Font name="Poppins Regular" size="19.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="41.0" fitWidth="51.0" layoutX="361.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/members.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+        </ImageView>
+        <Label fx:id="memberCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="435.0" layoutY="186.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900;" text="53" textFill="#20ff2f">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="119.0" layoutX="648.0" layoutY="116.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="264.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="744.0" layoutY="128.0" prefHeight="41.0" prefWidth="126.0" text="Total Books" textFill="WHITE">
+            <font>
+                <Font name="Poppins Regular" size="19.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="41.0" fitWidth="51.0" layoutX="681.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/book.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="bookCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="755.0" layoutY="186.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900;" text="53" textFill="#20ff2f">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+      <LineChart fx:id="lineChart" layoutX="328.0" layoutY="283.0" prefHeight="313.0" prefWidth="586.0" style="-fx-text-fill: white;">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+        </yAxis>
+      </LineChart>
+      <JFXButton layoutX="16.0" layoutY="116.0" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 15;" text="Add New Book" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="16.0" layoutY="175.0" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 15;" text="Add New Member" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="16.0" layoutY="235.0" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 15;" text="Search Book" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
+    </children>
+</AnchorPane>
