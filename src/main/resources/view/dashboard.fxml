@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="974.0" style="-fx-background-image: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
     <children>
         <Rectangle fill="#0a3d62" height="613.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="981.0" />
         <Rectangle fill="#0a3d62" height="80.0" layoutY="-1.0" stroke="#797979" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="0.5" width="981.0" />

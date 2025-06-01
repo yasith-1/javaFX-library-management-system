@@ -1,5 +1,5 @@
 package util;
 
-public enum Type {
+public enum ServiceType {
     DASHBOARD, BOOK, MEMBER
 }

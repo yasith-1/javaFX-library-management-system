@@ -6,7 +6,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import service.ServiceFactory;
 import service.custom.DashboardService;
-import util.Type;
+import util.ServiceType;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +15,7 @@ public class DashboardFormController implements Initializable {
 
     public Label bookCountLbl;
     public Label memberCountLbl;
-    DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(Type.DASHBOARD);
+    DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
 
     public LineChart<String, Number> lineChart;
 

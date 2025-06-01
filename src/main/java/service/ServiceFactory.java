@@ -1,7 +1,7 @@
 package service;
 
 import service.custom.impl.DashboardServiceImpl;
-import util.Type;
+import util.ServiceType;
 
 public class ServiceFactory {
 
@@ -17,7 +17,7 @@ public class ServiceFactory {
         return instance;
     }
 
-    public <T extends SuperService> T getServiceType(Type type) {
+    public <T extends SuperService> T getServiceType(ServiceType type) {
         switch (type) {
             case DASHBOARD:
                 return (T) new DashboardServiceImpl();

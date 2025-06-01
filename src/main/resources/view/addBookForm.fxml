@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="667.0" prefWidth="639.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BookFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutX="-6.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="645.0" />
+      <Label layoutX="250.0" layoutY="24.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Add New Book" textFill="WHITE">
+         <font>
+            <Font name="Poppins Bold" size="28.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="54.0" fitWidth="60.0" layoutX="178.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/stageicon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="57.0" layoutY="130.0" text="Book ID" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="213.0" text="Book Title" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="369.0" layoutY="130.0" text="Copies Count" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="369.0" layoutY="213.0" text="Copies Count" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <JFXComboBox focusColor="#17a6ff00" layoutX="37.0" layoutY="324.0" prefHeight="32.0" prefWidth="164.0" promptText="Book Availability" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: #25AEE9; -fx-border-radius: 9; -fx-background-color: #CAE4D7; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#0b3d6100">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </JFXComboBox>
+      <JFXComboBox focusColor="#17a6ff00" layoutX="237.0" layoutY="324.0" prefHeight="32.0" prefWidth="164.0" promptText="Select Book Category" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: #25AEE9; -fx-border-radius: 9; -fx-background-color: #CAE4D7; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#adadad00">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </JFXComboBox>
+      <JFXComboBox focusColor="#17a6ff00" layoutX="434.0" layoutY="324.0" prefHeight="32.0" prefWidth="164.0" promptText="Select Author" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: #25AEE9; -fx-border-radius: 9; -fx-background-color: #CAE4D7; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#adadad00">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </JFXComboBox>
+      <JFXTextField editable="false" focusColor="#15a5ff" layoutX="57.0" layoutY="158.0" prefHeight="25.0" prefWidth="221.0" unFocusColor="#aeaeae" />
+      <JFXTextField focusColor="#15a5ff" layoutX="57.0" layoutY="243.0" prefHeight="25.0" prefWidth="221.0" unFocusColor="#aeaeae" />
+      <JFXTextField focusColor="#15a5ff" layoutX="367.0" layoutY="158.0" prefHeight="25.0" prefWidth="221.0" unFocusColor="#aeaeae" />
+      <JFXTextField focusColor="#15a5ff" layoutX="367.0" layoutY="244.0" prefHeight="25.0" prefWidth="221.0" unFocusColor="#aeaeae" />
+      <TableView layoutX="47.0" layoutY="406.0" prefHeight="240.0" prefWidth="550.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
