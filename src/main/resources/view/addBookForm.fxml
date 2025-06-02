@@ -44,17 +44,17 @@
          </font>
       </Label>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="247.0" layoutX="336.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
-      <JFXComboBox fx:id="comboStatus" focusColor="#17a6ff00" layoutX="354.0" layoutY="240.0" prefHeight="32.0" prefWidth="235.0" promptText="Book Availability" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#0b3d6100">
+      <JFXComboBox focusColor="#17a6ff00" layoutX="354.0" layoutY="240.0" onAction="#comboStatusOnaction" prefHeight="32.0" prefWidth="235.0" promptText="Book Availability" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#0b3d6100">
          <padding>
             <Insets left="15.0" />
          </padding>
       </JFXComboBox>
-      <JFXComboBox fx:id="comboCategory" focusColor="#17a6ff00" layoutX="354.0" layoutY="157.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Book Category" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#ababab00">
+      <JFXComboBox fx:id="comboCategory" focusColor="#17a6ff00" layoutX="354.0" layoutY="157.0" onAction="#comboCategoryOnaction" prefHeight="32.0" prefWidth="235.0" promptText="Select Book Category" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#ababab00">
          <padding>
             <Insets left="15.0" />
          </padding>
       </JFXComboBox>
-      <JFXComboBox fx:id="comboAuthor" focusColor="#17a6ff00" layoutX="354.0" layoutY="321.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Author" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#adadad00">
+      <JFXComboBox focusColor="#17a6ff00" layoutX="354.0" layoutY="321.0" onAction="#comboAuthorOnaction" prefHeight="32.0" prefWidth="235.0" promptText="Select Author" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#adadad00">
          <padding>
             <Insets left="15.0" />
          </padding>
