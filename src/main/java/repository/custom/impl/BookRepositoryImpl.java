@@ -17,7 +17,7 @@ public class BookRepositoryImpl implements BookRepository {
     @Override
     public String getLastBookId() {
         try {
-            ResultSet resultSet = CrudUtil.execute("SELECT * FROM `book` LIMIT 1");
+            ResultSet resultSet = CrudUtil.execute("SELECT * FROM `book` ORDER BY `isbn` DESC LIMIT 1");
             if (resultSet.next()) {
                 return resultSet.getString("isbn");
             } else {
@@ -78,7 +78,20 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public Boolean add(BookEntity entity) {
-        return null;
+        try {
+            Boolean result = CrudUtil.execute("INSERT INTO `book` VALUES(?,?,?,?,?,?)",
+                    entity.getIsbn(),
+                    entity.getTitle(),
+                    entity.getCopies(),
+                    entity.getStatusId(),
+                    entity.getGerneId(),
+                    entity.getAuthorId());
+
+            return result;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 
     @Override

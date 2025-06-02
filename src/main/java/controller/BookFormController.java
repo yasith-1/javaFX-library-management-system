@@ -47,7 +47,7 @@ public class BookFormController implements Initializable {
     }
 
     private void setAutogenarateBookId() {
-        txtId.setText(service.getNextBookId());
+        txtId.setText(service.bookId());
     }
 
     public void addBookOnActionBtn(ActionEvent actionEvent) {
@@ -109,15 +109,30 @@ public class BookFormController implements Initializable {
                     gerneId,
                     authorId);
 
-            System.out.println(book);
-
-            clearField();
-            setAutogenarateBookId();
+//            System.out.println(book);
+            Boolean isAdded = service.addBook(book);
+            if (isAdded) {
+                Notifications.create()
+                        .title("Success")
+                        .text("Book Added Successfully ")
+                        .hideAfter(Duration.seconds(3))
+                        .position(Pos.BOTTOM_RIGHT)
+                        .showInformation();
+                clearField();
+                setAutogenarateBookId();
+            } else {
+                Notifications.create()
+                        .title("Error")
+                        .text("Book doessn't Added ... ")
+                        .hideAfter(Duration.seconds(3))
+                        .position(Pos.BOTTOM_RIGHT)
+                        .showError();
+                clearField();
+            }
         }
     }
 
-    private void clearField(){
-        txtId.setText("");
+    private void clearField() {
         txtTile.setText("");
         txtCopies.setText("");
         comboCategory.setValue(null);
