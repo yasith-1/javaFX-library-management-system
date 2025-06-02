@@ -33,7 +33,6 @@ public class BookFormController implements Initializable {
 
     private void loadAllComboBoxData() {
         //        service.GetBookGerneMap() <-- book gerne map reference
-//        comboCategory.getItems().addAll(service.GetBookGerneMap());
         comboCategory.getItems().addAll(service.getBookGerneMap().keySet());
         //        service.GetBookGerneMap() <-- book author map reference
         comboAuthor.getItems().addAll(service.getAuthorMap().keySet());
@@ -46,19 +45,9 @@ public class BookFormController implements Initializable {
         txtId.setText(service.getNextBookId());
     }
 
-    public void comboCategoryOnaction(ActionEvent actionEvent) {
-        System.out.println(service.getBookGerneMap().get(comboCategory.getValue()));
-
-    }
-
-    public void comboAuthorOnaction(ActionEvent actionEvent) {
-    }
-
-    public void comboStatusOnaction(ActionEvent actionEvent) {
-        System.out.println();
-    }
-
     public void addBookOnActionBtn(ActionEvent actionEvent) {
+
+//        Have to validate Input fields
 
         Integer statusId = Integer.parseInt(service.getStatusMap().get(comboStatus.getValue()));
         String gerneId = service.getBookGerneMap().get(comboCategory.getValue());
@@ -72,7 +61,6 @@ public class BookFormController implements Initializable {
                 gerneId,
                 authorId);
 
-
+        System.out.println(book);
     }
-
 }
