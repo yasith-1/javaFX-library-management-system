@@ -1,4 +1,6 @@
 package repository;
 
-public interface CrudRepository {
+import service.SuperService;
+
+public interface CrudRepository extends SuperRepository {
 }

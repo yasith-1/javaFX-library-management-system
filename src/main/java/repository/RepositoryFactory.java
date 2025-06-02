@@ -1,6 +1,7 @@
 package repository;
 
 import repository.custom.DashboardRepository;
+import repository.custom.impl.BookRepositoryImpl;
 import repository.custom.impl.DashboardRepositoryImpl;
 import util.RepositoryType;
 
@@ -14,6 +15,7 @@ public class RepositoryFactory {
     public <T extends SuperRepository> T getRepositoryType(RepositoryType type) {
         switch (type) {
             case DASHBOARD:return (T) new DashboardRepositoryImpl();
+            case BOOK:return (T) new BookRepositoryImpl();
         }
         return null;
     }

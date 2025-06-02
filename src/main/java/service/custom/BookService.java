@@ -1,4 +1,7 @@
 package service.custom;
 
-public interface BookService {
+import service.SuperService;
+
+public interface BookService extends SuperService {
+     String getNextBookId();
 }

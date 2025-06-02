@@ -1,5 +1,6 @@
 package service;
 
+import service.custom.impl.BookServiceImpl;
 import service.custom.impl.DashboardServiceImpl;
 import util.ServiceType;
 
@@ -19,10 +20,9 @@ public class ServiceFactory {
 
     public <T extends SuperService> T getServiceType(ServiceType type) {
         switch (type) {
-            case DASHBOARD:
-                return (T) new DashboardServiceImpl();
-//            case MEMBER: : return (T) new DashboardServiceImpl();
-//            case BOOK: : return (T) new DashboardServiceImpl();
+            case DASHBOARD : return (T) new DashboardServiceImpl();
+            case BOOK : return (T) new BookServiceImpl();
+//            case MEMBER : return (T) new DashboardServiceImpl();
         }
         return null;
     }
