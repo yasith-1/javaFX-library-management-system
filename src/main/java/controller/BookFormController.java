@@ -6,6 +6,11 @@ import dto.Book;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
 import service.custom.impl.BookServiceImpl;
 import util.ServiceType;
@@ -47,20 +52,76 @@ public class BookFormController implements Initializable {
 
     public void addBookOnActionBtn(ActionEvent actionEvent) {
 
-//        Have to validate Input fields
+//        validating Input fields
 
-        Integer statusId = Integer.parseInt(service.getStatusMap().get(comboStatus.getValue()));
-        String gerneId = service.getBookGerneMap().get(comboCategory.getValue());
-        String authorId = service.getAuthorMap().get(comboAuthor.getValue());
+        if (txtTile.getText().isEmpty()) {
+            Notifications.create()
+                    .title("Warning")
+                    .text("Enter book title!")
+                    .hideAfter(Duration.seconds(3))
+                    .position(Pos.BOTTOM_RIGHT)
+                    .showWarning();
 
-        Book book = new Book(
-                txtId.getText(),
-                txtTile.getText(),
-                Integer.parseInt(txtCopies.getText()),
-                statusId,
-                gerneId,
-                authorId);
+            return;
+        } else if (txtCopies.getText().isEmpty()) {
+            Notifications.create()
+                    .title("Warning")
+                    .text("Enter book copies count !")
+                    .hideAfter(Duration.seconds(3))
+                    .position(Pos.BOTTOM_RIGHT)
+                    .showWarning();
+            return;
+        } else if (comboCategory.getValue() == null) {
+            Notifications.create()
+                    .title("Warning")
+                    .text("Select a book category !")
+                    .hideAfter(Duration.seconds(3))
+                    .position(Pos.BOTTOM_RIGHT)
+                    .showWarning();
+            return;
+        } else if (comboStatus.getValue() == null) {
+            Notifications.create()
+                    .title("Warning")
+                    .text("Select a book status !")
+                    .hideAfter(Duration.seconds(3))
+                    .position(Pos.BOTTOM_RIGHT)
+                    .showWarning();
+            return;
+        } else if (comboAuthor.getValue() == null) {
+            Notifications.create()
+                    .title("Warning")
+                    .text("Select a book author !")
+                    .hideAfter(Duration.seconds(3))
+                    .position(Pos.BOTTOM_RIGHT)
+                    .showWarning();
+            return;
+        } else {
+//            All valid---------
+            Integer statusId = Integer.parseInt(service.getStatusMap().get(comboStatus.getValue()));
+            String gerneId = service.getBookGerneMap().get(comboCategory.getValue());
+            String authorId = service.getAuthorMap().get(comboAuthor.getValue());
 
-        System.out.println(book);
+            Book book = new Book(
+                    txtId.getText(),
+                    txtTile.getText(),
+                    Integer.parseInt(txtCopies.getText()),
+                    statusId,
+                    gerneId,
+                    authorId);
+
+            System.out.println(book);
+
+            clearField();
+            setAutogenarateBookId();
+        }
+    }
+
+    private void clearField(){
+        txtId.setText("");
+        txtTile.setText("");
+        txtCopies.setText("");
+        comboCategory.setValue(null);
+        comboStatus.setValue(null);
+        comboAuthor.setValue(null);
     }
 }
