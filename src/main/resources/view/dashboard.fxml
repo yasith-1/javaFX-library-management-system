@@ -75,7 +75,7 @@
           <NumberAxis side="LEFT" tickLabelFill="WHITE" />
         </yAxis>
       </LineChart>
-      <JFXButton layoutX="16.0" layoutY="116.0" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 15;" text="Add New Book" textFill="WHITE">
+      <JFXButton layoutX="16.0" layoutY="116.0" onAction="#addBookOnActionBtn" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 15;" text="Add New Book" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>

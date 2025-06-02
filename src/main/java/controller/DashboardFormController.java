@@ -1,13 +1,19 @@
 package controller;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.DashboardService;
 import util.ServiceType;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -41,4 +47,11 @@ public class DashboardFormController implements Initializable {
         lineChart.getData().add(series);
     }
 
+    public void addBookOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/addBookForm.fxml"))));
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Add Book Form");
+        stage.show();
+    }
 }
