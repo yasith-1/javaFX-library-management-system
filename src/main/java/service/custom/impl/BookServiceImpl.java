@@ -5,6 +5,8 @@ import repository.custom.impl.BookRepositoryImpl;
 import service.custom.BookService;
 import util.RepositoryType;
 
+import java.util.HashMap;
+
 public class BookServiceImpl implements BookService {
 
     BookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.BOOK);
@@ -21,5 +23,20 @@ public class BookServiceImpl implements BookService {
             return nextId;
         }
 
+    }
+
+    @Override
+    public HashMap<String, String> GetBookGerneMap() {
+        return repository.getAllGernes();
+    }
+
+    @Override
+    public HashMap<String, String> GetAuthorMap() {
+        return repository.getAllAuthors();
+    }
+
+    @Override
+    public HashMap<String, String> GetStatusMap() {
+        return repository.getAllStatus();
     }
 }
