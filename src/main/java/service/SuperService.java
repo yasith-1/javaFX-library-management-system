@@ -1,4 +1,4 @@
 package service;
 
-public interface SuperService {
+public interface SuperService{
 }

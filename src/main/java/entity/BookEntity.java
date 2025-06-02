@@ -1,4 +1,4 @@
-package dto;
+package entity;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Book {
+public class BookEntity {
     private String isbn;
     private String title;
     private Integer copies;

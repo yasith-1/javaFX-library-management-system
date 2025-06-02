@@ -26,17 +26,19 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public HashMap<String, String> GetBookGerneMap() {
-        return repository.getAllGernes();
+    public HashMap<String, String> getBookGerneMap() {
+       return repository.getAllGernes();
     }
 
     @Override
-    public HashMap<String, String> GetAuthorMap() {
+    public HashMap<String, String> getAuthorMap() {
         return repository.getAllAuthors();
     }
 
     @Override
-    public HashMap<String, String> GetStatusMap() {
+    public HashMap<String, String> getStatusMap() {
         return repository.getAllStatus();
     }
+
+
 }

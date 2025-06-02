@@ -1,5 +1,7 @@
 package repository.custom.impl;
 
+import entity.BookEntity;
+import repository.CrudRepository;
 import repository.custom.BookRepository;
 import util.CrudUtil;
 
@@ -22,6 +24,15 @@ public class BookRepositoryImpl implements BookRepository {
                 return "B001";
             }
         } catch (Exception e) {
+
+//            Notifications.create()
+//                    .title("Error")
+//                    .text(e.getMessage())
+//                    .graphic(new ImageView(new Image(""))) // You can use an icon: new ImageView(new Image("icon.png"))
+//                    .hideAfter(Duration.seconds(3))
+//                    .position(Pos.TOP_RIGHT)
+//                    .showInformation();
+
             throw new RuntimeException(e);
         }
     }
@@ -65,4 +76,23 @@ public class BookRepositoryImpl implements BookRepository {
         return statusMap;
     }
 
+    @Override
+    public Boolean add(BookEntity entity) {
+        return null;
+    }
+
+    @Override
+    public Boolean update(BookEntity entity) {
+        return null;
+    }
+
+    @Override
+    public Boolean delete(String s) {
+        return null;
+    }
+
+    @Override
+    public BookEntity search(String s) {
+        return null;
+    }
 }

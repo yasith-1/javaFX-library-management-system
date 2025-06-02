@@ -2,6 +2,8 @@ package controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import dto.Book;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import service.ServiceFactory;
@@ -10,6 +12,7 @@ import util.ServiceType;
 
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class BookFormController implements Initializable {
@@ -20,7 +23,6 @@ public class BookFormController implements Initializable {
     public JFXComboBox comboStatus;
     public JFXComboBox comboAuthor;
 
-    HashMap<String, String> categoryMap = new HashMap<>();
     BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
 
     @Override
@@ -31,11 +33,13 @@ public class BookFormController implements Initializable {
 
     private void loadAllComboBoxData() {
         //        service.GetBookGerneMap() <-- book gerne map reference
-        comboCategory.getItems().addAll(service.GetBookGerneMap().keySet());
+//        comboCategory.getItems().addAll(service.GetBookGerneMap());
+        comboCategory.getItems().addAll(service.getBookGerneMap().keySet());
         //        service.GetBookGerneMap() <-- book author map reference
-        comboAuthor.getItems().addAll(service.GetAuthorMap().keySet());
+        comboAuthor.getItems().addAll(service.getAuthorMap().keySet());
         //        service.GetBookGerneMap() <-- book status map reference
-        comboStatus.getItems().addAll(service.GetStatusMap().keySet());
+        comboStatus.getItems().addAll(service.getStatusMap().keySet()
+        );
     }
 
     private void setAutogenarateBookId() {
@@ -43,13 +47,32 @@ public class BookFormController implements Initializable {
     }
 
     public void comboCategoryOnaction(ActionEvent actionEvent) {
-        System.out.println(comboCategory.getValue());
-    }
+        System.out.println(service.getBookGerneMap().get(comboCategory.getValue()));
 
-    public void comboStatusOnaction(ActionEvent actionEvent) {
     }
-
 
     public void comboAuthorOnaction(ActionEvent actionEvent) {
     }
+
+    public void comboStatusOnaction(ActionEvent actionEvent) {
+        System.out.println();
+    }
+
+    public void addBookOnActionBtn(ActionEvent actionEvent) {
+
+        Integer statusId = Integer.parseInt(service.getStatusMap().get(comboStatus.getValue()));
+        String gerneId = service.getBookGerneMap().get(comboCategory.getValue());
+        String authorId = service.getAuthorMap().get(comboAuthor.getValue());
+
+        Book book = new Book(
+                txtId.getText(),
+                txtTile.getText(),
+                Integer.parseInt(txtCopies.getText()),
+                statusId,
+                gerneId,
+                authorId);
+
+
+    }
+
 }
