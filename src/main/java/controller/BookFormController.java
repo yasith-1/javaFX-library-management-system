@@ -136,7 +136,7 @@ public class BookFormController implements Initializable {
             } else {
                 Notifications.create()
                         .title("Warning")
-                        .text("Book copis count must be a number !")
+                        .text("Invalid Book copies count...")
                         .hideAfter(Duration.seconds(3))
                         .position(Pos.BOTTOM_RIGHT)
                         .showWarning();
@@ -153,7 +153,8 @@ public class BookFormController implements Initializable {
     }
 
     private Boolean checkIsNumber(String value) {
-        if (value.matches("\\d+")) {
+        int num = Integer.parseInt(value);
+        if ((value.matches("\\d+")) && num > 0) {
             return true;
         }
         return false;
