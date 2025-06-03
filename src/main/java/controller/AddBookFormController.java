@@ -3,12 +3,9 @@ package controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.Book;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
@@ -16,11 +13,9 @@ import service.custom.impl.BookServiceImpl;
 import util.ServiceType;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 
-public class BookFormController implements Initializable {
+public class AddBookFormController implements Initializable {
     public JFXTextField txtId;
     public JFXTextField txtTile;
     public JFXTextField txtCopies;
@@ -52,7 +47,7 @@ public class BookFormController implements Initializable {
 
     public void addBookOnActionBtn(ActionEvent actionEvent) {
 
-//        validating Input fields
+//        validating Input fields------------------
 
         if (txtTile.getText().isEmpty()) {
             Notifications.create()
@@ -113,7 +108,7 @@ public class BookFormController implements Initializable {
                         gerneId,
                         authorId);
 
-//            Book added or no into databasse ?-----------------------
+//            Book added or no into database ?-----------------------
                 Boolean isAdded = service.addBook(book);
                 if (isAdded) {
                     Notifications.create()
@@ -152,6 +147,7 @@ public class BookFormController implements Initializable {
         comboAuthor.setValue(null);
     }
 
+    //    check value is a number or no ?-------------
     private Boolean checkIsNumber(String value) {
         int num = Integer.parseInt(value);
         if ((value.matches("\\d+")) && num > 0) {
