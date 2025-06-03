@@ -122,7 +122,19 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public Boolean update(BookEntity entity) {
-        return null;
+        try {
+            Boolean result = CrudUtil.execute("UPDATE `book` SET `title`=?,`copies`=?,`status_id`=?,`gerne_id`=?,`author_id`=? WHERE `isbn`=?",
+                    entity.getTitle(),
+                    entity.getCopies(),
+                    entity.getStatusId(),
+                    entity.getGerneId(),
+                    entity.getAuthorId(),
+                    entity.getIsbn());
+
+            return result;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

@@ -15,7 +15,7 @@ public class CrudUtil {
         if (sql.startsWith("SELECT") || sql.startsWith("select")) {
             return (T) pst.executeQuery();
         }
-        return (T) (Boolean) (pst.executeUpdate()>0);
+        return (T) (Boolean) (pst.executeUpdate() > 0);
 
     }
 }

@@ -105,13 +105,13 @@ public class ManageBookFormController implements Initializable {
                         gerneId,
                         authorId);
 
-//            Book added or no into database ?-----------------------
-                Boolean isAdded = service.addBook(book);
-                if (isAdded) {
+//            Book Update or no into database ?-----------------------
+                Boolean isUpdated = service.updateBook(book);
+                if (isUpdated) {
 //                    Book added successfully ...........
                     Notifications.create()
                             .title("Success")
-                            .text("Book Added Successfully ")
+                            .text("Book Updated Successfully !")
                             .hideAfter(Duration.seconds(3))
                             .position(Pos.BOTTOM_RIGHT)
                             .showInformation();
@@ -121,7 +121,7 @@ public class ManageBookFormController implements Initializable {
 //                    Book is not added  ...........
                     Notifications.create()
                             .title("Error")
-                            .text("Book doessn't Added ... ")
+                            .text("Book doessn't Update ... ")
                             .hideAfter(Duration.seconds(3))
                             .position(Pos.BOTTOM_RIGHT)
                             .showError();

@@ -52,7 +52,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Boolean updateBook(Book book) {
-        return null;
+        BookEntity bookEntity = modelMapper.map(book, BookEntity.class);
+        return bookRepository.update(bookEntity);
     }
 
     @Override
