@@ -20,6 +20,8 @@ import service.custom.impl.BookServiceImpl;
 import util.ServiceType;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddBookFormController implements Initializable {
@@ -167,16 +169,24 @@ public class AddBookFormController implements Initializable {
 
     //    check value is a number or no ?-------------
     private Boolean checkIsNumber(String value) {
-        int num = Integer.parseInt(value);
-        if (value.matches("\\s+")){
+        if (value == null || value.trim().isEmpty()) {
             return false;
-        }else if ((value.matches("\\d+")) && num > 0) {
-            return true;
         }
+
+        // Check if the value is only digits and greater than 0
+        if (value.matches("\\d+")) {
+            int num = Integer.parseInt(value);
+            return num > 0;
+        }
+
+        // If it contains letters, symbols, or spaces, return false
         return false;
     }
 
     private void loadBookTable() {
+        bookTable.getItems().clear();
+        List<Book> bookList = service.getBookList();
+
         colIsbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colAuthor.setCellValueFactory(new PropertyValueFactory<>("authorId"));
@@ -184,11 +194,8 @@ public class AddBookFormController implements Initializable {
         colCopies.setCellValueFactory(new PropertyValueFactory<>("copies"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("statusId"));
 
-        ObservableList<Object> observableList = FXCollections.observableArrayList();
-
-        for (Book book : service.getBookList()) {
-            observableList.add(book);
-        }
+        ObservableList<Book> observableList = FXCollections.observableArrayList(bookList);
         bookTable.setItems(observableList);
+
     }
 }

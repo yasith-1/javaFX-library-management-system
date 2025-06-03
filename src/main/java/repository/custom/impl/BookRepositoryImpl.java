@@ -25,7 +25,7 @@ public class BookRepositoryImpl implements BookRepository {
             if (resultSet.next()) {
                 return resultSet.getString("isbn");
             } else {
-                return "B001";
+               return null;
             }
         } catch (Exception e) {
 

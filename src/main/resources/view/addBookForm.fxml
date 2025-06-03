@@ -72,7 +72,7 @@
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font></JFXTextField>
-      <TableView fx:id="bookTable" layoutX="31.0" layoutY="496.0" prefHeight="185.0" prefWidth="581.0" style="-fx-background-color: white; -fx-border-color: black;">
+      <TableView fx:id="bookTable" layoutX="31.0" layoutY="496.0" prefHeight="185.0" prefWidth="581.0" style="-fx-background-color: white;">
         <columns>
           <TableColumn fx:id="colIsbn" prefWidth="87.0" style="-fx-font-weight: bold; -fx-alignment: center;" text="Book ID" />
           <TableColumn fx:id="colTitle" prefWidth="71.0" style="-fx-font-weight: bold;" text="Title" />

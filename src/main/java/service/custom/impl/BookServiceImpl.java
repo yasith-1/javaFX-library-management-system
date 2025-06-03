@@ -22,20 +22,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public String bookId() {
         String currentId = bookRepository.getLastBookId(); // e.g., "B001"
-
-        if (currentId == null || currentId.isEmpty()) {
+        if (currentId != null) {
+            return String.format("B%03d", Integer.parseInt(currentId.substring(1)) + 1);
+        } else {
             return "B001";
-        }else {
-            try {
-                int num = Integer.parseInt(currentId.substring(1)); // Extract numeric part
-                int nextNum = num + 1;
-                return String.format("B%03d", nextNum); // Format as B002, B010, etc.
-            } catch (NumberFormatException e) {
-                // Fallback in case the ID is not formatted as expected
-                return "B001";
-            }
         }
-
     }
 
     @Override
