@@ -3,10 +3,14 @@ package controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.Book;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
@@ -14,6 +18,7 @@ import service.custom.impl.BookServiceImpl;
 import util.ServiceType;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ManageBookFormController implements Initializable {
@@ -25,12 +30,19 @@ public class ManageBookFormController implements Initializable {
     public JFXTextField txtCopies;
     public TableView bookTable;
     public JFXTextField txtSearchField;
+    public TableColumn colIsbn;
+    public TableColumn colTitle;
+    public TableColumn colAuthor;
+    public TableColumn colCategory;
+    public TableColumn colCopies;
+    public TableColumn colStatus;
 
     BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllComboBoxData();
+        loadBookTable();
     }
 
     private void loadAllComboBoxData() {
@@ -192,6 +204,21 @@ public class ManageBookFormController implements Initializable {
                 .hideAfter(Duration.seconds(3))
                 .position(Pos.BOTTOM_RIGHT)
                 .showError();
+    }
+
+    private void loadBookTable() {
+
+        List<Book> bookList = service.getBookList();
+
+        colIsbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+        colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        colAuthor.setCellValueFactory(new PropertyValueFactory<>("authorId"));
+        colCategory.setCellValueFactory(new PropertyValueFactory<>("gerneId"));
+        colCopies.setCellValueFactory(new PropertyValueFactory<>("copies"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("statusId"));
+
+        ObservableList<Book> observableList = FXCollections.observableArrayList(bookList);
+        bookTable.setItems(observableList);
     }
 
     private void fillFoundedBookData(Book book) {

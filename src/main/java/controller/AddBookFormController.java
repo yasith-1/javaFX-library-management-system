@@ -134,6 +134,7 @@ public class AddBookFormController implements Initializable {
                             .showInformation();
                     clearField();
                     setAutogenarateBookId();
+                    bookTable.getItems().clear();
                     loadBookTable();
                 } else {
 //                    Book is not added  ...........
@@ -181,7 +182,6 @@ public class AddBookFormController implements Initializable {
     }
 
     private void loadBookTable() {
-        bookTable.getItems().clear();
         List<Book> bookList = service.getBookList();
 
         colIsbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
@@ -191,11 +191,16 @@ public class AddBookFormController implements Initializable {
         colCopies.setCellValueFactory(new PropertyValueFactory<>("copies"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("statusId"));
 
-        ObservableList<Book> observableList = FXCollections.observableArrayList(bookList);
+        bookTable.getItems().clear();
+        ObservableList<Object> observableList = FXCollections.observableArrayList(bookList);
         bookTable.setItems(observableList);
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
         clearField();
+    }
+
+    public void loadTableOnActionBtn(ActionEvent actionEvent) {
+        loadBookTable();
     }
 }
