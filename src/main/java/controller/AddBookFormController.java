@@ -182,6 +182,7 @@ public class AddBookFormController implements Initializable {
     }
 
     private void loadBookTable() {
+        bookTable.getItems().clear();
         List<Book> bookList = service.getBookList();
 
         colIsbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
@@ -191,7 +192,6 @@ public class AddBookFormController implements Initializable {
         colCopies.setCellValueFactory(new PropertyValueFactory<>("copies"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("statusId"));
 
-        bookTable.getItems().clear();
         ObservableList<Object> observableList = FXCollections.observableArrayList(bookList);
         bookTable.setItems(observableList);
     }
