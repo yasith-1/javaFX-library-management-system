@@ -149,7 +149,7 @@ public class BookRepositoryImpl implements BookRepository {
                     "gerne.`name`AS `gerne_name`,author.`name` AS `author_name` FROM `book` " +
                     "INNER JOIN `book_status` ON book.status_id= book_status.id " +
                     "INNER JOIN `gerne` ON book.gerne_id = gerne.gerne_id " +
-                    "INNER JOIN `author` ON book.author_id=author.id WHERE `title`=?", value);
+                    "INNER JOIN `author` ON book.author_id=author.id WHERE `title`=? OR `isbn`=?", value,value);
             if (resultset.next()) {
                 BookEntity bookEntity = new BookEntity(
                         resultset.getString("isbn"),

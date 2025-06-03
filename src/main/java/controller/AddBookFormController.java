@@ -193,7 +193,6 @@ public class AddBookFormController implements Initializable {
 
         ObservableList<Book> observableList = FXCollections.observableArrayList(bookList);
         bookTable.setItems(observableList);
-
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
