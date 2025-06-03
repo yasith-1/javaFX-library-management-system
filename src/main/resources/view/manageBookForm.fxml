@@ -45,17 +45,17 @@
          </font>
       </Label>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="247.0" layoutX="326.0" layoutY="285.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
-      <JFXComboBox fx:id="comboStatus" focusColor="#17a6ff00" layoutX="344.0" layoutY="398.0" prefHeight="32.0" prefWidth="235.0" promptText="Book Availability" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#0b3d6100">
+      <JFXComboBox fx:id="comboStatus" focusColor="#17a6ff00" layoutX="344.0" layoutY="398.0" prefHeight="32.0" prefWidth="235.0" promptText="Book Availability" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#0b3d6100">
          <padding>
             <Insets left="15.0" />
          </padding>
       </JFXComboBox>
-      <JFXComboBox fx:id="comboCategory" focusColor="#17a6ff00" layoutX="344.0" layoutY="315.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Book Category" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#ababab00">
+      <JFXComboBox fx:id="comboCategory" focusColor="#17a6ff00" layoutX="344.0" layoutY="315.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Book Category" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#ababab00">
          <padding>
             <Insets left="15.0" />
          </padding>
       </JFXComboBox>
-      <JFXComboBox fx:id="comboAuthor" focusColor="#17a6ff00" layoutX="344.0" layoutY="479.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Author" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#adadad00">
+      <JFXComboBox fx:id="comboAuthor" focusColor="#17a6ff00" layoutX="344.0" layoutY="479.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Author" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#adadad00">
          <padding>
             <Insets left="15.0" />
          </padding>
@@ -85,7 +85,7 @@
             <TableColumn prefWidth="99.0" text="Status" />
          </columns>
       </TableView>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="397.0" onAction="#updateBookOnActionBtn" prefHeight="40.0" prefWidth="221.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20;" text="Update Book">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="397.0" onAction="#updateBookOnActionBtn" prefHeight="40.0" prefWidth="221.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Update Book">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -96,17 +96,17 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="453.0" onAction="#deleteBookOnActionBtn" prefHeight="40.0" prefWidth="221.0" style="-fx-background-color: #ED4C67; -fx-background-radius: 20;" text="Delete Book" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="453.0" onAction="#deleteBookOnActionBtn" prefHeight="40.0" prefWidth="221.0" style="-fx-background-color: #ED4C67; -fx-background-radius: 20; -fx-cursor: hand;" text="Delete Book" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="507.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="221.0" style="-fx-background-color: #718093; -fx-background-radius: 20;" text="Clear all" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="507.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="221.0" style="-fx-background-color: #718093; -fx-background-radius: 20; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="389.0" layoutY="194.0" onAction="#searchOnActionBtn" prefHeight="33.0" prefWidth="146.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 20;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="389.0" layoutY="194.0" onAction="#searchOnActionBtn" prefHeight="33.0" prefWidth="146.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 20; -fx-cursor: hand;" text="Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>

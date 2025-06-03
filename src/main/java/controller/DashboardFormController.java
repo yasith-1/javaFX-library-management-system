@@ -15,12 +15,15 @@ import util.ServiceType;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class DashboardFormController implements Initializable {
 
     public Label bookCountLbl;
     public Label memberCountLbl;
+    public Label dateTimeLbl;
     DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
 
     public LineChart<String, Number> lineChart;
@@ -28,6 +31,7 @@ public class DashboardFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadChartData();
+        setDateAndTime();
         setDashboardData();
     }
 
@@ -40,9 +44,8 @@ public class DashboardFormController implements Initializable {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Library Stats");
 
-        // Static data — replace with dynamic data if needed
-        series.getData().add(new XYChart.Data<>("Members", dashboardService.getBookCount()));
-        series.getData().add(new XYChart.Data<>("Books", dashboardService.getMemberCount()));
+        series.getData().add(new XYChart.Data<>("Members", dashboardService.getMemberCount()));
+        series.getData().add(new XYChart.Data<>("Books", dashboardService.getBookCount()));
 
         lineChart.getData().add(series);
     }
@@ -61,5 +64,13 @@ public class DashboardFormController implements Initializable {
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Add Book Form");
         stage.show();
+    }
+
+    private void setDateAndTime() {
+        LocalDateTime now = LocalDateTime.now();
+        // 12-hour format with AM/PM
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy  hh:mm:ss a");
+        String dateTimeNow = now.format(formatter);
+        dateTimeLbl.setText(dateTimeNow);
     }
 }
