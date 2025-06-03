@@ -31,7 +31,7 @@ public class DashboardFormController implements Initializable {
         setDashboardData();
     }
 
-    private void setDashboardData(){
+    private void setDashboardData() {
         bookCountLbl.setText(String.valueOf(dashboardService.getBookCount()));
         memberCountLbl.setText(String.valueOf(dashboardService.getMemberCount()));
     }
@@ -50,6 +50,14 @@ public class DashboardFormController implements Initializable {
     public void addBookOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/addBookForm.fxml"))));
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Add Book Form");
+        stage.show();
+    }
+
+    public void manageBookOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/manageBookForm.fxml"))));
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Add Book Form");
         stage.show();

@@ -25,7 +25,7 @@ public class BookRepositoryImpl implements BookRepository {
             if (resultSet.next()) {
                 return resultSet.getString("isbn");
             } else {
-               return null;
+                return null;
             }
         } catch (Exception e) {
 
@@ -88,7 +88,7 @@ public class BookRepositoryImpl implements BookRepository {
                 BookEntity bookEntity = new BookEntity(
                         resultset.getString("isbn"),
                         resultset.getString("title"),
-                        Integer.parseInt(resultset.getString("copies")),
+                        resultset.getInt("copies"),
                         resultset.getString("status"),
                         resultset.getString("gerne_name"),
                         resultset.getString("author_name"));
@@ -131,7 +131,27 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public BookEntity search(String s) {
-        return null;
+    public BookEntity search(String value) {
+        try {
+            ResultSet resultset = CrudUtil.execute("SELECT `isbn`,`title`,`copies`,`status`," +
+                    "gerne.`name`AS `gerne_name`,author.`name` AS `author_name` FROM `book` " +
+                    "INNER JOIN `book_status` ON book.status_id= book_status.id " +
+                    "INNER JOIN `gerne` ON book.gerne_id = gerne.gerne_id " +
+                    "INNER JOIN `author` ON book.author_id=author.id WHERE `title`=?", value);
+            if (resultset.next()) {
+                BookEntity bookEntity = new BookEntity(
+                        resultset.getString("isbn"),
+                        resultset.getString("title"),
+                        resultset.getInt("copies"),
+                        resultset.getString("status"),
+                        resultset.getString("gerne_name"),
+                        resultset.getString("author_name"));
+
+                return bookEntity;
+            }
+            return null;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

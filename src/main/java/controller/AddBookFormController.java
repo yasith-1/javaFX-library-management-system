@@ -198,4 +198,8 @@ public class AddBookFormController implements Initializable {
         bookTable.setItems(observableList);
 
     }
+
+    public void clearOnActionBtn(ActionEvent actionEvent) {
+        clearField();
+    }
 }

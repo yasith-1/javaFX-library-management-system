@@ -51,6 +51,21 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Boolean updateBook(Book book) {
+        return null;
+    }
+
+    @Override
+    public Book searchByBookId(String value) {
+        BookEntity foundEntity = bookRepository.search(value);
+        if (foundEntity != null) {
+            Book book = modelMapper.map(foundEntity, Book.class);
+            return book;
+        }
+        return null;
+    }
+
+    @Override
     public List<Book> getBookList() {
         List<BookEntity> bookEntityList = bookRepository.getBookEntityList();
 

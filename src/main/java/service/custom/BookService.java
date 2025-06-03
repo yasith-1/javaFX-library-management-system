@@ -18,5 +18,9 @@ public interface BookService extends SuperService {
 
     Boolean addBook(Book book);
 
+    Boolean updateBook(Book book);
+
+    Book searchByBookId(String value);
+
     List<Book> getBookList();
 }
