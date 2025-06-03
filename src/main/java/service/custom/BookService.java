@@ -3,7 +3,9 @@ package service.custom;
 import dto.Book;
 import service.SuperService;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public interface BookService extends SuperService {
     String bookId();
@@ -15,4 +17,6 @@ public interface BookService extends SuperService {
     HashMap<String, String> getStatusMap();
 
     Boolean addBook(Book book);
+
+    List<Book> getBookList();
 }

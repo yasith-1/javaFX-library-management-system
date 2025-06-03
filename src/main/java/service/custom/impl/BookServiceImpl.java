@@ -8,50 +8,65 @@ import repository.custom.impl.BookRepositoryImpl;
 import service.custom.BookService;
 import util.RepositoryType;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class BookServiceImpl implements BookService {
 
-    BookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.BOOK);
+    BookRepositoryImpl bookRepository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.BOOK);
     ModelMapper modelMapper = new ModelMapper();
+    ArrayList<Book> bookList = new ArrayList<>();
 
     @Override
     public String bookId() {
-        String currentId = repository.getLastBookId(); // e.g., "B001"
+        String currentId = bookRepository.getLastBookId(); // e.g., "B001"
 
         if (currentId == null || currentId.isEmpty()) {
             return "B001";
+        }else {
+            try {
+                int num = Integer.parseInt(currentId.substring(1)); // Extract numeric part
+                int nextNum = num + 1;
+                return String.format("B%03d", nextNum); // Format as B002, B010, etc.
+            } catch (NumberFormatException e) {
+                // Fallback in case the ID is not formatted as expected
+                return "B001";
+            }
         }
-        try {
-            int num = Integer.parseInt(currentId.substring(1)); // Extract numeric part
-            int nextNum = num + 1;
-            return String.format("B%03d", nextNum); // Format as B002, B010, etc.
-        } catch (NumberFormatException e) {
-            // Fallback in case the ID is not formatted as expected
-            return "B001";
-        }
+
     }
 
     @Override
     public HashMap<String, String> getBookGerneMap() {
-       return repository.getAllGernes();
+        return bookRepository.getAllGernes();
     }
 
     @Override
     public HashMap<String, String> getAuthorMap() {
-        return repository.getAllAuthors();
+        return bookRepository.getAllAuthors();
     }
 
     @Override
     public HashMap<String, String> getStatusMap() {
-        return repository.getAllStatus();
+        return bookRepository.getAllStatus();
     }
 
     @Override
     public Boolean addBook(Book book) {
         BookEntity bookEntity = modelMapper.map(book, BookEntity.class);
-        return repository.add(bookEntity);
+        return bookRepository.add(bookEntity);
     }
 
+    @Override
+    public List<Book> getBookList() {
+        List<BookEntity> bookEntityList = bookRepository.getBookEntityList();
 
+//        bookEntityList map to --> booklist type (DTO|model) and creating booklist
+        for (BookEntity bookEntity : bookEntityList) {
+            bookList.add(modelMapper.map(bookEntity, Book.class));
+        }
+        return bookList;
+    }
 }

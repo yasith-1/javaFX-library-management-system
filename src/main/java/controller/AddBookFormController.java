@@ -3,9 +3,16 @@ package controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.Book;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
@@ -22,6 +29,13 @@ public class AddBookFormController implements Initializable {
     public JFXComboBox comboCategory;
     public JFXComboBox comboStatus;
     public JFXComboBox comboAuthor;
+    public TableColumn colIsbn;
+    public TableColumn colTitle;
+    public TableColumn colAuthor;
+    public TableColumn colCategory;
+    public TableColumn colCopies;
+    public TableColumn colStatus;
+    public TableView bookTable;
 
     BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
 
@@ -29,6 +43,7 @@ public class AddBookFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setAutogenarateBookId();
         loadAllComboBoxData();
+        loadBookTable();
     }
 
     private void loadAllComboBoxData() {
@@ -96,7 +111,7 @@ public class AddBookFormController implements Initializable {
             if (checkIsNumber(txtCopies.getText())) {
 
                 //   ----------All data valid now---------
-                Integer statusId = Integer.parseInt(service.getStatusMap().get(comboStatus.getValue()));
+                String statusId = service.getStatusMap().get(comboStatus.getValue());
                 String gerneId = service.getBookGerneMap().get(comboCategory.getValue());
                 String authorId = service.getAuthorMap().get(comboAuthor.getValue());
 
@@ -111,6 +126,7 @@ public class AddBookFormController implements Initializable {
 //            Book added or no into database ?-----------------------
                 Boolean isAdded = service.addBook(book);
                 if (isAdded) {
+//                    Book added successfully ...........
                     Notifications.create()
                             .title("Success")
                             .text("Book Added Successfully ")
@@ -119,7 +135,9 @@ public class AddBookFormController implements Initializable {
                             .showInformation();
                     clearField();
                     setAutogenarateBookId();
+                    loadBookTable();
                 } else {
+//                    Book is not added  ...........
                     Notifications.create()
                             .title("Error")
                             .text("Book doessn't Added ... ")
@@ -150,9 +168,27 @@ public class AddBookFormController implements Initializable {
     //    check value is a number or no ?-------------
     private Boolean checkIsNumber(String value) {
         int num = Integer.parseInt(value);
-        if ((value.matches("\\d+")) && num > 0) {
+        if (value.matches("\\s+")){
+            return false;
+        }else if ((value.matches("\\d+")) && num > 0) {
             return true;
         }
         return false;
+    }
+
+    private void loadBookTable() {
+        colIsbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+        colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        colAuthor.setCellValueFactory(new PropertyValueFactory<>("authorId"));
+        colCategory.setCellValueFactory(new PropertyValueFactory<>("gerneId"));
+        colCopies.setCellValueFactory(new PropertyValueFactory<>("copies"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("statusId"));
+
+        ObservableList<Object> observableList = FXCollections.observableArrayList();
+
+        for (Book book : service.getBookList()) {
+            observableList.add(book);
+        }
+        bookTable.setItems(observableList);
     }
 }
