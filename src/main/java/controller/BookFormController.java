@@ -96,38 +96,50 @@ public class BookFormController implements Initializable {
                     .showWarning();
             return;
         } else {
-//            All valid---------
-            Integer statusId = Integer.parseInt(service.getStatusMap().get(comboStatus.getValue()));
-            String gerneId = service.getBookGerneMap().get(comboCategory.getValue());
-            String authorId = service.getAuthorMap().get(comboAuthor.getValue());
 
-            Book book = new Book(
-                    txtId.getText(),
-                    txtTile.getText(),
-                    Integer.parseInt(txtCopies.getText()),
-                    statusId,
-                    gerneId,
-                    authorId);
+//            Check the book copies count is number or another format
+            if (checkIsNumber(txtCopies.getText())) {
 
-//            System.out.println(book);
-            Boolean isAdded = service.addBook(book);
-            if (isAdded) {
-                Notifications.create()
-                        .title("Success")
-                        .text("Book Added Successfully ")
-                        .hideAfter(Duration.seconds(3))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .showInformation();
-                clearField();
-                setAutogenarateBookId();
+                //   ----------All data valid now---------
+                Integer statusId = Integer.parseInt(service.getStatusMap().get(comboStatus.getValue()));
+                String gerneId = service.getBookGerneMap().get(comboCategory.getValue());
+                String authorId = service.getAuthorMap().get(comboAuthor.getValue());
+
+                Book book = new Book(
+                        txtId.getText(),
+                        txtTile.getText(),
+                        Integer.parseInt(txtCopies.getText()),
+                        statusId,
+                        gerneId,
+                        authorId);
+
+//            Book added or no into databasse ?-----------------------
+                Boolean isAdded = service.addBook(book);
+                if (isAdded) {
+                    Notifications.create()
+                            .title("Success")
+                            .text("Book Added Successfully ")
+                            .hideAfter(Duration.seconds(3))
+                            .position(Pos.BOTTOM_RIGHT)
+                            .showInformation();
+                    clearField();
+                    setAutogenarateBookId();
+                } else {
+                    Notifications.create()
+                            .title("Error")
+                            .text("Book doessn't Added ... ")
+                            .hideAfter(Duration.seconds(3))
+                            .position(Pos.BOTTOM_RIGHT)
+                            .showError();
+                    clearField();
+                }
             } else {
                 Notifications.create()
-                        .title("Error")
-                        .text("Book doessn't Added ... ")
+                        .title("Warning")
+                        .text("Book copis count must be a number !")
                         .hideAfter(Duration.seconds(3))
                         .position(Pos.BOTTOM_RIGHT)
-                        .showError();
-                clearField();
+                        .showWarning();
             }
         }
     }
@@ -138,5 +150,12 @@ public class BookFormController implements Initializable {
         comboCategory.setValue(null);
         comboStatus.setValue(null);
         comboAuthor.setValue(null);
+    }
+
+    private Boolean checkIsNumber(String value) {
+        if (value.matches("\\d+")) {
+            return true;
+        }
+        return false;
     }
 }
