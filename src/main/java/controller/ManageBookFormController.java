@@ -117,8 +117,8 @@ public class ManageBookFormController implements Initializable {
                         gerneId,
                         authorId);
 
-//            Book Update or no into database ?-----------------------
                 Boolean isUpdated = service.updateBook(book);
+//            Book Update or no into database ?----------------
                 if (isUpdated) {
 //                    Book added successfully ...........
                     Notifications.create()
@@ -161,6 +161,7 @@ public class ManageBookFormController implements Initializable {
             return;
         }
         Boolean isDelete = service.deleteBook(txtId.getText());
+//      Check Book is delete or no------------------------
         if (isDelete) {
             clearField();
             Notifications.create()
