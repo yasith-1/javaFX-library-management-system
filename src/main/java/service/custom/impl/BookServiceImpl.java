@@ -7,8 +7,6 @@ import repository.RepositoryFactory;
 import repository.custom.impl.BookRepositoryImpl;
 import service.custom.BookService;
 import util.RepositoryType;
-
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,6 +52,11 @@ public class BookServiceImpl implements BookService {
     public Boolean updateBook(Book book) {
         BookEntity bookEntity = modelMapper.map(book, BookEntity.class);
         return bookRepository.update(bookEntity);
+    }
+
+    @Override
+    public Boolean deleteBook(String id) {
+        return bookRepository.delete(id);
     }
 
     @Override

@@ -2,8 +2,6 @@ package service.custom;
 
 import dto.Book;
 import service.SuperService;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -19,6 +17,8 @@ public interface BookService extends SuperService {
     Boolean addBook(Book book);
 
     Boolean updateBook(Book book);
+
+    Boolean deleteBook(String id);
 
     Book searchByBookId(String value);
 

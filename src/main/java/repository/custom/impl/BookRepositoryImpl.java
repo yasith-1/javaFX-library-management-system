@@ -138,8 +138,13 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public Boolean delete(String s) {
-        return null;
+    public Boolean delete(String id) {
+        try {
+            boolean result = CrudUtil.execute("DELETE FROM `book` WHERE `isbn`=?", id); // <-- if record delete statement true else false
+            return result;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

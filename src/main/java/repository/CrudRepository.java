@@ -1,7 +1,5 @@
 package repository;
 
-import service.SuperService;
-
 public interface CrudRepository<T, ID> extends SuperRepository {
     Boolean add(T entity);
 

@@ -151,6 +151,32 @@ public class ManageBookFormController implements Initializable {
     }
 
     public void deleteBookOnActionBtn(ActionEvent actionEvent) {
+        if (txtId.getText().isEmpty()) {
+            Notifications.create()
+                    .title("Warning")
+                    .text("Book ID must need to continue this operation ...")
+                    .hideAfter(Duration.seconds(3))
+                    .position(Pos.BOTTOM_RIGHT)
+                    .showWarning();
+            return;
+        }
+        Boolean isDelete = service.deleteBook(txtId.getText());
+        if (isDelete) {
+            clearField();
+            Notifications.create()
+                    .title("Success")
+                    .text("Book deleted successfully !")
+                    .hideAfter(Duration.seconds(3))
+                    .position(Pos.BOTTOM_RIGHT)
+                    .showInformation();
+            return;
+        }
+        Notifications.create()
+                .title("Error")
+                .text("Book is not deleted , try again ...")
+                .hideAfter(Duration.seconds(3))
+                .position(Pos.BOTTOM_RIGHT)
+                .showInformation();
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {

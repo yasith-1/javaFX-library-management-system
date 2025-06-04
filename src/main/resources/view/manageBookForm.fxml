@@ -77,12 +77,12 @@
       </JFXTextField>
       <TableView fx:id="bookTable" layoutX="21.0" layoutY="569.0" prefHeight="186.0" prefWidth="604.0" style="-fx-background-color: white;">
          <columns>
-            <TableColumn fx:id="colIsbn" prefWidth="75.0" text="isbn" />
+            <TableColumn fx:id="colIsbn" prefWidth="75.0" text="Book ID" />
             <TableColumn fx:id="colTitle" prefWidth="83.0" text="Title" />
             <TableColumn fx:id="colAuthor" prefWidth="87.0" text="Author" />
             <TableColumn fx:id="colCategory" prefWidth="103.0" text="Category" />
             <TableColumn fx:id="colCopies" prefWidth="102.0" text="Copies" />
-            <TableColumn fx:id="colStatus" prefWidth="99.0" text="Status" />
+            <TableColumn fx:id="colStatus" prefWidth="152.0" text="Status" />
          </columns>
       </TableView>
       <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="391.0" onAction="#updateBookOnActionBtn" prefHeight="40.0" prefWidth="221.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Update Book">
