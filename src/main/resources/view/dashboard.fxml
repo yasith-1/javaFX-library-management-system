@@ -10,36 +10,37 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="974.0" style="-fx-background-image: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="1058.0" style="-fx-background-image: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
     <children>
-        <Rectangle fill="#0a3d62" height="613.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="981.0" />
-        <Rectangle fill="#0a3d62" height="80.0" layoutY="-1.0" stroke="#797979" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="0.5" width="981.0" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="484.0" layoutY="21.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Admin Dashboard" textFill="WHITE">
+        <Rectangle fill="#0a3d62" height="613.0" layoutX="-7.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1070.0" />
+        <Rectangle fill="#0a3d62" height="80.0" layoutX="-1.0" layoutY="-1.0" stroke="#797979" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="0.0" width="1036.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="478.0" layoutY="20.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Admin Dashboard" textFill="WHITE">
             <font>
                 <Font name="Poppins Bold" size="28.0" />
             </font>
         </Label>
-        <ImageView fitHeight="55.0" fitWidth="51.0" layoutX="410.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="41.0" fitWidth="51.0" layoutX="409.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../image/admin.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#0e25616b" height="533.0" layoutX="2.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
+        <Rectangle fill="#0e25616b" height="533.0" layoutX="-4.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="270.0" />
         <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="212.0" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Issue Book" textFill="WHITE">
             <font>
                 <Font name="Poppins Regular" size="17.0" />
             </font>
         </JFXButton>
-        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="119.0" layoutX="328.0" layoutY="116.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="264.0" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="412.0" layoutY="128.0" prefHeight="41.0" prefWidth="157.0" text="Total Members" textFill="WHITE">
+        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="107.0" layoutX="307.0" layoutY="116.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="237.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="376.0" layoutY="124.0" prefHeight="41.0" prefWidth="157.0" text="Total Members" textFill="WHITE">
             <font>
                 <Font name="Poppins Regular" size="19.0" />
             </font>
         </Label>
-        <ImageView fitHeight="60.0" fitWidth="51.0" layoutX="346.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="60.0" fitWidth="51.0" layoutX="325.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../image/members.png" />
             </image>
@@ -47,28 +48,28 @@
                 <Cursor fx:constant="DEFAULT" />
             </cursor>
         </ImageView>
-        <Label fx:id="memberCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="459.0" layoutY="184.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
+        <Label fx:id="memberCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="429.0" layoutY="176.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
             <font>
                 <Font name="Poppins Regular" size="25.0" />
             </font>
         </Label>
-        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="119.0" layoutX="648.0" layoutY="116.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="264.0" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="744.0" layoutY="128.0" prefHeight="41.0" prefWidth="126.0" text="Total Books" textFill="WHITE">
+        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="107.0" layoutX="591.0" layoutY="116.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="237.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="684.0" layoutY="124.0" prefHeight="41.0" prefWidth="126.0" text="Total Books" textFill="WHITE">
             <font>
                 <Font name="Poppins Regular" size="19.0" />
             </font>
         </Label>
-        <ImageView fitHeight="51.0" fitWidth="51.0" layoutX="671.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="51.0" fitWidth="51.0" layoutX="614.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../image/book.png" />
             </image>
         </ImageView>
-        <Label fx:id="bookCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="782.0" layoutY="184.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
+        <Label fx:id="bookCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="721.0" layoutY="176.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
             <font>
                 <Font name="Poppins Regular" size="25.0" />
             </font>
         </Label>
-      <LineChart fx:id="lineChart" layoutX="328.0" layoutY="274.0" prefHeight="312.0" prefWidth="586.0" style="-fx-text-fill: white; -fx-background-color: 143CA7; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;">
+      <LineChart fx:id="lineChart" layoutX="308.0" layoutY="250.0" prefHeight="335.0" prefWidth="530.0" style="-fx-text-fill: white; -fx-background-color: 143CA7; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;">
         <xAxis>
           <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
         </xAxis>
@@ -79,7 +80,7 @@
                </tickLabelFont></NumberAxis>
         </yAxis>
          <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
+            <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
          </padding>
       </LineChart>
       <JFXButton alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="16.0" layoutY="103.0" onAction="#addBookOnActionBtn" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Add New Book" textFill="WHITE">
@@ -123,10 +124,78 @@
          </font>
       </JFXButton>
       <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#627c908f" height="40.0" layoutX="16.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="251.0" />
-      <Label fx:id="dateTimeLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="29.0" prefHeight="27.0" prefWidth="251.0" style="-fx-font-family: poppins;" text="Date &amp; time" textFill="#20ff2f">
+      <Label fx:id="dateTimeLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="29.0" prefHeight="27.0" prefWidth="251.0" style="-fx-font-family: poppins;" text="Date &amp; time" textFill="#13fff7">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="160.0" layoutX="876.0" layoutY="118.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="150.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="889.0" layoutY="179.0" prefHeight="41.0" prefWidth="126.0" text="Total Authors" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="60.0" fitWidth="51.0" layoutX="926.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/author.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="926.0" layoutY="225.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
+         <font>
+            <Font name="Poppins Regular" size="25.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="179.0" layoutX="877.0" layoutY="309.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="150.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="890.0" layoutY="369.0" prefHeight="41.0" prefWidth="126.0" text="Total Issued" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="60.0" fitWidth="51.0" layoutX="927.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/issuebook.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="926.0" layoutY="436.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
+         <font>
+            <Font name="Poppins Regular" size="25.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="890.0" layoutY="393.0" prefHeight="41.0" prefWidth="126.0" text="Books" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="19.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="866.0" layoutY="557.0" onAction="#logoutOnActionBtn" prefHeight="41.0" prefWidth="179.0" style="-fx-background-radius: 25; -fx-background-color: #eb2f06;" text="Log out   &gt;&gt;&gt;" textFill="WHITE">
+         <font>
+            <Font name="Poppins Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Line endX="703.0" endY="-11.0" layoutX="360.0" layoutY="86.0" startX="-360.0" startY="-11.0" stroke="#757575" />
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#627c908f" height="40.0" layoutX="838.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="838.0" layoutY="28.0" prefHeight="27.0" prefWidth="150.0" style="-fx-font-family: poppins;" text="Welcome Admin" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="41.0" fitWidth="44.0" layoutX="1003.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/profile.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ImageView>
+      <JFXButton layoutX="871.0" layoutY="506.0" onAction="#reloadDasshboardOnActionBtn" prefHeight="41.0" prefWidth="163.0" style="-fx-background-radius: 25; -fx-background-color: #F79F1F;" text="Reload Dashboard" textFill="#751543">
+         <font>
+            <Font name="Poppins Bold" size="15.0" />
+         </font>
+      </JFXButton>
     </children>
 </AnchorPane>

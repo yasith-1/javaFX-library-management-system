@@ -8,6 +8,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.DashboardService;
@@ -24,6 +25,7 @@ public class DashboardFormController implements Initializable {
     public Label bookCountLbl;
     public Label memberCountLbl;
     public Label dateTimeLbl;
+    public ImageView logoutBtnView;
     DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
 
     public LineChart<String, Number> lineChart;
@@ -72,5 +74,14 @@ public class DashboardFormController implements Initializable {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy  hh:mm:ss a");
         String dateTimeNow = now.format(formatter);
         dateTimeLbl.setText(dateTimeNow);
+    }
+
+    public void logoutOnActionBtn(ActionEvent actionEvent) {
+    }
+
+    public void reloadDasshboardOnActionBtn(ActionEvent actionEvent) {
+        loadChartData();
+        setDateAndTime();
+        setDashboardData();
     }
 }
