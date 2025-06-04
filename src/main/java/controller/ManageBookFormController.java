@@ -43,6 +43,7 @@ public class ManageBookFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllComboBoxData();
         loadBookTable();
+        fetchTableRowData();
     }
 
     private void loadAllComboBoxData() {
@@ -129,7 +130,6 @@ public class ManageBookFormController implements Initializable {
                             .showInformation();
                     clearField();
 //                    loadBookTable();
-                } else {
 //                    Book is not added  ...........
                     Notifications.create()
                             .title("Error")
@@ -255,5 +255,16 @@ public class ManageBookFormController implements Initializable {
         comboCategory.setValue((Object) (book.getGerneId()));
         comboStatus.setValue((Object) book.getStatusId());
         comboAuthor.setValue((Object) book.getAuthorId());
+    }
+
+    private void fetchTableRowData() {
+        bookTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // double-click
+                Book selectedBook = (Book) bookTable.getSelectionModel().getSelectedItem();
+                if (selectedBook != null) {
+                    fillFoundedBookData(selectedBook);
+                }
+            }
+        });
     }
 }
