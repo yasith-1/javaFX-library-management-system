@@ -130,15 +130,17 @@ public class ManageBookFormController implements Initializable {
                             .showInformation();
                     clearField();
 //                    loadBookTable();
-//                    Book is not added  ...........
-                    Notifications.create()
-                            .title("Error")
-                            .text("Book doessn't Update ... ")
-                            .hideAfter(Duration.seconds(3))
-                            .position(Pos.BOTTOM_RIGHT)
-                            .showError();
-                    clearField();
+                    return;
+
                 }
+                //                    Book is not added  ...........
+                Notifications.create()
+                        .title("Error")
+                        .text("Book doessn't Update ... ")
+                        .hideAfter(Duration.seconds(3))
+                        .position(Pos.BOTTOM_RIGHT)
+                        .showError();
+                clearField();
             } else {
                 Notifications.create()
                         .title("Warning")
