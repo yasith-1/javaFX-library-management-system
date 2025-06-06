@@ -1,15 +1,15 @@
 package service.custom.impl;
 
-import database.DBConnection;
-import dto.Book;
+import repository.RepositoryFactory;
 import repository.custom.impl.DashboardRepositoryImpl;
 import service.ServiceFactory;
 import service.custom.DashboardService;
+import util.RepositoryType;
 import util.ServiceType;
 
 public class DashboardServiceImpl implements DashboardService {
 
-    DashboardRepositoryImpl dashboardRepository = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
+    DashboardRepositoryImpl dashboardRepository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.DASHBOARD);
 
     @Override
     public Integer getBookCount() {
@@ -27,7 +27,7 @@ public class DashboardServiceImpl implements DashboardService {
     }
 
     @Override
-    public Integer getIssudedBookCount() {
+    public Integer getIssuedBookCount() {
         return dashboardRepository.totalIssuedBooksCount();
     }
 

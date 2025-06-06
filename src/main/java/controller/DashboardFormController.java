@@ -8,7 +8,6 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.DashboardService;
@@ -25,7 +24,6 @@ public class DashboardFormController implements Initializable {
     public Label bookCountLbl;
     public Label memberCountLbl;
     public Label dateTimeLbl;
-    public ImageView logoutBtnView;
     public Label issuedBookCountLbl;
     public Label authorCountLbl;
     DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
@@ -43,15 +41,17 @@ public class DashboardFormController implements Initializable {
         bookCountLbl.setText(String.valueOf(dashboardService.getBookCount()));
         authorCountLbl.setText(String.valueOf(dashboardService.getAuthorCount()));
         memberCountLbl.setText(String.valueOf(dashboardService.getMemberCount()));
-        issuedBookCountLbl.setText(String.valueOf(dashboardService.getIssudedBookCount()));
+        issuedBookCountLbl.setText(String.valueOf(dashboardService.getIssuedBookCount()));
     }
 
     private void loadChartData() {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("Library Stats");
+//        series.setName("Library Stats");
 
         series.getData().add(new XYChart.Data<>("Members", dashboardService.getMemberCount()));
+        series.getData().add(new XYChart.Data<>("Authors", dashboardService.getAuthorCount()));
         series.getData().add(new XYChart.Data<>("Books", dashboardService.getBookCount()));
+        series.getData().add(new XYChart.Data<>("Issued Books", dashboardService.getIssuedBookCount()));
 
         lineChart.getData().add(series);
     }

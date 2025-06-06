@@ -1,6 +1,5 @@
 package service.custom;
 
-import dto.Book;
 import service.SuperService;
 
 public interface DashboardService extends SuperService {
@@ -10,5 +9,5 @@ public interface DashboardService extends SuperService {
 
     Integer getAuthorCount();
 
-    Integer getIssudedBookCount();
+    Integer getIssuedBookCount();
 }
