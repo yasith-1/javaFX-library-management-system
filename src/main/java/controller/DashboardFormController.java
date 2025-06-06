@@ -45,8 +45,9 @@ public class DashboardFormController implements Initializable {
     }
 
     private void loadChartData() {
+        lineChart.getData().clear(); // removes old series
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-//        series.setName("Library Stats");
+        series.setName("Library Stats");
 
         series.getData().add(new XYChart.Data<>("Members", dashboardService.getMemberCount()));
         series.getData().add(new XYChart.Data<>("Authors", dashboardService.getAuthorCount()));
