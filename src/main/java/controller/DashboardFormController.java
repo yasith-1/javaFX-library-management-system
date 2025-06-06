@@ -26,6 +26,8 @@ public class DashboardFormController implements Initializable {
     public Label memberCountLbl;
     public Label dateTimeLbl;
     public ImageView logoutBtnView;
+    public Label issuedBookCountLbl;
+    public Label authorCountLbl;
     DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
 
     public LineChart<String, Number> lineChart;
@@ -39,7 +41,9 @@ public class DashboardFormController implements Initializable {
 
     private void setDashboardData() {
         bookCountLbl.setText(String.valueOf(dashboardService.getBookCount()));
+        authorCountLbl.setText(String.valueOf(dashboardService.getAuthorCount()));
         memberCountLbl.setText(String.valueOf(dashboardService.getMemberCount()));
+        issuedBookCountLbl.setText(String.valueOf(dashboardService.getIssudedBookCount()));
     }
 
     private void loadChartData() {

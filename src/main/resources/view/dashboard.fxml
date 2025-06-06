@@ -173,7 +173,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
+            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-6.0">
                <image>
                   <Image url="@../image/user.png" />
                </image>
@@ -188,7 +188,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
+            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-21.0">
                <image>
                   <Image url="@../image/user.png" />
                </image>
@@ -233,7 +233,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="926.0" layoutY="225.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
+      <Label fx:id="authorCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="926.0" layoutY="225.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
          <font>
             <Font name="Poppins Regular" size="25.0" />
          </font>
@@ -252,7 +252,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="926.0" layoutY="436.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
+      <Label fx:id="issuedBookCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="926.0" layoutY="436.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
          <font>
             <Font name="Poppins Regular" size="25.0" />
          </font>

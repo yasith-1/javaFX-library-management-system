@@ -2,44 +2,33 @@ package service.custom.impl;
 
 import database.DBConnection;
 import dto.Book;
+import repository.custom.impl.DashboardRepositoryImpl;
+import service.ServiceFactory;
 import service.custom.DashboardService;
-
-import java.sql.ResultSet;
+import util.ServiceType;
 
 public class DashboardServiceImpl implements DashboardService {
+
+    DashboardRepositoryImpl dashboardRepository = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
+
     @Override
     public Integer getBookCount() {
-        try {
-            ResultSet resultSet = DBConnection.getInstance().getConnection().createStatement().
-                    executeQuery("SELECT COUNT(isbn) FROM `book`");
-
-            if (resultSet.next()) {
-                return Integer.parseInt(resultSet.getString(1));
-            }
-
-            return 0;
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        return dashboardRepository.totalBooksCount();
     }
 
     @Override
     public Integer getMemberCount() {
-        try {
-            ResultSet resultSet = DBConnection.getInstance().getConnection().createStatement().
-                    executeQuery("SELECT COUNT(id) FROM `member`");
-
-            if (resultSet.next()) {
-                return Integer.parseInt(resultSet.getString(1));
-            }
-
-            return 0;
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        return dashboardRepository.totalMembersCount();
     }
 
+    @Override
+    public Integer getAuthorCount() {
+        return dashboardRepository.totalAuthorsCount();
+    }
+
+    @Override
+    public Integer getIssudedBookCount() {
+        return dashboardRepository.totalIssuedBooksCount();
+    }
 
 }

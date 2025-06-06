@@ -13,6 +13,8 @@ public interface BookRepository extends CrudRepository<BookEntity, String> {
 
     HashMap<String, String> getAllAuthors();
 
+//    HashMap<String,String >  getAllMembers();
+
     HashMap<String, String> getAllStatus();
 
     List<BookEntity> getBookEntityList();
