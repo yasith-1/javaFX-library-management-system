@@ -1,4 +1,66 @@
 package repository.custom.impl;
 
-public class IssuedBookRepositoryImpl {
+import dto.Book;
+import entity.BookEntity;
+import entity.IssuedBookEntity;
+import entity.MemberEntity;
+import repository.custom.IssuedBookRepository;
+import util.CrudUtil;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
+public class IssuedBookRepositoryImpl implements IssuedBookRepository {
+
+    HashMap<String, String> bookmap = new HashMap<>();
+
+    @Override
+
+    public HashMap<String, String> getMemberSet() {
+        try {
+            ResultSet resultset = CrudUtil.execute("SELECT `id` ,`name` FROM `member`");
+            while (resultset.next()) {
+                MemberEntity memberEntity = new MemberEntity();
+            }
+            return null;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public HashMap<String, String> getBookSet() {
+        try {
+            ResultSet resultset = CrudUtil.execute("SELECT `title` ,`isbn` FROM `book`");
+            while (resultset.next()) {
+                bookmap.put(resultset.getString("title"),resultset.getString("isbn"));
+            }
+            return bookmap;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Boolean add(IssuedBookEntity entity) {
+        return null;
+    }
+
+    @Override
+    public Boolean update(IssuedBookEntity entity) {
+        return null;
+    }
+
+    @Override
+    public Boolean delete(String s) {
+        return null;
+    }
+
+    @Override
+    public IssuedBookEntity search(String s) {
+        return null;
+    }
+
 }

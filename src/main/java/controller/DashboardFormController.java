@@ -97,4 +97,12 @@ public class DashboardFormController implements Initializable {
         stage.setTitle("Add Book Category");
         stage.show();
     }
+
+    public void issuebookOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/issuedBookForm.fxml"))));
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Issue Book Form");
+        stage.show();
+    }
 }

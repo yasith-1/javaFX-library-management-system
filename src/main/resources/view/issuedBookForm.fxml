@@ -51,11 +51,11 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <JFXComboBox layoutX="284.0" layoutY="126.0" prefHeight="32.0" prefWidth="281.0" style="-fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-cursor: hand;" />
+      <JFXComboBox fx:id="comboBook" layoutX="284.0" layoutY="126.0" prefHeight="32.0" prefWidth="281.0" style="-fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-cursor: hand;" />
       <JFXComboBox layoutX="284.0" layoutY="182.0" prefHeight="32.0" prefWidth="281.0" style="-fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-cursor: hand;" />
       <JFXTextField focusColor="#15a5ff" layoutX="284.0" layoutY="237.0" prefHeight="32.0" prefWidth="281.0" unFocusColor="#aeaeae" />
       <DatePicker layoutX="284.0" layoutY="293.0" prefHeight="32.0" prefWidth="281.0" />
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="378.0" onAction="#addBookOnActionBtn" prefHeight="40.0" prefWidth="212.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Issue Book">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="378.0" onAction="#issueBookOnActionBtn" prefHeight="40.0" prefWidth="212.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Issue Book">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -67,8 +67,12 @@
       </JFXButton>
       <TableView layoutX="22.0" layoutY="457.0" prefHeight="234.0" prefWidth="596.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn prefWidth="75.0" text="Member ID" />
+          <TableColumn prefWidth="97.0" text="Book ID" />
+            <TableColumn prefWidth="95.0" text="Quantity" />
+            <TableColumn prefWidth="100.0" text="Issue Date" />
+            <TableColumn prefWidth="119.0" text="Issue Time" />
+            <TableColumn prefWidth="109.0" text="Return Date" />
         </columns>
       </TableView>
    </children>

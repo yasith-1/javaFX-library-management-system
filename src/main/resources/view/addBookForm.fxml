@@ -50,7 +50,7 @@
             <Insets left="15.0" />
          </padding>
       </JFXComboBox>
-      <JFXComboBox fx:id="comboCategory" focusColor="#17a6ff00" layoutX="350.0" layoutY="157.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Book Category" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#ababab00">
+      <JFXComboBox fx:id="comboCategory" focusColor="#17a6ff00" layoutX="350.0" layoutY="157.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Book Category" style="-fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#ababab00">
          <padding>
             <Insets left="15.0" />
          </padding>
