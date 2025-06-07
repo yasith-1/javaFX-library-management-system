@@ -59,8 +59,8 @@
       </JFXButton>
       <TableView fx:id="categoryTable" layoutX="75.0" layoutY="371.0" prefHeight="250.0" prefWidth="497.0">
         <columns>
-          <TableColumn fx:id="colCategoryId" prefWidth="161.0" resizable="false" text="Category ID" />
-          <TableColumn fx:id="colCategoryName" prefWidth="335.0" text="Category Name" />
+          <TableColumn fx:id="colCategoryId" prefWidth="228.0" resizable="false" style="-fx-alignment: CENTER;" text="Category ID" />
+          <TableColumn fx:id="colCategoryName" prefWidth="268.0" style="-fx-alignment: CENTER;" text="Category Name" />
         </columns>
       </TableView>
    </children>

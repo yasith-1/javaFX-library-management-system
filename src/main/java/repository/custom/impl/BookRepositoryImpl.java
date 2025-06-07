@@ -37,10 +37,11 @@ public class BookRepositoryImpl implements BookRepository {
             while (resultSet.next()) {
                 gerneMap.put(resultSet.getString("name"), resultSet.getString("gerne_id"));
             }
+            return gerneMap;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return gerneMap;
+
     }
 
     @Override
@@ -50,10 +51,10 @@ public class BookRepositoryImpl implements BookRepository {
             while (resultSet.next()) {
                 authorMap.put(resultSet.getString("name"), resultSet.getString("id"));
             }
+            return authorMap;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return authorMap;
     }
 
     @Override
@@ -63,10 +64,10 @@ public class BookRepositoryImpl implements BookRepository {
             while (resultSet.next()) {
                 statusMap.put(resultSet.getString("status"), resultSet.getString("id"));
             }
+            return statusMap;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return statusMap;
     }
 
     @Override
