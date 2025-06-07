@@ -123,7 +123,7 @@
             </ImageView>
          </graphic>
         </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="16.0" layoutY="266.0" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Add Genre" textFill="WHITE">
+      <JFXButton alignment="CENTER" layoutX="16.0" layoutY="266.0" onAction="#addCategoryOnActionBtn" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Add Genre" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>

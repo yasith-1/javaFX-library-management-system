@@ -25,24 +25,24 @@
             <Image url="@../image/stageicon.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="50.0" layoutY="137.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="221.0" />
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="363.0" layoutY="135.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="221.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="114.0" layoutY="140.0" text="Category ID" textFill="WHITE">
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="50.0" layoutY="137.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="183.0" />
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="290.0" layoutY="135.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="302.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="91.0" layoutY="141.0" text="Category ID" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="406.0" layoutY="138.0" text="Category name" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="377.0" layoutY="139.0" text="Category name" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtCategoryId" editable="false" focusColor="#15a5ff" layoutX="54.0" layoutY="182.0" prefHeight="25.0" prefWidth="221.0" style="-fx-cursor: hand; -fx-text-fill: white;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtCategoryId" alignment="CENTER" editable="false" focusColor="#15a5ff" layoutX="54.0" layoutY="182.0" prefHeight="33.0" prefWidth="183.0" style="-fx-cursor: hand; -fx-text-fill: white;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtCategoryName" focusColor="#15a5ff" layoutX="366.0" layoutY="182.0" prefHeight="25.0" prefWidth="221.0" style="-fx-cursor: hand; -fx-text-fill: white;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtCategoryName" focusColor="#15a5ff" layoutX="294.0" layoutY="182.0" prefHeight="33.0" prefWidth="302.0" style="-fx-cursor: hand; -fx-text-fill: white;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>

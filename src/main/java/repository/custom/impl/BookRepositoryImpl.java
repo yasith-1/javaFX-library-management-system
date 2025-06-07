@@ -26,15 +26,6 @@ public class BookRepositoryImpl implements BookRepository {
                 return null;
             }
         } catch (Exception e) {
-
-//            Notifications.create()
-//                    .title("Error")
-//                    .text(e.getMessage())
-//                    .graphic(new ImageView(new Image(""))) // You can use an icon: new ImageView(new Image("icon.png"))
-//                    .hideAfter(Duration.seconds(3))
-//                    .position(Pos.TOP_RIGHT)
-//                    .showInformation();
-
             throw new RuntimeException(e);
         }
     }
