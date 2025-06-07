@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="490.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+   <children>
+      <Rectangle fill="#fcfcfc" height="490.0" layoutX="-12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="463.0" />
+      <ImageView fitHeight="399.0" fitWidth="400.0" layoutX="37.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/login.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="529.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../todo-list-application/src/main/resources/images/lock.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="586.0" layoutY="38.0" text="Admin LOGIN">
+         <font>
+            <Font name="Poppins Bold" size="26.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="usernameField" focusColor="#27ab9c" layoutX="499.0" layoutY="212.0" prefHeight="26.0" prefWidth="278.0" promptText="Username" style="-fx-cursor: hand;">
+         <font>
+            <Font name="Poppins Regular" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="passwordField" focusColor="#27ab9c" layoutX="499.0" layoutY="275.0" prefHeight="26.0" prefWidth="278.0" promptText="Password" style="-fx-cursor: hand;">
+         <font>
+            <Font name="Poppins Regular" size="15.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="499.0" layoutY="357.0" onAction="#LoginOnActionButton" prefHeight="44.0" prefWidth="278.0" style="-fx-background-radius: 20; -fx-background-color: #0a3d62; -fx-cursor: hand;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#8d8d8d45" height="37.0" layoutX="493.0" layoutY="113.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="291.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="523.0" layoutY="122.0" prefHeight="20.0" prefWidth="247.0" text="Keep safely your sensitive date !" textFill="#402323">
+         <font>
+            <Font name="Poppins Regular" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton alignment="CENTER" contentDisplay="RIGHT" layoutX="502.0" layoutY="422.0" onAction="#signupOnActionButton" prefHeight="44.0" prefWidth="278.0" style="-fx-background-radius: 20; -fx-background-color: #3c6382; -fx-cursor: hand;" text="Signup from here" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" translateX="10.0">
+               <image>
+                  <Image url="@../image/signupbtnimage.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Separator layoutX="493.0" layoutY="87.0" prefHeight="4.0" prefWidth="299.0" style="-fx-background-color: #ced6e0;" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#8d8d8d45" height="37.0" layoutX="108.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="257.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="22.0" prefHeight="20.0" prefWidth="247.0" text="Library management system " textFill="#402323">
+         <font>
+            <Font name="Poppins Regular" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -108,7 +108,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-        <JFXButton layoutX="16.0" layoutY="212.0" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Issue Book" textFill="WHITE">
+        <JFXButton alignment="CENTER" layoutX="16.0" layoutY="212.0" prefHeight="41.0" prefWidth="237.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Issue Book" textFill="WHITE">
             <font>
                 <Font name="Poppins Regular" size="17.0" />
             </font>
@@ -158,7 +158,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-28.0">
+            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-26.0">
                <image>
                   <Image url="@../image/user.png" />
                </image>
@@ -173,7 +173,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-6.0">
+            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-8.0">
                <image>
                   <Image url="@../image/user.png" />
                </image>
@@ -188,7 +188,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-21.0">
+            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
                <image>
                   <Image url="@../image/user.png" />
                </image>
@@ -203,7 +203,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-3.0">
+            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                <image>
                   <Image url="@../image/user.png" />
                </image>
@@ -262,7 +262,7 @@
             <Font name="Poppins Regular" size="19.0" />
          </font>
       </Label>
-      <JFXButton layoutX="878.0" layoutY="555.0" onAction="#logoutOnActionBtn" prefHeight="37.0" prefWidth="150.0" style="-fx-background-radius: 25; -fx-background-color: #eb2f06;" text="Log out " textFill="WHITE">
+      <JFXButton layoutX="872.0" layoutY="553.0" onAction="#logoutOnActionBtn" prefHeight="34.0" prefWidth="163.0" style="-fx-background-radius: 25; -fx-background-color: #eb2f06;" text="Log out " textFill="WHITE">
          <font>
             <Font name="Poppins Bold" size="15.0" />
          </font>
@@ -292,7 +292,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <JFXButton layoutX="871.0" layoutY="502.0" onAction="#reloadDasshboardOnActionBtn" prefHeight="41.0" prefWidth="163.0" style="-fx-background-radius: 25; -fx-background-color: #F79F1F;" text="Reload Dashboard" textFill="#751543">
+      <JFXButton layoutX="871.0" layoutY="505.0" onAction="#reloadDasshboardOnActionBtn" prefHeight="35.0" prefWidth="163.0" style="-fx-background-radius: 25; -fx-background-color: #F79F1F;" text="Reload Dashboard" textFill="#751543">
          <font>
             <Font name="Poppins Bold" size="15.0" />
          </font>

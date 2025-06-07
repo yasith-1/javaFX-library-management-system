@@ -1,5 +1,5 @@
 package util;
 
 public enum ServiceType {
-    DASHBOARD, BOOK, MEMBER, AUTHOR
+    DASHBOARD, BOOK, MEMBER, AUTHOR , CATEGORY
 }
