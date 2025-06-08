@@ -1,8 +1,6 @@
 package service.custom.impl;
 
-import dto.Book;
 import dto.Category;
-import entity.BookEntity;
 import entity.CategoryEntity;
 import org.modelmapper.ModelMapper;
 import repository.RepositoryFactory;
