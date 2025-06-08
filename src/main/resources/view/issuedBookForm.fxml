@@ -13,7 +13,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="710.0" prefWidth="640.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IssuedBookFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="647.0" />
@@ -52,7 +51,7 @@
          </font>
       </Label>
       <JFXComboBox fx:id="comboBook" layoutX="284.0" layoutY="126.0" prefHeight="32.0" prefWidth="281.0" style="-fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-cursor: hand;" />
-      <JFXComboBox layoutX="284.0" layoutY="182.0" prefHeight="32.0" prefWidth="281.0" style="-fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-cursor: hand;" />
+      <JFXComboBox fx:id="comboMember" layoutX="284.0" layoutY="182.0" prefHeight="32.0" prefWidth="281.0" style="-fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-cursor: hand;" />
       <JFXTextField focusColor="#15a5ff" layoutX="284.0" layoutY="237.0" prefHeight="32.0" prefWidth="281.0" unFocusColor="#aeaeae" />
       <DatePicker layoutX="284.0" layoutY="293.0" prefHeight="32.0" prefWidth="281.0" />
       <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="378.0" onAction="#issueBookOnActionBtn" prefHeight="40.0" prefWidth="212.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Issue Book">

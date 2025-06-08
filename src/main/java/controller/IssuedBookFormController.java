@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 public class IssuedBookFormController implements Initializable {
 
     public JFXComboBox comboBook;
+    public JFXComboBox comboMember;
 
     IssuedBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.ISSUEDBOOK);
 
@@ -23,6 +24,8 @@ public class IssuedBookFormController implements Initializable {
 
     private void loadComboBoxesData(){
         comboBook.getItems().addAll(service.getBookMap().keySet());
+        comboMember.getItems().addAll(service.getMemberMap().keySet());
+
     }
 
     public void issueBookOnActionBtn(ActionEvent actionEvent) {

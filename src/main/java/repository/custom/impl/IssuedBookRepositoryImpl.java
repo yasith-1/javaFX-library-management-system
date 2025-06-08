@@ -15,16 +15,17 @@ import java.util.HashSet;
 public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
     HashMap<String, String> bookmap = new HashMap<>();
+    HashMap<String, String> memberMap = new HashMap<>();
 
     @Override
 
     public HashMap<String, String> getMemberSet() {
         try {
-            ResultSet resultset = CrudUtil.execute("SELECT `id` ,`name` FROM `member`");
+            ResultSet resultset = CrudUtil.execute("SELECT `id` ,`name` FROM `member` WHERE `type_id`=?",2);
             while (resultset.next()) {
-                MemberEntity memberEntity = new MemberEntity();
+                memberMap.put(resultset.getString("name"),resultset.getString("id"));
             }
-            return null;
+            return memberMap;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
