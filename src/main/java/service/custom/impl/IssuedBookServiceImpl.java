@@ -1,6 +1,5 @@
 package service.custom.impl;
 
-import org.modelmapper.ModelMapper;
 import repository.RepositoryFactory;
 import repository.custom.impl.IssuedBookRepositoryImpl;
 import service.custom.IssuedBookService;
@@ -8,7 +7,6 @@ import util.RepositoryType;
 import java.util.HashMap;
 
 public class IssuedBookServiceImpl implements IssuedBookService {
-
     IssuedBookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.ISSUEDBOOK);
 
     @Override
