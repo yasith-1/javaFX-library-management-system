@@ -1,9 +1,6 @@
 package repository;
 
-import repository.custom.impl.BookRepositoryImpl;
-import repository.custom.impl.CategoryRepositoryImpl;
-import repository.custom.impl.DashboardRepositoryImpl;
-import repository.custom.impl.IssuedBookRepositoryImpl;
+import repository.custom.impl.*;
 import util.RepositoryType;
 
 public class RepositoryFactory {
@@ -15,10 +12,16 @@ public class RepositoryFactory {
 
     public <T extends SuperRepository> T getRepositoryType(RepositoryType type) {
         switch (type) {
-            case DASHBOARD:return (T) new DashboardRepositoryImpl();
-            case BOOK:return (T) new BookRepositoryImpl();
-            case CATEGORY:return (T) new CategoryRepositoryImpl();
-            case ISSUEDBOOK:return (T) new IssuedBookRepositoryImpl();
+            case DASHBOARD:
+                return (T) new DashboardRepositoryImpl();
+            case BOOK:
+                return (T) new BookRepositoryImpl();
+            case CATEGORY:
+                return (T) new CategoryRepositoryImpl();
+            case ISSUEDBOOK:
+                return (T) new IssuedBookRepositoryImpl();
+            case MEMBER:
+                return (T) new MemberRepositoryImpl();
         }
         return null;
     }
