@@ -30,7 +30,7 @@
         </ImageView>
         <Rectangle fill="#0e25616b" height="533.0" layoutX="-4.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="270.0" />
         <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="107.0" layoutX="307.0" layoutY="116.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="237.0" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="376.0" layoutY="124.0" prefHeight="41.0" prefWidth="157.0" text="Total Members" textFill="WHITE">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="376.0" layoutY="122.0" prefHeight="41.0" prefWidth="157.0" text="Total Members" textFill="WHITE">
             <font>
                 <Font name="Poppins Regular" size="19.0" />
             </font>
@@ -49,17 +49,17 @@
             </font>
         </Label>
         <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="107.0" layoutX="591.0" layoutY="116.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="237.0" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="684.0" layoutY="124.0" prefHeight="41.0" prefWidth="126.0" text="Total Books" textFill="WHITE">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="634.0" layoutY="119.0" prefHeight="41.0" prefWidth="176.0" text="Book Categories" textFill="WHITE">
             <font>
                 <Font name="Poppins Regular" size="19.0" />
             </font>
         </Label>
-        <ImageView fitHeight="51.0" fitWidth="51.0" layoutX="614.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="623.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../image/book.png" />
             </image>
         </ImageView>
-        <Label fx:id="bookCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="721.0" layoutY="176.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
+        <Label fx:id="bookCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="176.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
             <font>
                 <Font name="Poppins Regular" size="25.0" />
             </font>

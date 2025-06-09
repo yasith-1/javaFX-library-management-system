@@ -47,7 +47,9 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
     @Override
     public Boolean deductbookQuantity(IssuedBookEntity entity) {
         try {
-            Boolean result = CrudUtil.execute("UPDATE `book` SET `copies`=copies-? WHERE `isbn`=?", entity.getQty(), entity.getIsbn());
+            Boolean result = CrudUtil.execute("UPDATE `book` SET `copies`=copies-? WHERE `isbn`=?",
+                    entity.getQty(),
+                    entity.getIsbn());
             return result;
         } catch (Exception e) {
             e.getMessage();
@@ -58,6 +60,16 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
     @Override
     public Boolean add(IssuedBookEntity entity) {
         try {
+//            Check same user try to borrow same book--------------------------------------------------------------
+            ResultSet resultSet = CrudUtil.execute("SELECT `member_id`,`book_isbn` FROM `member_has_book` " +
+                            "WHERE `member_id`=? AND `book_isbn` =?",
+                    entity.getMemberId(),
+                    entity.getIsbn());
+
+            if (resultSet.next()){
+                return false;
+            }
+//          -------------------------------------------------------------------------------------------------------
             Boolean result = CrudUtil.execute("INSERT INTO `member_has_book` VALUES (?,?,?,?,?,?)",
                     entity.getMemberId(),
                     entity.getIsbn(),

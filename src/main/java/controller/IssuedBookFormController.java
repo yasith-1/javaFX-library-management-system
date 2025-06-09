@@ -67,7 +67,7 @@ public class IssuedBookFormController implements Initializable {
                 deductBookQuantity(issuedBook);
                 return;
             }
-            Alert.trigger(AlertType.ERROR, "Book issued Failed , try again !");
+            Alert.trigger(AlertType.ERROR, "This Book already borrwed this user ...");
         }
     }
 

@@ -57,6 +57,17 @@ public class DashboardRepositoryImpl implements DashboardRepository {
 
     @Override
     public Integer totalIssuedBooksCount() {
-        return 0;
+        try {
+            ResultSet resultSet = CrudUtil.execute("SELECT COUNT(member_id AND book_isbn) FROM `member_has_book`");
+
+            if (resultSet.next()) {
+                return Integer.parseInt(resultSet.getString(1));
+            }
+
+            return 0;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
