@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="710.0" prefWidth="640.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IssuedBookFormController">
+<AnchorPane fx:id="txtQuantity" prefHeight="710.0" prefWidth="640.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IssuedBookFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="647.0" />
       <Label layoutX="283.0" layoutY="25.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Issue Book" textFill="WHITE">
@@ -51,11 +51,11 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="comboBook" layoutX="284.0" layoutY="126.0" prefHeight="32.0" prefWidth="281.0" style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-cursor: hand;">
+      <JFXComboBox fx:id="comboBook" layoutX="284.0" layoutY="126.0" prefHeight="32.0" prefWidth="281.0" promptText="Select a book" style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-cursor: hand;">
          <padding>
             <Insets left="10.0" />
          </padding></JFXComboBox>
-      <JFXComboBox fx:id="comboMember" layoutX="284.0" layoutY="182.0" prefHeight="32.0" prefWidth="281.0" style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-cursor: hand;">
+      <JFXComboBox fx:id="comboMember" layoutX="284.0" layoutY="182.0" prefHeight="32.0" prefWidth="281.0" promptText="Select a member" style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-cursor: hand;">
          <padding>
             <Insets left="10.0" />
          </padding></JFXComboBox>
@@ -63,7 +63,7 @@
          <padding>
             <Insets left="10.0" />
          </padding></JFXTextField>
-      <DatePicker fx:id="returnDate" layoutX="284.0" layoutY="293.0" prefHeight="32.0" prefWidth="281.0" style="-fx-cursor: hand;">
+      <DatePicker fx:id="returnDate" layoutX="285.0" layoutY="293.0" prefHeight="32.0" prefWidth="281.0" promptText="Select return date" style="-fx-cursor: hand; -fx-background-color: white;">
          <padding>
             <Insets left="10.0" />
          </padding></DatePicker>

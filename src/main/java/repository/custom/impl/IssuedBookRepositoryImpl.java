@@ -46,7 +46,19 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
     @Override
     public Boolean add(IssuedBookEntity entity) {
-        return null;
+        try {
+            Boolean result = CrudUtil.execute("INSERT INTO `member_has_book` VALUES (?,?,?,?,?,?)",
+                    entity.getMemberId(),
+                    entity.getIsbn(),
+                    entity.getQty(),
+                    entity.getDate(),
+                    entity.getTime(),
+                    entity.getReturnDate());
+            return result;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     @Override

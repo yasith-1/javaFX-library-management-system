@@ -26,7 +26,7 @@ public class BookRepositoryImpl implements BookRepository {
                 return null;
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return null;
         }
     }
 
@@ -106,8 +106,8 @@ public class BookRepositoryImpl implements BookRepository {
             return result;
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            return false;
         }
-        return false;
     }
 
     @Override
@@ -123,7 +123,8 @@ public class BookRepositoryImpl implements BookRepository {
 
             return result;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 
@@ -133,7 +134,8 @@ public class BookRepositoryImpl implements BookRepository {
             boolean result = CrudUtil.execute("DELETE FROM `book` WHERE `isbn`=?", id); // <-- if record delete statement true else false
             return result;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 
@@ -144,7 +146,7 @@ public class BookRepositoryImpl implements BookRepository {
                     "gerne.`name`AS `gerne_name`,author.`name` AS `author_name` FROM `book` " +
                     "INNER JOIN `book_status` ON book.status_id= book_status.id " +
                     "INNER JOIN `gerne` ON book.gerne_id = gerne.gerne_id " +
-                    "INNER JOIN `author` ON book.author_id=author.id WHERE `title`=? OR `isbn`=?", value,value);
+                    "INNER JOIN `author` ON book.author_id=author.id WHERE `title`=? OR `isbn`=?", value, value);
             if (resultset.next()) {
                 BookEntity bookEntity = new BookEntity(
                         resultset.getString("isbn"),
@@ -158,7 +160,8 @@ public class BookRepositoryImpl implements BookRepository {
             }
             return null;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 }
