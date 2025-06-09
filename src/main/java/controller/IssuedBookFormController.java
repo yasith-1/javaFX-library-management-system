@@ -64,10 +64,20 @@ public class IssuedBookFormController implements Initializable {
             if (issueBookRecordIsAdded) {
                 Alert.trigger(AlertType.INFORMATION, "Book Issued Successfully !");
                 clearDataFields();
+                deductBookQuantity(issuedBook);
                 return;
             }
             Alert.trigger(AlertType.ERROR, "Book issued Failed , try again !");
         }
+    }
+
+    private void deductBookQuantity(IssuedBook issuedBook) {
+        Boolean isQtyUpdated = service.deductBookQty(issuedBook);
+        if (isQtyUpdated) {
+            Alert.trigger(AlertType.INFORMATION, "Book Quantity updated...");
+            return;
+        }
+        Alert.trigger(AlertType.ERROR, "Quantity updated failed, try again...");
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {

@@ -29,4 +29,10 @@ public class IssuedBookServiceImpl implements IssuedBookService {
         return repository.add(issuedBookEntity);
     }
 
+    @Override
+    public Boolean deductBookQty(IssuedBook issuedBook) {
+        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
+        return repository.deductbookQuantity(issuedBookEntity);
+    }
+
 }

@@ -8,4 +8,6 @@ public interface IssuedBookRepository extends CrudRepository<IssuedBookEntity, S
     HashMap<String, String> getMemberSet();
 
     HashMap<String, String> getBookSet();
+
+    Boolean deductbookQuantity(IssuedBookEntity entity);
 }

@@ -21,9 +21,9 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
     public HashMap<String, String> getMemberSet() {
         try {
-            ResultSet resultset = CrudUtil.execute("SELECT `id` ,`name` FROM `member` WHERE `type_id`=?",2);
+            ResultSet resultset = CrudUtil.execute("SELECT `id` ,`name` FROM `member` WHERE `type_id`=?", 2);
             while (resultset.next()) {
-                memberMap.put(resultset.getString("name"),resultset.getString("id"));
+                memberMap.put(resultset.getString("name"), resultset.getString("id"));
             }
             return memberMap;
         } catch (Exception e) {
@@ -36,11 +36,22 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
         try {
             ResultSet resultset = CrudUtil.execute("SELECT `title` ,`isbn` FROM `book`");
             while (resultset.next()) {
-                bookmap.put(resultset.getString("title"),resultset.getString("isbn"));
+                bookmap.put(resultset.getString("title"), resultset.getString("isbn"));
             }
             return bookmap;
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Boolean deductbookQuantity(IssuedBookEntity entity) {
+        try {
+            Boolean result = CrudUtil.execute("UPDATE `book` SET `copies`=copies-? WHERE `isbn`=?", entity.getQty(), entity.getIsbn());
+            return result;
+        } catch (Exception e) {
+            e.getMessage();
+            return false;
         }
     }
 

@@ -18,7 +18,8 @@ public class CategoryRepositoryImpl implements CategoryRepository {
             }
             return null;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 
@@ -37,7 +38,8 @@ public class CategoryRepositoryImpl implements CategoryRepository {
             }
             return categoryEntityList;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 
@@ -51,8 +53,8 @@ public class CategoryRepositoryImpl implements CategoryRepository {
             return result;
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            return false;
         }
-        return false;
     }
 
 
