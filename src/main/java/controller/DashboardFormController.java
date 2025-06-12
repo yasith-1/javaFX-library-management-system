@@ -93,6 +93,7 @@ public class DashboardFormController implements Initializable {
     public void addCategoryOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookCategoryAddForm.fxml"))));
+        stage.setResizable(false);
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Add Book Category");
         stage.show();
@@ -101,8 +102,18 @@ public class DashboardFormController implements Initializable {
     public void issuebookOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookIssueForm.fxml"))));
+        stage.setResizable(false);
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Issue Book Form");
+        stage.show();
+    }
+
+    public void manageIssuebookOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookIssuedManageForm.fxml"))));
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Manage Issued Book Form");
         stage.show();
     }
 }

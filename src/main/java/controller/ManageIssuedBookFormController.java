@@ -13,8 +13,6 @@ import util.AlertType;
 import util.ServiceType;
 
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 public class ManageIssuedBookFormController implements Initializable {
