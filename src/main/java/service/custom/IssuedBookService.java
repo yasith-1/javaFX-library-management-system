@@ -13,4 +13,10 @@ public interface IssuedBookService extends SuperService {
     Boolean addIssueBookRecord(IssuedBook issuedBook);
 
     Boolean deductBookQty(IssuedBook issuedBook);
+
+    Boolean renewBookQty(IssuedBook issuedBook);
+
+    Boolean updateIssueBookRecord(IssuedBook issuedBook);
+
+    Boolean deleteIssueBookRecord(IssuedBook issuedBook);
 }

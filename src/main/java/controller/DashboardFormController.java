@@ -59,7 +59,7 @@ public class DashboardFormController implements Initializable {
 
     public void addBookOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/addBookForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookAddForm.fxml"))));
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Add Book Form");
         stage.show();
@@ -67,7 +67,7 @@ public class DashboardFormController implements Initializable {
 
     public void manageBookOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/manageBookForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookManageForm.fxml"))));
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Manage Book Form");
         stage.show();
@@ -92,7 +92,7 @@ public class DashboardFormController implements Initializable {
 
     public void addCategoryOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/addBookCategoryForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookCategoryAddForm.fxml"))));
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Add Book Category");
         stage.show();
@@ -100,7 +100,7 @@ public class DashboardFormController implements Initializable {
 
     public void issuebookOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/issuedBookForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookIssueForm.fxml"))));
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Issue Book Form");
         stage.show();

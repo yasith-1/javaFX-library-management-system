@@ -1,16 +1,11 @@
 package repository.custom.impl;
 
-import dto.Book;
-import entity.BookEntity;
 import entity.IssuedBookEntity;
-import entity.MemberEntity;
 import repository.custom.IssuedBookRepository;
 import util.CrudUtil;
 
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
@@ -58,6 +53,19 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
     }
 
     @Override
+    public Boolean renewbookQuantity(IssuedBookEntity entity) {
+        try {
+            Boolean result = CrudUtil.execute("UPDATE `book` SET `copies`=copies+? WHERE `isbn`=?",
+                    entity.getQty(),
+                    entity.getIsbn());
+            return result;
+        } catch (Exception e) {
+            e.getMessage();
+            return false;
+        }
+    }
+
+    @Override
     public Boolean add(IssuedBookEntity entity) {
         try {
 //            Check same user try to borrow same book--------------------------------------------------------------
@@ -66,7 +74,7 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
                     entity.getMemberId(),
                     entity.getIsbn());
 
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 return false;
             }
 //          -------------------------------------------------------------------------------------------------------
@@ -86,8 +94,36 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
     @Override
     public Boolean update(IssuedBookEntity entity) {
-        return null;
+        try {
+            // Check if same user is trying to borrow the same book
+            ResultSet resultSet = CrudUtil.execute(
+                    "SELECT `member_id`, `book_isbn` FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
+                    entity.getMemberId(),
+                    entity.getIsbn()
+            );
+
+            if (!resultSet.next()) {
+                // Record does not exist, cannot update
+                System.out.println("Record does not exist, cannot update");
+                return false;
+            }
+
+            // Update record
+            Boolean result = CrudUtil.execute(
+                    "UPDATE `member_has_book` SET `issue_qty` = ? WHERE `member_id` = ? AND `book_isbn` = ?",
+                    entity.getQty(),
+                    entity.getMemberId(),
+                    entity.getIsbn()
+            );
+
+            System.out.println(result);
+            return result;
+        } catch (Exception e) {
+            System.out.println("Update failed: " + e.getMessage());
+            return false;
+        }
     }
+
 
     @Override
     public Boolean delete(String s) {
@@ -97,6 +133,33 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
     @Override
     public IssuedBookEntity search(String s) {
         return null;
+    }
+
+    @Override
+    public Boolean deleteIssuedBook(IssuedBookEntity entity) {
+        try {
+            // Check if same user is trying to borrow the same book
+            ResultSet resultSet = CrudUtil.execute(
+                    "SELECT `member_id`, `book_isbn` FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
+                    entity.getMemberId(),
+                    entity.getIsbn()
+            );
+
+            if (!resultSet.next()) {
+                // Record does not exist, cannot update
+                return false;
+            }
+
+            // Update record
+            Boolean result = CrudUtil.execute(
+                    "DELETE FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
+                    entity.getMemberId(), entity.getIsbn());
+
+            return result;
+        } catch (Exception e) {
+            System.out.println("Delete failed: " + e.getMessage());
+            return false;
+        }
     }
 
 }

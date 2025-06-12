@@ -4,14 +4,22 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.IssuedBook;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.impl.IssuedBookServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -23,6 +31,7 @@ public class IssuedBookFormController implements Initializable {
     public JFXComboBox comboMember;
     public JFXTextField txtQty;
     public DatePicker returnDate;
+    public TableView issueBookTable;
 
     IssuedBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.ISSUEDBOOK);
 
@@ -37,7 +46,7 @@ public class IssuedBookFormController implements Initializable {
 
     }
 
-    public void issueBookOnActionBtn(ActionEvent actionEvent) {
+    public void addIssueBookOnActionBtn(ActionEvent actionEvent) {
         if (comboBook.getValue() == null) {
             Alert.trigger(AlertType.WARNING, "Select a Book !");
             return;
@@ -88,5 +97,15 @@ public class IssuedBookFormController implements Initializable {
         comboBook.setValue(null);
         comboMember.setValue(null);
         returnDate.setValue(null);
+    }
+
+    public void ManageissueBookOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.close();
+
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookIssuedManageForm.fxml"))));
+        stage.setTitle("Manage Issued Book Form");
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.show();
     }
 }

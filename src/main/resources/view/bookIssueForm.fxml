@@ -45,8 +45,8 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="78.0" layoutY="293.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="297.0" text="Return Date : " textFill="WHITE">
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="78.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="299.0" text="Return Date : " textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -59,20 +59,20 @@
          <padding>
             <Insets left="10.0" />
          </padding></JFXComboBox>
-      <JFXTextField fx:id="txtQty" focusColor="#15a5ff" layoutX="284.0" layoutY="237.0" prefHeight="32.0" prefWidth="281.0" style="-fx-text-fill: white; -fx-cursor: hand;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtQty" focusColor="#15a5ff" layoutX="276.0" layoutY="237.0" prefHeight="32.0" prefWidth="289.0" style="-fx-text-fill: white; -fx-cursor: hand;" unFocusColor="#aeaeae">
          <padding>
             <Insets left="10.0" />
          </padding></JFXTextField>
-      <DatePicker fx:id="returnDate" layoutX="285.0" layoutY="293.0" prefHeight="32.0" prefWidth="281.0" promptText="Select return date" style="-fx-cursor: hand; -fx-background-color: white;">
+      <DatePicker fx:id="returnDate" layoutX="285.0" layoutY="295.0" prefHeight="32.0" prefWidth="281.0" promptText="Select return date" style="-fx-cursor: hand; -fx-background-color: white;">
          <padding>
             <Insets left="10.0" />
          </padding></DatePicker>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="378.0" onAction="#issueBookOnActionBtn" prefHeight="40.0" prefWidth="212.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Issue Book">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="378.0" onAction="#addIssueBookOnActionBtn" prefHeight="40.0" prefWidth="141.0" style="-fx-background-color: #37D67A; -fx-background-radius: 15; -fx-cursor: hand;" text="Issue Book">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="353.0" layoutY="378.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="212.0" style="-fx-background-color: #718093; -fx-background-radius: 20; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="440.0" layoutY="378.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: #718093; -fx-background-radius: 15; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -87,5 +87,10 @@
             <TableColumn prefWidth="109.0" text="Return Date" />
         </columns>
       </TableView>
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="237.0" layoutY="378.0" onAction="#ManageissueBookOnActionBtn" prefHeight="40.0" prefWidth="191.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 15; -fx-cursor: hand;" text="Manage Issue Book">
+         <font>
+            <Font name="Poppins Regular" size="17.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
