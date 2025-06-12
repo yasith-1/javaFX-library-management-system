@@ -171,11 +171,11 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
         List<IssuedBookEntity> issuedBookEntityList = new ArrayList<>();
 
         try {
-            ResultSet resultSet = CrudUtil.execute("SELECT * FROM `member_has_book`");
+            ResultSet resultSet = CrudUtil.execute("SELECT `member`.`name`,`book`.`title`,`issue_qty` ,issue_date,issue_time,return_date FROM `member_has_book` INNER JOIN `member`ON member_has_book.member_id= member.id INNER JOIN `book` ON member_has_book.book_isbn=book.isbn ");
             while (resultSet.next()) {
                 IssuedBookEntity issuedBookEntity = new IssuedBookEntity(
-                        resultSet.getString("member_id"),
-                        resultSet.getString("book_isbn"),
+                        resultSet.getString("name"),
+                        resultSet.getString("title"),
                         resultSet.getInt("issue_qty"),
                         resultSet.getDate("issue_date").toLocalDate(),
                         resultSet.getTime("issue_time").toLocalTime(),

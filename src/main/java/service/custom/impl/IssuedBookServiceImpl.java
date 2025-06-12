@@ -71,10 +71,14 @@ public class IssuedBookServiceImpl implements IssuedBookService {
     public List<IssuedBook> getIssuedBookList() {
         List<IssuedBook> issuedBooksList = new ArrayList<>();
         List<IssuedBookEntity> issuedBookEntityList = repository.issuedBookList();
-        for (IssuedBookEntity issuedBookEntity : issuedBookEntityList) {
-            issuedBooksList.add(modelMapper.map(issuedBookEntity, IssuedBook.class));
+
+        if (issuedBookEntityList != null){
+            for (IssuedBookEntity issuedBookEntity : issuedBookEntityList) {
+                issuedBooksList.add(modelMapper.map(issuedBookEntity, IssuedBook.class));
+            }
+            return issuedBooksList;
         }
-        return issuedBooksList;
+        return null;
     }
 
 }
