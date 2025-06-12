@@ -1,5 +1,6 @@
 package repository.custom;
 
+import entity.BookEntity;
 import entity.IssuedBookEntity;
 import repository.CrudRepository;
 
@@ -15,4 +16,6 @@ public interface IssuedBookRepository extends CrudRepository<IssuedBookEntity, S
     Boolean renewbookQuantity(IssuedBookEntity entity);
 
     Boolean deleteIssuedBook(IssuedBookEntity entity);
+
+    IssuedBookEntity searchIssuedBook(String memberId ,String bookId);
 }

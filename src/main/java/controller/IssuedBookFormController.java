@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.impl.IssuedBookServiceImpl;
@@ -103,7 +102,7 @@ public class IssuedBookFormController implements Initializable {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
 
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookIssuedManageForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/manageIssueBookForm.fxml"))));
         stage.setTitle("Manage Issued Book Form");
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.show();

@@ -1,5 +1,6 @@
 package service.custom.impl;
 
+import dto.Book;
 import dto.IssuedBook;
 import entity.IssuedBookEntity;
 import org.modelmapper.ModelMapper;
@@ -51,6 +52,16 @@ public class IssuedBookServiceImpl implements IssuedBookService {
     public Boolean deleteIssueBookRecord(IssuedBook issuedBook) {
         IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook,IssuedBookEntity.class);
         return repository.deleteIssuedBook(issuedBookEntity);
+    }
+
+    @Override
+    public IssuedBook searchIssuedBook(String memberId , String bookId) {
+        IssuedBookEntity issuedBookEntity = repository.searchIssuedBook(memberId, bookId);
+        if(issuedBookEntity != null){
+            IssuedBook issuedBook= modelMapper.map(issuedBookEntity, IssuedBook.class);
+            return issuedBook;
+        }
+        return null;
     }
 
 }

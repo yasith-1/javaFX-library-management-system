@@ -42,6 +42,14 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
+      <JFXTextField fx:id="txtQty" alignment="CENTER" editable="false" focusColor="#15a5ff" layoutX="58.0" layoutY="256.0" prefHeight="33.0" prefWidth="221.0" promptText="Quantity" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#aeaeae">
+         <font>
+            <Font name="Poppins Regular" size="15.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXTextField>
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="200.0" layoutX="331.0" layoutY="109.0" stroke="#0f598a" strokeType="INSIDE" width="280.0" />
       <JFXTextField fx:id="txtSearchFieldMemberName" alignment="CENTER" focusColor="#15a5ff" layoutX="349.0" layoutY="130.0" prefHeight="33.0" prefWidth="245.0" promptText="Enter member name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #37D67A;" unFocusColor="#aeaeae">
          <font>
@@ -85,7 +93,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#1180b800" height="32.0" layoutX="59.0" layoutY="112.0" stroke="#1770a8" strokeType="INSIDE" width="221.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="117.0" text="Add Corrected Data" textFill="#b9b9b9" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="95.0" layoutY="117.0" text="Check search result !" textFill="#d3d3d3" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
@@ -105,13 +113,5 @@
             <TableColumn prefWidth="109.0" text="Return Date" />
          </columns>
       </TableView>
-      <JFXTextField fx:id="txtQty" focusColor="#15a5ff" layoutX="58.0" layoutY="256.0" prefHeight="33.0" prefWidth="221.0" promptText="Quantity" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#aeaeae">
-         <font>
-            <Font name="Poppins Regular" size="15.0" />
-         </font>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </JFXTextField>
    </children>
 </AnchorPane>

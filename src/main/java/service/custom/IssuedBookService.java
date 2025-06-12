@@ -1,5 +1,6 @@
 package service.custom;
 
+import dto.Book;
 import dto.IssuedBook;
 import service.SuperService;
 
@@ -19,4 +20,6 @@ public interface IssuedBookService extends SuperService {
     Boolean updateIssueBookRecord(IssuedBook issuedBook);
 
     Boolean deleteIssueBookRecord(IssuedBook issuedBook);
+
+    IssuedBook searchIssuedBook(String memberId , String bookId);
 }

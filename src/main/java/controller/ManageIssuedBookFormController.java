@@ -2,10 +2,14 @@ package controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import dto.Book;
 import dto.IssuedBook;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.TableView;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
 import service.custom.impl.IssuedBookServiceImpl;
 import util.Alert;
@@ -38,13 +42,13 @@ public class ManageIssuedBookFormController implements Initializable {
 
     public void updateIssuedBookOnActionBtn(ActionEvent actionEvent) {
         if (comboBook.getValue() == null) {
-            Alert.trigger(AlertType.WARNING, "Select Book that wants to update !");
+            Alert.trigger(AlertType.WARNING, "Missing Book , Search OR Select from table again !");
             return;
         } else if (comboMember.getValue() == null) {
-            Alert.trigger(AlertType.WARNING, "Select member that wants to update !");
+            Alert.trigger(AlertType.WARNING, "Missing member , Search OR Select from table again !");
             return;
         } else if (txtQty.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING, "Add correct count !");
+            Alert.trigger(AlertType.WARNING, "Missing Quantity , Search OR Select from table again !");
             return;
         } else {
             //            All field filled , not empty
@@ -74,10 +78,10 @@ public class ManageIssuedBookFormController implements Initializable {
         } else if (comboMember.getValue() == null) {
             Alert.trigger(AlertType.WARNING, "Select member that wants to Delete !");
             return;
-        }  else if (txtQty.getText().isEmpty()) {
+        } else if (txtQty.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "missing book quantity!");
             return;
-        }else {
+        } else {
             //            All field filled , not empty
             IssuedBook issuedBook = new IssuedBook(
                     String.valueOf(service.getMemberMap().get(comboMember.getValue())),
@@ -103,11 +107,42 @@ public class ManageIssuedBookFormController implements Initializable {
     }
 
     public void searchOnActionBtn(ActionEvent actionEvent) {
+
+        if (txtSearchFieldMemberName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Enter Member name to search field");
+            return;
+        } else if (txtSearchFieldBook.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Enter Book name to search field");
+            return;
+        } else {
+            String memberId = service.getMemberMap().get(txtSearchFieldMemberName.getText());
+            String bookId = service.getBookMap().get(txtSearchFieldBook.getText());
+            IssuedBook issuedBook = service.searchIssuedBook(memberId, bookId);
+            if (issuedBook != null) {
+//        Issued Book available
+                setFoundedIssuedBookData(issuedBook);
+                return;
+            }
+//       Issued Book not found
+            Notifications.create()
+                    .title("Error")
+                    .text("Book Not found")
+                    .hideAfter(Duration.seconds(3))
+                    .position(Pos.BOTTOM_RIGHT)
+                    .showError();
+        }
+
     }
 
-    private void renewBookQuantity(IssuedBook issuedBook){
+    private void setFoundedIssuedBookData(IssuedBook issuedBook) {
+        comboMember.setValue(issuedBook.getMemberId());
+        comboBook.setValue(issuedBook.getIsbn());
+        txtQty.setText(String.valueOf(issuedBook.getQty()));
+    }
+
+    private void renewBookQuantity(IssuedBook issuedBook) {
         Boolean isRenewedQty = service.renewBookQty(issuedBook);
-        if (isRenewedQty){
+        if (isRenewedQty) {
             Alert.trigger(AlertType.INFORMATION, "Book Quantity Renewed...");
             return;
         }

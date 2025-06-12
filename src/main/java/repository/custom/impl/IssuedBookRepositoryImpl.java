@@ -1,10 +1,12 @@
 package repository.custom.impl;
 
+import entity.BookEntity;
 import entity.IssuedBookEntity;
 import repository.custom.IssuedBookRepository;
 import util.CrudUtil;
 
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.HashMap;
 
 public class IssuedBookRepositoryImpl implements IssuedBookRepository {
@@ -159,6 +161,34 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
         } catch (Exception e) {
             System.out.println("Delete failed: " + e.getMessage());
             return false;
+        }
+    }
+
+    @Override
+    public IssuedBookEntity searchIssuedBook(String memberId, String bookId) {
+        try {
+            ResultSet result = CrudUtil.execute("SELECT `member`.`name`,`book`.`title`,`issue_qty` ," +
+                    "issue_date,issue_time,return_date " +
+                    "FROM `member_has_book` INNER JOIN " +
+                    "`member`ON member_has_book.member_id= member.id " +
+                    "INNER JOIN `book` ON member_has_book.book_isbn=book.isbn " +
+                    "WHERE `member_id`=? AND `book_isbn`=?", memberId, bookId);
+
+            if (result.next()) {
+                IssuedBookEntity issuedBookEntity = new IssuedBookEntity(
+                        result.getString("name"),
+                        result.getString("title"),
+                        result.getInt("issue_qty"),
+                        result.getDate("issue_date").toLocalDate(),
+                        result.getTime("issue_time").toLocalTime(),
+                        result.getDate("return_date").toLocalDate());
+
+                return issuedBookEntity;
+            }
+            return null;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 

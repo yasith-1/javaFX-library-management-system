@@ -122,12 +122,12 @@
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="411.0" layoutY="447.0" text="Optional NOTICE" textFill="RED">
+      <Label layoutX="441.0" layoutY="445.0" text="NOTICE" textFill="RED">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="377.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="407.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/notice.png" />
          </image>
