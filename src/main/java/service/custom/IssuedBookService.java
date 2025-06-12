@@ -5,6 +5,7 @@ import dto.IssuedBook;
 import service.SuperService;
 
 import java.util.HashMap;
+import java.util.List;
 
 public interface IssuedBookService extends SuperService {
     HashMap<String, String> getBookMap();
@@ -22,4 +23,6 @@ public interface IssuedBookService extends SuperService {
     Boolean deleteIssueBookRecord(IssuedBook issuedBook);
 
     IssuedBook searchIssuedBook(String memberId , String bookId);
+
+    List<IssuedBook> getIssuedBookList();
 }

@@ -42,7 +42,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="txtQty" alignment="CENTER" editable="false" focusColor="#15a5ff" layoutX="58.0" layoutY="256.0" prefHeight="33.0" prefWidth="221.0" promptText="Quantity" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtQty" alignment="CENTER" focusColor="#15a5ff" layoutX="58.0" layoutY="256.0" prefHeight="33.0" prefWidth="221.0" promptText="Quantity" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
@@ -105,12 +105,12 @@
       </JFXTextField>
       <TableView fx:id="issueBookTable" layoutX="28.0" layoutY="498.0" prefHeight="230.0" prefWidth="590.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Member ID" />
-            <TableColumn prefWidth="97.0" text="Book ID" />
-            <TableColumn prefWidth="95.0" text="Quantity" />
-            <TableColumn prefWidth="100.0" text="Issue Date" />
-            <TableColumn prefWidth="119.0" text="Issue Time" />
-            <TableColumn prefWidth="109.0" text="Return Date" />
+            <TableColumn fx:id="colMemberId" prefWidth="75.0" text="Member ID" />
+            <TableColumn fx:id="colBookId" prefWidth="97.0" text="Book ID" />
+            <TableColumn fx:id="colQuantity" prefWidth="95.0" text="Quantity" />
+            <TableColumn fx:id="colIssueDate" prefWidth="100.0" text="Issue Date" />
+            <TableColumn fx:id="colIssueTime" prefWidth="119.0" text="Issue Time" />
+            <TableColumn fx:id="colReturnDate" prefWidth="109.0" text="Return Date" />
          </columns>
       </TableView>
    </children>

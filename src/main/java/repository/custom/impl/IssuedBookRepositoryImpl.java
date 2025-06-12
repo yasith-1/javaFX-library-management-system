@@ -7,7 +7,9 @@ import util.CrudUtil;
 
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
@@ -161,6 +163,30 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
         } catch (Exception e) {
             System.out.println("Delete failed: " + e.getMessage());
             return false;
+        }
+    }
+
+    @Override
+    public List<IssuedBookEntity> issuedBookList() {
+        List<IssuedBookEntity> issuedBookEntityList = new ArrayList<>();
+
+        try {
+            ResultSet resultSet = CrudUtil.execute("SELECT * FROM `member_has_book`");
+            while (resultSet.next()) {
+                IssuedBookEntity issuedBookEntity = new IssuedBookEntity(
+                        resultSet.getString("member_id"),
+                        resultSet.getString("book_isbn"),
+                        resultSet.getInt("issue_qty"),
+                        resultSet.getDate("issue_date").toLocalDate(),
+                        resultSet.getTime("issue_time").toLocalTime(),
+                        resultSet.getDate("return_date").toLocalDate());
+
+                issuedBookEntityList.add(issuedBookEntity);
+            }
+            return issuedBookEntityList;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
         }
     }
 

@@ -8,7 +8,10 @@ import repository.RepositoryFactory;
 import repository.custom.impl.IssuedBookRepositoryImpl;
 import service.custom.IssuedBookService;
 import util.RepositoryType;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class IssuedBookServiceImpl implements IssuedBookService {
     IssuedBookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.ISSUEDBOOK);
@@ -44,24 +47,34 @@ public class IssuedBookServiceImpl implements IssuedBookService {
 
     @Override
     public Boolean updateIssueBookRecord(IssuedBook issuedBook) {
-        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook,IssuedBookEntity.class);
+        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
         return repository.update(issuedBookEntity);
     }
 
     @Override
     public Boolean deleteIssueBookRecord(IssuedBook issuedBook) {
-        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook,IssuedBookEntity.class);
+        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
         return repository.deleteIssuedBook(issuedBookEntity);
     }
 
     @Override
-    public IssuedBook searchIssuedBook(String memberId , String bookId) {
+    public IssuedBook searchIssuedBook(String memberId, String bookId) {
         IssuedBookEntity issuedBookEntity = repository.searchIssuedBook(memberId, bookId);
-        if(issuedBookEntity != null){
-            IssuedBook issuedBook= modelMapper.map(issuedBookEntity, IssuedBook.class);
+        if (issuedBookEntity != null) {
+            IssuedBook issuedBook = modelMapper.map(issuedBookEntity, IssuedBook.class);
             return issuedBook;
         }
         return null;
+    }
+
+    @Override
+    public List<IssuedBook> getIssuedBookList() {
+        List<IssuedBook> issuedBooksList = new ArrayList<>();
+        List<IssuedBookEntity> issuedBookEntityList = repository.issuedBookList();
+        for (IssuedBookEntity issuedBookEntity : issuedBookEntityList) {
+            issuedBooksList.add(modelMapper.map(issuedBookEntity, IssuedBook.class));
+        }
+        return issuedBooksList;
     }
 
 }

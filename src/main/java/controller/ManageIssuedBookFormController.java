@@ -4,10 +4,14 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.Book;
 import dto.IssuedBook;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
@@ -17,6 +21,7 @@ import util.AlertType;
 import util.ServiceType;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ManageIssuedBookFormController implements Initializable {
@@ -26,12 +31,20 @@ public class ManageIssuedBookFormController implements Initializable {
     public JFXTextField txtSearchFieldBook;
     public TableView issueBookTable;
     public JFXTextField txtQty;
+    public TableColumn colMemberId;
+    public TableColumn colBookId;
+    public TableColumn colQuantity;
+    public TableColumn colIssueDate;
+    public TableColumn colIssueTime;
+    public TableColumn colReturnDate;
 
     IssuedBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.ISSUEDBOOK);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadComboBoxesData();
+        loadTable();
+        fetchTableRowData();
     }
 
     private void loadComboBoxesData() {
@@ -64,6 +77,7 @@ public class ManageIssuedBookFormController implements Initializable {
             if (issueBookRecordIsAdded) {
                 Alert.trigger(AlertType.INFORMATION, "Book Updated Successfully !");
                 clearDataFields();
+                loadTable();
                 deductBookQuantity(issuedBook);
                 return;
             }
@@ -95,6 +109,7 @@ public class ManageIssuedBookFormController implements Initializable {
             if (issueBookRecordIsAdded) {
                 Alert.trigger(AlertType.INFORMATION, "Book Deleted Successfully !");
                 clearDataFields();
+                loadTable();
                 renewBookQuantity(issuedBook);
                 return;
             }
@@ -135,8 +150,8 @@ public class ManageIssuedBookFormController implements Initializable {
     }
 
     private void setFoundedIssuedBookData(IssuedBook issuedBook) {
-        comboMember.setValue(issuedBook.getMemberId());
-        comboBook.setValue(issuedBook.getIsbn());
+        comboMember.setValue((Object) issuedBook.getMemberId());
+        comboBook.setValue((Object) issuedBook.getIsbn());
         txtQty.setText(String.valueOf(issuedBook.getQty()));
     }
 
@@ -156,6 +171,42 @@ public class ManageIssuedBookFormController implements Initializable {
             return;
         }
         Alert.trigger(AlertType.ERROR, "Quantity updated failed, try again...");
+    }
+
+    private void loadTable() {
+        colMemberId.setCellValueFactory(new PropertyValueFactory<>("memberId"));
+        colBookId.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+        colQuantity.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colIssueDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colIssueTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+        colReturnDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+
+        List<IssuedBook> issuedBookList = service.getIssuedBookList();
+
+        if (service.getIssuedBookList() != null) {
+            ObservableList<IssuedBook> observableArrayList = FXCollections.observableArrayList(issuedBookList);
+            issueBookTable.setItems(observableArrayList);
+            return;
+        }
+
+        Notifications.create()
+                .title("Warning")
+                .text("No records available yet !")
+                .hideAfter(Duration.seconds(3))
+                .position(Pos.BOTTOM_RIGHT)
+                .showWarning();
+
+    }
+
+    private void fetchTableRowData() {
+        issueBookTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // double-click
+                IssuedBook selectedBook = (IssuedBook) issueBookTable.getSelectionModel().getSelectedItem();
+                if (selectedBook != null) {
+                    setFoundedIssuedBookData(selectedBook);
+                }
+            }
+        });
     }
 
     private void clearDataFields() {
