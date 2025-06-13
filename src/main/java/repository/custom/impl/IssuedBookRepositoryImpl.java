@@ -6,7 +6,6 @@ import repository.custom.IssuedBookRepository;
 import util.CrudUtil;
 
 import java.sql.ResultSet;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +32,7 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
     @Override
     public HashMap<String, String> getBookSet() {
         try {
-            ResultSet resultset = CrudUtil.execute("SELECT `title` ,`isbn` FROM `book`");
+            ResultSet resultset = CrudUtil.execute("SELECT `title` ,`isbn` FROM `book` WHERE `status_id`=?","S001");
             while (resultset.next()) {
                 bookmap.put(resultset.getString("title"), resultset.getString("isbn"));
             }
