@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.impl.IssuedBookServiceImpl;
@@ -31,6 +32,7 @@ public class IssuedBookFormController implements Initializable {
     public JFXTextField txtQty;
     public DatePicker returnDate;
     public TableView issueBookTable;
+    public AnchorPane txtQuantity;
 
     IssuedBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.ISSUEDBOOK);
 

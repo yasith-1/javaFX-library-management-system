@@ -9,26 +9,31 @@ import util.ServiceType;
 
 public class DashboardServiceImpl implements DashboardService {
 
-    DashboardRepositoryImpl dashboardRepository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.DASHBOARD);
+    DashboardRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.DASHBOARD);
 
     @Override
     public Integer getBookCount() {
-        return dashboardRepository.totalBooksCount();
+        return repository.totalBooksCount();
     }
 
     @Override
     public Integer getMemberCount() {
-        return dashboardRepository.totalMembersCount();
+        return repository.totalMembersCount();
     }
 
     @Override
     public Integer getAuthorCount() {
-        return dashboardRepository.totalAuthorsCount();
+        return repository.totalAuthorsCount();
     }
 
     @Override
     public Integer getIssuedBookCount() {
-        return dashboardRepository.totalIssuedBooksCount();
+        return repository.totalIssuedBooksCount();
+    }
+
+    @Override
+    public Boolean updateBookStatus() {
+        return repository.updateDatabaseBooksStatus();
     }
 
 }

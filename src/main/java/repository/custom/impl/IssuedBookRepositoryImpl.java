@@ -130,7 +130,7 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
     @Override
     public Boolean delete(String s) {
-        return null;
+        return false;
     }
 
     @Override

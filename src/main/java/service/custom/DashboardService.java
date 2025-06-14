@@ -10,4 +10,6 @@ public interface DashboardService extends SuperService {
     Integer getAuthorCount();
 
     Integer getIssuedBookCount();
+
+    Boolean updateBookStatus();
 }

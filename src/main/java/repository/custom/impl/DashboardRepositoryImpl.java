@@ -70,4 +70,18 @@ public class DashboardRepositoryImpl implements DashboardRepository {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public Boolean updateDatabaseBooksStatus() {
+        try{
+            Boolean isUpdateStatus = CrudUtil.execute("UPDATE book SET status_id = CASE WHEN copies <= 0 THEN 'S002' ELSE 'S001' END");
+            if (isUpdateStatus){
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
 }

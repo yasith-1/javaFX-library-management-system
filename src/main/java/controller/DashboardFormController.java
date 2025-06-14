@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -32,9 +33,19 @@ public class DashboardFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        updateDatabaseBookStatus();
         loadChartData();
         setDateAndTime();
         setDashboardData();
+    }
+
+    private void updateDatabaseBookStatus(){
+        Boolean isStatusUpdate = dashboardService.updateBookStatus();
+        if (isStatusUpdate){
+            System.out.println("All data Loaded & Updated !");
+            return;
+        }
+        System.out.println("Data not loaded something went wrong !");
     }
 
     private void setDashboardData() {
