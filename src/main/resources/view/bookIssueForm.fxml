@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="txtQuantity" prefHeight="710.0" prefWidth="640.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IssuedBookFormController">
+<AnchorPane fx:id="txtQuantity" prefHeight="700.0" prefWidth="640.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IssuedBookFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="647.0" />
       <Label layoutX="283.0" layoutY="25.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Issue Book" textFill="WHITE">
@@ -77,7 +77,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="issueBookTable" layoutX="29.0" layoutY="457.0" prefHeight="230.0" prefWidth="590.0">
+      <TableView fx:id="issueBookTable" layoutX="29.0" layoutY="457.0" prefHeight="222.0" prefWidth="590.0">
          <columns>
             <TableColumn fx:id="colMemberId" prefWidth="99.0" text="Member" />
             <TableColumn fx:id="colBookId" prefWidth="96.0" text="Book" />

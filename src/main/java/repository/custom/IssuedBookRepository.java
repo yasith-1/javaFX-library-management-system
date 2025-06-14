@@ -1,9 +1,7 @@
 package repository.custom;
 
-import entity.BookEntity;
 import entity.IssuedBookEntity;
 import repository.CrudRepository;
-
 import java.util.HashMap;
 import java.util.List;
 
