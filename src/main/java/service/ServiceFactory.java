@@ -19,11 +19,18 @@ public class ServiceFactory {
 
     public <T extends SuperService> T getServiceType(ServiceType type) {
         switch (type) {
-            case DASHBOARD : return (T) new DashboardServiceImpl();
-            case BOOK : return (T) new BookServiceImpl();
-            case CATEGORY:return (T) new CategoryServiceImpl();
-            case ISSUEDBOOK: return (T) new IssuedBookServiceImpl();
-            case MEMBER : return (T) new MemberServiceImpl();
+            case DASHBOARD:
+                return (T) new DashboardServiceImpl();
+            case BOOK:
+                return (T) new BookServiceImpl();
+            case CATEGORY:
+                return (T) new CategoryServiceImpl();
+            case ISSUEDBOOK:
+                return (T) new IssuedBookServiceImpl();
+            case MEMBER:
+                return (T) new MemberServiceImpl();
+            case RETURNBOOK:
+                return (T) new ReturnBookServiceImpl();
         }
         return null;
     }

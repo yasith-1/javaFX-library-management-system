@@ -307,7 +307,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-4.0">
+            <ImageView fitHeight="29.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-15.0">
                <image>
                   <Image url="@../image/btnicon.png" />
                </image>

@@ -22,6 +22,8 @@ public class RepositoryFactory {
                 return (T) new IssuedBookRepositoryImpl();
             case MEMBER:
                 return (T) new MemberRepositoryImpl();
+            case RETURNBOOK:
+                return (T) new ReturnBookRepositoryImpl();
         }
         return null;
     }
