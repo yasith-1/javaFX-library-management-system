@@ -117,6 +117,15 @@ public class ManageIssuedBookFormController implements Initializable {
         }
     }
 
+    private void renewBookQuantity(IssuedBook issuedBook) {
+        Boolean isRenewedQty = service.renewBookQty(issuedBook);
+        if (isRenewedQty) {
+            Alert.trigger(AlertType.INFORMATION, "Book Quantity Renewed...");
+            return;
+        }
+        Alert.trigger(AlertType.ERROR, "Quantity renew failed, try again...");
+    }
+
     public void clearOnActionBtn(ActionEvent actionEvent) {
         clearDataFields();
     }
@@ -146,22 +155,12 @@ public class ManageIssuedBookFormController implements Initializable {
                     .position(Pos.BOTTOM_RIGHT)
                     .showError();
         }
-
     }
 
     private void setFoundedIssuedBookData(IssuedBook issuedBook) {
         comboMember.setValue((Object) issuedBook.getMemberId());
         comboBook.setValue((Object) issuedBook.getIsbn());
         txtQty.setText(String.valueOf(issuedBook.getQty()));
-    }
-
-    private void renewBookQuantity(IssuedBook issuedBook) {
-        Boolean isRenewedQty = service.renewBookQty(issuedBook);
-        if (isRenewedQty) {
-            Alert.trigger(AlertType.INFORMATION, "Book Quantity Renewed...");
-            return;
-        }
-        Alert.trigger(AlertType.ERROR, "Quantity renew failed, try again...");
     }
 
     private void deductBookQuantity(IssuedBook issuedBook) {

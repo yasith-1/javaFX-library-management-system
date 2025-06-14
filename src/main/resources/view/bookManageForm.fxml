@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="766.0" prefWidth="645.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageBookFormController">
+<AnchorPane prefHeight="766.0" prefWidth="645.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BookManageFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="645.0" />
       <Label layoutX="256.0" layoutY="25.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Manage Book" textFill="WHITE">

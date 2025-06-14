@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ManageBookFormController implements Initializable {
+public class BookManageFormController implements Initializable {
     public JFXComboBox comboStatus;
     public JFXComboBox comboCategory;
     public JFXComboBox comboAuthor;

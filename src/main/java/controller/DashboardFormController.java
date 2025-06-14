@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -78,7 +77,7 @@ public class DashboardFormController implements Initializable {
 
     public void manageBookOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/manageBookForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookManageForm.fxml"))));
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Manage Book Form");
         stage.show();
@@ -121,7 +120,7 @@ public class DashboardFormController implements Initializable {
 
     public void manageIssuebookOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/manageIssueBookForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/issuedBookManageForm.fxml"))));
         stage.setResizable(false);
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Manage Issued Book Form");

@@ -104,7 +104,7 @@ public class IssuedBookFormController implements Initializable {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
 
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/manageIssueBookForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/issuedBookManageForm.fxml"))));
         stage.setTitle("Manage Issued Book Form");
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.show();
