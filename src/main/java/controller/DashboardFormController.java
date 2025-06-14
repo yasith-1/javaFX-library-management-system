@@ -100,15 +100,6 @@ public class DashboardFormController implements Initializable {
         setDashboardData();
     }
 
-    public void addCategoryOnActionBtn(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookCategoryAddForm.fxml"))));
-        stage.setResizable(false);
-        stage.getIcons().add(new Image("/image/stageicon.png"));
-        stage.setTitle("Add Book Category");
-        stage.show();
-    }
-
     public void issuebookOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookIssueForm.fxml"))));
@@ -124,6 +115,24 @@ public class DashboardFormController implements Initializable {
         stage.setResizable(false);
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Manage Issued Book Form");
+        stage.show();
+    }
+
+    public void manageCategoryOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookCategoryManageForm.fxml"))));
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Manage Book Category");
+        stage.show();
+    }
+
+    public void manageReturnBookOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookReturnForm.fxml"))));
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Manage Return Books");
         stage.show();
     }
 }

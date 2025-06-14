@@ -3,16 +3,23 @@ package controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.IssuedBook;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
 import service.custom.impl.IssuedBookServiceImpl;
 import util.Alert;
@@ -23,6 +30,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class IssuedBookFormController implements Initializable {
@@ -33,11 +41,18 @@ public class IssuedBookFormController implements Initializable {
     public DatePicker returnDate;
     public TableView issueBookTable;
     public AnchorPane txtQuantity;
+    public TableColumn colMemberId;
+    public TableColumn colBookId;
+    public TableColumn colQuantity;
+    public TableColumn colIssueDate;
+    public TableColumn colIssueTime;
+    public TableColumn colReturnDate;
 
     IssuedBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.ISSUEDBOOK);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadTable();
         loadComboBoxesData();
     }
 
@@ -73,6 +88,7 @@ public class IssuedBookFormController implements Initializable {
             Boolean issueBookRecordIsAdded = service.addIssueBookRecord(issuedBook);
             if (issueBookRecordIsAdded) {
                 Alert.trigger(AlertType.INFORMATION, "Book Issued Successfully !");
+                loadTable();
                 clearDataFields();
                 deductBookQuantity(issuedBook);
                 return;
@@ -100,13 +116,27 @@ public class IssuedBookFormController implements Initializable {
         returnDate.setValue(null);
     }
 
-    public void ManageissueBookOnActionBtn(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.close();
+    private void loadTable(){
+        colMemberId.setCellValueFactory(new PropertyValueFactory<>("memberId"));
+        colBookId.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+        colQuantity.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colIssueDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colIssueTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+        colReturnDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
 
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/issuedBookManageForm.fxml"))));
-        stage.setTitle("Manage Issued Book Form");
-        stage.getIcons().add(new Image("/image/stageicon.png"));
-        stage.show();
+        List<IssuedBook> issuedBookList = service.getIssuedBookList();
+
+        if (service.getIssuedBookList() != null) {
+            ObservableList<IssuedBook> observableArrayList = FXCollections.observableArrayList(issuedBookList);
+            issueBookTable.setItems(observableArrayList);
+            return;
+        }
+
+        Notifications.create()
+                .title("Warning")
+                .text("No records available yet !")
+                .hideAfter(Duration.seconds(3))
+                .position(Pos.BOTTOM_RIGHT)
+                .showWarning();
     }
 }

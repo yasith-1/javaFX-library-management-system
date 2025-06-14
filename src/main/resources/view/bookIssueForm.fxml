@@ -67,30 +67,25 @@
          <padding>
             <Insets left="10.0" />
          </padding></DatePicker>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="378.0" onAction="#addIssueBookOnActionBtn" prefHeight="40.0" prefWidth="141.0" style="-fx-background-color: #37D67A; -fx-background-radius: 15; -fx-cursor: hand;" text="Issue Book">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="378.0" onAction="#addIssueBookOnActionBtn" prefHeight="40.0" prefWidth="201.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Issue Book">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="440.0" layoutY="378.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="125.0" style="-fx-background-color: #718093; -fx-background-radius: 15; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="341.0" layoutY="378.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="201.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="issueBookTable" layoutX="28.0" layoutY="457.0" prefHeight="234.0" prefWidth="590.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Member ID" />
-          <TableColumn prefWidth="97.0" text="Book ID" />
-            <TableColumn prefWidth="95.0" text="Quantity" />
-            <TableColumn prefWidth="100.0" text="Issue Date" />
-            <TableColumn prefWidth="119.0" text="Issue Time" />
-            <TableColumn prefWidth="109.0" text="Return Date" />
-        </columns>
+      <TableView fx:id="issueBookTable" layoutX="29.0" layoutY="457.0" prefHeight="230.0" prefWidth="590.0">
+         <columns>
+            <TableColumn fx:id="colMemberId" prefWidth="99.0" text="Member" />
+            <TableColumn fx:id="colBookId" prefWidth="96.0" text="Book" />
+            <TableColumn fx:id="colQuantity" prefWidth="67.0" text="Quantity" />
+            <TableColumn fx:id="colIssueDate" prefWidth="133.0" text="Issue Date" />
+            <TableColumn fx:id="colIssueTime" prefWidth="91.0" text="Issue Time" />
+            <TableColumn fx:id="colReturnDate" prefWidth="109.0" text="Return Date" />
+         </columns>
       </TableView>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="237.0" layoutY="378.0" onAction="#ManageissueBookOnActionBtn" prefHeight="40.0" prefWidth="191.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 15; -fx-cursor: hand;" text="Manage Issue Book">
-         <font>
-            <Font name="Poppins Regular" size="17.0" />
-         </font>
-      </JFXButton>
    </children>
 </AnchorPane>
