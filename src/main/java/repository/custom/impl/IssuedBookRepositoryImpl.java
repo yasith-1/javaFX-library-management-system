@@ -208,10 +208,6 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
             PreparedStatement pst = connection.prepareStatement("DELETE FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?");
             pst.setObject(1, entity.getMemberId());
             pst.setObject(2, entity.getIsbn());
-//
-//            Boolean result = CrudUtil.execute(
-//                    "DELETE FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
-//                    entity.getMemberId(), entity.getIsbn());
 
             boolean isIssueBookDeleted = pst.executeUpdate() > 0;
             if (isIssueBookDeleted) {

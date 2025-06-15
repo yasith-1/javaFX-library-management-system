@@ -8,6 +8,7 @@ import repository.RepositoryFactory;
 import repository.custom.impl.IssuedBookRepositoryImpl;
 import service.custom.IssuedBookService;
 import util.RepositoryType;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,16 +32,6 @@ public class IssuedBookServiceImpl implements IssuedBookService {
         IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
         return repository.add(issuedBookEntity);
     }
-
-//    public Boolean deductBookQty(IssuedBook issuedBook) {
-//        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
-//        return repository.deductbookQuantity(issuedBookEntity);
-//    }
-
-//    public Boolean renewBookQty(IssuedBook issuedBook) {
-//        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
-//        return repository.renewbookQuantity(issuedBookEntity);
-//    }
 
     @Override
     public Boolean updateIssueBookRecord(IssuedBook issuedBook) {
@@ -69,7 +60,7 @@ public class IssuedBookServiceImpl implements IssuedBookService {
         List<IssuedBook> issuedBooksList = new ArrayList<>();
         List<IssuedBookEntity> issuedBookEntityList = repository.issuedBookList();
 
-        if (issuedBookEntityList != null){
+        if (issuedBookEntityList != null) {
             for (IssuedBookEntity issuedBookEntity : issuedBookEntityList) {
                 issuedBooksList.add(modelMapper.map(issuedBookEntity, IssuedBook.class));
             }

@@ -2,6 +2,7 @@ package repository.custom;
 
 import entity.IssuedBookEntity;
 import repository.CrudRepository;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,13 +11,9 @@ public interface IssuedBookRepository extends CrudRepository<IssuedBookEntity, S
 
     HashMap<String, String> getBookSet();
 
-//    Boolean deductbookQuantity(IssuedBookEntity entity);
-
-//    Boolean renewbookQuantity(IssuedBookEntity entity);
-
     Boolean deleteIssuedBook(IssuedBookEntity entity);
 
     List<IssuedBookEntity> issuedBookList();
 
-    IssuedBookEntity searchIssuedBook(String memberId ,String bookId);
+    IssuedBookEntity searchIssuedBook(String memberId, String bookId);
 }
