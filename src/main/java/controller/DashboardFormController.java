@@ -1,5 +1,8 @@
 package controller;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,13 +12,16 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import service.ServiceFactory;
 import service.custom.DashboardService;
 import util.ServiceType;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
@@ -23,9 +29,11 @@ public class DashboardFormController implements Initializable {
 
     public Label bookCountLbl;
     public Label memberCountLbl;
-    public Label dateTimeLbl;
+    public Label lblDate;
+    public Label lblTime;
     public Label issuedBookCountLbl;
     public Label authorCountLbl;
+
     DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
 
     public LineChart<String, Number> lineChart;
@@ -84,11 +92,20 @@ public class DashboardFormController implements Initializable {
     }
 
     private void setDateAndTime() {
-        LocalDateTime now = LocalDateTime.now();
-        // 12-hour format with AM/PM
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy  hh:mm:ss a");
-        String dateTimeNow = now.format(formatter);
-        dateTimeLbl.setText(dateTimeNow);
+        //        -------------------DATE--------------------
+        lblDate.setText(String.valueOf(LocalDate.now()));
+
+        //        -------------------TIME--------------------
+
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.ZERO, e->{
+                    LocalTime now = LocalTime.now();
+                    lblTime.setText(now.getHour()+" : "+now.getMinute()+" : "+now.getSecond());
+                }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
     }
 
     public void logoutOnActionBtn(ActionEvent actionEvent) {

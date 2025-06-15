@@ -128,8 +128,8 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#627c908f" height="51.0" layoutX="16.0" layoutY="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="264.0" />
-      <Label fx:id="dateTimeLbl" contentDisplay="CENTER" layoutX="80.0" layoutY="21.0" prefHeight="35.0" prefWidth="170.0" style="-fx-font-family: poppins;" text="Date &amp; time" textFill="#13fff7">
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#627c908f" height="51.0" layoutX="16.0" layoutY="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="285.0" />
+      <Label fx:id="lblDate" contentDisplay="CENTER" layoutX="66.0" layoutY="21.0" prefHeight="35.0" prefWidth="94.0" style="-fx-font-family: poppins;" text="Date " textFill="#13fff7">
          <font>
             <Font size="15.0" />
          </font>
@@ -212,7 +212,7 @@
             <Font name="Poppins Bold" size="15.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="33.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="25.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/clock.png" />
          </image>
@@ -267,5 +267,10 @@
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
+      <Label fx:id="lblTime" contentDisplay="CENTER" layoutX="178.0" layoutY="21.0" prefHeight="35.0" prefWidth="115.0" style="-fx-font-family: poppins;" text="Time" textFill="#13fff7">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
