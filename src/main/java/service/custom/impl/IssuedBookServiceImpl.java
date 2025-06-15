@@ -32,17 +32,15 @@ public class IssuedBookServiceImpl implements IssuedBookService {
         return repository.add(issuedBookEntity);
     }
 
-    @Override
-    public Boolean deductBookQty(IssuedBook issuedBook) {
-        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
-        return repository.deductbookQuantity(issuedBookEntity);
-    }
+//    public Boolean deductBookQty(IssuedBook issuedBook) {
+//        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
+//        return repository.deductbookQuantity(issuedBookEntity);
+//    }
 
-    @Override
-    public Boolean renewBookQty(IssuedBook issuedBook) {
-        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
-        return repository.renewbookQuantity(issuedBookEntity);
-    }
+//    public Boolean renewBookQty(IssuedBook issuedBook) {
+//        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
+//        return repository.renewbookQuantity(issuedBookEntity);
+//    }
 
     @Override
     public Boolean updateIssueBookRecord(IssuedBook issuedBook) {

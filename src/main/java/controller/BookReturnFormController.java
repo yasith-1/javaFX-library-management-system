@@ -40,4 +40,8 @@ public class BookReturnFormController implements Initializable {
 
     public void deleteOnActionBtn(ActionEvent actionEvent) {
     }
+
+    public void searchOnActionBtn(ActionEvent actionEvent) {
+
+    }
 }

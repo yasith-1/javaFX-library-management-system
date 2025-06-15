@@ -90,20 +90,10 @@ public class IssuedBookFormController implements Initializable {
                 Alert.trigger(AlertType.INFORMATION, "Book Issued Successfully !");
                 loadTable();
                 clearDataFields();
-                deductBookQuantity(issuedBook);
                 return;
             }
             Alert.trigger(AlertType.ERROR, "This Book already borrwed this user ...");
         }
-    }
-
-    private void deductBookQuantity(IssuedBook issuedBook) {
-        Boolean isQtyUpdated = service.deductBookQty(issuedBook);
-        if (isQtyUpdated) {
-            Alert.trigger(AlertType.INFORMATION, "Book Quantity updated...");
-            return;
-        }
-        Alert.trigger(AlertType.ERROR, "Quantity updated failed, try again...");
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {

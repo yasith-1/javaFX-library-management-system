@@ -78,7 +78,7 @@ public class ManageIssuedBookFormController implements Initializable {
                 Alert.trigger(AlertType.INFORMATION, "Book Updated Successfully !");
                 clearDataFields();
                 loadTable();
-                deductBookQuantity(issuedBook);
+//                deductBookQuantity(issuedBook);
                 return;
             }
             Alert.trigger(AlertType.ERROR, "Book is not updated ...");
@@ -110,20 +110,10 @@ public class ManageIssuedBookFormController implements Initializable {
                 Alert.trigger(AlertType.INFORMATION, "Book Deleted Successfully !");
                 clearDataFields();
                 loadTable();
-                renewBookQuantity(issuedBook);
                 return;
             }
             Alert.trigger(AlertType.ERROR, "Book is not deleted ...");
         }
-    }
-
-    private void renewBookQuantity(IssuedBook issuedBook) {
-        Boolean isRenewedQty = service.renewBookQty(issuedBook);
-        if (isRenewedQty) {
-            Alert.trigger(AlertType.INFORMATION, "Book Quantity Renewed...");
-            return;
-        }
-        Alert.trigger(AlertType.ERROR, "Quantity renew failed, try again...");
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
@@ -161,15 +151,6 @@ public class ManageIssuedBookFormController implements Initializable {
         comboMember.setValue((Object) issuedBook.getMemberId());
         comboBook.setValue((Object) issuedBook.getIsbn());
         txtQty.setText(String.valueOf(issuedBook.getQty()));
-    }
-
-    private void deductBookQuantity(IssuedBook issuedBook) {
-        Boolean isQtyUpdated = service.deductBookQty(issuedBook);
-        if (isQtyUpdated) {
-            Alert.trigger(AlertType.INFORMATION, "Book Quantity updated...");
-            return;
-        }
-        Alert.trigger(AlertType.ERROR, "Quantity updated failed, try again...");
     }
 
     private void loadTable() {

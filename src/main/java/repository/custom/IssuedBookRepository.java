@@ -10,9 +10,9 @@ public interface IssuedBookRepository extends CrudRepository<IssuedBookEntity, S
 
     HashMap<String, String> getBookSet();
 
-    Boolean deductbookQuantity(IssuedBookEntity entity);
+//    Boolean deductbookQuantity(IssuedBookEntity entity);
 
-    Boolean renewbookQuantity(IssuedBookEntity entity);
+//    Boolean renewbookQuantity(IssuedBookEntity entity);
 
     Boolean deleteIssuedBook(IssuedBookEntity entity);
 

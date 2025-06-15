@@ -1,11 +1,18 @@
 package repository.custom.impl;
 
+import database.DBConnection;
 import entity.BookEntity;
 import entity.IssuedBookEntity;
+import javafx.geometry.Pos;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import repository.custom.IssuedBookRepository;
 import util.CrudUtil;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,39 +39,13 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
     @Override
     public HashMap<String, String> getBookSet() {
         try {
-            ResultSet resultset = CrudUtil.execute("SELECT `title` ,`isbn` FROM `book` WHERE `status_id`=?","S001");
+            ResultSet resultset = CrudUtil.execute("SELECT `title` ,`isbn` FROM `book` WHERE `status_id`=?", "S001");
             while (resultset.next()) {
                 bookmap.put(resultset.getString("title"), resultset.getString("isbn"));
             }
             return bookmap;
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }
-    }
-
-    @Override
-    public Boolean deductbookQuantity(IssuedBookEntity entity) {
-        try {
-            Boolean result = CrudUtil.execute("UPDATE `book` SET `copies`=copies-? WHERE `isbn`=?",
-                    entity.getQty(),
-                    entity.getIsbn());
-            return result;
-        } catch (Exception e) {
-            e.getMessage();
-            return false;
-        }
-    }
-
-    @Override
-    public Boolean renewbookQuantity(IssuedBookEntity entity) {
-        try {
-            Boolean result = CrudUtil.execute("UPDATE `book` SET `copies`=copies+? WHERE `isbn`=?",
-                    entity.getQty(),
-                    entity.getIsbn());
-            return result;
-        } catch (Exception e) {
-            e.getMessage();
-            return false;
         }
     }
 
@@ -78,27 +59,66 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
                     entity.getIsbn());
 
             if (resultSet.next()) {
+                Notifications.create()
+                        .title("Warning")
+                        .text("Sorry That user Already Borrowed this Book !")
+                        .hideAfter(Duration.seconds(3))
+                        .position(Pos.BOTTOM_RIGHT)
+                        .showWarning();
                 return false;
             }
-//          -------------------------------------------------------------------------------------------------------
-            Boolean result = CrudUtil.execute("INSERT INTO `member_has_book` VALUES (?,?,?,?,?,?)",
-                    entity.getMemberId(),
-                    entity.getIsbn(),
-                    entity.getQty(),
-                    entity.getDate(),
-                    entity.getTime(),
-                    entity.getReturnDate());
-            return result;
+//          ----------------------------------------------Transaction implemented---------------------------------------
+            Connection connection = DBConnection.getInstance().getConnection();
+            connection.setAutoCommit(false);
+            PreparedStatement pst = connection.prepareStatement("INSERT INTO `member_has_book` VALUES (?,?,?,?,?,?)");
+            pst.setObject(1, entity.getMemberId());
+            pst.setObject(2, entity.getIsbn());
+            pst.setObject(3, entity.getQty());
+            pst.setObject(4, entity.getDate());
+            pst.setObject(5, entity.getTime());
+            pst.setObject(6, entity.getReturnDate());
+
+            boolean isIssueBookAdded = pst.executeUpdate() > 0;
+            if (isIssueBookAdded) {
+                Boolean isBookCopiesDeducted = deductbookQuantity(entity);
+                if (isBookCopiesDeducted) {
+                    connection.commit();
+                    return true;
+                } else {
+                    connection.rollback();
+                    return false;
+                }
+            }
+            connection.rollback();
+            return false;
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            return false;
+        } finally {
+            try {
+                DBConnection.getInstance().getConnection().setAutoCommit(true);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private Boolean deductbookQuantity(IssuedBookEntity entity) {
+        try {
+            Boolean result = CrudUtil.execute("UPDATE `book` SET `copies`=copies-? WHERE `isbn`=?",
+                    entity.getQty(),
+                    entity.getIsbn());
+            return result;
+        } catch (Exception e) {
+            e.getMessage();
             return false;
         }
     }
 
+
     @Override
     public Boolean update(IssuedBookEntity entity) {
         try {
-            // Check if same user is trying to borrow the same book
             ResultSet resultSet = CrudUtil.execute(
                     "SELECT `member_id`, `book_isbn` FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
                     entity.getMemberId(),
@@ -107,23 +127,47 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
             if (!resultSet.next()) {
                 // Record does not exist, cannot update
-                System.out.println("Record does not exist, cannot update");
+                Notifications.create()
+                        .title("Warning")
+                        .text("Record does not exist, cannot update")
+                        .hideAfter(Duration.seconds(3))
+                        .position(Pos.BOTTOM_RIGHT)
+                        .showWarning();
                 return false;
             }
 
             // Update record
-            Boolean result = CrudUtil.execute(
-                    "UPDATE `member_has_book` SET `issue_qty` = ? WHERE `member_id` = ? AND `book_isbn` = ?",
-                    entity.getQty(),
-                    entity.getMemberId(),
-                    entity.getIsbn()
-            );
+            Connection connection = DBConnection.getInstance().getConnection();
+            connection.setAutoCommit(false);
 
-            System.out.println(result);
-            return result;
+            PreparedStatement pst = connection.prepareStatement("UPDATE `member_has_book` SET " +
+                    "`issue_qty` = ? WHERE `member_id` = ? AND `book_isbn` = ?");
+            pst.setObject(1, entity.getQty());
+            pst.setObject(2, entity.getMemberId());
+            pst.setObject(3, entity.getIsbn());
+
+            boolean isIssueBookUpdated = pst.executeUpdate() > 0;
+            if (isIssueBookUpdated) {
+                Boolean isDeductedCopies = deductbookQuantity(entity);
+                if (isDeductedCopies) {
+                    connection.commit();
+                    return true;
+                } else {
+                    connection.rollback();
+                    return false;
+                }
+            }
+            connection.rollback();
+            return false;
         } catch (Exception e) {
             System.out.println("Update failed: " + e.getMessage());
             return false;
+        } finally {
+            try {
+                DBConnection.getInstance().getConnection().setAutoCommit(true);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -141,7 +185,6 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
     @Override
     public Boolean deleteIssuedBook(IssuedBookEntity entity) {
         try {
-            // Check if same user is trying to borrow the same book
             ResultSet resultSet = CrudUtil.execute(
                     "SELECT `member_id`, `book_isbn` FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
                     entity.getMemberId(),
@@ -149,18 +192,60 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
             );
 
             if (!resultSet.next()) {
-                // Record does not exist, cannot update
+                // Record does not exist, cannot delete
+                Notifications.create()
+                        .title("Warning")
+                        .text("Sorry , Book not Found !")
+                        .hideAfter(Duration.seconds(3))
+                        .position(Pos.BOTTOM_RIGHT)
+                        .showWarning();
                 return false;
             }
 
-            // Update record
-            Boolean result = CrudUtil.execute(
-                    "DELETE FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
-                    entity.getMemberId(), entity.getIsbn());
+            // Delete record
+            Connection connection = DBConnection.getInstance().getConnection();
+            connection.setAutoCommit(false);
+            PreparedStatement pst = connection.prepareStatement("DELETE FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?");
+            pst.setObject(1, entity.getMemberId());
+            pst.setObject(2, entity.getIsbn());
+//
+//            Boolean result = CrudUtil.execute(
+//                    "DELETE FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
+//                    entity.getMemberId(), entity.getIsbn());
 
-            return result;
+            boolean isIssueBookDeleted = pst.executeUpdate() > 0;
+            if (isIssueBookDeleted) {
+                Boolean isCopiesRenewed = renewbookQuantity(entity);
+                if (isCopiesRenewed) {
+                    connection.commit();
+                    return true;
+                } else {
+                    connection.rollback();
+                    return false;
+                }
+            }
+            connection.rollback();
+            return false;
         } catch (Exception e) {
             System.out.println("Delete failed: " + e.getMessage());
+            return false;
+        } finally {
+            try {
+                DBConnection.getInstance().getConnection().setAutoCommit(true);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private Boolean renewbookQuantity(IssuedBookEntity entity) {
+        try {
+            Boolean result = CrudUtil.execute("UPDATE `book` SET `copies`=copies+? WHERE `isbn`=?",
+                    entity.getQty(),
+                    entity.getIsbn());
+            return result;
+        } catch (Exception e) {
+            e.getMessage();
             return false;
         }
     }
