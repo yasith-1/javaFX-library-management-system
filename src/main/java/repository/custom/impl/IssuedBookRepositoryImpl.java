@@ -21,6 +21,7 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
     HashMap<String, String> bookmap = new HashMap<>();
     HashMap<String, String> memberMap = new HashMap<>();
+    HashMap<String, Integer> bookQuantityMap = new HashMap<>();
 
     @Override
 
@@ -44,6 +45,19 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
                 bookmap.put(resultset.getString("title"), resultset.getString("isbn"));
             }
             return bookmap;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public HashMap<String, Integer> getBookQuantityMap() {
+        try{
+            ResultSet resultset = CrudUtil.execute("SELECT `isbn` ,`copies` FROM `book` WHERE `status_id`=?", "S001");
+            while (resultset.next()) {
+                bookQuantityMap.put(resultset.getString("isbn"), resultset.getInt("copies"));
+            }
+            return bookQuantityMap;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

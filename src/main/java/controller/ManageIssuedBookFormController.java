@@ -63,6 +63,8 @@ public class ManageIssuedBookFormController implements Initializable {
         } else if (txtQty.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "Missing Quantity , Search OR Select from table again !");
             return;
+        } else if (isValidaQuantity(txtQty.getText(), comboBook.getValue().toString())) {
+
         } else {
             //            All field filled , not empty
             IssuedBook issuedBook = new IssuedBook(
@@ -82,6 +84,31 @@ public class ManageIssuedBookFormController implements Initializable {
             }
             Alert.trigger(AlertType.ERROR, "Book is not updated ...");
         }
+    }
+
+    private Boolean isValidaQuantity(String value, String bookName) {
+//        Check first value is number or text
+//        if it is text show error
+//        if it is number check it is minimum than copies count
+
+        if (value == null || value.trim().isEmpty()) {
+            return false;
+        }
+
+        // Check if the value is only digits and greater than 0
+        if (value.matches("\\d+")) {
+            int num = Integer.parseInt(value);
+            Integer availableBookCount = service.getBookCountMap().get(service.getBookMap().get(bookName));
+            if (num < 0) {
+                return false;
+            } else if (availableBookCount < num) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        // If it contains letters, symbols, or spaces, return false
+        return false;
     }
 
     public void deleteIssuedBookOnActionBtn(ActionEvent actionEvent) {

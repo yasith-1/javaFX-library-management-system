@@ -12,6 +12,8 @@ public interface IssuedBookService extends SuperService {
 
     HashMap<String, String> getMemberMap();
 
+    HashMap<String, Integer> getBookCountMap();
+
     Boolean addIssueBookRecord(IssuedBook issuedBook);
 
     Boolean updateIssueBookRecord(IssuedBook issuedBook);

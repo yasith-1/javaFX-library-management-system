@@ -11,6 +11,8 @@ public interface IssuedBookRepository extends CrudRepository<IssuedBookEntity, S
 
     HashMap<String, String> getBookSet();
 
+    HashMap<String , Integer> getBookQuantityMap();
+
     Boolean deleteIssuedBook(IssuedBookEntity entity);
 
     List<IssuedBookEntity> issuedBookList();

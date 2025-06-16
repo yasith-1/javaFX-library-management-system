@@ -28,6 +28,11 @@ public class IssuedBookServiceImpl implements IssuedBookService {
     }
 
     @Override
+    public HashMap<String, Integer> getBookCountMap() {
+        return repository.getBookQuantityMap();
+    }
+
+    @Override
     public Boolean addIssueBookRecord(IssuedBook issuedBook) {
         IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
         return repository.add(issuedBookEntity);
