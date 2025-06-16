@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="txtQuantity" prefHeight="700.0" prefWidth="640.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IssuedBookFormController">
+<AnchorPane prefHeight="700.0" prefWidth="640.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IssuedBookFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="647.0" />
       <Label layoutX="283.0" layoutY="25.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Issue Book" textFill="WHITE">
@@ -59,7 +59,7 @@
          <padding>
             <Insets left="10.0" />
          </padding></JFXComboBox>
-      <JFXTextField fx:id="txtQty" focusColor="#15a5ff" layoutX="276.0" layoutY="237.0" prefHeight="32.0" prefWidth="289.0" style="-fx-text-fill: white; -fx-cursor: hand;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtQty" editable="false" focusColor="#15a5ff" layoutX="276.0" layoutY="237.0" prefHeight="32.0" prefWidth="289.0" style="-fx-text-fill: white; -fx-cursor: hand;" unFocusColor="#aeaeae">
          <padding>
             <Insets left="10.0" />
          </padding></JFXTextField>

@@ -52,7 +52,7 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
     @Override
     public HashMap<String, Integer> getBookQuantityMap() {
-        try{
+        try {
             ResultSet resultset = CrudUtil.execute("SELECT `isbn` ,`copies` FROM `book` WHERE `status_id`=?", "S001");
             while (resultset.next()) {
                 bookQuantityMap.put(resultset.getString("isbn"), resultset.getInt("copies"));
@@ -132,62 +132,63 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
     @Override
     public Boolean update(IssuedBookEntity entity) {
-        try {
-            ResultSet resultSet = CrudUtil.execute(
-                    "SELECT `member_id`, `book_isbn` ,`issue_qty` FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
-                    entity.getMemberId(),
-                    entity.getIsbn()
-            );
-
-            if (!resultSet.next()) {
-                // Record does not exist, cannot update
-                Notifications.create()
-                        .title("Warning")
-                        .text("Record does not exist, cannot update")
-                        .hideAfter(Duration.seconds(3))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .showWarning();
-                return false;
-            }
-
-//            Restore issued book quantity to book copies before the update----------------------------------------------
-            int issueQty = resultSet.getInt("issue_qty");
-            String isbn = resultSet.getString("book_isbn");
-            renewbookQuantity(new IssuedBookEntity(null,isbn,issueQty,null,null,null));
-//            ----------------------------------------------------------------------------------------------------------
-
-            // Update record
-            Connection connection = DBConnection.getInstance().getConnection();
-            connection.setAutoCommit(false);
-            PreparedStatement pst = connection.prepareStatement("UPDATE `member_has_book` SET " +
-                    "`issue_qty` = ? WHERE `member_id` = ? AND `book_isbn` = ?");
-            pst.setObject(1, entity.getQty());
-            pst.setObject(2, entity.getMemberId());
-            pst.setObject(3, entity.getIsbn());
-
-            boolean isIssueBookUpdated = pst.executeUpdate() > 0;
-            if (isIssueBookUpdated) {
-                Boolean isDeductedCopies = deductbookQuantity(entity);
-                if (isDeductedCopies) {
-                    connection.commit();
-                    return true;
-                } else {
-                    connection.rollback();
-                    return false;
-                }
-            }
-            connection.rollback();
-            return false;
-        } catch (Exception e) {
-            System.out.println("Update failed: " + e.getMessage());
-            return false;
-        } finally {
-            try {
-                DBConnection.getInstance().getConnection().setAutoCommit(true);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//        try {
+//            ResultSet resultSet = CrudUtil.execute(
+//                    "SELECT `member_id`, `book_isbn` ,`issue_qty` FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
+//                    entity.getMemberId(),
+//                    entity.getIsbn()
+//            );
+//
+//            if (!resultSet.next()) {
+//                // Record does not exist, cannot update
+//                Notifications.create()
+//                        .title("Warning")
+//                        .text("Record does not exist, cannot update")
+//                        .hideAfter(Duration.seconds(3))
+//                        .position(Pos.BOTTOM_RIGHT)
+//                        .showWarning();
+//                return false;
+//            }
+//
+////            Restore issued book quantity to book copies before the update----------------------------------------------
+//            int issueQty = resultSet.getInt("issue_qty");
+//            String isbn = resultSet.getString("book_isbn");
+//            renewbookQuantity(new IssuedBookEntity(null,isbn,issueQty,null,null,null));
+////            ----------------------------------------------------------------------------------------------------------
+//
+//            // Update record
+//            Connection connection = DBConnection.getInstance().getConnection();
+//            connection.setAutoCommit(false);
+//            PreparedStatement pst = connection.prepareStatement("UPDATE `member_has_book` SET " +
+//                    "`issue_qty` = ? WHERE `member_id` = ? AND `book_isbn` = ?");
+//            pst.setObject(1, entity.getQty());
+//            pst.setObject(2, entity.getMemberId());
+//            pst.setObject(3, entity.getIsbn());
+//
+//            boolean isIssueBookUpdated = pst.executeUpdate() > 0;
+//            if (isIssueBookUpdated) {
+//                Boolean isDeductedCopies = deductbookQuantity(entity);
+//                if (isDeductedCopies) {
+//                    connection.commit();
+//                    return true;
+//                } else {
+//                    connection.rollback();
+//                    return false;
+//                }
+//            }
+//            connection.rollback();
+//            return false;
+//        } catch (Exception e) {
+//            System.out.println("Update failed: " + e.getMessage());
+//            return false;
+//        } finally {
+//            try {
+//                DBConnection.getInstance().getConnection().setAutoCommit(true);
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+        return false;
     }
 
 

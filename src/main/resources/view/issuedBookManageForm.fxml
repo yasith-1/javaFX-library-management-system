@@ -37,7 +37,7 @@
             <Insets left="15.0" />
          </padding>
       </JFXComboBox>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="373.0" layoutY="329.0" onAction="#updateIssuedBookOnActionBtn" prefHeight="36.0" prefWidth="197.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Update Issued Book">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="373.0" layoutY="329.0" onAction="#updateIssuedBookOnActionBtn" prefHeight="36.0" prefWidth="197.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Update Issued Book">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>

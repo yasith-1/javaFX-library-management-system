@@ -40,7 +40,6 @@ public class IssuedBookFormController implements Initializable {
     public JFXTextField txtQty;
     public DatePicker returnDate;
     public TableView issueBookTable;
-    public AnchorPane txtQuantity;
     public TableColumn colMemberId;
     public TableColumn colBookId;
     public TableColumn colQuantity;
@@ -52,6 +51,7 @@ public class IssuedBookFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtQty.setText("1");
         loadTable();
         loadComboBoxesData();
     }
