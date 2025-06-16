@@ -72,8 +72,11 @@ public class IssuedBookFormController implements Initializable {
         } else if (txtQty.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "Add book count !");
             return;
-        } else if (returnDate.getValue() == null) {
+        } else if (returnDate.getValue() == null ) {
             Alert.trigger(AlertType.WARNING, "Select return date !");
+            return;
+        } else if (returnDate.getValue().isBefore(LocalDate.now())) {
+            Alert.trigger(AlertType.WARNING, "Select Valid return date !");
             return;
         } else {
 //            All field filled , not empty
@@ -106,7 +109,7 @@ public class IssuedBookFormController implements Initializable {
         returnDate.setValue(null);
     }
 
-    private void loadTable(){
+    private void loadTable() {
         colMemberId.setCellValueFactory(new PropertyValueFactory<>("memberId"));
         colBookId.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         colQuantity.setCellValueFactory(new PropertyValueFactory<>("qty"));
