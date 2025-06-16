@@ -78,7 +78,6 @@ public class ManageIssuedBookFormController implements Initializable {
                 Alert.trigger(AlertType.INFORMATION, "Book Updated Successfully !");
                 clearDataFields();
                 loadTable();
-//                deductBookQuantity(issuedBook);
                 return;
             }
             Alert.trigger(AlertType.ERROR, "Book is not updated ...");

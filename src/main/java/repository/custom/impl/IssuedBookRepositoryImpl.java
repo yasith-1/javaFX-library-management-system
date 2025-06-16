@@ -120,7 +120,7 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
     public Boolean update(IssuedBookEntity entity) {
         try {
             ResultSet resultSet = CrudUtil.execute(
-                    "SELECT `member_id`, `book_isbn` FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
+                    "SELECT `member_id`, `book_isbn` ,`issue_qty` FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
                     entity.getMemberId(),
                     entity.getIsbn()
             );
@@ -136,10 +136,15 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
                 return false;
             }
 
+//            Restore issued book quantity to book copies before the update----------------------------------------------
+            int issueQty = resultSet.getInt("issue_qty");
+            String isbn = resultSet.getString("book_isbn");
+            renewbookQuantity(new IssuedBookEntity(null,isbn,issueQty,null,null,null));
+//            ----------------------------------------------------------------------------------------------------------
+
             // Update record
             Connection connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
-
             PreparedStatement pst = connection.prepareStatement("UPDATE `member_has_book` SET " +
                     "`issue_qty` = ? WHERE `member_id` = ? AND `book_isbn` = ?");
             pst.setObject(1, entity.getQty());
