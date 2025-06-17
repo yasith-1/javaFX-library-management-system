@@ -59,7 +59,7 @@
          <padding>
             <Insets left="10.0" />
          </padding></JFXComboBox>
-      <JFXTextField fx:id="txtQty" editable="false" focusColor="#15a5ff" layoutX="276.0" layoutY="237.0" prefHeight="32.0" prefWidth="289.0" style="-fx-text-fill: white; -fx-cursor: hand;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtQty" editable="false" focusColor="#15a5ff" layoutX="276.0" layoutY="237.0" prefHeight="32.0" prefWidth="289.0" promptText="Defalut book count : 1" style="-fx-text-fill: white; -fx-cursor: hand;" unFocusColor="#aeaeae">
          <padding>
             <Insets left="10.0" />
          </padding></JFXTextField>
