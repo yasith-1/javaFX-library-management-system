@@ -1,43 +1,40 @@
 package service.custom.impl;
 
+import dto.ReturnBook;
+import entity.ReturnBookEntity;
+import org.modelmapper.ModelMapper;
 import repository.RepositoryFactory;
-import repository.custom.ReturnBookRepository;
 import repository.custom.impl.IssuedBookRepositoryImpl;
+import repository.custom.impl.ReturnBookRepositoryImpl;
+import service.custom.ReturnBookService;
 import util.RepositoryType;
 
 import java.util.HashMap;
 
-public class ReturnBookServiceImpl implements ReturnBookRepository {
+public class ReturnBookServiceImpl implements ReturnBookService {
 
-    IssuedBookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.ISSUEDBOOK);
-
-    @Override
-    public HashMap<String, String> getMemberSet() {
-        return repository.getMemberSet();
-    }
+    ReturnBookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.RETURNBOOK);
+    ModelMapper modelMapper = new ModelMapper();
 
     @Override
-    public HashMap<String, String> getBookSet() {
+    public HashMap<String, String> getBookMap() {
         return repository.getBookSet();
     }
 
     @Override
-    public Boolean add(Object entity) {
-        return null;
+    public HashMap<String, String> getMemberMap() {
+        return repository.getMemberSet();
     }
 
     @Override
-    public Boolean update(Object entity) {
-        return null;
+    public Boolean addReturnRecord(ReturnBook returnBookDto) {
+        ReturnBookEntity returnBookEntity = modelMapper.map(returnBookDto, ReturnBookEntity.class);
+        return repository.add(returnBookEntity);
     }
 
     @Override
-    public Boolean delete(Object o) {
-        return null;
-    }
-
-    @Override
-    public Object search(Object o) {
-        return null;
+    public Boolean deleteReturnRecord(ReturnBook returnBookDto) {
+        ReturnBookEntity returnBookEntity = modelMapper.map(returnBookDto, ReturnBookEntity.class);
+        return repository.deleteReturnRecord(returnBookEntity);
     }
 }

@@ -37,24 +37,24 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="326.0" onAction="#addOnActionBtn" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Book Returned">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="331.0" onAction="#addBookReturnOnActionBtn" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Book Returned">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="420.0" layoutY="326.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="420.0" layoutY="331.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="244.0" layoutY="326.0" onAction="#deleteOnActionBtn" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #e84118; -fx-background-radius: 10; -fx-cursor: hand;" text="Delete Return" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="244.0" layoutY="331.0" onAction="#deleteOnActionBtn" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #e84118; -fx-background-radius: 10; -fx-cursor: hand;" text="Delete Return" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
       <JFXComboBox fx:id="comboBook" layoutX="295.0" layoutY="201.0" prefHeight="32.0" prefWidth="294.0" style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 12; -fx-background-color: white; -fx-cursor: hand;" />
       <JFXComboBox fx:id="comboMember" layoutX="295.0" layoutY="264.0" prefHeight="32.0" prefWidth="294.0" style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-cursor: hand;" />
-      <TableView fx:id="returnBookTable" layoutX="26.0" layoutY="460.0" prefHeight="216.0" prefWidth="601.0">
+      <TableView fx:id="returnBookTable" layoutX="26.0" layoutY="465.0" prefHeight="216.0" prefWidth="601.0">
         <columns>
           <TableColumn fx:id="colMemberName" prefWidth="166.0" text="Member Name" />
           <TableColumn fx:id="colBookName" prefWidth="158.0" text="Book Name" />
@@ -68,23 +68,23 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="461.0" layoutY="119.0" onAction="#searchOnActionBtn" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="463.0" layoutY="119.0" onAction="#searchOnActionBtn" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="54.0" layoutX="61.0" layoutY="389.0" stroke="#0f598a" strokeType="INSIDE" width="536.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="167.0" layoutY="405.0" prefHeight="23.0" prefWidth="433.0" text="Double click row that you want to  UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="54.0" layoutX="61.0" layoutY="394.0" stroke="#0f598a" strokeType="INSIDE" width="536.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="167.0" layoutY="410.0" prefHeight="23.0" prefWidth="433.0" text="Double click row that you want to  UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="106.0" layoutY="404.0" text="NOTICE" textFill="RED">
+      <Label layoutX="106.0" layoutY="409.0" text="NOTICE" textFill="RED">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="72.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="72.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/notice.png" />
          </image>
