@@ -5,13 +5,12 @@ import com.jfoenix.controls.JFXTextField;
 import dto.ReturnBook;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
 import service.custom.impl.ReturnBookServiceImpl;
+import util.Alert;
+import util.AlertType;
 import util.ServiceType;
 import java.net.URL;
 import java.time.LocalDate;
@@ -26,8 +25,8 @@ public class BookReturnFormController implements Initializable {
     public TableColumn colReurnDate;
     public TableColumn colBookName;
     public TableColumn colReturnTime;
-    public JFXTextField txtBookName;
     public JFXTextField txtMemberId;
+    public JFXTextField txtBookId;
 
     ReturnBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.RETURNBOOK);
 
@@ -43,20 +42,10 @@ public class BookReturnFormController implements Initializable {
 
     public void addBookReturnOnActionBtn(ActionEvent actionEvent) {
         if (comboBook.getValue() == null){
-            Notifications.create()
-                    .title("Warning")
-                    .text("Select book that return !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING,"Select book that return !");
             return;
         } else if (comboMember.getValue()==null) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Select member !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING,"Select member !");
             return;
         }else {
 //            All Ok
@@ -72,20 +61,10 @@ public class BookReturnFormController implements Initializable {
 
             Boolean isAdded = service.addReturnRecord(returnBook);
             if (isAdded){
-                Notifications.create()
-                        .title("Added")
-                        .text("Return Book Restocked Sucessfully !")
-                        .hideAfter(Duration.seconds(3))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .showInformation();
+                Alert.trigger(AlertType.INFORMATION,"Return Book Restocked Successfully !");
                 return;
             }
-            Notifications.create()
-                    .title("Error")
-                    .text("Return Book Restocked Failed !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showError();
+            Alert.trigger(AlertType.ERROR,"Return Book Restocked Failed !");
         }
     }
 
@@ -96,20 +75,10 @@ public class BookReturnFormController implements Initializable {
 
     public void deleteOnActionBtn(ActionEvent actionEvent) {
         if (comboBook.getValue() == null){
-            Notifications.create()
-                    .title("Warning")
-                    .text("Select book that return !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING,"Select book that return !");
             return;
         } else if (comboMember.getValue()==null) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Select member !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING,"Select member !");
             return;
         }else {
 //            All Ok
@@ -121,24 +90,20 @@ public class BookReturnFormController implements Initializable {
 
             Boolean isDeleted = service.deleteReturnRecord(returnBook);
             if (isDeleted){
-                Notifications.create()
-                        .title("Deleted")
-                        .text("Return Book Deleted Sucessfully !")
-                        .hideAfter(Duration.seconds(3))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .showInformation();
+                Alert.trigger(AlertType.INFORMATION,"Return Book Deleted Successfully !");
                 return;
             }
-            Notifications.create()
-                    .title("Error")
-                    .text("Return Book delete Failed !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showError();
+            Alert.trigger(AlertType.ERROR,"Return Book delete Failed !");
         }
     }
 
     public void searchOnActionBtn(ActionEvent actionEvent) {
-
+        if (txtBookId.getText().isEmpty()){
+            Alert.trigger(AlertType.WARNING,"Enter Book Name !");
+            return;
+        } else if (txtMemberId.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING,"Enter Member Name !");
+            return;
+        }
     }
 }
