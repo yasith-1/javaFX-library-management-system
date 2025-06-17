@@ -1,6 +1,5 @@
 package service.custom.impl;
 
-import dto.Book;
 import dto.IssuedBook;
 import entity.IssuedBookEntity;
 import org.modelmapper.ModelMapper;
@@ -8,7 +7,6 @@ import repository.RepositoryFactory;
 import repository.custom.impl.IssuedBookRepositoryImpl;
 import service.custom.IssuedBookService;
 import util.RepositoryType;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

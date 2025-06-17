@@ -31,6 +31,8 @@ public class ServiceFactory {
                 return (T) new MemberServiceImpl();
             case RETURNBOOK:
                 return (T) new ReturnBookServiceImpl();
+            case FINE:
+                return (T) new FineServiceImpl();
         }
         return null;
     }
