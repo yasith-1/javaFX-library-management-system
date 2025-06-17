@@ -63,12 +63,12 @@
             <TableColumn fx:id="colReturnTime" prefWidth="140.0" text="Returned Time" />
         </columns>
       </TableView>
-      <JFXTextField fx:id="txtBookId" alignment="CENTER" focusColor="#15a5ff" layoutX="46.0" layoutY="120.0" prefHeight="33.0" prefWidth="174.0" promptText="Book Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: gray;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtBookName" alignment="CENTER" focusColor="#15a5ff" layoutX="46.0" layoutY="120.0" prefHeight="33.0" prefWidth="174.0" promptText="Book Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: gray;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="482.0" layoutY="120.0" onAction="#searchOnActionBtn" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="487.0" layoutY="123.0" onAction="#searchOnActionBtn" prefHeight="33.0" prefWidth="128.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -89,7 +89,7 @@
             <Image url="@../image/notice.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtMemberId" alignment="CENTER" focusColor="#15a5ff" layoutX="253.0" layoutY="120.0" prefHeight="33.0" prefWidth="208.0" promptText="Member Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: gray;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtMemberName" alignment="CENTER" focusColor="#15a5ff" layoutX="253.0" layoutY="120.0" prefHeight="33.0" prefWidth="208.0" promptText="Member Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: gray;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>

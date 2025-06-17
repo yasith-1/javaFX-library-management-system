@@ -3,10 +3,13 @@ package controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.ReturnBook;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import service.ServiceFactory;
 import service.custom.impl.ReturnBookServiceImpl;
 import util.Alert;
@@ -15,6 +18,7 @@ import util.ServiceType;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class BookReturnFormController implements Initializable {
@@ -25,13 +29,14 @@ public class BookReturnFormController implements Initializable {
     public TableColumn colReurnDate;
     public TableColumn colBookName;
     public TableColumn colReturnTime;
-    public JFXTextField txtMemberId;
-    public JFXTextField txtBookId;
+    public JFXTextField txtMemberName;
+    public JFXTextField txtBookName;
 
     ReturnBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.RETURNBOOK);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadReturnBookTable();
         loadComboBoxData();
     }
 
@@ -41,13 +46,13 @@ public class BookReturnFormController implements Initializable {
     }
 
     public void addBookReturnOnActionBtn(ActionEvent actionEvent) {
-        if (comboBook.getValue() == null){
-            Alert.trigger(AlertType.WARNING,"Select book that return !");
+        if (comboBook.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Select book that return !");
             return;
-        } else if (comboMember.getValue()==null) {
-            Alert.trigger(AlertType.WARNING,"Select member !");
+        } else if (comboMember.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Select member !");
             return;
-        }else {
+        } else {
 //            All Ok
             String memberId = service.getMemberMap().get(comboMember.getValue().toString());
             String bookId = service.getBookMap().get(comboBook.getValue().toString());
@@ -60,50 +65,80 @@ public class BookReturnFormController implements Initializable {
                     LocalTime.now());
 
             Boolean isAdded = service.addReturnRecord(returnBook);
-            if (isAdded){
-                Alert.trigger(AlertType.INFORMATION,"Return Book Restocked Successfully !");
+            if (isAdded) {
+                Alert.trigger(AlertType.INFORMATION, "Return Book Restocked Successfully !");
                 return;
             }
-            Alert.trigger(AlertType.ERROR,"Return Book Restocked Failed !");
+            Alert.trigger(AlertType.ERROR, "Return Book Restocked Failed !");
         }
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
         comboBook.setValue(null);
         comboMember.setValue(null);
+        txtBookName.setText("");
+        txtMemberName.setText("");
     }
 
     public void deleteOnActionBtn(ActionEvent actionEvent) {
-        if (comboBook.getValue() == null){
-            Alert.trigger(AlertType.WARNING,"Select book that return !");
+        if (comboBook.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Select book that return !");
             return;
-        } else if (comboMember.getValue()==null) {
-            Alert.trigger(AlertType.WARNING,"Select member !");
+        } else if (comboMember.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Select member !");
             return;
-        }else {
+        } else {
 //            All Ok
             ReturnBook returnBook = new ReturnBook(
-                    comboMember.getValue().toString(),
-                    comboBook.getValue().toString(),
+                    service.getMemberMap().get(comboMember.getValue().toString()),
+                    service.getBookMap().get(comboBook.getValue().toString()),
                     null,
-                   null);
+                    null);
 
             Boolean isDeleted = service.deleteReturnRecord(returnBook);
-            if (isDeleted){
-                Alert.trigger(AlertType.INFORMATION,"Return Book Deleted Successfully !");
+            if (isDeleted) {
+                Alert.trigger(AlertType.INFORMATION, "Return Book Deleted Successfully !");
                 return;
             }
-            Alert.trigger(AlertType.ERROR,"Return Book delete Failed !");
+            Alert.trigger(AlertType.ERROR, "Return Book delete Failed !");
         }
     }
 
     public void searchOnActionBtn(ActionEvent actionEvent) {
-        if (txtBookId.getText().isEmpty()){
-            Alert.trigger(AlertType.WARNING,"Enter Book Name !");
+        if (txtBookName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Enter Book Name !");
             return;
-        } else if (txtMemberId.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING,"Enter Member Name !");
+        } else if (txtMemberName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Enter Member Name !");
             return;
+        } else {
+            String bookId = service.getBookMap().get(txtBookName.getText());
+            String memberId = service.getMemberMap().get(txtMemberName.getText());
+
+            ReturnBook returnBook = new ReturnBook(memberId, bookId, null, null);
+            ReturnBook FoundReturnBook = service.searchReturnRecord(returnBook);
+            if (FoundReturnBook != null) {
+                setReturnBookData(FoundReturnBook);
+                return;
+            }
+            Alert.trigger(AlertType.WARNING, "Sorry Return Book not found !");
         }
+    }
+
+    private void setReturnBookData(ReturnBook returnBook) {
+        comboMember.setValue(returnBook.getMemberId());
+        comboBook.setValue(returnBook.getIsbn());
+    }
+
+    private void loadReturnBookTable() {
+        List<ReturnBook> allReturnBookList = service.getAllReturnBookList();
+
+        colMemberName.setCellValueFactory(new PropertyValueFactory<>("memberId"));
+        colBookName.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+        colReurnDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+        colReturnTime.setCellValueFactory(new PropertyValueFactory<>("returnTime"));
+
+        ObservableList<ReturnBook> observableReturnBookList = FXCollections.observableArrayList(allReturnBookList);
+        returnBookTable.setItems(observableReturnBookList);
     }
 }

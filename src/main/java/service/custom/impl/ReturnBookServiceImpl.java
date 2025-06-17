@@ -7,7 +7,10 @@ import repository.RepositoryFactory;
 import repository.custom.impl.ReturnBookRepositoryImpl;
 import service.custom.ReturnBookService;
 import util.RepositoryType;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ReturnBookServiceImpl implements ReturnBookService {
 
@@ -34,5 +37,28 @@ public class ReturnBookServiceImpl implements ReturnBookService {
     public Boolean deleteReturnRecord(ReturnBook returnBookDto) {
         ReturnBookEntity returnBookEntity = modelMapper.map(returnBookDto, ReturnBookEntity.class);
         return repository.delete(returnBookEntity);
+    }
+
+    @Override
+    public ReturnBook searchReturnRecord(ReturnBook returnBookDto) {
+        ReturnBookEntity returnBookEntity = modelMapper.map(returnBookDto, ReturnBookEntity.class);
+        ReturnBookEntity foundReturnBookEntity = repository.search(returnBookEntity);
+        if (foundReturnBookEntity != null) {
+            return modelMapper.map(foundReturnBookEntity, ReturnBook.class);
+        }
+        return null;
+    }
+
+    public List<ReturnBook> getAllReturnBookList() {
+        List<ReturnBook> returnBookList = new ArrayList<>();
+        List<ReturnBookEntity> returnBookEntities = repository.returnBookList();
+
+        if (returnBookEntities != null) {
+            returnBookEntities.forEach(entity -> {
+                returnBookList.add(modelMapper.map(entity, ReturnBook.class));
+            });
+            return returnBookList;
+        }
+        return null;
     }
 }

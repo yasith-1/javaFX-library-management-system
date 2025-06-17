@@ -4,16 +4,44 @@ import database.DBConnection;
 import entity.ReturnBookEntity;
 import repository.custom.ReturnBookRepository;
 import util.CrudUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ReturnBookRepositoryImpl implements ReturnBookRepository {
 
     HashMap<String, String> bookmap = new HashMap<>();
     HashMap<String, String> memberMap = new HashMap<>();
+
+    @Override
+    public List<ReturnBookEntity> returnBookList() {
+        ArrayList<ReturnBookEntity> returnBookEntitiesList = new ArrayList<>();
+        try {
+            ResultSet resultSet = CrudUtil.execute("SELECT `member`.`name`,book.title ,return_date,return_book.return_time " +
+                    "FROM `return_book` INNER JOIN `book` ON return_book.book_isbn = book.isbn INNER\n" +
+                    "JOIN `member` ON return_book.member_id = `member`.id ");
+
+            while (resultSet.next()) {
+                ReturnBookEntity returnBookEntity = new ReturnBookEntity(
+                        resultSet.getString("name"),
+                        resultSet.getString("title"),
+                        resultSet.getDate("return_date").toLocalDate(),
+                        resultSet.getTime("return_time").toLocalTime());
+
+                returnBookEntitiesList.add(returnBookEntity);
+            }
+            return returnBookEntitiesList;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
+
+    }
 
     @Override
     public HashMap<String, String> getMemberSet() {
@@ -155,6 +183,26 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
 
     @Override
     public ReturnBookEntity search(ReturnBookEntity entity) {
-        return null;
+        try {
+            ResultSet resultSet = CrudUtil.execute("SELECT `member`.`name`,`book`.`title` FROM `return_book` " +
+                            "INNER JOIN `book` ON return_book.book_isbn = book.isbn " +
+                            "INNER JOIN `member` ON return_book.member_id = `member`.id " +
+                            "WHERE `member_id`=? AND `book_isbn`=?",
+                    entity.getMemberId(),
+                    entity.getIsbn());
+
+            if (resultSet.next()) {
+                return new ReturnBookEntity(
+                        resultSet.getString("name"),
+                        resultSet.getString("title"),
+                        null,
+                        null);
+            }
+            return null;
+
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
     }
 }

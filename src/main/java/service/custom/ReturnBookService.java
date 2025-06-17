@@ -13,4 +13,6 @@ public interface ReturnBookService extends SuperService {
     Boolean addReturnRecord(ReturnBook returnBookDto);
 
     Boolean deleteReturnRecord(ReturnBook returnBookDto);
+
+    ReturnBook searchReturnRecord(ReturnBook returnBookDto);
 }
