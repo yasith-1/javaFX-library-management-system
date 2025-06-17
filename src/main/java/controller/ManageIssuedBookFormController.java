@@ -131,16 +131,24 @@ public class ManageIssuedBookFormController implements Initializable {
         } else {
             String memberId = service.getMemberMap().get(txtSearchFieldMemberName.getText());
             String bookId = service.getBookMap().get(txtSearchFieldBook.getText());
-            IssuedBook issuedBook = service.searchIssuedBook(memberId, bookId);
-            if (issuedBook != null) {
+
+            IssuedBook issuedBook = new IssuedBook(
+                    memberId,
+                    bookId,
+                    null,
+                    null,
+                    null,
+                    null);
+            IssuedBook isFoundIuedBook = service.searchIssuedBook(issuedBook);
+            if (isFoundIuedBook != null) {
 //        Issued Book available
-                setFoundedIssuedBookData(issuedBook);
+                setFoundedIssuedBookData(isFoundIuedBook);
                 return;
             }
 //       Issued Book not found
             Notifications.create()
                     .title("Error")
-                    .text("Book Not found")
+                    .text("Issue Book Not found")
                     .hideAfter(Duration.seconds(3))
                     .position(Pos.BOTTOM_RIGHT)
                     .showError();
