@@ -59,8 +59,10 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
             if (isAddedReturnRecord) {
                 Boolean isRenewedQuantity = renewbookQuantity(entity);
                 if (isRenewedQuantity) {
-                    connection.commit();
-                    return true;
+                    if (removeIssuedBookRecord(entity)) {
+                        connection.commit();
+                        return true;
+                    }
                 }
             }
             connection.rollback();
@@ -74,6 +76,19 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+        }
+    }
+
+    public Boolean removeIssuedBookRecord(ReturnBookEntity entity) {
+        try {
+            Boolean result = CrudUtil.execute("DELETE FROM `member_has_book` WHERE `member_id`=? AND `book_isbn`=? ",
+                    entity.getMemberId(),
+                    entity.getIsbn());
+
+            return result;
+        } catch (Exception e) {
+            e.getMessage();
+            return false;
         }
     }
 
@@ -95,7 +110,7 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
-            PreparedStatement pst = connection.prepareStatement("DELETE FROM `return_book` WHERE `member_id`=? and `book_id`=?");
+            PreparedStatement pst = connection.prepareStatement("DELETE FROM `return_book` WHERE `member_id`=? AND `book_isbn`=?");
             pst.setObject(1, entity.getMemberId());
             pst.setObject(2, entity.getIsbn());
 

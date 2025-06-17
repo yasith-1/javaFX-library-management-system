@@ -27,6 +27,7 @@
       </ImageView>
       <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="60.0" layoutY="198.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="183.0" />
       <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="60.0" layoutY="264.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="183.0" />
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="80.0" layoutX="19.0" layoutY="101.0" stroke="#0f598a" strokeType="INSIDE" width="617.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="202.0" text="Select Book" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
@@ -37,17 +38,17 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="331.0" onAction="#addBookReturnOnActionBtn" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Book Returned">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="331.0" onAction="#addBookReturnOnActionBtn" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Book Returned">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="420.0" layoutY="331.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="416.0" layoutY="331.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="244.0" layoutY="331.0" onAction="#deleteOnActionBtn" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #e84118; -fx-background-radius: 10; -fx-cursor: hand;" text="Delete Return" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="240.0" layoutY="331.0" onAction="#deleteOnActionBtn" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #e84118; -fx-background-radius: 10; -fx-cursor: hand;" text="Delete Return" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -62,32 +63,36 @@
             <TableColumn fx:id="colReturnTime" prefWidth="140.0" text="Returned Time" />
         </columns>
       </TableView>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="62.0" layoutX="60.0" layoutY="110.0" stroke="#0f598a" strokeType="INSIDE" width="388.0" />
-      <JFXTextField fx:id="txtSearchField" alignment="CENTER" focusColor="#15a5ff" layoutX="73.0" layoutY="120.0" prefHeight="33.0" prefWidth="357.0" promptText="Search Book by ID or Name | Select  table" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: gray;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtBookName" alignment="CENTER" focusColor="#15a5ff" layoutX="46.0" layoutY="120.0" prefHeight="33.0" prefWidth="174.0" promptText="Book Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: gray;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="463.0" layoutY="119.0" onAction="#searchOnActionBtn" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="482.0" layoutY="120.0" onAction="#searchOnActionBtn" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="54.0" layoutX="61.0" layoutY="394.0" stroke="#0f598a" strokeType="INSIDE" width="536.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="167.0" layoutY="410.0" prefHeight="23.0" prefWidth="433.0" text="Double click row that you want to  UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="167.0" layoutY="410.0" prefHeight="23.0" prefWidth="433.0" text="Double click row that you want to DELETE" textFill="#04e49d" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="106.0" layoutY="409.0" text="NOTICE" textFill="RED">
+      <Label layoutX="132.0" layoutY="409.0" text="NOTICE" textFill="RED">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="72.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="98.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/notice.png" />
          </image>
       </ImageView>
+      <JFXTextField fx:id="txtMemberId" alignment="CENTER" focusColor="#15a5ff" layoutX="253.0" layoutY="120.0" prefHeight="33.0" prefWidth="208.0" promptText="Member NIC OR Email" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: gray;" unFocusColor="#aeaeae">
+         <font>
+            <Font name="Poppins Regular" size="16.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>
