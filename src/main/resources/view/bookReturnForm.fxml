@@ -63,7 +63,7 @@
             <TableColumn fx:id="colReturnTime" prefWidth="140.0" text="Returned Time" />
         </columns>
       </TableView>
-      <JFXTextField fx:id="txtBookName" alignment="CENTER" focusColor="#15a5ff" layoutX="46.0" layoutY="120.0" prefHeight="33.0" prefWidth="174.0" promptText="Book Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: gray;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtBookId" alignment="CENTER" focusColor="#15a5ff" layoutX="46.0" layoutY="120.0" prefHeight="33.0" prefWidth="174.0" promptText="Book Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: gray;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
@@ -89,7 +89,7 @@
             <Image url="@../image/notice.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtMemberId" alignment="CENTER" focusColor="#15a5ff" layoutX="253.0" layoutY="120.0" prefHeight="33.0" prefWidth="208.0" promptText="Member NIC OR Email" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: gray;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtMemberId" alignment="CENTER" focusColor="#15a5ff" layoutX="253.0" layoutY="120.0" prefHeight="33.0" prefWidth="208.0" promptText="Member Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: gray;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>

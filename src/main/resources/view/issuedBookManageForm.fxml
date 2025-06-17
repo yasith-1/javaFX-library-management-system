@@ -13,9 +13,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="645.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageIssuedBookFormController">
+<AnchorPane prefHeight="700.0" prefWidth="650.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageIssuedBookFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="645.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="650.0" />
       <Label layoutX="233.0" layoutY="25.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Manage Issued Book" textFill="WHITE">
          <font>
             <Font name="Poppins Bold" size="28.0" />
@@ -37,11 +37,6 @@
             <Insets left="15.0" />
          </padding>
       </JFXComboBox>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="373.0" layoutY="329.0" onAction="#updateIssuedBookOnActionBtn" prefHeight="36.0" prefWidth="197.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Update Issued Book">
-         <font>
-            <Font name="Poppins Regular" size="17.0" />
-         </font>
-      </JFXButton>
       <JFXTextField fx:id="txtQty" alignment="CENTER" editable="false" focusColor="#15a5ff" layoutX="58.0" layoutY="256.0" prefHeight="33.0" prefWidth="221.0" promptText="Quantity" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="15.0" />
@@ -56,28 +51,28 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="373.0" layoutY="378.0" onAction="#deleteIssuedBookOnActionBtn" prefHeight="36.0" prefWidth="197.0" style="-fx-background-color: #ED4C67; -fx-background-radius: 20; -fx-cursor: hand;" text="Delete Issued Book" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="373.0" layoutY="340.0" onAction="#deleteIssuedBookOnActionBtn" prefHeight="36.0" prefWidth="197.0" style="-fx-background-color: #ED4C67; -fx-background-radius: 20; -fx-cursor: hand;" text="Delete Issued Book" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="373.0" layoutY="428.0" onAction="#clearOnActionBtn" prefHeight="36.0" prefWidth="197.0" style="-fx-background-color: #718093; -fx-background-radius: 20; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="373.0" layoutY="390.0" onAction="#clearOnActionBtn" prefHeight="36.0" prefWidth="197.0" style="-fx-background-color: #718093; -fx-background-radius: 20; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="414.0" layoutY="242.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 20; -fx-cursor: hand;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="414.0" layoutY="247.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 20; -fx-cursor: hand;" text="Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="106.0" layoutX="34.0" layoutY="346.0" stroke="#0f598a" strokeType="INSIDE" width="280.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="388.0" prefHeight="23.0" prefWidth="256.0" text="Double click row that you want to" textFill="#04e49d" wrapText="true">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="106.0" layoutX="34.0" layoutY="336.0" stroke="#0f598a" strokeType="INSIDE" width="280.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="378.0" prefHeight="23.0" prefWidth="256.0" text="Double click row that you want to" textFill="#04e49d" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="110.0" layoutY="413.0" text=" UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="110.0" layoutY="403.0" text=" UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
@@ -87,7 +82,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="124.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="124.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/notice.png" />
          </image>
@@ -103,7 +98,7 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <TableView fx:id="issueBookTable" layoutX="28.0" layoutY="498.0" prefHeight="184.0" prefWidth="590.0">
+      <TableView fx:id="issueBookTable" layoutX="28.0" layoutY="470.0" prefHeight="210.0" prefWidth="590.0">
          <columns>
             <TableColumn fx:id="colMemberId" prefWidth="99.0" text="Member" />
             <TableColumn fx:id="colBookId" prefWidth="96.0" text="Book" />
