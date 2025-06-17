@@ -54,17 +54,20 @@ public class BookServiceImpl implements BookService {
         return bookRepository.update(bookEntity);
     }
 
+
     @Override
-    public Boolean deleteBook(String id) {
-        return bookRepository.delete(id);
+    public Boolean deleteBook(Book book) {
+        BookEntity bookEntity = modelMapper.map(book, BookEntity.class);
+        return bookRepository.delete(bookEntity);
     }
 
     @Override
-    public Book searchByBookId(String value) {
-        BookEntity foundEntity = bookRepository.search(value);
+    public Book searchByBook(Book book) {
+        BookEntity bookEntity = modelMapper.map(book, BookEntity.class);
+        BookEntity foundEntity = bookRepository.search(bookEntity);
         if (foundEntity != null) {
-            Book book = modelMapper.map(foundEntity, Book.class);
-            return book;
+            Book foundBook = modelMapper.map(foundEntity, Book.class);
+            return foundBook;
         }
         return null;
     }

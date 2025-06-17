@@ -64,12 +64,12 @@ public class CategoryRepositoryImpl implements CategoryRepository {
     }
 
     @Override
-    public Boolean delete(String s) {
+    public Boolean delete(CategoryEntity entity) {
         return null;
     }
 
     @Override
-    public CategoryEntity search(String s) {
+    public CategoryEntity search(CategoryEntity entity) {
         return null;
     }
 }

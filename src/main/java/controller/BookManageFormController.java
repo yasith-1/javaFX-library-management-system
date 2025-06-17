@@ -162,7 +162,16 @@ public class BookManageFormController implements Initializable {
                     .showWarning();
             return;
         }
-        Boolean isDelete = service.deleteBook(txtId.getText());
+
+        Book book = new Book(
+                txtId.getText(),
+                null,
+                null,
+                null,
+                null,
+                null);
+
+        Boolean isDelete = service.deleteBook(book);
 //      Check Book is delete or no------------------------
         if (isDelete) {
             clearField();
@@ -221,8 +230,17 @@ public class BookManageFormController implements Initializable {
                     .showWarning();
             return;
         }
-        Book book = service.searchByBookId(txtSearchField.getText());
-        if (book != null) {
+
+        Book book = new Book(
+                txtId.getText(),
+                null,
+                null,
+                null,
+                null,
+                null);
+
+        Book result = service.searchByBook(book);
+        if (result != null) {
             fillFoundedBookData(book);
             txtSearchField.setText("");
             return;
@@ -250,15 +268,6 @@ public class BookManageFormController implements Initializable {
         bookTable.setItems(observableList);
     }
 
-    private void fillFoundedBookData(Book book) {
-        txtId.setText(book.getIsbn());
-        txtTile.setText(book.getTitle());
-        txtCopies.setText(String.valueOf(book.getCopies()));
-        comboCategory.setValue((Object) (book.getGerneId()));
-        comboStatus.setValue((Object) book.getStatusId());
-        comboAuthor.setValue((Object) book.getAuthorId());
-    }
-
     private void fetchTableRowData() {
         bookTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) { // double-click
@@ -268,5 +277,14 @@ public class BookManageFormController implements Initializable {
                 }
             }
         });
+    }
+
+    private void fillFoundedBookData(Book book) {
+        txtId.setText(book.getIsbn());
+        txtTile.setText(book.getTitle());
+        txtCopies.setText(String.valueOf(book.getCopies()));
+        comboCategory.setValue((Object) (book.getGerneId()));
+        comboStatus.setValue((Object) book.getStatusId());
+        comboAuthor.setValue((Object) book.getAuthorId());
     }
 }

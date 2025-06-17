@@ -77,6 +77,7 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
         }
     }
 
+    @Override
     public Boolean removeIssuedBookRecord(ReturnBookEntity entity) {
         try {
             Boolean result = CrudUtil.execute("DELETE FROM `member_has_book` WHERE `member_id`=? AND `book_isbn`=? ",
@@ -104,7 +105,25 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
     }
 
     @Override
-    public Boolean deleteReturnRecord(ReturnBookEntity entity) {
+    public Boolean deductbookQuantity(ReturnBookEntity entity) {
+        try {
+            Boolean result = CrudUtil.execute("UPDATE `book` SET `copies`=copies-? WHERE `isbn`=?",
+                    1,
+                    entity.getIsbn());
+            return result;
+        } catch (Exception e) {
+            e.getMessage();
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean update(ReturnBookEntity entity) {
+        return null;
+    }
+
+    @Override
+    public Boolean delete(ReturnBookEntity entity) {
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
@@ -135,30 +154,7 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
     }
 
     @Override
-    public Boolean deductbookQuantity(ReturnBookEntity entity) {
-        try {
-            Boolean result = CrudUtil.execute("UPDATE `book` SET `copies`=copies-? WHERE `isbn`=?",
-                    1,
-                    entity.getIsbn());
-            return result;
-        } catch (Exception e) {
-            e.getMessage();
-            return false;
-        }
-    }
-
-    @Override
-    public Boolean update(ReturnBookEntity entity) {
-        return null;
-    }
-
-    @Override
-    public Boolean delete(String s) {
-        return null;
-    }
-
-    @Override
-    public ReturnBookEntity search(String s) {
+    public ReturnBookEntity search(ReturnBookEntity entity) {
         return null;
     }
 }

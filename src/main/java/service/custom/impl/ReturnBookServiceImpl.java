@@ -33,6 +33,6 @@ public class ReturnBookServiceImpl implements ReturnBookService {
     @Override
     public Boolean deleteReturnRecord(ReturnBook returnBookDto) {
         ReturnBookEntity returnBookEntity = modelMapper.map(returnBookDto, ReturnBookEntity.class);
-        return repository.deleteReturnRecord(returnBookEntity);
+        return repository.delete(returnBookEntity);
     }
 }

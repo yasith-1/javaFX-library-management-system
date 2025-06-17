@@ -35,13 +35,37 @@ public class BookCategoryController implements Initializable {
         setAutoGenaratedId();
     }
 
-    public void addBookOnActionBtn(ActionEvent actionEvent) {
-        //        validating Input fields------------------
+    private void setAutoGenaratedId() {
+        txtCategoryId.setText(service.getCategoryId());
+    }
+
+    public void clearOnActionBtn(ActionEvent actionEvent) {
+        clearField();
+    }
+
+    private void clearField(){
+//        txtCategoryId.setText("");
+        txtCategoryName.setText("");
+    }
+
+    private void loadCategorytable(){
+        List<Category> categoryList = service.getCategoryList();
+
+        colCategoryId.setCellValueFactory(new PropertyValueFactory<>("gerneId"));
+        colCategoryName.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        ObservableList<Category> categoriesList = FXCollections.observableArrayList(categoryList);
+        categoryTable.setItems(categoriesList);
+    }
+
+
+    public void addCategoryOnActionBtn(ActionEvent actionEvent) {
+//        validating Input fields------------------
 
         if (txtCategoryId.getText().isEmpty()) {
             Notifications.create()
                     .title("Warning")
-                    .text("Book Id missing ..")
+                    .text("Category Id missing ..")
                     .hideAfter(Duration.seconds(3))
                     .position(Pos.BOTTOM_RIGHT)
                     .showWarning();
@@ -83,27 +107,9 @@ public class BookCategoryController implements Initializable {
         }
     }
 
-    private void setAutoGenaratedId() {
-        txtCategoryId.setText(service.getCategoryId());
+    public void updateCategoryOnActionBtn(ActionEvent actionEvent) {
     }
 
-    public void clearOnActionBtn(ActionEvent actionEvent) {
-        clearField();
+    public void deleteCategoryOnActionBtn(ActionEvent actionEvent) {
     }
-
-    private void clearField(){
-//        txtCategoryId.setText("");
-        txtCategoryName.setText("");
-    }
-
-    private void loadCategorytable(){
-        List<Category> categoryList = service.getCategoryList();
-
-        colCategoryId.setCellValueFactory(new PropertyValueFactory<>("gerneId"));
-        colCategoryName.setCellValueFactory(new PropertyValueFactory<>("name"));
-
-        ObservableList<Category> categoriesList = FXCollections.observableArrayList(categoryList);
-        categoryTable.setItems(categoriesList);
-    }
-
 }

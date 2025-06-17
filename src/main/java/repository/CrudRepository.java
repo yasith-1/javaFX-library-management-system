@@ -5,7 +5,7 @@ public interface CrudRepository<T, ID> extends SuperRepository {
 
     Boolean update(T entity);
 
-    Boolean delete(ID id);
+    Boolean delete(T entity);
 
-    T search(ID id);
+    T search(T entity);
 }

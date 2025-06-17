@@ -1,6 +1,5 @@
 package repository.custom;
 
-import entity.IssuedBookEntity;
 import entity.ReturnBookEntity;
 import repository.CrudRepository;
 import java.util.HashMap;
@@ -12,7 +11,7 @@ public interface ReturnBookRepository extends CrudRepository<ReturnBookEntity, S
 
     Boolean renewbookQuantity(ReturnBookEntity entity);
 
-    Boolean deleteReturnRecord(ReturnBookEntity entity);
-
     Boolean deductbookQuantity(ReturnBookEntity entity);
+
+    Boolean removeIssuedBookRecord(ReturnBookEntity entity);
 }

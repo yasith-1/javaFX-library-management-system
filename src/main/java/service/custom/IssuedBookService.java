@@ -20,7 +20,7 @@ public interface IssuedBookService extends SuperService {
 
     Boolean deleteIssueBookRecord(IssuedBook issuedBook);
 
-    IssuedBook searchIssuedBook(String memberId , String bookId);
+    IssuedBook searchIssuedBook(IssuedBook issuedBook);
 
     List<IssuedBook> getIssuedBookList();
 }

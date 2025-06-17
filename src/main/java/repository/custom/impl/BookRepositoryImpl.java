@@ -3,7 +3,6 @@ package repository.custom.impl;
 import entity.BookEntity;
 import repository.custom.BookRepository;
 import util.CrudUtil;
-
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -129,9 +128,9 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public Boolean delete(String id) {
+    public Boolean delete(BookEntity entity) {
         try {
-            boolean result = CrudUtil.execute("DELETE FROM `book` WHERE `isbn`=?", id); // <-- if record delete statement true else false
+            boolean result = CrudUtil.execute("DELETE FROM `book` WHERE `isbn`=?", entity.getIsbn()); // <-- if record delete statement true else false
             return result;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -140,13 +139,13 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public BookEntity search(String value) {
+    public BookEntity search(BookEntity entity) {
         try {
             ResultSet resultset = CrudUtil.execute("SELECT `isbn`,`title`,`copies`,`status`," +
                     "gerne.`name`AS `gerne_name`,author.`name` AS `author_name` FROM `book` " +
                     "INNER JOIN `book_status` ON book.status_id= book_status.id " +
                     "INNER JOIN `gerne` ON book.gerne_id = gerne.gerne_id " +
-                    "INNER JOIN `author` ON book.author_id=author.id WHERE `title`=? OR `isbn`=?", value, value);
+                    "INNER JOIN `author` ON book.author_id=author.id WHERE `title`=? OR `isbn`=?", entity.getTitle(), entity.getIsbn());
             if (resultset.next()) {
                 BookEntity bookEntity = new BookEntity(
                         resultset.getString("isbn"),

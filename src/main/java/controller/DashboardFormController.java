@@ -20,9 +20,7 @@ import util.ServiceType;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class DashboardFormController implements Initializable {
@@ -49,10 +47,10 @@ public class DashboardFormController implements Initializable {
     private void updateDatabaseBookStatus(){
         Boolean isStatusUpdate = dashboardService.updateBookStatus();
         if (isStatusUpdate){
-            System.out.println("All data Loaded & Updated !");
+            System.out.println("All book status loaded & Updated !");
             return;
         }
-        System.out.println("Data not loaded something went wrong !");
+        System.out.println("Data not found !");
     }
 
     private void setDashboardData() {

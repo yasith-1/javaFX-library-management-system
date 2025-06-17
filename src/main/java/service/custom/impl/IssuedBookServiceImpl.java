@@ -7,6 +7,7 @@ import repository.RepositoryFactory;
 import repository.custom.impl.IssuedBookRepositoryImpl;
 import service.custom.IssuedBookService;
 import util.RepositoryType;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -45,15 +46,16 @@ public class IssuedBookServiceImpl implements IssuedBookService {
     @Override
     public Boolean deleteIssueBookRecord(IssuedBook issuedBook) {
         IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
-        return repository.deleteIssuedBook(issuedBookEntity);
+        return repository.delete(issuedBookEntity);
     }
 
     @Override
-    public IssuedBook searchIssuedBook(String memberId, String bookId) {
-        IssuedBookEntity issuedBookEntity = repository.searchIssuedBook(memberId, bookId);
-        if (issuedBookEntity != null) {
-            IssuedBook issuedBook = modelMapper.map(issuedBookEntity, IssuedBook.class);
-            return issuedBook;
+    public IssuedBook searchIssuedBook(IssuedBook issuedBook) {
+        IssuedBookEntity issuedBookEntity = modelMapper.map(issuedBook, IssuedBookEntity.class);
+        IssuedBookEntity foundIssuedBookEntity = repository.search(issuedBookEntity);
+        if (foundIssuedBookEntity != null) {
+            IssuedBook issuedBookResult = modelMapper.map(issuedBookEntity, IssuedBook.class);
+            return issuedBookResult;
         }
         return null;
     }

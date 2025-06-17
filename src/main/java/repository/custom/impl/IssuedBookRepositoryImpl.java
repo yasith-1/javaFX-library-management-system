@@ -189,19 +189,8 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
         return false;
     }
 
-
     @Override
-    public Boolean delete(String s) {
-        return false;
-    }
-
-    @Override
-    public IssuedBookEntity search(String s) {
-        return null;
-    }
-
-    @Override
-    public Boolean deleteIssuedBook(IssuedBookEntity entity) {
+    public Boolean delete(IssuedBookEntity entity) {
         try {
             ResultSet resultSet = CrudUtil.execute(
                     "SELECT `member_id`, `book_isbn` FROM `member_has_book` WHERE `member_id` = ? AND `book_isbn` = ?",
@@ -252,6 +241,34 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
         }
     }
 
+    @Override
+    public IssuedBookEntity search(IssuedBookEntity entity) {
+        try {
+            ResultSet result = CrudUtil.execute("SELECT `member`.`name`,`book`.`title`,`issue_qty` ," +
+                    "issue_date,issue_time,return_date " +
+                    "FROM `member_has_book` INNER JOIN " +
+                    "`member`ON member_has_book.member_id= member.id " +
+                    "INNER JOIN `book` ON member_has_book.book_isbn=book.isbn " +
+                    "WHERE `member_id`=? AND `book_isbn`=?", entity.getMemberId(), entity.getIsbn());
+
+            if (result.next()) {
+                IssuedBookEntity issuedBookEntity = new IssuedBookEntity(
+                        result.getString("name"),
+                        result.getString("title"),
+                        result.getInt("issue_qty"),
+                        result.getDate("issue_date").toLocalDate(),
+                        result.getTime("issue_time").toLocalTime(),
+                        result.getDate("return_date").toLocalDate());
+
+                return issuedBookEntity;
+            }
+            return null;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
     private Boolean renewbookQuantity(IssuedBookEntity entity) {
         try {
             Boolean result = CrudUtil.execute("UPDATE `book` SET `copies`=copies+? WHERE `isbn`=?",
@@ -288,34 +305,6 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
             return issuedBookEntityList;
         } catch (Exception e) {
             e.getMessage();
-            return null;
-        }
-    }
-
-    @Override
-    public IssuedBookEntity searchIssuedBook(String memberId, String bookId) {
-        try {
-            ResultSet result = CrudUtil.execute("SELECT `member`.`name`,`book`.`title`,`issue_qty` ," +
-                    "issue_date,issue_time,return_date " +
-                    "FROM `member_has_book` INNER JOIN " +
-                    "`member`ON member_has_book.member_id= member.id " +
-                    "INNER JOIN `book` ON member_has_book.book_isbn=book.isbn " +
-                    "WHERE `member_id`=? AND `book_isbn`=?", memberId, bookId);
-
-            if (result.next()) {
-                IssuedBookEntity issuedBookEntity = new IssuedBookEntity(
-                        result.getString("name"),
-                        result.getString("title"),
-                        result.getInt("issue_qty"),
-                        result.getDate("issue_date").toLocalDate(),
-                        result.getTime("issue_time").toLocalTime(),
-                        result.getDate("return_date").toLocalDate());
-
-                return issuedBookEntity;
-            }
-            return null;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
             return null;
         }
     }
