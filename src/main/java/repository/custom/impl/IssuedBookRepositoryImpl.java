@@ -1,14 +1,12 @@
 package repository.custom.impl;
 
 import database.DBConnection;
-import entity.BookEntity;
 import entity.IssuedBookEntity;
 import javafx.geometry.Pos;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import repository.custom.IssuedBookRepository;
 import util.CrudUtil;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

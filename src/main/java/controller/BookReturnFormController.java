@@ -11,7 +11,6 @@ import javafx.scene.control.TableView;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
-import service.custom.impl.IssuedBookServiceImpl;
 import service.custom.impl.ReturnBookServiceImpl;
 import util.ServiceType;
 import java.net.URL;

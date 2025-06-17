@@ -1,11 +1,9 @@
 package repository.custom.impl;
 
 import database.DBConnection;
-import entity.IssuedBookEntity;
 import entity.ReturnBookEntity;
 import repository.custom.ReturnBookRepository;
 import util.CrudUtil;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
