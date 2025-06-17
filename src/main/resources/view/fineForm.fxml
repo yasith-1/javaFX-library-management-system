@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="650.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FineFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="650.0" />
+      <Label layoutX="255.0" layoutY="26.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Fine Payments" textFill="WHITE">
+         <font>
+            <Font name="Poppins Bold" size="28.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="54.0" fitWidth="60.0" layoutX="183.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/stageicon.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

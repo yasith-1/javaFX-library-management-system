@@ -100,7 +100,7 @@ public class DashboardFormController implements Initializable {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, e->{
                     LocalTime now = LocalTime.now();
-                    lblTime.setText(now.getHour()+" : "+now.getMinute()+" : "+now.getSecond());
+                    lblTime.setText(now.getHour()+" h"+" : "+now.getMinute()+" m"+" : "+now.getSecond()+" s");
                 }),
                 new KeyFrame(Duration.seconds(1))
         );
