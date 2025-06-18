@@ -3,7 +3,6 @@ package repository.custom.impl;
 import entity.CategoryEntity;
 import repository.custom.CategoryRepository;
 import util.CrudUtil;
-
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;

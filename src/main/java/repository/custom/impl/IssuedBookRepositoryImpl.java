@@ -7,6 +7,7 @@ import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import repository.custom.IssuedBookRepository;
 import util.CrudUtil;
+import util.MapCollection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,12 +18,11 @@ import java.util.List;
 
 public class IssuedBookRepositoryImpl implements IssuedBookRepository {
 
-    HashMap<String, String> bookmap = new HashMap<>();
-    HashMap<String, String> memberMap = new HashMap<>();
-    HashMap<String, Integer> bookQuantityMap = new HashMap<>();
+    HashMap<String, String> bookMap = MapCollection.getInstance().getBookMap();
+    HashMap<String, String> memberMap = MapCollection.getInstance().getMemberMap();
+    HashMap<String, Integer> bookQuantityMap = MapCollection.getInstance().getBookQuantityMap();
 
     @Override
-
     public HashMap<String, String> getMemberSet() {
         try {
             ResultSet resultset = CrudUtil.execute("SELECT `id` ,`name` FROM `member` WHERE `type_id`=?", 2);
@@ -40,9 +40,9 @@ public class IssuedBookRepositoryImpl implements IssuedBookRepository {
         try {
             ResultSet resultset = CrudUtil.execute("SELECT `title` ,`isbn` FROM `book` WHERE `status_id`=?", "S001");
             while (resultset.next()) {
-                bookmap.put(resultset.getString("title"), resultset.getString("isbn"));
+                bookMap.put(resultset.getString("title"), resultset.getString("isbn"));
             }
-            return bookmap;
+            return bookMap;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

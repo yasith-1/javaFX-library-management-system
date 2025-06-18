@@ -3,6 +3,8 @@ package repository.custom.impl;
 import entity.BookEntity;
 import repository.custom.BookRepository;
 import util.CrudUtil;
+import util.MapCollection;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,9 +12,9 @@ import java.util.List;
 
 public class BookRepositoryImpl implements BookRepository {
 
-    private HashMap<String, String> gerneMap = new HashMap<>();
-    private HashMap<String, String> authorMap = new HashMap<>();
-    private HashMap<String, String> statusMap = new HashMap<>();
+    private HashMap<String, String> gerneMap = MapCollection.getInstance().getGerneMap();
+    private HashMap<String, String> authorMap = MapCollection.getInstance().getAuthorMap();
+    private HashMap<String, String> statusMap = MapCollection.getInstance().getBookStatusMap();
     private ArrayList<BookEntity> bookEntityList = new ArrayList<>();
 
     @Override

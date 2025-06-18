@@ -4,6 +4,7 @@ import database.DBConnection;
 import entity.ReturnBookEntity;
 import repository.custom.ReturnBookRepository;
 import util.CrudUtil;
+import util.MapCollection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,8 +15,8 @@ import java.util.List;
 
 public class ReturnBookRepositoryImpl implements ReturnBookRepository {
 
-    HashMap<String, String> bookmap = new HashMap<>();
-    HashMap<String, String> memberMap = new HashMap<>();
+    HashMap<String, String> bookMap = MapCollection.getInstance().getBookMap();
+    HashMap<String, String> memberMap = MapCollection.getInstance().getMemberMap();
 
     @Override
     public List<ReturnBookEntity> returnBookList() {
@@ -60,9 +61,9 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
         try {
             ResultSet resultset = CrudUtil.execute("SELECT `title` ,`isbn` FROM `book` WHERE `status_id`=?", "S001");
             while (resultset.next()) {
-                bookmap.put(resultset.getString("title"), resultset.getString("isbn"));
+                bookMap.put(resultset.getString("title"), resultset.getString("isbn"));
             }
-            return bookmap;
+            return bookMap;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
