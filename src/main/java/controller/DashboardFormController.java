@@ -16,7 +16,6 @@ import javafx.util.Duration;
 import service.ServiceFactory;
 import service.custom.DashboardService;
 import util.ServiceType;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -148,6 +147,15 @@ public class DashboardFormController implements Initializable {
         stage.setResizable(false);
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Manage Return Books");
+        stage.show();
+    }
+
+    public void manageBookFinesOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/fineForm.fxml"))));
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Manage Fines");
         stage.show();
     }
 }
