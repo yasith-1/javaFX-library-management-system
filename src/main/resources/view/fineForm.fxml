@@ -39,7 +39,7 @@
       </JFXTextArea>
       <JFXTextField fx:id="txtAmount" focusColor="#15a5ff" layoutX="329.0" layoutY="330.0" prefHeight="34.0" prefWidth="284.0" promptText="Add Fine Amount" style="-fx-prompt-text-fill: #37D67A; -fx-text-fill: white;" unFocusColor="#aeaeae">
          <font>
-            <Font size="15.0" />
+            <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextField>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="171.0" layoutX="26.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
