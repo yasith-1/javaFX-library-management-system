@@ -4,11 +4,18 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import service.ServiceFactory;
+import service.custom.impl.FineServiceImpl;
+import util.ServiceType;
 
-public class FineFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class FineFormController implements Initializable {
     public Label txtFineIdLbl;
     public JFXTextArea txtReason;
     public JFXTextField txtAmount;
@@ -24,6 +31,19 @@ public class FineFormController {
     public TableColumn colAmount;
     public TableColumn colPayStatus;
     public JFXTextField txtSearchFieldMemberName;
+
+    FineServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.FINE);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadAllComboboxData();
+    }
+
+    private void loadAllComboboxData() {
+        comboMember.getItems().addAll(service.getMemberMap().keySet());
+        comboBook.getItems().addAll(service.getBookMap().keySet());
+        comboFineStatus.getItems().addAll(service.getFineStatusMap().keySet());
+    }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
     }

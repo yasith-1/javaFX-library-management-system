@@ -11,6 +11,7 @@ public class MapCollection {
     private HashMap<String, String> bookMap;
     private HashMap<String, String> memberMap;
     private HashMap<String, Integer> bookQuantityMap;
+    private HashMap<String, Integer> fineStatusMap;
 
     private MapCollection() {
         gerneMap = new HashMap<>();
@@ -19,6 +20,7 @@ public class MapCollection {
         bookMap = new HashMap<>();
         memberMap = new HashMap<>();
         bookQuantityMap = new HashMap<>();
+        fineStatusMap = new HashMap<>();
     }
 
     public HashMap<String, String> getGerneMap() {
@@ -43,6 +45,10 @@ public class MapCollection {
 
     public HashMap<String, Integer> getBookQuantityMap() {
         return bookQuantityMap;
+    }
+
+    public HashMap<String, Integer> getFineStatusMap() {
+        return fineStatusMap;
     }
 
     public static MapCollection getInstance() {
