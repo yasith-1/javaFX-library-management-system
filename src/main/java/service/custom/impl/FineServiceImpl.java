@@ -11,6 +11,16 @@ public class FineServiceImpl implements FineService {
     FineRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.FINE);
 
     @Override
+    public String fineId() {
+        String currentId = repository.getLastFineId();
+        if (currentId != null) {
+            return String.format("F%03d", Integer.parseInt(currentId.substring(1)) + 1);
+        } else {
+            return "F001";
+        }
+    }
+
+    @Override
     public HashMap<String, String> getBookMap() {
         return repository.getBookSet();
     }

@@ -57,6 +57,20 @@ public class FineRepositoryImpl implements FineRepository {
     }
 
     @Override
+    public String getLastFineId() {
+        try {
+            ResultSet resultSet = CrudUtil.execute("SELECT * FROM `fine` ORDER BY `id` DESC LIMIT 1");
+            if (resultSet.next()) {
+                return resultSet.getString("isbn");
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @Override
     public Boolean add(FineEntity entity) {
         return null;
     }

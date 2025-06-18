@@ -36,16 +36,18 @@ public class FineFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setAutogenaratedFineId();
         loadAllComboboxData();
+    }
+
+    private void setAutogenaratedFineId() {
+        txtFineIdLbl.setText(service.fineId());
     }
 
     private void loadAllComboboxData() {
         comboMember.getItems().addAll(service.getMemberMap().keySet());
         comboBook.getItems().addAll(service.getBookMap().keySet());
         comboFineStatus.getItems().addAll(service.getFineStatusMap().keySet());
-    }
-
-    public void clearOnActionBtn(ActionEvent actionEvent) {
     }
 
     public void addFineOnActionBtn(ActionEvent actionEvent) {
@@ -58,5 +60,8 @@ public class FineFormController implements Initializable {
     }
 
     public void searchOnActionBtn(ActionEvent actionEvent) {
+    }
+
+    public void clearOnActionBtn(ActionEvent actionEvent) {
     }
 }
