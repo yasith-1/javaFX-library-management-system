@@ -2,7 +2,6 @@ package controller;
 
 import com.jfoenix.controls.JFXTextField;
 import dto.Author;
-import dto.Category;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +14,6 @@ import service.custom.impl.AuthorServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -42,15 +40,89 @@ public class AuthorManageFormController implements Initializable {
     }
 
     public void addAuthorOnActionBtn(ActionEvent actionEvent) {
-    }
+        if (txtAuthorId.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Author Id missing ..");
+            return;
+        } else if (txtAuthorName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Enter Author name ..");
+            return;
+        } else {
+//            Validate text fields and ensure those all filled
+            Author author = new Author(txtAuthorId.getText(), txtAuthorName.getText());
+            Boolean isAdded = service.addAuthor(author);
+            if (isAdded) {
+//                    Author added successfully ...........
+                clearField();
+                setAutoGenaratedId();
+                loadAuthorTable();
+                Alert.trigger(AlertType.INFORMATION, "Author Added Successfully !");
+            } else {
+//                    Author is not added  ...........
+                clearField();
+                Alert.trigger(AlertType.ERROR, "Author doesn't Added ..");
 
-    public void clearOnActionBtn(ActionEvent actionEvent) {
+            }
+        }
     }
 
     public void updateAuthorOnActionBtn(ActionEvent actionEvent) {
+        if (txtAuthorId.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Author Id missing ..");
+            return;
+        } else if (txtAuthorName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Select Auhor from table that you want to update !");
+            return;
+        } else {
+//            Validate text fields and ensure those all filled
+            Author author = new Author(txtAuthorId.getText(), txtAuthorName.getText());
+            Boolean isUpdated= service.updateAuthor(author);
+            if (isUpdated) {
+//                    Author updated successfully ...........
+                clearField();
+                setAutoGenaratedId();
+                loadAuthorTable();
+                Alert.trigger(AlertType.INFORMATION, "Author updated Successfully !");
+            } else {
+//                    Author is not updated  ...........
+                clearField();
+                Alert.trigger(AlertType.ERROR, "Author doesn't updated ..");
+
+            }
+        }
     }
 
     public void deleteAuthorOnActionBtn(ActionEvent actionEvent) {
+        if (txtAuthorId.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Author Id missing ..");
+            return;
+        } else if (txtAuthorName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Select Auhor from table that you want to delete !");
+            return;
+        } else {
+//            Validate text fields and ensure those all filled
+            Author author = new Author(txtAuthorId.getText(), txtAuthorName.getText());
+            Boolean isDeleted= service.deleteAuthor(author);
+            if (isDeleted) {
+//                    Author Delete successfully ...........
+                clearField();
+                setAutoGenaratedId();
+                loadAuthorTable();
+                Alert.trigger(AlertType.INFORMATION, "Author Deleted Successfully !");
+            } else {
+//                    Author is not Delete  ...........
+                clearField();
+                Alert.trigger(AlertType.ERROR, "Author doesn't Delete ..");
+            }
+        }
+    }
+
+
+    public void clearOnActionBtn(ActionEvent actionEvent) {
+        clearField();
+    }
+
+    private void clearField() {
+        txtAuthorName.setText("");
     }
 
     private void loadAuthorTable() {

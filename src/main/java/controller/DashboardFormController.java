@@ -1,5 +1,6 @@
 package controller;
 
+import database.DBConnection;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -13,13 +14,24 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import service.ServiceFactory;
 import service.custom.DashboardService;
 import util.ServiceType;
+
+import java.awt.*;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class DashboardFormController implements Initializable {
@@ -43,9 +55,9 @@ public class DashboardFormController implements Initializable {
         setDashboardData();
     }
 
-    private void updateDatabaseBookStatus(){
+    private void updateDatabaseBookStatus() {
         Boolean isStatusUpdate = dashboardService.updateBookStatus();
-        if (isStatusUpdate){
+        if (isStatusUpdate) {
             System.out.println("All book status loaded & Updated !");
             return;
         }
@@ -95,9 +107,9 @@ public class DashboardFormController implements Initializable {
         //        -------------------TIME--------------------
 
         Timeline timeline = new Timeline(
-                new KeyFrame(Duration.ZERO, e->{
+                new KeyFrame(Duration.ZERO, e -> {
                     LocalTime now = LocalTime.now();
-                    lblTime.setText(now.getHour()+" h"+" : "+now.getMinute()+" m"+" : "+now.getSecond()+" s");
+                    lblTime.setText(now.getHour() + " h" + " : " + now.getMinute() + " m" + " : " + now.getSecond() + " s");
                 }),
                 new KeyFrame(Duration.seconds(1))
         );
@@ -166,5 +178,17 @@ public class DashboardFormController implements Initializable {
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Manage Authors");
         stage.show();
+    }
+
+    public void issueBookReportOnActionBtn(ActionEvent actionEvent) throws JRException {
+        JasperDesign design = JRXmlLoader.load("src/main/resources/reports/issued_book_report.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(design);
+        try {
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+//            JasperExportManager.exportReportToPdfFile(jasperPrint, "issue_book.pdf");
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
