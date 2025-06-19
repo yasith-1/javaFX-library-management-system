@@ -158,4 +158,13 @@ public class DashboardFormController implements Initializable {
         stage.setTitle("Manage Fines");
         stage.show();
     }
+
+    public void authorFormOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/authorManageForm.fxml"))));
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Manage Authors");
+        stage.show();
+    }
 }

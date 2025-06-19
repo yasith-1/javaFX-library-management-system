@@ -1,13 +1,11 @@
 package service.custom;
 
 import dto.Author;
-import dto.Category;
 import service.SuperService;
-
 import java.util.List;
 
 public interface AuthorService extends SuperService {
-    String getCategoryId();
+    String getAuthoryId();
 
     Boolean addAuthor(Author author);
 
@@ -15,5 +13,5 @@ public interface AuthorService extends SuperService {
 
     Boolean deleteAuthor(Author author);
 
-    List<Category> getAuthorList();
+    List<Author> getAuthorList();
 }

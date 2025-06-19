@@ -26,6 +26,8 @@ public class RepositoryFactory {
                 return (T) new ReturnBookRepositoryImpl();
             case FINE:
                return  (T) new FineRepositoryImpl();
+            case AUTHOR:
+                return  (T) new AuthorRepositoryImpl();
         }
         return null;
     }

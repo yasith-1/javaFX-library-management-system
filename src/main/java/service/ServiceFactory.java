@@ -33,6 +33,8 @@ public class ServiceFactory {
                 return (T) new ReturnBookServiceImpl();
             case FINE:
                 return (T) new FineServiceImpl();
+            case AUTHOR:
+                return (T) new AuthorServiceImpl();
         }
         return null;
     }

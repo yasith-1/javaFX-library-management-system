@@ -57,7 +57,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="authorTable" layoutX="49.0" layoutY="469.0" prefHeight="209.0" prefWidth="559.0">
+      <TableView fx:id="authorTable" layoutX="49.0" layoutY="459.0" prefHeight="209.0" prefWidth="559.0">
          <columns>
             <TableColumn fx:id="colAuthorId" prefWidth="271.0" resizable="false" style="-fx-alignment: CENTER;" text="Author ID" />
             <TableColumn fx:id="colAuthorName" prefWidth="297.0" style="-fx-alignment: CENTER;" text="Author Name" />
@@ -73,13 +73,13 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="106.0" layoutX="50.0" layoutY="337.0" stroke="#0f598a" strokeType="INSIDE" width="373.0" />
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="97.0" layoutX="50.0" layoutY="337.0" stroke="#0f598a" strokeType="INSIDE" width="373.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="379.0" prefHeight="23.0" prefWidth="359.0" text="Double click row from table that you want to" textFill="#04e49d" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="173.0" layoutY="409.0" text=" UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="173.0" layoutY="404.0" text=" UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
