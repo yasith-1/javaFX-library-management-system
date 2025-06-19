@@ -1,18 +1,14 @@
 package controller;
 
 import com.jfoenix.controls.JFXTextField;
-import dto.Book;
 import dto.Category;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
 import service.custom.impl.CategoryServiceImpl;
 import util.Alert;
@@ -23,7 +19,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class BookCategoryController implements Initializable {
+public class CategoryManageFormController implements Initializable {
     public JFXTextField txtCategoryId;
     public JFXTextField txtCategoryName;
     public TableView categoryTable;

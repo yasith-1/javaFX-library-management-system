@@ -134,7 +134,7 @@ public class DashboardFormController implements Initializable {
 
     public void manageCategoryOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookCategoryManageForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/categoryManageForm.fxml"))));
         stage.setResizable(false);
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Manage Book Category");
