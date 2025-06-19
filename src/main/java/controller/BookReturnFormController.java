@@ -132,6 +132,10 @@ public class BookReturnFormController implements Initializable {
 
     private void loadReturnBookTable() {
         List<ReturnBook> allReturnBookList = service.getAllReturnBookList();
+        if (allReturnBookList == null){
+            Alert.trigger(AlertType.WARNING,"No available data in table now !");
+            return;
+        }
 
         colMemberName.setCellValueFactory(new PropertyValueFactory<>("memberId"));
         colBookName.setCellValueFactory(new PropertyValueFactory<>("isbn"));

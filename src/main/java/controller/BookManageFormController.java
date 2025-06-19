@@ -15,6 +15,8 @@ import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
 import service.custom.impl.BookServiceImpl;
+import util.Alert;
+import util.AlertType;
 import util.ServiceType;
 
 import java.net.URL;
@@ -60,45 +62,19 @@ public class BookManageFormController implements Initializable {
         //        validating Input fields------------------
 
         if (txtTile.getText().isEmpty()) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Enter book title!")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
-
+            Alert.trigger(AlertType.WARNING, "Enter book title !");
             return;
         } else if (txtCopies.getText().isEmpty()) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Enter book copies count !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING, "Enter book copies count !");
             return;
         } else if (comboCategory.getValue() == null) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Select a book category !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING, "Select a book category !");
             return;
         } else if (comboStatus.getValue() == null) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Select a book status !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING, "Select a book status !");
             return;
         } else if (comboAuthor.getValue() == null) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Select a book author !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING, "Select a book author !");
             return;
         } else {
 
@@ -122,44 +98,23 @@ public class BookManageFormController implements Initializable {
 //            Book Update or no into database ?----------------
                 if (isUpdated) {
 //                    Book added successfully ...........
-                    Notifications.create()
-                            .title("Success")
-                            .text("Book Updated Successfully !")
-                            .hideAfter(Duration.seconds(3))
-                            .position(Pos.BOTTOM_RIGHT)
-                            .showInformation();
+                    Alert.trigger(AlertType.INFORMATION, "Book Updated Successfully !");
                     clearField();
-//                    loadBookTable();
+                    loadBookTable();
                     return;
-
                 }
                 //                    Book is not added  ...........
-                Notifications.create()
-                        .title("Error")
-                        .text("Book doessn't Update ... ")
-                        .hideAfter(Duration.seconds(3))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .showError();
+                Alert.trigger(AlertType.ERROR, "Book doessn't Update ... ");
                 clearField();
             } else {
-                Notifications.create()
-                        .title("Warning")
-                        .text("Invalid Book copies count...")
-                        .hideAfter(Duration.seconds(3))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .showWarning();
+                Alert.trigger(AlertType.WARNING, "Invalid Book copies count...");
             }
         }
     }
 
     public void deleteBookOnActionBtn(ActionEvent actionEvent) {
         if (txtId.getText().isEmpty()) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Book ID must need to continue this operation ...")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING, "Book ID must need to continue this operation ...");
             return;
         }
 
@@ -175,20 +130,11 @@ public class BookManageFormController implements Initializable {
 //      Check Book is delete or no------------------------
         if (isDelete) {
             clearField();
-            Notifications.create()
-                    .title("Success")
-                    .text("Book deleted successfully !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showInformation();
+            loadBookTable();
+            Alert.trigger(AlertType.INFORMATION, "Book deleted successfully !");
             return;
         }
-        Notifications.create()
-                .title("Error")
-                .text("Book is not deleted , try again ...")
-                .hideAfter(Duration.seconds(3))
-                .position(Pos.BOTTOM_RIGHT)
-                .showInformation();
+        Alert.trigger(AlertType.ERROR, "Book is not deleted , try again ...");
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
@@ -222,12 +168,7 @@ public class BookManageFormController implements Initializable {
 
     public void searchOnActionBtn(ActionEvent actionEvent) {
         if (txtSearchField.getText().isEmpty()) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Fill the search field first...")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING, "Fill the search field first...");
             return;
         }
 
@@ -245,17 +186,15 @@ public class BookManageFormController implements Initializable {
             txtSearchField.setText("");
             return;
         }
-        Notifications.create()
-                .title("Error")
-                .text("Sorry Book not found try again !")
-                .hideAfter(Duration.seconds(3))
-                .position(Pos.BOTTOM_RIGHT)
-                .showError();
+        Alert.trigger(AlertType.ERROR, "Sorry Book not found try again !");
     }
 
     private void loadBookTable() {
-
         List<Book> bookList = service.getBookList();
+        if (bookList == null){
+            Alert.trigger(AlertType.WARNING,"No available data in table now !");
+            return;
+        }
 
         colIsbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));

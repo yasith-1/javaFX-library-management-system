@@ -8,7 +8,9 @@ import repository.custom.impl.FineRepositoryImpl;
 import service.custom.FineService;
 import util.RepositoryType;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class FineServiceImpl implements FineService {
 
@@ -23,6 +25,19 @@ public class FineServiceImpl implements FineService {
         } else {
             return "F001";
         }
+    }
+
+    @Override
+    public List<Fine> getAllFinesList() {
+        ArrayList<Fine> fineArrayList = new ArrayList<>();
+        List<FineEntity> fineEntitiesList = repository.allFineList();
+        if (fineEntitiesList != null) {
+            fineEntitiesList.forEach(fineEntity -> {
+                fineArrayList.add(modelMapper.map(fineEntity, Fine.class));
+            });
+            return fineArrayList;
+        }
+        return null;
     }
 
     @Override

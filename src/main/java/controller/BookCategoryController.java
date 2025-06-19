@@ -14,6 +14,8 @@ import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
 import service.custom.impl.CategoryServiceImpl;
+import util.Alert;
+import util.AlertType;
 import util.ServiceType;
 
 import java.net.URL;
@@ -50,6 +52,10 @@ public class BookCategoryController implements Initializable {
 
     private void loadCategorytable(){
         List<Category> categoryList = service.getCategoryList();
+        if (categoryList == null){
+            Alert.trigger(AlertType.WARNING,"No available data in table now !");
+            return;
+        }
 
         colCategoryId.setCellValueFactory(new PropertyValueFactory<>("gerneId"));
         colCategoryName.setCellValueFactory(new PropertyValueFactory<>("name"));

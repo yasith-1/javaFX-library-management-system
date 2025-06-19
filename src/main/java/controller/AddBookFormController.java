@@ -15,6 +15,8 @@ import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
 import service.custom.impl.BookServiceImpl;
+import util.Alert;
+import util.AlertType;
 import util.ServiceType;
 
 import java.net.URL;
@@ -182,7 +184,10 @@ public class AddBookFormController implements Initializable {
 
     private void loadBookTable() {
         List<Book> bookList = service.getBookList();
-        System.out.println(bookList.size());
+        if (bookList == null){
+            Alert.trigger(AlertType.WARNING,"No available data in table now !");
+            return;
+        }
 
         colIsbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));

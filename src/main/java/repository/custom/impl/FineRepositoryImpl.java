@@ -6,7 +6,9 @@ import util.CrudUtil;
 import util.MapCollection;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class FineRepositoryImpl implements FineRepository {
 
@@ -14,6 +16,35 @@ public class FineRepositoryImpl implements FineRepository {
     HashMap<String, String> bookMap = MapCollection.getInstance().getBookMap();
     HashMap<String, String> fineStatusMap = MapCollection.getInstance().getFineStatusMap();
 
+
+    @Override
+    public List<FineEntity> allFineList() {
+        ArrayList<FineEntity> fineEntityArrayList = new ArrayList<>();
+        try {
+            ResultSet result = CrudUtil.execute("SELECT `fine`.`id`,`reason`,`paid_date`,`paid_time`," +
+                    "`amount`,`member`.`name`,`book`.`title`,`status` FROM `fine` INNER JOIN `member` " +
+                    "ON fine.member_id = `member`.id INNER JOIN `book` ON fine.book_isbn=book.isbn\n" +
+                    " INNER JOIN fine_status ON fine.fine_status_id=fine_status.id ");
+
+            while (result.next()) {
+                FineEntity fineEntity = new FineEntity(
+                        result.getString("id"),
+                        result.getString("reason"),
+                        result.getDate("paid_date").toLocalDate(),
+                        result.getTime("paid_time").toLocalTime(),
+                        result.getDouble("amount"),
+                        result.getString("name"),
+                        result.getString("title"),
+                        result.getString("status"));
+                fineEntityArrayList.add(fineEntity);
+
+            }
+            return fineEntityArrayList;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
+    }
 
     @Override
     public HashMap<String, String> getBookSet() {
@@ -56,6 +87,7 @@ public class FineRepositoryImpl implements FineRepository {
             return null;
         }
     }
+
 
     @Override
     public String getLastFineId() {

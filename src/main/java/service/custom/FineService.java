@@ -4,9 +4,12 @@ import dto.Fine;
 import service.SuperService;
 
 import java.util.HashMap;
+import java.util.List;
 
 public interface FineService extends SuperService {
     String fineId();
+
+    List<Fine> getAllFinesList();
 
     HashMap<String, String> getBookMap();
 

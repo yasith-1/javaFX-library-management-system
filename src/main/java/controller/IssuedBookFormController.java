@@ -110,14 +110,18 @@ public class IssuedBookFormController implements Initializable {
     }
 
     private void loadTable() {
+        List<IssuedBook> issuedBookList = service.getIssuedBookList();
+        if (issuedBookList == null){
+            Alert.trigger(AlertType.WARNING,"No available data in table now !");
+            return;
+        }
+
         colMemberId.setCellValueFactory(new PropertyValueFactory<>("memberId"));
         colBookId.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         colQuantity.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colIssueDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         colIssueTime.setCellValueFactory(new PropertyValueFactory<>("time"));
         colReturnDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
-
-        List<IssuedBook> issuedBookList = service.getIssuedBookList();
 
         if (service.getIssuedBookList() != null) {
             ObservableList<IssuedBook> observableArrayList = FXCollections.observableArrayList(issuedBookList);

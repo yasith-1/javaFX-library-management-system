@@ -3,20 +3,26 @@ package controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import dto.Book;
 import dto.Fine;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import service.ServiceFactory;
 import service.custom.impl.FineServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
+
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class FineFormController implements Initializable {
@@ -45,6 +51,7 @@ public class FineFormController implements Initializable {
         setAutogenaratedFineId();
         loadAllComboboxData();
         loadFineTable();
+        fetchTableRowData();
     }
 
     private void setAutogenaratedFineId() {
@@ -92,6 +99,7 @@ public class FineFormController implements Initializable {
             Boolean isFineAdded = service.addFine(fine);
             if (isFineAdded) {
                 setAutogenaratedFineId();
+                loadFineTable();
                 Alert.trigger(AlertType.INFORMATION, "Fine Added Successfully !");
                 return;
             }
@@ -133,6 +141,7 @@ public class FineFormController implements Initializable {
 
             Boolean isFineUpdated = service.updateFine(fine);
             if (isFineUpdated) {
+                loadFineTable();
                 Alert.trigger(AlertType.INFORMATION, "Fine Updated Successfully !");
                 return;
             }
@@ -174,6 +183,7 @@ public class FineFormController implements Initializable {
 
             Boolean isFineDeleted = service.deleteFine(fine);
             if (isFineDeleted) {
+                loadFineTable();
                 Alert.trigger(AlertType.INFORMATION, "Fine Deleted Successfully !");
                 return;
             }
@@ -213,7 +223,7 @@ public class FineFormController implements Initializable {
         }
     }
 
-    private void setFoundedData(Fine fine){
+    private void setFoundedData(Fine fine) {
         txtFineIdLbl.setText(fine.getId());
         comboMember.setValue(fine.getMemberId());
         comboBook.setValue(fine.getBookIsbn());
@@ -223,6 +233,35 @@ public class FineFormController implements Initializable {
     }
 
     private void loadFineTable() {
+        List<Fine> finesList = service.getAllFinesList();
+        if (finesList == null) {
+            Alert.trigger(AlertType.WARNING, "No available data in table now !");
+            return;
+        }
+
+        colFineId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colMemberName.setCellValueFactory(new PropertyValueFactory<>("memberId"));
+        colBookName.setCellValueFactory(new PropertyValueFactory<>("bookIsbn"));
+        colReason.setCellValueFactory(new PropertyValueFactory<>("reason"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("paidDate"));
+        colTime.setCellValueFactory(new PropertyValueFactory<>("paidTime"));
+        colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("statusId"));
+
+        ObservableList<Fine> observableFineList = FXCollections.observableArrayList(finesList);
+        fineTable.setItems(observableFineList);
+
+    }
+
+    private void fetchTableRowData() {
+        fineTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // double-click
+                Fine selectedFine = (Fine) fineTable.getSelectionModel().getSelectedItem();
+                if (selectedFine != null) {
+                    setFoundedData(selectedFine);
+                }
+            }
+        });
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
