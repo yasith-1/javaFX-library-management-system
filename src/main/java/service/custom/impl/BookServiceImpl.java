@@ -15,7 +15,7 @@ public class BookServiceImpl implements BookService {
 
     BookRepositoryImpl bookRepository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.BOOK);
     ModelMapper modelMapper = new ModelMapper();
-    ArrayList<Book> bookList = new ArrayList<>();
+
 
     @Override
     public String bookId() {
@@ -74,6 +74,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getBookList() {
+        ArrayList<Book> bookList = new ArrayList<>();
         List<BookEntity> bookEntityList = bookRepository.getBookEntityList();
 
 //        bookEntityList map to --> booklist type (DTO|model) and creating booklist

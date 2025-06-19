@@ -134,7 +134,6 @@ public class AddBookFormController implements Initializable {
                             .showInformation();
                     clearField();
                     setAutogenarateBookId();
-                    bookTable.getItems().clear();
                     loadBookTable();
                 } else {
 //                    Book is not added  ...........
@@ -182,8 +181,8 @@ public class AddBookFormController implements Initializable {
     }
 
     private void loadBookTable() {
-        bookTable.getItems().clear();
         List<Book> bookList = service.getBookList();
+        System.out.println(bookList.size());
 
         colIsbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));

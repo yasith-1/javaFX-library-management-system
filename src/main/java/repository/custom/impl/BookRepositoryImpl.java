@@ -15,7 +15,6 @@ public class BookRepositoryImpl implements BookRepository {
     private HashMap<String, String> gerneMap = MapCollection.getInstance().getGerneMap();
     private HashMap<String, String> authorMap = MapCollection.getInstance().getAuthorMap();
     private HashMap<String, String> statusMap = MapCollection.getInstance().getBookStatusMap();
-    private ArrayList<BookEntity> bookEntityList = new ArrayList<>();
 
     @Override
     public String getLastBookId() {
@@ -73,6 +72,7 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public List<BookEntity> getBookEntityList() {
+        ArrayList<BookEntity> bookEntityList = new ArrayList<>();
         try {
             ResultSet resultset = CrudUtil.execute("SELECT `isbn`,`title`,author.`name` AS `author_name`,gerne.`name`AS `gerne_name`,`copies`,`status` FROM `book` INNER JOIN `book_status` ON book.status_id= book_status.id INNER JOIN `gerne` ON book.gerne_id = gerne.gerne_id INNER JOIN `author` ON book.author_id=author.id");
             while (resultset.next()) {
