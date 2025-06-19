@@ -1,4 +1,6 @@
 package service.custom.impl;
 
-public class MemberServiceImpl {
+import service.SuperService;
+
+public class MemberServiceImpl implements SuperService {
 }

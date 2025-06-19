@@ -1,10 +1,8 @@
 package repository.custom.impl;
 
 import entity.AuthorEntity;
-import entity.CategoryEntity;
 import repository.custom.AuthorRepository;
 import util.CrudUtil;
-
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;

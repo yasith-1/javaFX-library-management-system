@@ -10,6 +10,7 @@ public class MapCollection {
     private HashMap<String, String> bookStatusMap;
     private HashMap<String, String> bookMap;
     private HashMap<String, String> memberMap;
+    private HashMap<String, String> memberTypeMap;
     private HashMap<String, Integer> bookQuantityMap;
     private HashMap<String, String> fineStatusMap;
 
@@ -19,6 +20,7 @@ public class MapCollection {
         bookStatusMap = new HashMap<>();
         bookMap = new HashMap<>();
         memberMap = new HashMap<>();
+        memberTypeMap = new HashMap<>();
         bookQuantityMap = new HashMap<>();
         fineStatusMap = new HashMap<>();
     }
@@ -41,6 +43,10 @@ public class MapCollection {
 
     public HashMap<String, String> getMemberMap() {
         return memberMap;
+    }
+
+    public HashMap<String, String> getMemberTypeMap() {
+        return memberTypeMap;
     }
 
     public HashMap<String, Integer> getBookQuantityMap() {

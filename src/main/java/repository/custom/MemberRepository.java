@@ -1,4 +1,7 @@
 package repository.custom;
 
-public interface MemberRepository {
+import entity.MemberEntity;
+import repository.CrudRepository;
+
+public interface MemberRepository extends CrudRepository<MemberEntity, String> {
 }
