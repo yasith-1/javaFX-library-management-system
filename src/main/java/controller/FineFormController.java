@@ -88,11 +88,12 @@ public class FineFormController implements Initializable {
                     statusId);
 
             Boolean isFineAdded = service.addFine(fine);
-            if (isFineAdded){
-                Alert.trigger(AlertType.INFORMATION,"Fine Added Successfully !");
+            if (isFineAdded) {
+                setAutogenaratedFineId();
+                Alert.trigger(AlertType.INFORMATION, "Fine Added Successfully !");
                 return;
             }
-            Alert.trigger(AlertType.ERROR,"Fine adding failed ..");
+            Alert.trigger(AlertType.ERROR, "Fine adding failed ..");
         }
     }
 
@@ -129,11 +130,11 @@ public class FineFormController implements Initializable {
                     statusId);
 
             Boolean isFineUpdated = service.updateFine(fine);
-            if (isFineUpdated){
-                Alert.trigger(AlertType.INFORMATION,"Fine Updated Successfully !");
+            if (isFineUpdated) {
+                Alert.trigger(AlertType.INFORMATION, "Fine Updated Successfully !");
                 return;
             }
-            Alert.trigger(AlertType.ERROR,"Fine Update failed ..");
+            Alert.trigger(AlertType.ERROR, "Fine Update failed ..");
         }
     }
 
@@ -170,15 +171,49 @@ public class FineFormController implements Initializable {
                     statusId);
 
             Boolean isFineDeleted = service.deleteFine(fine);
-            if (isFineDeleted){
-                Alert.trigger(AlertType.INFORMATION,"Fine Deleted Successfully !");
+            if (isFineDeleted) {
+                Alert.trigger(AlertType.INFORMATION, "Fine Deleted Successfully !");
                 return;
             }
-            Alert.trigger(AlertType.ERROR,"Fine Delete failed ..");
+            Alert.trigger(AlertType.ERROR, "Fine Delete failed ..");
         }
     }
 
     public void searchOnActionBtn(ActionEvent actionEvent) {
+        if (comboMember.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Select a Member !");
+            return;
+        } else if (comboBook.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Select a Book !");
+            return;
+        } else {
+//            All validated
+            String memberId = service.getMemberMap().get(comboMember.getValue());
+            String bookId = service.getBookMap().get(comboBook.getValue());
+            Integer statusId = service.getFineStatusMap().get(comboFineStatus.getValue());
+
+            Fine fine = new Fine(
+                    txtFineIdLbl.getText(),
+                    null,
+                    null,
+                    null,
+                    null,
+                    memberId,
+                    bookId,
+                    statusId);
+
+            Fine foundedFine = service.searchFine(fine);
+            if (foundedFine != null) {
+//                call data set method
+                setFoundedData(foundedFine);
+                return;
+            }
+            Alert.trigger(AlertType.ERROR, "Fine not found try again !");
+        }
+    }
+
+    private void setFoundedData(Fine fine){
+
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {

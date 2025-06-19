@@ -4,6 +4,7 @@ import entity.FineEntity;
 import repository.custom.FineRepository;
 import util.CrudUtil;
 import util.MapCollection;
+
 import java.sql.ResultSet;
 import java.util.HashMap;
 
@@ -72,12 +73,42 @@ public class FineRepositoryImpl implements FineRepository {
 
     @Override
     public Boolean add(FineEntity entity) {
-        return null;
+        try {
+            Boolean result = CrudUtil.execute("INSERT INTO `fine` VALUES (?,?,?,?,?,?,?,?)",
+                    entity.getId(),
+                    entity.getReason(),
+                    entity.getPaidDate(),
+                    entity.getPaidTime(),
+                    entity.getAmount(),
+                    entity.getMemberId(),
+                    entity.getBookIsbn(),
+                    entity.getStatusId());
+
+            return result;
+        } catch (Exception e) {
+            e.getMessage();
+            return false;
+        }
     }
 
     @Override
     public Boolean update(FineEntity entity) {
-        return null;
+        try {
+            Boolean result = CrudUtil.execute("UPDATE `fine` SET `reason`=? ,`amount`=? , `fine_status_id`=? " +
+                            "WHERE `id`=? AND `member_id`=? AND `book_isbn`=?",
+                    entity.getReason(),
+                    entity.getAmount(),
+                    entity.getStatusId(),
+                    entity.getId(),
+                    entity.getMemberId(),
+                    entity.getBookIsbn()
+            );
+
+            return result;
+        } catch (Exception e) {
+            e.getMessage();
+            return false;
+        }
     }
 
     @Override
@@ -87,7 +118,28 @@ public class FineRepositoryImpl implements FineRepository {
 
     @Override
     public FineEntity search(FineEntity entity) {
-        return null;
+        try {
+            ResultSet result = CrudUtil.execute("SELECT * FROM `fine` WHERE `id`=? AND `member_id`=? AND `book_isbn`=?");
+
+            if (result.next()){
+                FineEntity fineEntity = new FineEntity(
+                        result.getString("1"),
+                        result.getString("2"),
+                        result.getDate("3").toLocalDate(),
+                        result.getTime("4").toLocalTime(),
+                        result.getDouble("5"),
+                        result.getString("6"),
+                        result.getString("7"),
+                        result.getInt("8")
+                );
+
+                return fineEntity;
+            }
+            return null;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
     }
 
 }

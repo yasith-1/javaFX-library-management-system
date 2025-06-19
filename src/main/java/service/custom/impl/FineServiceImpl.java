@@ -7,6 +7,7 @@ import repository.RepositoryFactory;
 import repository.custom.impl.FineRepositoryImpl;
 import service.custom.FineService;
 import util.RepositoryType;
+
 import java.util.HashMap;
 
 public class FineServiceImpl implements FineService {
@@ -59,6 +60,12 @@ public class FineServiceImpl implements FineService {
 
     @Override
     public Fine searchFine(Fine fine) {
+        FineEntity fineEntity = modelMapper.map(fine, FineEntity.class);
+        FineEntity searchResult = repository.search(fineEntity);
+        if (searchResult != null) {
+            Fine fineDTO = modelMapper.map(searchResult, Fine.class);
+            return fineDTO;
+        }
         return null;
     }
 }
