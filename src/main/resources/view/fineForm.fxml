@@ -99,14 +99,16 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <TableView fx:id="fineTable" editable="true" layoutX="28.0" layoutY="517.0" prefHeight="165.0" prefWidth="593.0">
+      <TableView fx:id="fineTable" editable="true" layoutX="16.0" layoutY="517.0" prefHeight="165.0" prefWidth="619.0">
         <columns>
-          <TableColumn fx:id="colMemberName" prefWidth="121.0" resizable="false" text="Member Name" />
-            <TableColumn fx:id="colBookName" prefWidth="120.0" resizable="false" text="Book Name" />
-            <TableColumn fx:id="colPaidDate" prefWidth="96.0" resizable="false" text="Paid Date" />
-            <TableColumn fx:id="colPaidTIme" prefWidth="89.0" resizable="false" text="Paid Time" />
-            <TableColumn fx:id="colAmount" prefWidth="86.0" resizable="false" text="Amount" />
-            <TableColumn fx:id="colPayStatus" resizable="false" text="Pay Status" />
+          <TableColumn fx:id="colFineId" prefWidth="47.0" resizable="false" text="Fine ID" />
+            <TableColumn fx:id="colMemberName" prefWidth="109.0" resizable="false" text="Member Name" />
+            <TableColumn fx:id="colBookName" prefWidth="82.0" resizable="false" text="Book Name" />
+            <TableColumn fx:id="colReason" prefWidth="114.0" resizable="false" text="Reason" />
+            <TableColumn fx:id="colDate" prefWidth="65.0" resizable="false" text="Paid Date" />
+            <TableColumn fx:id="colTime" prefWidth="72.0" resizable="false" text="Paid Time" />
+            <TableColumn fx:id="colAmount" prefWidth="60.0" resizable="false" text="Amount" />
+            <TableColumn fx:id="colStatus" prefWidth="69.0" resizable="false" text="Pay Status" />
         </columns>
       </TableView>
    </children>
