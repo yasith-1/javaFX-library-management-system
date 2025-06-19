@@ -37,8 +37,20 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Boolean addBook(Category category) {
+    public Boolean addCategory(Category category) {
         CategoryEntity categoryEntity = modelMapper.map(category, CategoryEntity.class);
         return repository.add(categoryEntity);
+    }
+
+    @Override
+    public Boolean updateCategory(Category category){
+        CategoryEntity categoryEntity = modelMapper.map(category, CategoryEntity.class);
+        return repository.update(categoryEntity);
+    }
+
+    @Override
+    public Boolean deleteCategory(Category category){
+        CategoryEntity categoryEntity = modelMapper.map(category, CategoryEntity.class);
+        return repository.delete(categoryEntity);
     }
 }

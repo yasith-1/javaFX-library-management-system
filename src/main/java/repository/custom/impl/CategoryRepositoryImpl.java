@@ -3,6 +3,7 @@ package repository.custom.impl;
 import entity.CategoryEntity;
 import repository.custom.CategoryRepository;
 import util.CrudUtil;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,12 +60,28 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
     @Override
     public Boolean update(CategoryEntity entity) {
-        return null;
+        try {
+            Boolean result = CrudUtil.execute("UPDATE `gerne` SET `name`=? WHERE `gerne_id`=?",
+                    entity.getName(),
+                    entity.getGerneId());
+
+            return result;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     @Override
     public Boolean delete(CategoryEntity entity) {
-        return null;
+        try {
+            Boolean result = CrudUtil.execute("DELETE FROM `gerne` WHERE `gerne_id`=?", entity.getGerneId());
+
+            return result;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     @Override

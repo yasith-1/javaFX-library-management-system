@@ -1,6 +1,7 @@
 package controller;
 
 import com.jfoenix.controls.JFXTextField;
+import dto.Book;
 import dto.Category;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,6 +36,7 @@ public class BookCategoryController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadCategorytable();
         setAutoGenaratedId();
+        fetchTableRowData();
     }
 
     private void setAutoGenaratedId() {
@@ -45,15 +47,93 @@ public class BookCategoryController implements Initializable {
         clearField();
     }
 
-    private void clearField(){
+    private void clearField() {
 //        txtCategoryId.setText("");
         txtCategoryName.setText("");
     }
 
-    private void loadCategorytable(){
+    public void addCategoryOnActionBtn(ActionEvent actionEvent) {
+        if (txtCategoryId.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Category Id missing ..");
+            return;
+        } else if (txtCategoryName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Enter Category name ..");
+            return;
+        } else {
+//            Validate text fields and ensure those all filled
+            Category category = new Category(txtCategoryId.getText(), txtCategoryName.getText());
+            Boolean isAdded = service.addCategory(category);
+            if (isAdded) {
+//                    category added successfully ...........
+                clearField();
+                setAutoGenaratedId();
+                loadCategorytable();
+                Alert.trigger(AlertType.INFORMATION, "Category Added Successfully !");
+            } else {
+//                    category is not added  ...........
+                clearField();
+                Alert.trigger(AlertType.ERROR, "Category doesn't Added ..");
+
+            }
+        }
+    }
+
+    public void updateCategoryOnActionBtn(ActionEvent actionEvent) {
+        if (txtCategoryId.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Category Id missing ..");
+            return;
+        } else if (txtCategoryName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Enter Category name ..");
+            return;
+        } else {
+//            Validate text fields and ensure those all filled
+            Category category = new Category(txtCategoryId.getText(), txtCategoryName.getText());
+            Boolean isAdded = service.updateCategory(category);
+            if (isAdded) {
+//                    category updated successfully ...........
+                clearField();
+                setAutoGenaratedId();
+                loadCategorytable();
+                Alert.trigger(AlertType.INFORMATION, "Category Updated Successfully !");
+            } else {
+//                    category is not updated  ...........
+                clearField();
+                Alert.trigger(AlertType.ERROR, "Category doesn't update ..");
+
+            }
+        }
+    }
+
+    public void deleteCategoryOnActionBtn(ActionEvent actionEvent) {
+        if (txtCategoryId.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Category Id missing ..");
+            return;
+        } else if (txtCategoryName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Enter Category name ..");
+            return;
+        } else {
+//            Validate text fields and ensure those all filled
+            Category category = new Category(txtCategoryId.getText(), txtCategoryName.getText());
+            Boolean isAdded = service.deleteCategory(category);
+            if (isAdded) {
+//                    category Deleted successfully ...........
+                clearField();
+                setAutoGenaratedId();
+                loadCategorytable();
+                Alert.trigger(AlertType.INFORMATION, "Category Deleted Successfully !");
+            } else {
+//                    category is not Deleted  ...........
+                clearField();
+                Alert.trigger(AlertType.ERROR, "Category doesn't delete ..");
+
+            }
+        }
+    }
+
+    private void loadCategorytable() {
         List<Category> categoryList = service.getCategoryList();
-        if (categoryList == null){
-            Alert.trigger(AlertType.WARNING,"No available data in table now !");
+        if (categoryList == null) {
+            Alert.trigger(AlertType.WARNING, "No available data in table now !");
             return;
         }
 
@@ -64,58 +144,19 @@ public class BookCategoryController implements Initializable {
         categoryTable.setItems(categoriesList);
     }
 
-
-    public void addCategoryOnActionBtn(ActionEvent actionEvent) {
-//        validating Input fields------------------
-
-        if (txtCategoryId.getText().isEmpty()) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Category Id missing ..")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
-
-            return;
-        } else if (txtCategoryName.getText().isEmpty()) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Enter Category name ..")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
-            return;
-        } else {
-//            Validate text fields and ensure those all filled
-            Category category = new Category(txtCategoryId.getText(), txtCategoryName.getText());
-            Boolean isAdded = service.addBook(category);
-            if (isAdded) {
-//                    category added successfully ...........
-                Notifications.create()
-                        .title("Success")
-                        .text("Category Added Successfully ")
-                        .hideAfter(Duration.seconds(3))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .showInformation();
-                clearField();
-                setAutoGenaratedId();
-                loadCategorytable();
-            } else {
-//                    category is not added  ...........
-                Notifications.create()
-                        .title("Error")
-                        .text("Category doessn't Added ... ")
-                        .hideAfter(Duration.seconds(3))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .showError();
-                clearField();
+    private void fetchTableRowData() {
+        categoryTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // double-click
+                Category selectedCategory = (Category) categoryTable.getSelectionModel().getSelectedItem();
+                if (selectedCategory != null) {
+                    setFoundedData(selectedCategory);
+                }
             }
-        }
+        });
     }
 
-    public void updateCategoryOnActionBtn(ActionEvent actionEvent) {
-    }
-
-    public void deleteCategoryOnActionBtn(ActionEvent actionEvent) {
+    private void setFoundedData(Category category) {
+        txtCategoryId.setText(category.getGerneId());
+        txtCategoryName.setText(category.getName());
     }
 }

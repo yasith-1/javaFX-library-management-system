@@ -9,7 +9,11 @@ import java.util.List;
 public interface CategoryService extends SuperService {
     String getCategoryId();
 
-    Boolean addBook(Category category);
+    Boolean addCategory(Category category);
+
+    Boolean updateCategory(Category category);
+
+    Boolean deleteCategory(Category category);
 
     List<Category> getCategoryList();
 }
