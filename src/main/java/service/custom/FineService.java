@@ -12,7 +12,7 @@ public interface FineService extends SuperService {
 
     HashMap<String, String> getMemberMap();
 
-    HashMap<String, Integer> getFineStatusMap();
+    HashMap<String, String> getFineStatusMap();
 
     Boolean addFine(Fine fine);
 

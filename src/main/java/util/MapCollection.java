@@ -11,7 +11,7 @@ public class MapCollection {
     private HashMap<String, String> bookMap;
     private HashMap<String, String> memberMap;
     private HashMap<String, Integer> bookQuantityMap;
-    private HashMap<String, Integer> fineStatusMap;
+    private HashMap<String, String> fineStatusMap;
 
     private MapCollection() {
         gerneMap = new HashMap<>();
@@ -47,7 +47,7 @@ public class MapCollection {
         return bookQuantityMap;
     }
 
-    public HashMap<String, Integer> getFineStatusMap() {
+    public HashMap<String, String> getFineStatusMap() {
         return fineStatusMap;
     }
 

@@ -12,7 +12,7 @@ public class FineRepositoryImpl implements FineRepository {
 
     HashMap<String, String> memberMap = MapCollection.getInstance().getMemberMap();
     HashMap<String, String> bookMap = MapCollection.getInstance().getBookMap();
-    HashMap<String, Integer> fineStatusMap = MapCollection.getInstance().getFineStatusMap();
+    HashMap<String, String> fineStatusMap = MapCollection.getInstance().getFineStatusMap();
 
 
     @Override
@@ -44,11 +44,11 @@ public class FineRepositoryImpl implements FineRepository {
     }
 
     @Override
-    public HashMap<String, Integer> getFineStatusSet() {
+    public HashMap<String, String> getFineStatusSet() {
         try {
             ResultSet resultset = CrudUtil.execute("SELECT * FROM `fine_status`");
             while (resultset.next()) {
-                fineStatusMap.put(resultset.getString("status"), resultset.getInt("id"));
+                fineStatusMap.put(resultset.getString("status"), resultset.getString("id"));
             }
             return fineStatusMap;
         } catch (Exception e) {
@@ -119,20 +119,26 @@ public class FineRepositoryImpl implements FineRepository {
     @Override
     public FineEntity search(FineEntity entity) {
         try {
-            ResultSet result = CrudUtil.execute("SELECT * FROM `fine` WHERE `id`=? AND `member_id`=? AND `book_isbn`=?");
+            ResultSet result = CrudUtil.execute("SELECT `fine`.`id`,`reason`,`paid_date`,`paid_time`,`amount`," +
+                            "`member`.`name`,`book`.`title`,`status` FROM `fine` INNER JOIN `member` " +
+                            "ON fine.member_id = `member`.id INNER JOIN `book` ON fine.book_isbn=book.isbn" +
+                            " INNER JOIN fine_status ON fine.fine_status_id=fine_status.id " +
+                            "WHERE `fine`.`id`=? AND `member_id`=? AND `book_isbn`=?",
+                    entity.getId(),
+                    entity.getMemberId(),
+                    entity.getBookIsbn());
 
-            if (result.next()){
+            if (result.next()) {
                 FineEntity fineEntity = new FineEntity(
-                        result.getString("1"),
-                        result.getString("2"),
-                        result.getDate("3").toLocalDate(),
-                        result.getTime("4").toLocalTime(),
-                        result.getDouble("5"),
-                        result.getString("6"),
-                        result.getString("7"),
-                        result.getInt("8")
+                        result.getString("id"),
+                        result.getString("reason"),
+                        result.getDate("paid_date").toLocalDate(),
+                        result.getTime("paid_time").toLocalTime(),
+                        result.getDouble("amount"),
+                        result.getString("name"),
+                        result.getString("title"),
+                        result.getString("status")
                 );
-
                 return fineEntity;
             }
             return null;

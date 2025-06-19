@@ -17,5 +17,5 @@ public class Fine {
     private Double amount;
     private String memberId;
     private String bookIsbn;
-    private Integer statusId;
+    private String statusId;
 }

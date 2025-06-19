@@ -36,7 +36,7 @@ public class FineServiceImpl implements FineService {
     }
 
     @Override
-    public HashMap<String, Integer> getFineStatusMap() {
+    public HashMap<String, String> getFineStatusMap() {
         return repository.getFineStatusSet();
     }
 

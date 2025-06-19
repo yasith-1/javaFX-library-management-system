@@ -10,7 +10,7 @@ public interface FineRepository extends CrudRepository<FineEntity, String> {
 
     HashMap<String, String> getMemberSet();
 
-    HashMap<String, Integer> getFineStatusSet();
+    HashMap<String, String> getFineStatusSet();
 
     String getLastFineId();
 }

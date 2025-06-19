@@ -75,7 +75,7 @@ public class FineFormController implements Initializable {
 //            All validated
             String memberId = service.getMemberMap().get(comboMember.getValue());
             String bookId = service.getBookMap().get(comboBook.getValue());
-            Integer statusId = service.getFineStatusMap().get(comboFineStatus.getValue());
+            String statusId = service.getFineStatusMap().get(comboFineStatus.getValue());
 
             Fine fine = new Fine(
                     txtFineIdLbl.getText(),
@@ -117,7 +117,7 @@ public class FineFormController implements Initializable {
 //            All validated
             String memberId = service.getMemberMap().get(comboMember.getValue());
             String bookId = service.getBookMap().get(comboBook.getValue());
-            Integer statusId = service.getFineStatusMap().get(comboFineStatus.getValue());
+            String statusId = service.getFineStatusMap().get(comboFineStatus.getValue());
 
             Fine fine = new Fine(
                     txtFineIdLbl.getText(),
@@ -158,7 +158,7 @@ public class FineFormController implements Initializable {
 //            All validated
             String memberId = service.getMemberMap().get(comboMember.getValue());
             String bookId = service.getBookMap().get(comboBook.getValue());
-            Integer statusId = service.getFineStatusMap().get(comboFineStatus.getValue());
+            String statusId = service.getFineStatusMap().get(comboFineStatus.getValue());
 
             Fine fine = new Fine(
                     txtFineIdLbl.getText(),
@@ -180,17 +180,16 @@ public class FineFormController implements Initializable {
     }
 
     public void searchOnActionBtn(ActionEvent actionEvent) {
-        if (comboMember.getValue() == null) {
-            Alert.trigger(AlertType.WARNING, "Select a Member !");
+        if (txtSearchFieldMemberName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Enter a Member !");
             return;
-        } else if (comboBook.getValue() == null) {
-            Alert.trigger(AlertType.WARNING, "Select a Book !");
+        } else if (txtSearchFieldBookName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Enter a  Book !");
             return;
         } else {
 //            All validated
-            String memberId = service.getMemberMap().get(comboMember.getValue());
-            String bookId = service.getBookMap().get(comboBook.getValue());
-            Integer statusId = service.getFineStatusMap().get(comboFineStatus.getValue());
+            String memberId = service.getMemberMap().get(txtSearchFieldMemberName.getText());
+            String bookId = service.getBookMap().get(txtSearchFieldBookName.getText());
 
             Fine fine = new Fine(
                     txtFineIdLbl.getText(),
@@ -200,7 +199,7 @@ public class FineFormController implements Initializable {
                     null,
                     memberId,
                     bookId,
-                    statusId);
+                    null);
 
             Fine foundedFine = service.searchFine(fine);
             if (foundedFine != null) {
@@ -213,9 +212,21 @@ public class FineFormController implements Initializable {
     }
 
     private void setFoundedData(Fine fine){
-
+        txtFineIdLbl.setText(fine.getId());
+        comboMember.setValue(fine.getMemberId());
+        comboBook.setValue(fine.getBookIsbn());
+        comboFineStatus.setValue(fine.getStatusId());
+        txtReason.setText(fine.getReason());
+        txtAmount.setText(fine.getAmount().toString());
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
+        txtSearchFieldBookName.setText("");
+        txtSearchFieldMemberName.setText("");
+        comboMember.setValue("");
+        comboBook.setValue("");
+        comboFineStatus.setValue("");
+        txtReason.setText("");
+        txtAmount.setText("");
     }
 }
