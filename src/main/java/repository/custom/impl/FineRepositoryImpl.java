@@ -113,7 +113,16 @@ public class FineRepositoryImpl implements FineRepository {
 
     @Override
     public Boolean delete(FineEntity entity) {
-        return null;
+        try {
+            Boolean result = CrudUtil.execute("DELETE FROM `fine` WHERE `id`=? AND `member_id`=? AND `book_isbn`=?",
+                    entity.getId(),
+                    entity.getMemberId(),
+                    entity.getBookIsbn());
+            return result;
+        } catch (Exception e) {
+            e.getMessage();
+            return false;
+        }
     }
 
     @Override
@@ -147,5 +156,4 @@ public class FineRepositoryImpl implements FineRepository {
             return null;
         }
     }
-
 }

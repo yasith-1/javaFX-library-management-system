@@ -14,7 +14,6 @@ import service.custom.impl.FineServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
-
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -31,11 +30,13 @@ public class FineFormController implements Initializable {
     public TableView fineTable;
     public TableColumn colMemberName;
     public TableColumn colBookName;
-    public TableColumn colPaidDate;
-    public TableColumn colPaidTIme;
     public TableColumn colAmount;
-    public TableColumn colPayStatus;
     public JFXTextField txtSearchFieldMemberName;
+    public TableColumn colFineId;
+    public TableColumn colReason;
+    public TableColumn colTime;
+    public TableColumn colDate;
+    public TableColumn colStatus;
 
     FineServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.FINE);
 
@@ -43,6 +44,7 @@ public class FineFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setAutogenaratedFineId();
         loadAllComboboxData();
+        loadFineTable();
     }
 
     private void setAutogenaratedFineId() {
@@ -218,6 +220,9 @@ public class FineFormController implements Initializable {
         comboFineStatus.setValue(fine.getStatusId());
         txtReason.setText(fine.getReason());
         txtAmount.setText(fine.getAmount().toString());
+    }
+
+    private void loadFineTable() {
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
