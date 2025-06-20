@@ -8,7 +8,6 @@ import repository.custom.impl.MemberRepositoryImpl;
 import service.custom.MemberService;
 import util.Mapper;
 import util.RepositoryType;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
