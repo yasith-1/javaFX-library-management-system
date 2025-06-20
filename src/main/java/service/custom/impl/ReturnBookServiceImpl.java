@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import repository.RepositoryFactory;
 import repository.custom.impl.ReturnBookRepositoryImpl;
 import service.custom.ReturnBookService;
+import util.Mapper;
 import util.RepositoryType;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.List;
 public class ReturnBookServiceImpl implements ReturnBookService {
 
     ReturnBookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.RETURNBOOK);
-    ModelMapper modelMapper = new ModelMapper();
+    ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override
     public HashMap<String, String> getBookMap() {

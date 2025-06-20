@@ -1,14 +1,12 @@
 package service.custom.impl;
 
 import dto.Author;
-import dto.Category;
 import entity.AuthorEntity;
-import entity.CategoryEntity;
 import org.modelmapper.ModelMapper;
 import repository.RepositoryFactory;
 import repository.custom.impl.AuthorRepositoryImpl;
-import repository.custom.impl.CategoryRepositoryImpl;
 import service.custom.AuthorService;
+import util.Mapper;
 import util.RepositoryType;
 
 import java.util.ArrayList;
@@ -17,7 +15,7 @@ import java.util.List;
 public class AuthorServiceImpl implements AuthorService {
 
     AuthorRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.AUTHOR);
-    ModelMapper modelMapper = new ModelMapper();
+    ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override
     public String getAuthoryId() {

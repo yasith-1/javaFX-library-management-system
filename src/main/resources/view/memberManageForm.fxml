@@ -37,15 +37,19 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="432.0" layoutY="405.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="167.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="433.0" layoutY="405.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="167.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="memberTable" layoutX="50.0" layoutY="488.0" prefHeight="187.0" prefWidth="559.0">
+      <TableView fx:id="memberTable" layoutX="37.0" layoutY="488.0" prefHeight="187.0" prefWidth="592.0">
          <columns>
-            <TableColumn fx:id="colMemberId" prefWidth="271.0" resizable="false" style="-fx-alignment: CENTER;" text="Member ID" />
-            <TableColumn fx:id="colMemberName" prefWidth="297.0" style="-fx-alignment: CENTER;" text="Member Name" />
+            <TableColumn fx:id="colMemberId" prefWidth="93.0" resizable="false" style="-fx-alignment: CENTER;" text="Member ID" />
+            <TableColumn fx:id="colMemberName" prefWidth="111.0" style="-fx-alignment: CENTER;" text="Member Name" />
+            <TableColumn fx:id="colMemberNIC" prefWidth="81.0" style="-fx-alignment: CENTER;" text="NIC" />
+            <TableColumn fx:id="colMemberEmail" prefWidth="118.0" style="-fx-alignment: CENTER;" text="Email" />
+            <TableColumn fx:id="colMemberAddress" prefWidth="97.0" style="-fx-alignment: CENTER;" text="Address" />
+            <TableColumn fx:id="colMemberType" prefWidth="92.0" style="-fx-alignment: CENTER;" text="Type" />
          </columns>
       </TableView>
       <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="435.0" layoutY="282.0" onAction="#updateMemberOnActionBtn" prefHeight="40.0" prefWidth="167.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Update Member">

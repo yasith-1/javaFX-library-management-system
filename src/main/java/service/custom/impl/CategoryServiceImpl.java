@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import repository.RepositoryFactory;
 import repository.custom.impl.CategoryRepositoryImpl;
 import service.custom.CategoryService;
+import util.Mapper;
 import util.RepositoryType;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 public class CategoryServiceImpl implements CategoryService {
 
     CategoryRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.CATEGORY);
-    ModelMapper modelMapper = new ModelMapper();
+    ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override
     public String getCategoryId() {

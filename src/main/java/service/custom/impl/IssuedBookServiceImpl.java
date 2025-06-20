@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import repository.RepositoryFactory;
 import repository.custom.impl.IssuedBookRepositoryImpl;
 import service.custom.IssuedBookService;
+import util.Mapper;
 import util.RepositoryType;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class IssuedBookServiceImpl implements IssuedBookService {
     IssuedBookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.ISSUEDBOOK);
-    ModelMapper modelMapper = new ModelMapper();
+    ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override
     public HashMap<String, String> getBookMap() {
