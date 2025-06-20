@@ -13,9 +13,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="709.0" prefWidth="639.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddBookFormController">
+<AnchorPane prefHeight="700.0" prefWidth="650.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddBookFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutX="-6.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="645.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutX="-6.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="656.0" />
       <Label layoutX="250.0" layoutY="24.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Add New Book" textFill="WHITE">
          <font>
             <Font name="Poppins Bold" size="28.0" />
@@ -26,26 +26,8 @@
             <Image url="@../image/stageicon.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="40.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="140.0" />
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="41.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="140.0" />
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="43.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="140.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="130.0" text="Book ID" textFill="WHITE">
-         <font>
-            <Font name="Poppins Regular" size="17.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="218.0" text="Book Title" textFill="WHITE">
-         <font>
-            <Font name="Poppins Regular" size="17.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="306.0" text="Copies Count" textFill="WHITE">
-         <font>
-            <Font name="Poppins Regular" size="17.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="247.0" layoutX="332.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
-      <JFXComboBox fx:id="comboStatus" focusColor="#17a6ff00" layoutX="350.0" layoutY="240.0" prefHeight="32.0" prefWidth="235.0" promptText="Book Availability" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#0b3d6100">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="192.0" layoutX="332.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
+      <JFXComboBox fx:id="comboStatus" focusColor="#17a6ff00" layoutX="350.0" layoutY="208.0" prefHeight="32.0" prefWidth="235.0" promptText="Book Availability" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#0b3d6100">
          <padding>
             <Insets left="15.0" />
          </padding>
@@ -55,47 +37,53 @@
             <Insets left="15.0" />
          </padding>
       </JFXComboBox>
-      <JFXComboBox fx:id="comboAuthor" focusColor="#17a6ff00" layoutX="350.0" layoutY="321.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Author" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#adadad00">
+      <JFXComboBox fx:id="comboAuthor" focusColor="#17a6ff00" layoutX="350.0" layoutY="260.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Author" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#adadad00">
          <padding>
             <Insets left="15.0" />
          </padding>
       </JFXComboBox>
-      <JFXTextField fx:id="txtId" editable="false" focusColor="#15a5ff" layoutX="44.0" layoutY="161.0" prefHeight="25.0" prefWidth="221.0" style="-fx-cursor: hand; -fx-text-fill: white;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtTile" focusColor="#15a5ff" layoutX="42.0" layoutY="184.0" prefHeight="25.0" prefWidth="221.0" promptText="Add Book Title" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtTile" focusColor="#15a5ff" layoutX="44.0" layoutY="251.0" prefHeight="25.0" prefWidth="221.0" style="-fx-cursor: hand; -fx-text-fill: white;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtCopies" focusColor="#15a5ff" layoutX="42.0" layoutY="250.0" prefHeight="25.0" prefWidth="221.0" promptText="Add Copies Count" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtCopies" focusColor="#15a5ff" layoutX="46.0" layoutY="337.0" prefHeight="25.0" prefWidth="221.0" style="-fx-cursor: hand; -fx-text-fill: white;" unFocusColor="#aeaeae">
-         <font>
-            <Font name="Poppins Regular" size="16.0" />
-         </font></JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="414.0" onAction="#addBookOnActionBtn" prefHeight="40.0" prefWidth="162.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Add Book">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="350.0" onAction="#addBookOnActionBtn" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Add Book">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="241.0" layoutY="414.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="162.0" style="-fx-background-color: #718093; -fx-background-radius: 20; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="244.0" layoutY="350.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="162.0" style="-fx-background-color: #718093; -fx-background-radius: 20; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="bookTable" layoutX="19.0" layoutY="495.0" prefHeight="200.0" prefWidth="603.0">
+      <TableView fx:id="bookTable" layoutX="42.0" layoutY="434.0" prefHeight="222.0" prefWidth="564.0">
         <columns>
           <TableColumn fx:id="colIsbn" prefWidth="61.0" text="Book ID" />
           <TableColumn fx:id="colTitle" prefWidth="136.0" text="Title" />
-            <TableColumn fx:id="colAuthor" prefWidth="130.0" text="Author" />
-            <TableColumn fx:id="colCategory" prefWidth="114.0" text="Category" />
-            <TableColumn fx:id="colCopies" prefWidth="63.0" text="Copies" />
-            <TableColumn fx:id="colStatus" prefWidth="96.0" text="Status" />
+            <TableColumn fx:id="colAuthor" prefWidth="120.0" text="Author" />
+            <TableColumn fx:id="colCategory" prefWidth="104.0" text="Category" />
+            <TableColumn fx:id="colCopies" prefWidth="70.0" text="Copies" />
+            <TableColumn fx:id="colStatus" prefWidth="72.0" text="Status" />
         </columns>
       </TableView>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="426.0" layoutY="414.0" onAction="#loadTableOnActionBtn" prefHeight="40.0" prefWidth="162.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 20; -fx-cursor: hand;" text="Load Table">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="423.0" layoutY="350.0" onAction="#loadTableOnActionBtn" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #fbc531; -fx-background-radius: 20; -fx-cursor: hand;" text="Load Table">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
+      <Label fx:id="txtIdLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="137.0" layoutY="105.0" prefHeight="28.0" prefWidth="113.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="B001" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="105.0" prefHeight="28.0" prefWidth="104.0" style="-fx-border-color: #b2bec3; -fx-label-padding: 2; -fx-border-radius: 10;" text="Book ID :" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

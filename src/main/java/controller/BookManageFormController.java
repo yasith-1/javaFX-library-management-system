@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,7 +28,6 @@ public class BookManageFormController implements Initializable {
     public JFXComboBox comboStatus;
     public JFXComboBox comboCategory;
     public JFXComboBox comboAuthor;
-    public JFXTextField txtId;
     public JFXTextField txtTile;
     public JFXTextField txtCopies;
     public TableView bookTable;
@@ -38,6 +38,7 @@ public class BookManageFormController implements Initializable {
     public TableColumn colCategory;
     public TableColumn colCopies;
     public TableColumn colStatus;
+    public Label txtIdLbl;
 
     BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
 
@@ -87,7 +88,7 @@ public class BookManageFormController implements Initializable {
                 String authorId = service.getAuthorMap().get(comboAuthor.getValue());
 
                 Book book = new Book(
-                        txtId.getText(),
+                        txtIdLbl.getText(),
                         txtTile.getText(),
                         Integer.parseInt(txtCopies.getText()),
                         statusId,
@@ -113,13 +114,13 @@ public class BookManageFormController implements Initializable {
     }
 
     public void deleteBookOnActionBtn(ActionEvent actionEvent) {
-        if (txtId.getText().isEmpty()) {
+        if (txtIdLbl.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "Book ID must need to continue this operation ...");
             return;
         }
 
         Book book = new Book(
-                txtId.getText(),
+                txtIdLbl.getText(),
                 null,
                 null,
                 null,
@@ -142,7 +143,6 @@ public class BookManageFormController implements Initializable {
     }
 
     private void clearField() {
-        txtId.setText("");
         txtTile.setText("");
         txtCopies.setText("");
         comboCategory.setValue(null);
@@ -173,7 +173,7 @@ public class BookManageFormController implements Initializable {
         }
 
         Book book = new Book(
-                txtId.getText(),
+                txtIdLbl.getText(),
                 null,
                 null,
                 null,
@@ -219,7 +219,7 @@ public class BookManageFormController implements Initializable {
     }
 
     private void fillFoundedBookData(Book book) {
-        txtId.setText(book.getIsbn());
+        txtIdLbl.setText(book.getIsbn());
         txtTile.setText(book.getTitle());
         txtCopies.setText(String.valueOf(book.getCopies()));
         comboCategory.setValue((Object) (book.getGerneId()));

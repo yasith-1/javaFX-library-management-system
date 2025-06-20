@@ -88,7 +88,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-        <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="368.0" onAction="#issuebookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Issue Book" textFill="WHITE">
+        <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="368.0" onAction="#issuebookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Issue Books" textFill="WHITE">
             <font>
                 <Font name="Poppins Regular" size="17.0" />
             </font>
@@ -262,10 +262,15 @@
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="576.0" onAction="#issueBookReportOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Get Issued Book Report" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="576.0" onAction="#issueBookReportOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Reports Center" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="581.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/reports.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

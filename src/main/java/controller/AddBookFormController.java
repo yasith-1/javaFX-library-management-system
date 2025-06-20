@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -24,7 +25,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddBookFormController implements Initializable {
-    public JFXTextField txtId;
     public JFXTextField txtTile;
     public JFXTextField txtCopies;
     public JFXComboBox comboCategory;
@@ -37,6 +37,7 @@ public class AddBookFormController implements Initializable {
     public TableColumn colCopies;
     public TableColumn colStatus;
     public TableView bookTable;
+    public Label txtIdLbl;
 
     BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
 
@@ -58,7 +59,7 @@ public class AddBookFormController implements Initializable {
     }
 
     private void setAutogenarateBookId() {
-        txtId.setText(service.bookId());
+        txtIdLbl.setText(service.bookId());
     }
 
     public void addBookOnActionBtn(ActionEvent actionEvent) {
@@ -117,7 +118,7 @@ public class AddBookFormController implements Initializable {
                 String authorId = service.getAuthorMap().get(comboAuthor.getValue());
 
                 Book book = new Book(
-                        txtId.getText(),
+                        txtIdLbl.getText(),
                         txtTile.getText(),
                         Integer.parseInt(txtCopies.getText()),
                         statusId,
