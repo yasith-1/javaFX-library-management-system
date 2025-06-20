@@ -60,7 +60,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="bookTable" layoutX="42.0" layoutY="434.0" prefHeight="222.0" prefWidth="564.0">
+      <TableView fx:id="bookTable" layoutX="42.0" layoutY="434.0" prefHeight="235.0" prefWidth="564.0">
         <columns>
           <TableColumn fx:id="colIsbn" prefWidth="61.0" text="Book ID" />
           <TableColumn fx:id="colTitle" prefWidth="136.0" text="Title" />
