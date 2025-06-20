@@ -96,15 +96,6 @@ public class MemberManageFormController implements Initializable {
         if (txtMemberName.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "Double click table row that you want to update !");
             return;
-        } else if (txtMemberEmail.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING, "Double click table row that you want to update !");
-            return;
-        } else if (txtMemberAddress.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING, "Double click table row that you want to update !");
-            return;
-        } else if (comMemberType.getValue() == null) {
-            Alert.trigger(AlertType.WARNING, "Double click table row that you want to update !");
-            return;
         } else {
 //            All validated
             String memberTypeId = service.getMemberMap().get(comMemberType.getValue());
@@ -130,15 +121,6 @@ public class MemberManageFormController implements Initializable {
 
     public void deleteMemberOnActionBtn(ActionEvent actionEvent) {
         if (txtMemberName.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING, "Double click table row that you want to Delete !");
-            return;
-        } else if (txtMemberEmail.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING, "Double click table row that you want to Delete !");
-            return;
-        } else if (txtMemberAddress.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING, "Double click table row that you want to Delete !");
-            return;
-        } else if (comMemberType.getValue() == null) {
             Alert.trigger(AlertType.WARNING, "Double click table row that you want to Delete !");
             return;
         } else {
