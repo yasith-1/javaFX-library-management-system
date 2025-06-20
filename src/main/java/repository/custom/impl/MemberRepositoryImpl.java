@@ -89,12 +89,31 @@ public class MemberRepositoryImpl implements MemberRepository {
 
     @Override
     public Boolean update(MemberEntity entity) {
-        return null;
+        try {
+            Boolean result = CrudUtil.execute("UPDATE `member` SET `name`=? ,`nic`=?,`email`=?,`address`=?,`type_id`=? WHERE `id`=?",
+                    entity.getName(),
+                    entity.getNic(),
+                    entity.getEmail(),
+                    entity.getAddress(),
+                    entity.getTypeId(),
+                    entity.getId());
+
+            return result;
+        } catch (SQLException e) {
+            e.getMessage();
+            return false;
+        }
     }
 
     @Override
     public Boolean delete(MemberEntity entity) {
-        return null;
+        try {
+            Boolean result = CrudUtil.execute("DELETE FROM `member` WHERE `id`=?", entity.getId());
+            return result;
+        } catch (SQLException e) {
+            e.getMessage();
+            return false;
+        }
     }
 
     @Override

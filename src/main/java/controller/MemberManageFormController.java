@@ -71,7 +71,7 @@ public class MemberManageFormController implements Initializable {
             return;
         } else {
 //            All validated
-            String memberId = service.getMemberMap().get(comMemberType.getValue());
+            String memberTypeId = service.getMemberMap().get(comMemberType.getValue());
             Member member = new Member(
                     txtMemberIdLbl.getText(),
                     txtMemberName.getText(),
@@ -79,7 +79,7 @@ public class MemberManageFormController implements Initializable {
                     txtMemberEmail.getText(),
                     txtMemberAddress.getText(),
                     null,
-                    memberId);
+                    memberTypeId);
 
             Boolean isAddedMember = service.addMember(member);
             if (isAddedMember) {
@@ -95,9 +95,75 @@ public class MemberManageFormController implements Initializable {
 
 
     public void updateMemberOnActionBtn(ActionEvent actionEvent) {
+        if (txtMemberName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Double click table row that you want to update !");
+            return;
+        } else if (txtMemberEmail.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Double click table row that you want to update !");
+            return;
+        } else if (txtMemberAddress.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Double click table row that you want to update !");
+            return;
+        } else if (comMemberType.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Double click table row that you want to update !");
+            return;
+        } else {
+//            All validated
+            String memberTypeId = service.getMemberMap().get(comMemberType.getValue());
+            Member member = new Member(
+                    txtMemberIdLbl.getText(),
+                    txtMemberName.getText(),
+                    txtMemberNIC.getText(),
+                    txtMemberEmail.getText(),
+                    txtMemberAddress.getText(),
+                    null,
+                    memberTypeId);
+
+            Boolean isUpdatedMember = service.updateMember(member);
+            if (isUpdatedMember) {
+                loadMemberTable();
+                clearTextField();
+                Alert.trigger(AlertType.INFORMATION, "Member Updated Successfully !");
+                return;
+            }
+            Alert.trigger(AlertType.ERROR, "Member doesn't Updated !");
+        }
     }
 
     public void deleteMemberOnActionBtn(ActionEvent actionEvent) {
+        if (txtMemberName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Double click table row that you want to Delete !");
+            return;
+        } else if (txtMemberEmail.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Double click table row that you want to Delete !");
+            return;
+        } else if (txtMemberAddress.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Double click table row that you want to Delete !");
+            return;
+        } else if (comMemberType.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Double click table row that you want to Delete !");
+            return;
+        } else {
+//            All validated
+            String memberTypeId = service.getMemberMap().get(comMemberType.getValue());
+            Member member = new Member(
+                    txtMemberIdLbl.getText(),
+                    null,
+                    txtMemberNIC.getText(),
+                    null,
+                    null,
+                    null,
+                    null);
+
+            Boolean isDeletedMember = service.deleteMember(member);
+            if (isDeletedMember) {
+                loadMemberTable();
+                clearTextField();
+                Alert.trigger(AlertType.INFORMATION, "Member Deleted Successfully !");
+                return;
+            }
+            Alert.trigger(AlertType.ERROR, "Member doesn't Deleted !");
+        }
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
