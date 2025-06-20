@@ -31,6 +31,9 @@
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
+         <padding>
+            <Insets left="3.0" />
+         </padding>
       </JFXTextField>
       <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="435.0" layoutY="220.0" onAction="#addMemberOnActionBtn" prefHeight="40.0" prefWidth="167.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Add Member">
          <font>
@@ -97,23 +100,32 @@
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
+         <padding>
+            <Insets left="3.0" />
+         </padding>
       </JFXTextField>
       <JFXTextField fx:id="txtMemberEmail" focusColor="#15a5ff" layoutX="50.0" layoutY="306.0" prefHeight="33.0" prefWidth="316.0" promptText="Enter Member Email" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
+         <padding>
+            <Insets left="3.0" />
+         </padding>
       </JFXTextField>
-      <JFXComboBox fx:id="comMemberType" focusColor="#15a5ff" layoutX="46.0" layoutY="413.0" prefHeight="35.0" prefWidth="323.0" promptText="Select Type " style="-fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
+      <JFXComboBox fx:id="comMemberType" focusColor="#adadad" layoutX="46.0" layoutY="413.0" prefHeight="35.0" prefWidth="323.0" promptText="Select Type " style="-fx-prompt-text-fill: black; -fx-text-fill: white; -fx-font-family: poppins; -fx-background-radius: 10; -fx-background-color: white; -fx-border-color: gray; -fx-border-radius: 10; -fx-cursor: hand;" stylesheets="@../css/style.css" unFocusColor="#adadad">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            <Insets left="5.0" />
          </padding></JFXComboBox>
       <JFXTextField fx:id="txtMemberAddress" focusColor="#15a5ff" layoutX="50.0" layoutY="361.0" prefHeight="33.0" prefWidth="316.0" promptText="Enter Member Address" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
+         <padding>
+            <Insets left="3.0" />
+         </padding>
       </JFXTextField>
    </children>
 </AnchorPane>

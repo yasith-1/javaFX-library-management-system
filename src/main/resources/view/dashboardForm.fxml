@@ -113,7 +113,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="315.0" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Members" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="315.0" onAction="#manageMemberOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Members" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>

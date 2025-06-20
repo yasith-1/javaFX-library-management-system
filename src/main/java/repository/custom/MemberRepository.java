@@ -7,7 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface MemberRepository extends CrudRepository<MemberEntity, String> {
+    String getId();
+
     List<MemberEntity> getMembersList();
 
-    HashMap<String,String> getMemberTypeSet();
+    HashMap<String, String> getMemberTypeSet();
 }

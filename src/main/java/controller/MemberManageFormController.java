@@ -2,13 +2,24 @@ package controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import dto.Category;
+import dto.Member;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import service.ServiceFactory;
+import service.custom.impl.MemberServiceImpl;
+import util.Alert;
+import util.AlertType;
+import util.ServiceType;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MemberManageFormController implements Initializable {
@@ -27,16 +38,61 @@ public class MemberManageFormController implements Initializable {
     public TableColumn colMemberType;
 
 
+    MemberServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.MEMBER);
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        
+        setAutoGenaratedId();
+        loadComboboxData();
+        loadMemberTable();
+        fetchTableRowData();
+    }
+
+    private void setAutoGenaratedId() {
+        txtMemberIdLbl.setText(service.getMemberId());
+    }
+
+    private void loadComboboxData() {
+        comMemberType.getItems().addAll(service.getMemberMap().keySet());
     }
 
     public void addMemberOnActionBtn(ActionEvent actionEvent) {
+        if (txtMemberName.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Add Member Name");
+            return;
+        } else if (txtMemberEmail.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Add Member Email");
+            return;
+        } else if (txtMemberAddress.getText().isEmpty()) {
+            Alert.trigger(AlertType.WARNING, "Add Member Home Town");
+            return;
+        } else if (comMemberType.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Select Member Type");
+            return;
+        } else {
+//            All validated
+            String memberId = service.getMemberMap().get(comMemberType.getValue());
+            Member member = new Member(
+                    txtMemberIdLbl.getText(),
+                    txtMemberName.getText(),
+                    txtMemberNIC.getText(),
+                    txtMemberEmail.getText(),
+                    txtMemberAddress.getText(),
+                    null,
+                    memberId);
+
+            Boolean isAddedMember = service.addMember(member);
+            if (isAddedMember) {
+                setAutoGenaratedId();
+                loadMemberTable();
+                clearTextField();
+                Alert.trigger(AlertType.INFORMATION, "Member Added Successfully !");
+                return;
+            }
+            Alert.trigger(AlertType.ERROR, "Member doesn't Added !");
+        }
     }
 
-    public void clearOnActionBtn(ActionEvent actionEvent) {
-    }
 
     public void updateMemberOnActionBtn(ActionEvent actionEvent) {
     }
@@ -44,4 +100,54 @@ public class MemberManageFormController implements Initializable {
     public void deleteMemberOnActionBtn(ActionEvent actionEvent) {
     }
 
+    public void clearOnActionBtn(ActionEvent actionEvent) {
+        clearTextField();
+    }
+
+    private void loadMemberTable() {
+        List<Member> memberList = service.getMembersList();
+        if (memberList == null) {
+            Alert.trigger(AlertType.WARNING, "No available data in table now !");
+            return;
+        }
+
+        colMemberId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colMemberName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colMemberNIC.setCellValueFactory(new PropertyValueFactory<>("nic"));
+        colMemberEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colMemberAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colMemberType.setCellValueFactory(new PropertyValueFactory<>("typeId"));
+
+        ObservableList<Member> members = FXCollections.observableArrayList(memberList);
+        memberTable.setItems(members);
+    }
+
+    private void fetchTableRowData() {
+        memberTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // double-click
+                Member selectedMember = (Member) memberTable.getSelectionModel().getSelectedItem();
+                if (selectedMember != null) {
+                    setFoundedData(selectedMember);
+                }
+            }
+        });
+    }
+
+    private void setFoundedData(Member member) {
+        txtMemberIdLbl.setText(member.getId());
+        txtMemberName.setText(member.getName());
+        txtMemberNIC.setText(member.getNic());
+        txtMemberEmail.setText(member.getEmail());
+        txtMemberAddress.setText(member.getAddress());
+        comMemberType.setValue(member.getTypeId());
+    }
+
+
+    private void clearTextField() {
+        txtMemberName.setText("");
+        txtMemberNIC.setText("");
+        txtMemberEmail.setText("");
+        txtMemberAddress.setText("");
+        comMemberType.setValue(null);
+    }
 }

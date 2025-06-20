@@ -14,5 +14,5 @@ public class MemberEntity {
     private String email;
     private String address;
     private String password;
-    private Integer typeId;
+    private String typeId;
 }

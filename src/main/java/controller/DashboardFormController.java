@@ -180,6 +180,15 @@ public class DashboardFormController implements Initializable {
         stage.show();
     }
 
+    public void manageMemberOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/memberManageForm.fxml"))));
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Manage Members");
+        stage.show();
+    }
+
     public void issueBookReportOnActionBtn(ActionEvent actionEvent) throws JRException {
         JasperDesign design = JRXmlLoader.load("src/main/resources/reports/issued_book_report.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(design);
