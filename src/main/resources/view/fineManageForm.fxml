@@ -43,17 +43,17 @@
          </font>
       </JFXTextField>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="171.0" layoutX="26.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
-      <JFXComboBox fx:id="comboMember" focusColor="#17a6ff00" layoutX="44.0" layoutY="283.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Member" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#ababab00">
+      <JFXComboBox fx:id="comboMember" focusColor="#17a6ff00" layoutX="44.0" layoutY="283.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Member" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#ababab00">
          <padding>
             <Insets left="15.0" />
          </padding>
       </JFXComboBox>
-      <JFXComboBox fx:id="comboBook" focusColor="#17a6ff00" layoutX="44.0" layoutY="329.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Book" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#adadad00">
+      <JFXComboBox fx:id="comboBook" focusColor="#17a6ff00" layoutX="44.0" layoutY="329.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Book" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#adadad00">
          <padding>
             <Insets left="15.0" />
          </padding>
       </JFXComboBox>
-      <JFXComboBox fx:id="comboFineStatus" focusColor="#17a6ff00" layoutX="44.0" layoutY="376.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Fine Status" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#adadad00">
+      <JFXComboBox fx:id="comboFineStatus" focusColor="#17a6ff00" layoutX="44.0" layoutY="376.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Fine Status" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#adadad00">
          <padding>
             <Insets left="15.0" />
          </padding>

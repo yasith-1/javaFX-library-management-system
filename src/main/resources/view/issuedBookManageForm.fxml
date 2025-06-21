@@ -27,7 +27,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="200.0" layoutX="34.0" layoutY="107.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
-      <JFXComboBox fx:id="comboMember" focusColor="#17a6ff00" layoutX="52.0" layoutY="166.0" prefHeight="32.0" prefWidth="235.0" promptText="Member" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" styleClass="mycombo-box" stylesheets="@../css/style.css" unFocusColor="#ababab00">
+      <JFXComboBox fx:id="comboMember" focusColor="#17a6ff00" layoutX="52.0" layoutY="166.0" prefHeight="32.0" prefWidth="235.0" promptText="Member" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#ababab00">
          <padding>
             <Insets left="15.0" />
          </padding>

@@ -112,7 +112,7 @@
             <Insets left="3.0" />
          </padding>
       </JFXTextField>
-      <JFXComboBox fx:id="comMemberType" focusColor="#adadad" layoutX="46.0" layoutY="413.0" prefHeight="35.0" prefWidth="323.0" promptText="Select Type " style="-fx-prompt-text-fill: black; -fx-text-fill: white; -fx-font-family: poppins; -fx-background-radius: 10; -fx-background-color: white; -fx-border-color: gray; -fx-border-radius: 10; -fx-cursor: hand;" stylesheets="@../css/style.css" unFocusColor="#adadad">
+      <JFXComboBox fx:id="comMemberType" focusColor="#adadad" layoutX="46.0" layoutY="413.0" prefHeight="35.0" prefWidth="323.0" promptText="Select Type " style="-fx-prompt-text-fill: black; -fx-text-fill: white; -fx-font-family: poppins; -fx-background-radius: 10; -fx-background-color: white; -fx-border-color: gray; -fx-border-radius: 10; -fx-cursor: hand;" unFocusColor="#adadad">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
