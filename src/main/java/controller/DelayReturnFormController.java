@@ -16,12 +16,11 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.impl.DelayReturnServiceImpl;
-import util.Alert;
-import util.AlertType;
-import util.ServiceType;
+import util.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -37,11 +36,14 @@ public class DelayReturnFormController implements Initializable {
     public TableColumn colDelayedDays;
     public TableColumn colMId;
     public TableColumn colMName;
+    public TableColumn colBookId;
+    public TableColumn colReturnTime;
 
     DelayReturnServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.DELAYEDRETURN);
-
+    HashMap<String, String> memberMap;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        memberMap = service.getMemberMap();
         setComboboxData();
         loadMemberTable();
     }
@@ -83,6 +85,27 @@ public class DelayReturnFormController implements Initializable {
     }
 
     public void memberSelectionComboBoxOnAction(ActionEvent actionEvent) {
-        System.out.println(comboMembers.getValue());
+        String memberId = memberMap.get(comboMembers.getValue());
+        loadDelayReturnOverviewTable(memberId);
+    }
+
+    private void loadDelayReturnOverviewTable(String memberId) {
+        List<DelayReturn> delayReturnOverviewList = service.delayReturnedOverviewList(memberId);
+        if (delayReturnOverviewList == null) {
+            Alert.trigger(AlertType.WARNING, "No available data in table now !");
+            return;
+        }
+
+        colMemberId.setCellValueFactory(new PropertyValueFactory<>("memberId"));
+        colBookId.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        colMemberName.setCellValueFactory(new PropertyValueFactory<>("memberName"));
+        colIssueDate.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
+        colDateToReturn.setCellValueFactory(new PropertyValueFactory<>("dateToReturn"));
+        colReturnedDate.setCellValueFactory(new PropertyValueFactory<>("returnedDate"));
+        colReturnTime.setCellValueFactory(new PropertyValueFactory<>("returnedTime"));
+        colDelayedDays.setCellValueFactory(new PropertyValueFactory<>("delayedDays"));
+
+        ObservableList<DelayReturn> delayReturnsOverviews = FXCollections.observableArrayList(delayReturnOverviewList);
+        dellayReturnOverviewTable.setItems(delayReturnsOverviews);
     }
 }

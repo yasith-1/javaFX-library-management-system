@@ -10,12 +10,18 @@ import util.Mapper;
 import util.RepositoryType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class DelayReturnServiceImpl implements DelayReturnService {
 
     DelayReturnRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.DELAYEDRETURN);
     ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
+
+    @Override
+    public HashMap<String, String> getMemberMap() {
+        return repository.getMemberSet();
+    }
 
     @Override
     public List<DelayReturn> getDelayReturnMembersList() {
@@ -35,6 +41,19 @@ public class DelayReturnServiceImpl implements DelayReturnService {
         List<String> delayReturnedMembersNameList = repository.delayReturnedMembersNameList();
         if (delayReturnedMembersNameList != null) {
             return delayReturnedMembersNameList;
+        }
+        return null;
+    }
+
+    @Override
+    public List<DelayReturn> delayReturnedOverviewList(String memberId) {
+        ArrayList<DelayReturn> delayReturnOverViewList = new ArrayList<>();
+        List<DelayReturnEntity> delayReturnOverviewEntities = repository.delayReturnedOverviewList(memberId);
+        if (delayReturnOverviewEntities != null) {
+            delayReturnOverviewEntities.forEach(delayReturnEntity -> {
+                delayReturnOverViewList.add(modelMapper.map(delayReturnEntity, DelayReturn.class));
+            });
+            return delayReturnOverViewList;
         }
         return null;
     }

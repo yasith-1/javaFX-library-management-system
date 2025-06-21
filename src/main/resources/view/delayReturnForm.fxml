@@ -55,8 +55,8 @@
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#1180b800" height="46.0" layoutX="171.0" layoutY="336.0" stroke="#44bd32" strokeType="INSIDE" strokeWidth="0.9" width="399.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="183.0" layoutY="343.0" prefHeight="32.0" prefWidth="375.0" text="Overview of Late Return Available Member" textFill="#d3d3d3" wrapText="true">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#1180b800" height="46.0" layoutX="129.0" layoutY="336.0" stroke="#44bd32" strokeType="INSIDE" strokeWidth="0.9" width="487.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="141.0" layoutY="343.0" prefHeight="32.0" prefWidth="465.0" text="Overview of Late Return &amp; Pay Fine Available Member" textFill="#d3d3d3" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
