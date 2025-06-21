@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -13,6 +14,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="650.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DelayReturnFormController">
    <children>
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="318.0" layoutX="16.0" layoutY="369.0" stroke="#0f598a" strokeType="INSIDE" width="620.0" />
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="253.0" layoutX="15.0" layoutY="105.0" stroke="#0f598a" strokeType="INSIDE" width="620.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="650.0" />
       <Label layoutX="190.0" layoutY="26.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Delay Returns Overview" textFill="WHITE">
@@ -54,11 +56,22 @@
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#1180b800" height="54.0" layoutX="12.0" layoutY="370.0" stroke="#1770a8" strokeType="INSIDE" width="620.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="381.0" prefHeight="32.0" prefWidth="568.0" text="Overview of Late Return Available Member" textFill="#d3d3d3" wrapText="true">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#1180b800" height="46.0" layoutX="127.0" layoutY="380.0" stroke="#44bd32" strokeType="INSIDE" strokeWidth="0.9" width="399.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="387.0" prefHeight="32.0" prefWidth="375.0" text="Overview of Late Return Available Member" textFill="#d3d3d3" wrapText="true">
          <font>
-            <Font name="Poppins Regular" size="18.0" />
+            <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
+      <TableView layoutX="41.0" layoutY="444.0" prefHeight="177.0" prefWidth="570.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="467.0" layoutY="638.0" onAction="#deleteIssuedBookOnActionBtn" prefHeight="36.0" prefWidth="146.0" style="-fx-background-color: #B33771; -fx-background-radius: 10; -fx-cursor: hand;" text="Make Fine" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="17.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
