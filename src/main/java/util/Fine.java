@@ -1,7 +1,7 @@
 package util;
 
 public enum Fine {
-    AMOUNT(300.0);
+    AMOUNT(400.0);
 
     private final Double fee;
 

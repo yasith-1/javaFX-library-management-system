@@ -3,9 +3,11 @@ package repository.custom.impl;
 import entity.FineEntity;
 import repository.custom.FineRepository;
 import util.CrudUtil;
+import util.Fine;
 import util.MapCollection;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +34,7 @@ public class FineRepositoryImpl implements FineRepository {
                         result.getString("reason"),
                         result.getDate("paid_date").toLocalDate(),
                         result.getTime("paid_time").toLocalTime(),
-                        result.getDouble("amount"),
+                        Fine.AMOUNT.getFee() * getDelayedDaysCount(result.getString("id")),
                         result.getString("name"),
                         result.getString("title"),
                         result.getString("status"));
@@ -43,6 +45,27 @@ public class FineRepositoryImpl implements FineRepository {
         } catch (Exception e) {
             e.getMessage();
             return null;
+        }
+    }
+
+    private Double getDelayedDaysCount(String fineId) {
+        try {
+            ResultSet resultSet = CrudUtil.execute("SELECT \n" +
+                    "\t`fine`.`id`,\n" +
+                    "    DATEDIFF(`returned_date`, `return_date`) AS `delayed_days`\n" +
+                    "FROM `member_has_book` \n" +
+                    "INNER JOIN `member` ON `member_has_book`.`member_id` = `member`.`id` \n" +
+                    "INNER JOIN `return_book` ON `member`.`id` = `return_book`.`member_id`\n" +
+                    "INNER JOIN `fine` ON  `member_has_book`.member_id=fine.member_id AND `member_has_book`.book_isbn =fine.book_isbn\n" +
+                    "INNER JOIN `fine_status`ON fine.fine_status_id=fine_status.id WHERE `fine`.`id`=?",fineId);
+
+            if (resultSet.next()) {
+                return Double.valueOf(resultSet.getInt("delayed_days"));
+            }
+            return 0.0;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0.0;
         }
     }
 

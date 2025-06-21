@@ -14,9 +14,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="1058.0" style="-fx-background-image: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="1058.0" style="-fx-background-image: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
     <children>
-        <Rectangle fill="#0a3d62" height="662.0" layoutX="-7.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1070.0" />
+        <Rectangle fill="#0a3d62" height="688.0" layoutX="-7.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1070.0" />
         <Rectangle fill="#0a3d62" height="80.0" layoutX="-7.0" layoutY="-1.0" stroke="#797979" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="0.0" width="1036.0" />
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="463.0" layoutY="20.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Admin Dashboard" textFill="WHITE">
             <font>
@@ -28,7 +28,7 @@
                 <Image url="@../image/admin.png" />
             </image>
         </ImageView>
-        <Rectangle fill="#0e25616b" height="582.0" layoutX="-4.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="305.0" />
+        <Rectangle fill="#0e25616b" height="611.0" layoutX="-4.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="305.0" />
         <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="115.0" layoutX="332.0" layoutY="108.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="237.0" />
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="401.0" layoutY="118.0" prefHeight="41.0" prefWidth="157.0" text="Total Members" textFill="WHITE">
             <font>
@@ -78,7 +78,7 @@
             <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
          </padding>
       </LineChart>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="19.0" layoutY="103.0" onAction="#addBookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Add New Book" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="19.0" layoutY="91.0" onAction="#addBookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Add New Book" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -86,7 +86,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="156.0" onAction="#manageBookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Books" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="144.0" onAction="#manageBookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Books" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -94,7 +94,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-        <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="368.0" onAction="#issuebookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Issue Books" textFill="WHITE">
+        <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="356.0" onAction="#issuebookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Issue Books" textFill="WHITE">
             <font>
                 <Font name="Poppins Regular" size="17.0" />
             </font>
@@ -102,7 +102,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
         </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="420.0" onAction="#manageIssuebookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Issue Book" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="408.0" onAction="#manageIssuebookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Issue Book" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -110,7 +110,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="472.0" onAction="#manageReturnBookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Return Book" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="461.0" onAction="#manageReturnBookOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Return Book" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -118,7 +118,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="209.0" onAction="#manageCategoryOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Categories" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="197.0" onAction="#manageCategoryOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Categories" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -126,7 +126,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="262.0" onAction="#authorFormOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Authors" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="250.0" onAction="#authorFormOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Authors" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -134,7 +134,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="315.0" onAction="#manageMemberOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Members" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="303.0" onAction="#manageMemberOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Manage Members" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -231,42 +231,42 @@
             <Image url="@../image/clock.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="27.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/btnicon.png" />
          </image>
@@ -276,7 +276,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="524.0" onAction="#delayedReturnOverVuewOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Pending Fines" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="566.0" onAction="#delayedReturnOverVuewOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Return &amp; Fine statics" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -284,12 +284,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="576.0" onAction="#issueBookReportOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Reports Center" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="618.0" onAction="#issueBookReportOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Reports Center" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -297,9 +297,22 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="581.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/reports.png" />
+         </image>
+      </ImageView>
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="514.0" onAction="#makeFineOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Make Fine" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="28.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
     </children>
