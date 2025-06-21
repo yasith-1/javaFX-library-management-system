@@ -66,6 +66,7 @@ public class BookReturnFormController implements Initializable {
 
             Boolean isAdded = service.addReturnRecord(returnBook);
             if (isAdded) {
+                loadReturnBookTable();
                 Alert.trigger(AlertType.INFORMATION, "Return Book Restocked Successfully !");
                 return;
             }
@@ -97,6 +98,7 @@ public class BookReturnFormController implements Initializable {
 
             Boolean isDeleted = service.deleteReturnRecord(returnBook);
             if (isDeleted) {
+                loadReturnBookTable();
                 Alert.trigger(AlertType.INFORMATION, "Return Book Deleted Successfully !");
                 return;
             }
