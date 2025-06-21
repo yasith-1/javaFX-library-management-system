@@ -28,6 +28,8 @@ public class RepositoryFactory {
                return  (T) new FineRepositoryImpl();
             case AUTHOR:
                 return  (T) new AuthorRepositoryImpl();
+            case DELAYEDRETURN:
+                return (T) new DelayReturnRepositoryImpl();
         }
         return null;
     }

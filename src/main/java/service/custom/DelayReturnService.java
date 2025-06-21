@@ -1,4 +1,6 @@
 package service.custom;
 
-public interface DelayReturnService {
+import service.SuperService;
+
+public interface DelayReturnService extends SuperService {
 }
