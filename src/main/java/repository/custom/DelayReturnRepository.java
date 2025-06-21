@@ -1,7 +1,6 @@
 package repository.custom;
 
-import entity.DelayReturnEntity;
-import repository.CrudRepository;
+import repository.SuperRepository;
 
-public interface DelayReturnRepository extends CrudRepository<DelayReturnEntity, String> {
+public interface DelayReturnRepository extends SuperRepository {
 }
