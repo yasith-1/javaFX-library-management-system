@@ -8,6 +8,7 @@ import repository.custom.impl.DelayReturnRepositoryImpl;
 import service.custom.DelayReturnService;
 import util.Mapper;
 import util.RepositoryType;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,15 @@ public class DelayReturnServiceImpl implements DelayReturnService {
                 delayReturnMemberList.add(modelMapper.map(delayReturnEntity, DelayReturn.class));
             });
             return delayReturnMemberList;
+        }
+        return null;
+    }
+
+    @Override
+    public List<String> delayReturnedMembersNameList() {
+        List<String> delayReturnedMembersNameList = repository.delayReturnedMembersNameList();
+        if (delayReturnedMembersNameList != null) {
+            return delayReturnedMembersNameList;
         }
         return null;
     }

@@ -22,16 +22,16 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
     public List<ReturnBookEntity> returnBookList() {
         ArrayList<ReturnBookEntity> returnBookEntitiesList = new ArrayList<>();
         try {
-            ResultSet resultSet = CrudUtil.execute("SELECT `member`.`name`,book.title ,return_date,return_book.return_time " +
-                    "FROM `return_book` INNER JOIN `book` ON return_book.book_isbn = book.isbn INNER\n" +
-                    "JOIN `member` ON return_book.member_id = `member`.id ");
+            ResultSet resultSet = CrudUtil.execute("SELECT `member`.`name`,book.title ,returned_date,returned_time " +
+                    "FROM `return_book` INNER JOIN `book` ON return_book.book_isbn = book.isbn " +
+                    "INNER JOIN `member` ON return_book.member_id = `member`.id");
 
             while (resultSet.next()) {
                 ReturnBookEntity returnBookEntity = new ReturnBookEntity(
                         resultSet.getString("name"),
                         resultSet.getString("title"),
-                        resultSet.getDate("return_date").toLocalDate(),
-                        resultSet.getTime("return_time").toLocalTime());
+                        resultSet.getDate("returned_date").toLocalDate(),
+                        resultSet.getTime("returned_time").toLocalTime());
 
                 returnBookEntitiesList.add(returnBookEntity);
             }
@@ -46,7 +46,7 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
     @Override
     public HashMap<String, String> getMemberSet() {
         try {
-            ResultSet resultset = CrudUtil.execute("SELECT `id` ,`name` FROM `member` WHERE `type_id`=?", 2);
+            ResultSet resultset = CrudUtil.execute("SELECT `id` ,`name` FROM `member` WHERE `type_id`=?", "T2");
             while (resultset.next()) {
                 memberMap.put(resultset.getString("name"), resultset.getString("id"));
             }
@@ -85,10 +85,11 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
             if (isAddedReturnRecord) {
                 Boolean isRenewedQuantity = renewbookQuantity(entity);
                 if (isRenewedQuantity) {
-                    if (removeIssuedBookRecord(entity)) {
-                        connection.commit();
-                        return true;
-                    }
+                    connection.commit();
+                    return true;
+//                    if (removeIssuedBookRecord(entity)) {
+//
+//                    }
                 }
             }
             connection.rollback();

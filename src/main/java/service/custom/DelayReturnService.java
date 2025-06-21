@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface DelayReturnService extends SuperService {
     List<DelayReturn> getDelayReturnMembersList();
+
+    List<String> delayReturnedMembersNameList();
 }

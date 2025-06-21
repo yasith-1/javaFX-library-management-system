@@ -27,7 +27,7 @@
             <Image url="@../image/stageicon.png" />
          </image>
       </ImageView>
-      <TableView fx:id="membersTable" layoutX="63.0" layoutY="177.0" prefHeight="110.0" prefWidth="287.0">
+      <TableView fx:id="membersTable" layoutX="54.0" layoutY="177.0" prefHeight="130.0" prefWidth="318.0">
         <columns>
           <TableColumn fx:id="colMId" prefWidth="89.0" text="Member ID" />
           <TableColumn fx:id="colMName" prefWidth="197.0" text="Member Name" />

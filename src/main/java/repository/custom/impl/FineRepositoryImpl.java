@@ -63,7 +63,7 @@ public class FineRepositoryImpl implements FineRepository {
     @Override
     public HashMap<String, String> getMemberSet() {
         try {
-            ResultSet resultset = CrudUtil.execute("SELECT `id` ,`name` FROM `member` WHERE `type_id`=?", 2);
+            ResultSet resultset = CrudUtil.execute("SELECT `id` ,`name` FROM `member` WHERE `type_id`=?", "T2");
             while (resultset.next()) {
                 memberMap.put(resultset.getString("name"), resultset.getString("id"));
             }

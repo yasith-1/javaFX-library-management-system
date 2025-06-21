@@ -1,6 +1,8 @@
 package controller;
 
 import dto.DelayReturn;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import service.ServiceFactory;
@@ -32,23 +35,39 @@ public class DelayReturnFormController implements Initializable {
     public TableColumn colDateToReturn;
     public TableColumn colReturnedDate;
     public TableColumn colDelayedDays;
+    public TableColumn colMId;
+    public TableColumn colMName;
 
     DelayReturnServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.DELAYEDRETURN);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setComboboxData();
+        loadMemberTable();
     }
 
     private void setComboboxData() {
-        List<DelayReturn> delayReturnMembersList = service.getDelayReturnMembersList();
+        List<String> delayReturnMembersList = service.delayReturnedMembersNameList();
         if (delayReturnMembersList != null) {
-            delayReturnMembersList.forEach(delayReturn -> {
-                comboMembers.setValue(delayReturn.getMemberName());
-            });
+            comboMembers.setValue("Select Option");
+            comboMembers.setItems(FXCollections.observableArrayList(delayReturnMembersList));
             return;
         }
         Alert.trigger(AlertType.WARNING, "Still not found Delay return members !");
+    }
+
+    private void loadMemberTable() {
+        List<DelayReturn> delayReturnMembersList = service.getDelayReturnMembersList();
+        if (delayReturnMembersList == null) {
+            Alert.trigger(AlertType.WARNING, "No available data in table now !");
+            return;
+        }
+
+        colMId.setCellValueFactory(new PropertyValueFactory<>("memberId"));
+        colMName.setCellValueFactory(new PropertyValueFactory<>("memberName"));
+
+        ObservableList<DelayReturn> delayReturns = FXCollections.observableArrayList(delayReturnMembersList);
+        membersTable.setItems(delayReturns);
     }
 
     public void makeFineOnActionBtn(ActionEvent actionEvent) throws IOException {
