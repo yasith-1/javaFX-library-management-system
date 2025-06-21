@@ -30,7 +30,7 @@ public class DelayReturnRepositoryImpl implements DelayReturnRepository {
                 }
                 continue;
             }
-            return null;
+            return delayReturnEntityMemberList;
         } catch (SQLException e) {
             e.getMessage();
             return null;

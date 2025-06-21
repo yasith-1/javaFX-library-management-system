@@ -22,16 +22,11 @@ import service.ServiceFactory;
 import service.custom.DashboardService;
 import util.ServiceType;
 
-import java.awt.*;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 public class DashboardFormController implements Initializable {
@@ -164,7 +159,7 @@ public class DashboardFormController implements Initializable {
 
     public void manageBookFinesOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/fineForm.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/fineManageForm.fxml"))));
         stage.setResizable(false);
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Manage Fines");
@@ -189,6 +184,15 @@ public class DashboardFormController implements Initializable {
         stage.show();
     }
 
+    public void delayedReturnOverVuewOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/delayReturnForm.fxml"))));
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Delay Return and Make Fines");
+        stage.show();
+    }
+
     public void issueBookReportOnActionBtn(ActionEvent actionEvent) throws JRException {
         JasperDesign design = JRXmlLoader.load("src/main/resources/reports/issued_book_report.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(design);
@@ -200,4 +204,6 @@ public class DashboardFormController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+
 }
