@@ -13,6 +13,7 @@ import java.time.LocalTime;
 @ToString
 public class DelayReturn {
     private String memberId;
+    private String bookId;
     private String memberName;
     private LocalDate issueDate;
     private LocalDate dateToReturn;
