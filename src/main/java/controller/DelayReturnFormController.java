@@ -82,4 +82,7 @@ public class DelayReturnFormController implements Initializable {
         stage.show();
     }
 
+    public void memberSelectionComboBoxOnAction(ActionEvent actionEvent) {
+        System.out.println(comboMembers.getValue());
+    }
 }

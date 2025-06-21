@@ -11,18 +11,17 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="700.0" prefWidth="730.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DelayReturnFormController">
    <children>
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="285.0" layoutX="29.0" layoutY="402.0" stroke="#0f598a" strokeType="INSIDE" width="682.0" />
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="218.0" layoutX="24.0" layoutY="105.0" stroke="#0f598a" strokeType="INSIDE" width="682.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="737.0" />
-      <Label layoutX="235.0" layoutY="26.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Delay Returns Overview" textFill="WHITE">
+      <Label layoutX="190.0" layoutY="26.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Delay Returns Overview &amp; Fine" textFill="WHITE">
          <font>
             <Font name="Poppins Bold" size="28.0" />
          </font>
       </Label>
-      <ImageView fitHeight="54.0" fitWidth="60.0" layoutX="163.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="54.0" fitWidth="60.0" layoutX="118.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/stageicon.png" />
          </image>
@@ -34,7 +33,7 @@
         </columns>
       </TableView>
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#1180b800" height="32.0" layoutX="79.0" layoutY="121.0" stroke="#1770a8" strokeType="INSIDE" width="255.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="94.0" layoutY="126.0" text="Late Reutn available Members" textFill="#d3d3d3" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="126.0" text="Fine Non-paid Members" textFill="#d3d3d3" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
@@ -50,7 +49,7 @@
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboMembers" layoutX="411.0" layoutY="229.0" prefHeight="32.0" prefWidth="255.0" />
+      <ComboBox fx:id="comboMembers" layoutX="411.0" layoutY="229.0" onAction="#memberSelectionComboBoxOnAction" prefHeight="32.0" prefWidth="255.0" promptText="Select member for make fine" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="506.0" layoutY="175.0" text=" overview" textFill="#d3d3d3" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
@@ -62,7 +61,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <TableView fx:id="dellayReturnOverviewTable" layoutX="45.0" layoutY="438.0" prefHeight="177.0" prefWidth="647.0">
+      <TableView fx:id="dellayReturnOverviewTable" layoutX="44.0" layoutY="438.0" prefHeight="177.0" prefWidth="654.0">
         <columns>
           <TableColumn fx:id="colMemberId" prefWidth="43.0" text="MID" />
           <TableColumn fx:id="colBookId" prefWidth="60.0" text="Book ID" />
@@ -71,7 +70,7 @@
             <TableColumn fx:id="colDateToReturn" prefWidth="95.0" text="Date To Return" />
             <TableColumn fx:id="colReturnedDate" prefWidth="94.0" text="Returned Date" />
             <TableColumn fx:id="colReturnTime" prefWidth="115.0" text="Returned Time" />
-            <TableColumn fx:id="colDelayedDays" prefWidth="82.0" text="Overdue days" />
+            <TableColumn fx:id="colDelayedDays" prefWidth="89.0" text="Overdue days" />
         </columns>
       </TableView>
       <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="517.0" layoutY="634.0" onAction="#makeFineOnActionBtn" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: #B33771; -fx-background-radius: 10; -fx-cursor: hand;" text="Make Fine" textFill="WHITE">
