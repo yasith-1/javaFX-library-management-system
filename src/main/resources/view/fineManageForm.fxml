@@ -83,18 +83,18 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="68.0" layoutX="25.0" layoutY="163.0" stroke="#0f598a" strokeType="INSIDE" width="593.0" />
-      <JFXTextField fx:id="txtSearchFieldMemberName" alignment="CENTER" focusColor="#15a5ff" layoutX="56.0" layoutY="178.0" prefHeight="33.0" prefWidth="245.0" promptText="Enter member name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="151.0" layoutX="324.0" layoutY="98.0" stroke="#0f598a" strokeType="INSIDE" width="294.0" />
+      <JFXTextField fx:id="txtSearchFieldMemberName" alignment="CENTER" focusColor="#15a5ff" layoutX="349.0" layoutY="107.0" prefHeight="33.0" prefWidth="245.0" promptText="Member name OR ID" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="390.0" layoutY="106.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="219.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="412.0" layoutY="199.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="txtSearchFieldBookName" alignment="CENTER" focusColor="#15a5ff" layoutX="342.0" layoutY="178.0" prefHeight="33.0" prefWidth="245.0" promptText="Enter book name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtSearchFieldBookName" alignment="CENTER" focusColor="#15a5ff" layoutX="349.0" layoutY="152.0" prefHeight="33.0" prefWidth="245.0" promptText="Book name OR ID" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
@@ -111,5 +111,15 @@
             <TableColumn fx:id="colStatus" prefWidth="69.0" resizable="false" text="Pay Status" />
         </columns>
       </TableView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="155.0" prefHeight="28.0" prefWidth="254.0" style="-fx-border-color: #2e86de; -fx-label-padding: 2; -fx-border-radius: 5;" text="Check Book &amp; Member ID" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="15.0" />
+         </font>
+      </Label>
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" layoutY="199.0" onAction="#openFineOverviewOnActionBtn" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+         <font>
+            <Font name="Poppins Regular" size="17.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

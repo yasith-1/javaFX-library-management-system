@@ -8,17 +8,22 @@ import dto.Fine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.impl.FineServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -209,8 +214,8 @@ public class FineFormController implements Initializable {
                     null,
                     null,
                     null,
-                    memberId,
-                    bookId,
+                    memberId == null ? txtSearchFieldMemberName.getText() : memberId,
+                    bookId == null ? txtSearchFieldBookName.getText() : bookId,
                     null);
 
             Fine foundedFine = service.searchFine(fine);
@@ -272,5 +277,14 @@ public class FineFormController implements Initializable {
         comboFineStatus.setValue("");
         txtReason.setText("");
         txtAmount.setText("");
+    }
+
+    public void openFineOverviewOnActionBtn(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/delayReturnForm.fxml"))));
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Delay Return and Make Fines");
+        stage.show();
     }
 }

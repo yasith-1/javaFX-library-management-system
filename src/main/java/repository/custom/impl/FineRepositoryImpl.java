@@ -117,7 +117,7 @@ public class FineRepositoryImpl implements FineRepository {
         try {
             ResultSet resultSet = CrudUtil.execute("SELECT * FROM `fine` ORDER BY `id` DESC LIMIT 1");
             if (resultSet.next()) {
-                return resultSet.getString("isbn");
+                return resultSet.getString("id");
             } else {
                 return null;
             }
