@@ -188,7 +188,6 @@ public class MemberManageFormController implements Initializable {
         comMemberType.setValue(member.getTypeId());
     }
 
-
     private void clearTextField() {
         txtMemberName.setText("");
         txtMemberNIC.setText("");
