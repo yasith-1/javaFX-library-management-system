@@ -116,7 +116,7 @@
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" layoutY="199.0" onAction="#openFineOverviewOnActionBtn" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" layoutY="199.0" onAction="#openFineOverviewOnActionBtn" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #F79F1F; -fx-background-radius: 10; -fx-cursor: hand;" text="Check">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
