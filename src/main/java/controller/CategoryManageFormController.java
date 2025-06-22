@@ -88,7 +88,6 @@ public class CategoryManageFormController implements Initializable {
             if (isAdded) {
 //                    category updated successfully ...........
                 clearField();
-                setAutoGenaratedId();
                 loadCategorytable();
                 Alert.trigger(AlertType.INFORMATION, "Category Updated Successfully !");
             } else {
@@ -114,7 +113,6 @@ public class CategoryManageFormController implements Initializable {
             if (isAdded) {
 //                    category Deleted successfully ...........
                 clearField();
-                setAutoGenaratedId();
                 loadCategorytable();
                 Alert.trigger(AlertType.INFORMATION, "Category Deleted Successfully !");
             } else {

@@ -79,7 +79,6 @@ public class AuthorManageFormController implements Initializable {
             if (isUpdated) {
 //                    Author updated successfully ...........
                 clearField();
-                setAutoGenaratedId();
                 loadAuthorTable();
                 Alert.trigger(AlertType.INFORMATION, "Author updated Successfully !");
             } else {
@@ -105,7 +104,6 @@ public class AuthorManageFormController implements Initializable {
             if (isDeleted) {
 //                    Author Delete successfully ...........
                 clearField();
-                setAutoGenaratedId();
                 loadAuthorTable();
                 Alert.trigger(AlertType.INFORMATION, "Author Deleted Successfully !");
             } else {
@@ -154,5 +152,4 @@ public class AuthorManageFormController implements Initializable {
         txtAuthorId.setText(author.getId());
         txtAuthorName.setText(author.getName());
     }
-
 }
