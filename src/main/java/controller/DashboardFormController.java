@@ -7,7 +7,6 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
@@ -22,7 +21,6 @@ import net.sf.jasperreports.view.JasperViewer;
 import service.ServiceFactory;
 import service.custom.DashboardService;
 import util.ServiceType;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -214,5 +212,4 @@ public class DashboardFormController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
 }
