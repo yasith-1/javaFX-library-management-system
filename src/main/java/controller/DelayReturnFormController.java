@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.impl.DelayReturnServiceImpl;
 import util.*;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -42,6 +41,7 @@ public class DelayReturnFormController implements Initializable {
 
     DelayReturnServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.DELAYEDRETURN);
     HashMap<String, String> memberMap;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         memberMap = service.getMemberMap();

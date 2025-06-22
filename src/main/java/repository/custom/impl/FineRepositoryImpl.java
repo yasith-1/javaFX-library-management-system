@@ -5,7 +5,6 @@ import repository.custom.FineRepository;
 import util.CrudUtil;
 import util.Fine;
 import util.MapCollection;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -211,7 +210,7 @@ public class FineRepositoryImpl implements FineRepository {
         }
     }
 
-    public Double totalFineAmount(String memberId,String bookId) {
+    public Double totalFineAmount(String memberId, String bookId) {
         try {
             ResultSet resultSet = CrudUtil.execute("SELECT \n" +
                     "    member_has_book.member_id,\n" +
@@ -226,7 +225,7 @@ public class FineRepositoryImpl implements FineRepository {
                     "INNER JOIN member ON member_has_book.member_id = member.id\n" +
                     "INNER JOIN return_book ON member.id = return_book.member_id\n" +
                     "WHERE member_has_book.member_id = ?\n" +
-                    "  AND member_has_book.book_isbn = ?\n", memberId,bookId);
+                    "  AND member_has_book.book_isbn = ?\n", memberId, bookId);
 
             if (resultSet.next()) {
                 return resultSet.getInt("delayed_days") * Fine.AMOUNT.getFee();

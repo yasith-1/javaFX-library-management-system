@@ -8,7 +8,6 @@ import repository.custom.impl.FineRepositoryImpl;
 import service.custom.FineService;
 import util.Mapper;
 import util.RepositoryType;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -86,9 +85,9 @@ public class FineServiceImpl implements FineService {
     }
 
     @Override
-    public Double getTotalFineAmount(String memberId,String bookId){
-        Double fineAmount = repository.totalFineAmount(memberId,bookId);
-        if (fineAmount != null){
+    public Double getTotalFineAmount(String memberId, String bookId) {
+        Double fineAmount = repository.totalFineAmount(memberId, bookId);
+        if (fineAmount != null) {
             return fineAmount;
         }
         return null;

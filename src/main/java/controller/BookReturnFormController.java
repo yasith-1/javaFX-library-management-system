@@ -2,7 +2,6 @@ package controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import dto.Book;
 import dto.ReturnBook;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

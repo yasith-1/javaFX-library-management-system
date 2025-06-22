@@ -7,19 +7,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
 import service.custom.impl.BookServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -191,8 +187,8 @@ public class BookManageFormController implements Initializable {
 
     private void loadBookTable() {
         List<Book> bookList = service.getBookList();
-        if (bookList == null){
-            Alert.trigger(AlertType.WARNING,"No available data in table now !");
+        if (bookList == null) {
+            Alert.trigger(AlertType.WARNING, "No available data in table now !");
             return;
         }
 

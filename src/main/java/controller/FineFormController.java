@@ -3,7 +3,6 @@ package controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import dto.Book;
 import dto.Fine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +21,6 @@ import service.custom.impl.FineServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -295,11 +293,11 @@ public class FineFormController implements Initializable {
         } else if (comboBook.getValue() == null) {
             Alert.trigger(AlertType.WARNING, "Select a Book !");
             return;
-        }else {
+        } else {
             String memberId = service.getMemberMap().get(comboMember.getValue());
             String bookId = service.getBookMap().get(comboBook.getValue());
-            Double totalFineAmount = service.getTotalFineAmount(memberId,bookId);
-            if (totalFineAmount !=null){
+            Double totalFineAmount = service.getTotalFineAmount(memberId, bookId);
+            if (totalFineAmount != null) {
                 txtAmount.setText(totalFineAmount.toString());
                 return;
             }
