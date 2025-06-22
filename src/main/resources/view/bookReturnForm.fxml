@@ -55,7 +55,7 @@
       </JFXButton>
       <JFXComboBox fx:id="comboBook" layoutX="295.0" layoutY="201.0" prefHeight="32.0" prefWidth="294.0" style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 12; -fx-background-color: white; -fx-cursor: hand;" />
       <JFXComboBox fx:id="comboMember" layoutX="295.0" layoutY="264.0" prefHeight="32.0" prefWidth="294.0" style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-cursor: hand;" />
-      <TableView fx:id="returnBookTable" layoutX="26.0" layoutY="465.0" prefHeight="216.0" prefWidth="601.0">
+      <TableView fx:id="returnBookTable" layoutX="26.0" layoutY="465.0" prefHeight="207.0" prefWidth="601.0">
         <columns>
           <TableColumn fx:id="colMemberName" prefWidth="166.0" text="Member Name" />
           <TableColumn fx:id="colBookName" prefWidth="158.0" text="Book Name" />

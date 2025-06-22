@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import dto.Book;
 import dto.ReturnBook;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -38,6 +39,7 @@ public class BookReturnFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadReturnBookTable();
         loadComboBoxData();
+        fetchTableRowData();
     }
 
     private void loadComboBoxData() {
@@ -146,5 +148,22 @@ public class BookReturnFormController implements Initializable {
 
         ObservableList<ReturnBook> observableReturnBookList = FXCollections.observableArrayList(allReturnBookList);
         returnBookTable.setItems(observableReturnBookList);
+    }
+
+
+    private void fetchTableRowData() {
+        returnBookTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // double-click
+                ReturnBook selectedBook = (ReturnBook) returnBookTable.getSelectionModel().getSelectedItem();
+                if (selectedBook != null) {
+                    fillFoundedBookData(selectedBook);
+                }
+            }
+        });
+    }
+
+    private void fillFoundedBookData(ReturnBook returnBook) {
+        comboMember.setValue(returnBook.getMemberId());
+        comboBook.setValue(returnBook.getIsbn());
     }
 }
