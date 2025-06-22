@@ -84,4 +84,13 @@ public class FineServiceImpl implements FineService {
         }
         return null;
     }
+
+    @Override
+    public Double getTotalFineAmount(String memberId,String bookId){
+        Double fineAmount = repository.totalFineAmount(memberId,bookId);
+        if (fineAmount != null){
+            return fineAmount;
+        }
+        return null;
+    }
 }

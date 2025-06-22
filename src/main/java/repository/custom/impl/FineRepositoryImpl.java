@@ -57,7 +57,7 @@ public class FineRepositoryImpl implements FineRepository {
                     "INNER JOIN `member` ON `member_has_book`.`member_id` = `member`.`id` \n" +
                     "INNER JOIN `return_book` ON `member`.`id` = `return_book`.`member_id`\n" +
                     "INNER JOIN `fine` ON  `member_has_book`.member_id=fine.member_id AND `member_has_book`.book_isbn =fine.book_isbn\n" +
-                    "INNER JOIN `fine_status`ON fine.fine_status_id=fine_status.id WHERE `fine`.`id`=?",fineId);
+                    "INNER JOIN `fine_status`ON fine.fine_status_id=fine_status.id WHERE `fine`.`id`=?", fineId);
 
             if (resultSet.next()) {
                 return Double.valueOf(resultSet.getInt("delayed_days"));
@@ -110,7 +110,6 @@ public class FineRepositoryImpl implements FineRepository {
             return null;
         }
     }
-
 
     @Override
     public String getLastFineId() {
@@ -209,6 +208,32 @@ public class FineRepositoryImpl implements FineRepository {
         } catch (Exception e) {
             e.getMessage();
             return null;
+        }
+    }
+
+    public Double totalFineAmount(String memberId,String bookId) {
+        try {
+            ResultSet resultSet = CrudUtil.execute("SELECT \n" +
+                    "    member_has_book.member_id,\n" +
+                    "    member_has_book.book_isbn,\n" +
+                    "    member.name,\n" +
+                    "    member_has_book.issue_date,\n" +
+                    "    member_has_book.return_date AS date_to_return,\n" +
+                    "    return_book.returned_date,\n" +
+                    "    return_book.returned_time,\n" +
+                    "    DATEDIFF(return_book.returned_date, member_has_book.return_date) AS delayed_days\n" +
+                    "FROM member_has_book\n" +
+                    "INNER JOIN member ON member_has_book.member_id = member.id\n" +
+                    "INNER JOIN return_book ON member.id = return_book.member_id\n" +
+                    "WHERE member_has_book.member_id = ?\n" +
+                    "  AND member_has_book.book_isbn = ?\n", memberId,bookId);
+
+            if (resultSet.next()) {
+                return resultSet.getInt("delayed_days") * Fine.AMOUNT.getFee();
+            }
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }

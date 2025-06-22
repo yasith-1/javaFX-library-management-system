@@ -3,6 +3,7 @@ package repository.custom.impl;
 import entity.DelayReturnEntity;
 import repository.custom.DelayReturnRepository;
 import util.CrudUtil;
+import util.Fine;
 import util.MapCollection;
 
 import java.sql.ResultSet;
@@ -64,7 +65,7 @@ public class DelayReturnRepositoryImpl implements DelayReturnRepository {
                             resultSet.getString("member_id"),
                             null,
                             resultSet.getString("name"),
-                            null, null, null, null, null
+                            null, null, null, null, null, null
                     );
                     delayReturnEntityMemberList.add(delayReturnEntity);
                 }
@@ -144,7 +145,8 @@ public class DelayReturnRepositoryImpl implements DelayReturnRepository {
                             resultSet.getDate("date_to_return").toLocalDate(),
                             resultSet.getDate("returned_date").toLocalDate(),
                             resultSet.getTime("returned_time").toLocalTime(),
-                            resultSet.getInt("delayed_days")
+                            resultSet.getInt("delayed_days"),
+                            resultSet.getInt("delayed_days") * Fine.AMOUNT.getFee()
                     );
                     delayReturnEntityOverviewList.add(delayReturnEntity);
                 }

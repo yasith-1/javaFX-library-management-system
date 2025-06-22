@@ -38,6 +38,7 @@ public class DelayReturnFormController implements Initializable {
     public TableColumn colMName;
     public TableColumn colBookId;
     public TableColumn colReturnTime;
+    public TableColumn colTotalFineAmount;
 
     DelayReturnServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.DELAYEDRETURN);
     HashMap<String, String> memberMap;
@@ -104,6 +105,7 @@ public class DelayReturnFormController implements Initializable {
         colReturnedDate.setCellValueFactory(new PropertyValueFactory<>("returnedDate"));
         colReturnTime.setCellValueFactory(new PropertyValueFactory<>("returnedTime"));
         colDelayedDays.setCellValueFactory(new PropertyValueFactory<>("delayedDays"));
+        colTotalFineAmount.setCellValueFactory(new PropertyValueFactory<>("totalFineAmount"));
 
         ObservableList<DelayReturn> delayReturnsOverviews = FXCollections.observableArrayList(delayReturnOverviewList);
         dellayReturnOverviewTable.setItems(delayReturnsOverviews);

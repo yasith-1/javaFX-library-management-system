@@ -1,7 +1,6 @@
 package dto;
 
 import lombok.*;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -20,4 +19,5 @@ public class DelayReturn {
     private LocalDate returnedDate;
     private LocalTime returnedTime;
     private Integer delayedDays;
+    private Double totalFineAmount;
 }

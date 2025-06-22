@@ -24,4 +24,6 @@ public interface FineService extends SuperService {
     Boolean deleteFine(Fine fine);
 
     Fine searchFine(Fine fine);
+
+    Double getTotalFineAmount(String memberId,String bookId);
 }

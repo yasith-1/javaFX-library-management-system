@@ -19,4 +19,5 @@ public class DelayReturnEntity {
     private LocalDate returnedDate;
     private LocalTime returnedTime;
     private Integer delayedDays;
+    private Double totalFineAmount;
 }

@@ -16,4 +16,6 @@ public interface FineRepository extends CrudRepository<FineEntity, String> {
     List<FineEntity> allFineList();
 
     String getLastFineId();
+
+    Double totalFineAmount(String memberId,String bookId);
 }

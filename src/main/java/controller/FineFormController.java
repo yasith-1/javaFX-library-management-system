@@ -287,4 +287,23 @@ public class FineFormController implements Initializable {
         stage.setTitle("Delay Return and Make Fines");
         stage.show();
     }
+
+    public void setFineOnActionBtn(ActionEvent actionEvent) {
+        if (comboMember.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Select a Member !");
+            return;
+        } else if (comboBook.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Select a Book !");
+            return;
+        }else {
+            String memberId = service.getMemberMap().get(comboMember.getValue());
+            String bookId = service.getBookMap().get(comboBook.getValue());
+            Double totalFineAmount = service.getTotalFineAmount(memberId,bookId);
+            if (totalFineAmount !=null){
+                txtAmount.setText(totalFineAmount.toString());
+                return;
+            }
+            Alert.trigger(AlertType.ERROR, "Sorry fine amount not Found !");
+        }
+    }
 }
