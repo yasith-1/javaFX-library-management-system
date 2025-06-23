@@ -13,4 +13,8 @@ public class LoginFormController {
 
     public void LoginOnActionButton(ActionEvent actionEvent) {
     }
+
+    public void redirectToLoginOnActionBtn(ActionEvent actionEvent) {
+
+    }
 }

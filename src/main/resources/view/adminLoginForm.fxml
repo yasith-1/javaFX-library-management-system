@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="507.0" fitWidth="491.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/login.gif" />
+            <Image url="@../image/signup.gif" />
          </image>
       </ImageView>
       <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="529.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
