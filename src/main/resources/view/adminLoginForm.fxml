@@ -12,47 +12,47 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="490.0" prefWidth="815.0" style="-fx-background-color: #f5f6fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+<AnchorPane prefHeight="450.0" prefWidth="793.0" style="-fx-background-color: #f5f6fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
    <children>
-      <ImageView fitHeight="507.0" fitWidth="491.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="474.0" fitWidth="447.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/login.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="529.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="507.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../todo-list-application/src/main/resources/images/lock.png" />
          </image>
       </ImageView>
-      <Label layoutX="586.0" layoutY="38.0" text="Admin LOGIN">
+      <Label layoutX="564.0" layoutY="34.0" text="Admin LOGIN">
          <font>
             <Font name="Poppins Bold" size="26.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="usernameField" focusColor="#27ab9c" layoutX="504.0" layoutY="197.0" prefHeight="26.0" prefWidth="278.0" promptText="Email OR NIC" style="-fx-cursor: hand;">
+      <JFXTextField fx:id="txtEmailORnic" focusColor="#27ab9c" layoutX="482.0" layoutY="178.0" prefHeight="26.0" prefWidth="278.0" promptText="Email OR NIC" style="-fx-cursor: hand;">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField fx:id="passwordField" focusColor="#27ab9c" layoutX="504.0" layoutY="260.0" prefHeight="26.0" prefWidth="278.0" promptText="Password" style="-fx-cursor: hand;">
+      <JFXPasswordField fx:id="passwordField" focusColor="#27ab9c" layoutX="482.0" layoutY="241.0" prefHeight="26.0" prefWidth="278.0" promptText="Password" style="-fx-cursor: hand;">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXPasswordField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="500.0" layoutY="353.0" onAction="#LoginOnActionButton" prefHeight="37.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #0a3d62; -fx-cursor: hand;" text="Login" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="482.0" layoutY="311.0" onAction="#LoginOnActionButton" prefHeight="37.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #0a3d62; -fx-cursor: hand;" text="Login" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#8d8d8d45" height="37.0" layoutX="493.0" layoutY="113.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="291.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="523.0" layoutY="122.0" prefHeight="20.0" prefWidth="247.0" text="Keep safely your sensitive date !" textFill="#402323">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#8d8d8d45" height="37.0" layoutX="475.0" layoutY="109.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="291.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="505.0" layoutY="118.0" prefHeight="20.0" prefWidth="247.0" text="Keep safely your sensitive date !" textFill="#402323">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
-      <Separator layoutX="493.0" layoutY="87.0" prefHeight="4.0" prefWidth="299.0" style="-fx-background-color: #ced6e0;" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff0a" height="44.0" layoutX="502.0" layoutY="407.0" stroke="#eeeeee" strokeType="INSIDE" width="278.0" />
-      <Hyperlink layoutX="536.0" layoutY="416.0" onAction="#redirectToLoginOnActionBtn" prefHeight="23.0" prefWidth="206.0" text="Haven't account ? Register --&gt;" textFill="#0d9fdd">
+      <Separator layoutX="471.0" layoutY="83.0" prefHeight="4.0" prefWidth="299.0" style="-fx-background-color: #ced6e0;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff0a" height="44.0" layoutX="482.0" layoutY="372.0" stroke="#eeeeee" strokeType="INSIDE" width="278.0" />
+      <Hyperlink layoutX="518.0" layoutY="381.0" onAction="#redirectToRegisterOnActionBtn" prefHeight="23.0" prefWidth="206.0" text="Haven't account ? Register --&gt;" textFill="#0f739a">
          <font>
             <Font size="14.0" />
          </font>
