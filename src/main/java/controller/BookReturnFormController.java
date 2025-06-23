@@ -7,6 +7,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -22,8 +24,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class BookReturnFormController implements Initializable {
-    public JFXComboBox comboBook;
-    public JFXComboBox comboMember;
     public TableView returnBookTable;
     public TableColumn colMemberName;
     public TableColumn colReurnDate;
@@ -31,6 +31,9 @@ public class BookReturnFormController implements Initializable {
     public TableColumn colReturnTime;
     public JFXTextField txtMemberName;
     public JFXTextField txtBookName;
+    public DatePicker returenedDateSelector;
+    public ComboBox comboMember;
+    public ComboBox comboBook;
 
     ReturnBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.RETURNBOOK);
 
