@@ -69,7 +69,7 @@
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboCategory" layoutX="348.0" layoutY="153.0" prefHeight="32.0" prefWidth="235.0" promptText="Select book category" />
+      <ComboBox fx:id="comboCategory" layoutX="350.0" layoutY="152.0" prefHeight="32.0" prefWidth="235.0" promptText="Select book category" />
       <ComboBox fx:id="comboStatus" layoutX="350.0" layoutY="204.0" prefHeight="32.0" prefWidth="235.0" promptText="Book availability" />
       <ComboBox fx:id="comboAuthor" layoutX="350.0" layoutY="255.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Author" />
    </children>

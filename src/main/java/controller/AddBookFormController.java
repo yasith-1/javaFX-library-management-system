@@ -6,14 +6,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
 import service.custom.impl.BookServiceImpl;
 import util.Alert;
@@ -66,45 +63,19 @@ public class AddBookFormController implements Initializable {
 //        validating Input fields------------------
 
         if (txtTile.getText().isEmpty()) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Enter book title!")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
-
+            Alert.trigger(AlertType.WARNING,"Enter book title!");
             return;
         } else if (txtCopies.getText().isEmpty()) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Enter book copies count !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING,"Enter book copies count !");
             return;
         } else if (comboCategory.getValue() == null) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Select a book category !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING,"Select a book category !");
             return;
         } else if (comboStatus.getValue() == null) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Select a book status !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING,"Select a book status !");
             return;
         } else if (comboAuthor.getValue() == null) {
-            Notifications.create()
-                    .title("Warning")
-                    .text("Select a book author !")
-                    .hideAfter(Duration.seconds(3))
-                    .position(Pos.BOTTOM_RIGHT)
-                    .showWarning();
+            Alert.trigger(AlertType.WARNING,"Select a book author !");
             return;
         } else {
 
@@ -128,32 +99,17 @@ public class AddBookFormController implements Initializable {
                 Boolean isAdded = service.addBook(book);
                 if (isAdded) {
 //                    Book added successfully ...........
-                    Notifications.create()
-                            .title("Success")
-                            .text("Book Added Successfully ")
-                            .hideAfter(Duration.seconds(3))
-                            .position(Pos.BOTTOM_RIGHT)
-                            .showInformation();
+                    Alert.trigger(AlertType.INFORMATION,"Book Added Successfully  !");
                     clearField();
                     setAutogenarateBookId();
                     loadBookTable();
                 } else {
 //                    Book is not added  ...........
-                    Notifications.create()
-                            .title("Error")
-                            .text("Book doessn't Added ... ")
-                            .hideAfter(Duration.seconds(3))
-                            .position(Pos.BOTTOM_RIGHT)
-                            .showError();
+                    Alert.trigger(AlertType.ERROR,"Book doessn't Added ..");
                     clearField();
                 }
             } else {
-                Notifications.create()
-                        .title("Warning")
-                        .text("Invalid Book copies count...")
-                        .hideAfter(Duration.seconds(3))
-                        .position(Pos.BOTTOM_RIGHT)
-                        .showWarning();
+                Alert.trigger(AlertType.WARNING,"Invalid Book copies count...");
             }
         }
     }
@@ -184,8 +140,8 @@ public class AddBookFormController implements Initializable {
 
     private void loadBookTable() {
         List<Book> bookList = service.getBookList();
-        if (bookList == null){
-            Alert.trigger(AlertType.WARNING,"No available data in table now !");
+        if (bookList == null) {
+            Alert.trigger(AlertType.WARNING, "No available data in table now !");
             return;
         }
 
