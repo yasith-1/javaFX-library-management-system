@@ -1,14 +1,13 @@
 package controller;
 
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import dto.Book;
 import dto.IssuedBook;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,14 +18,13 @@ import service.custom.impl.IssuedBookServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class ManageIssuedBookFormController implements Initializable {
-    public JFXComboBox comboMember;
-    public JFXComboBox comboBook;
+    public ComboBox comboMember;
+    public ComboBox comboBook;
     public JFXTextField txtSearchFieldMemberName;
     public JFXTextField txtSearchFieldBook;
     public TableView issueBookTable;

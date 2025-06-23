@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -112,13 +111,6 @@
             <Insets left="3.0" />
          </padding>
       </JFXTextField>
-      <JFXComboBox fx:id="comMemberType" focusColor="#adadad" layoutX="46.0" layoutY="413.0" prefHeight="35.0" prefWidth="323.0" promptText="Select Type " style="-fx-prompt-text-fill: black; -fx-text-fill: white; -fx-font-family: poppins; -fx-background-radius: 10; -fx-background-color: white; -fx-border-color: gray; -fx-border-radius: 10; -fx-cursor: hand;" unFocusColor="#adadad">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <padding>
-            <Insets left="5.0" />
-         </padding></JFXComboBox>
       <JFXTextField fx:id="txtMemberAddress" focusColor="#15a5ff" layoutX="50.0" layoutY="361.0" prefHeight="33.0" prefWidth="316.0" promptText="Enter Member Address" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
@@ -127,5 +119,6 @@
             <Insets left="3.0" />
          </padding>
       </JFXTextField>
+      <ComboBox fx:id="comMemberType" layoutX="50.0" layoutY="414.0" prefHeight="33.0" prefWidth="316.0" promptText="Select type" />
    </children>
 </AnchorPane>

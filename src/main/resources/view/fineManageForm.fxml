@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -42,22 +42,7 @@
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextField>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="171.0" layoutX="26.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
-      <JFXComboBox fx:id="comboMember" focusColor="#17a6ff00" layoutX="44.0" layoutY="283.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Member" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#ababab00">
-         <padding>
-            <Insets left="15.0" />
-         </padding>
-      </JFXComboBox>
-      <JFXComboBox fx:id="comboBook" focusColor="#17a6ff00" layoutX="44.0" layoutY="329.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Book" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#adadad00">
-         <padding>
-            <Insets left="15.0" />
-         </padding>
-      </JFXComboBox>
-      <JFXComboBox fx:id="comboFineStatus" focusColor="#17a6ff00" layoutX="44.0" layoutY="376.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Fine Status" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#adadad00">
-         <padding>
-            <Insets left="15.0" />
-         </padding>
-      </JFXComboBox>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="151.0" layoutX="26.0" layoutY="274.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
       <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="392.0" onAction="#clearOnActionBtn" prefHeight="36.0" prefWidth="284.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
@@ -89,7 +74,7 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="412.0" layoutY="199.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="433.0" layoutY="199.0" onAction="#searchOnActionBtn" prefHeight="18.0" prefWidth="92.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -111,12 +96,15 @@
             <TableColumn fx:id="colStatus" prefWidth="69.0" resizable="false" text="Pay Status" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="155.0" prefHeight="28.0" prefWidth="271.0" style="-fx-border-color: red; -fx-label-padding: 2; -fx-border-radius: 5;" text="Check all fine payed &amp; payable list" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="168.0" prefHeight="35.0" prefWidth="284.0" style="-fx-border-color: red; -fx-label-padding: 2; -fx-border-radius: 5;" text="Check all fine payed &amp; payable list" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </Label>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="199.0" onAction="#checkPendingFinesOnActionButton" prefHeight="36.0" prefWidth="168.0" style="-fx-background-color: #1B9CFC; -fx-background-radius: 10; -fx-cursor: hand;" text="Check" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="102.0" layoutY="217.0" onAction="#checkPendingFinesOnActionButton" prefHeight="28.0" prefWidth="120.0" style="-fx-background-color: #1B9CFC; -fx-background-radius: 10; -fx-cursor: hand;" text="Check" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -126,5 +114,8 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
+      <ComboBox fx:id="comboMember" layoutX="42.0" layoutY="291.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Member" />
+      <ComboBox fx:id="comboBook" layoutX="42.0" layoutY="335.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Book" />
+      <ComboBox fx:id="comboFineStatus" layoutX="42.0" layoutY="379.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Status" />
    </children>
 </AnchorPane>

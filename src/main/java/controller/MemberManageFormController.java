@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -28,12 +29,12 @@ public class MemberManageFormController implements Initializable {
     public Label txtMemberIdLbl;
     public JFXTextField txtMemberNIC;
     public JFXTextField txtMemberEmail;
-    public JFXComboBox comMemberType;
     public JFXTextField txtMemberAddress;
     public TableColumn colMemberNIC;
     public TableColumn colMemberEmail;
     public TableColumn colMemberAddress;
     public TableColumn colMemberType;
+    public ComboBox comMemberType;
 
 
     MemberServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.MEMBER);

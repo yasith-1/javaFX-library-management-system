@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -21,9 +22,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class BookManageFormController implements Initializable {
-    public JFXComboBox comboStatus;
-    public JFXComboBox comboCategory;
-    public JFXComboBox comboAuthor;
+    public ComboBox comboCategory;
+    public ComboBox comboStatus;
+    public ComboBox comboAuthor;
     public JFXTextField txtTile;
     public JFXTextField txtCopies;
     public TableView bookTable;

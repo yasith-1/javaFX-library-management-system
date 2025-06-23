@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,9 +34,6 @@ public class FineFormController implements Initializable {
     public Label txtFineIdLbl;
     public JFXTextArea txtReason;
     public JFXTextField txtAmount;
-    public JFXComboBox comboMember;
-    public JFXComboBox comboBook;
-    public JFXComboBox comboFineStatus;
     public JFXTextField txtSearchFieldBookName;
     public TableView fineTable;
     public TableColumn colMemberName;
@@ -47,6 +45,9 @@ public class FineFormController implements Initializable {
     public TableColumn colTime;
     public TableColumn colDate;
     public TableColumn colStatus;
+    public ComboBox comboMember;
+    public ComboBox comboBook;
+    public ComboBox comboFineStatus;
 
     FineServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.FINE);
 

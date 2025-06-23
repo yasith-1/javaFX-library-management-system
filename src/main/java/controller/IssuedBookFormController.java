@@ -1,23 +1,17 @@
 package controller;
 
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.IssuedBook;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
@@ -25,8 +19,6 @@ import service.custom.impl.IssuedBookServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
-
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -35,8 +27,8 @@ import java.util.ResourceBundle;
 
 public class IssuedBookFormController implements Initializable {
 
-    public JFXComboBox comboBook;
-    public JFXComboBox comboMember;
+    public ComboBox comboBook;
+    public ComboBox comboMember;
     public JFXTextField txtQty;
     public DatePicker returnDate;
     public TableView issueBookTable;
@@ -46,6 +38,7 @@ public class IssuedBookFormController implements Initializable {
     public TableColumn colIssueDate;
     public TableColumn colIssueTime;
     public TableColumn colReturnDate;
+
 
     IssuedBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.ISSUEDBOOK);
 

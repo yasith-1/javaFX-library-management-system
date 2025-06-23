@@ -41,6 +41,4 @@ public class PendingFineRepositoryImpl implements PendingFineRepository {
             throw new RuntimeException(e);
         }
     }
-
-
 }

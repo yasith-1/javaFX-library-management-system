@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -27,16 +27,6 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="200.0" layoutX="34.0" layoutY="107.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
-      <JFXComboBox fx:id="comboMember" focusColor="#17a6ff00" layoutX="52.0" layoutY="166.0" prefHeight="32.0" prefWidth="235.0" promptText="Member" style="-fx-background-color: none; -fx-background-radius: 5; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-background-radius: 9; -fx-cursor: hand;" unFocusColor="#ababab00">
-         <padding>
-            <Insets left="15.0" />
-         </padding>
-      </JFXComboBox>
-      <JFXComboBox fx:id="comboBook" focusColor="#17a6ff00" layoutX="52.0" layoutY="212.0" prefHeight="32.0" prefWidth="235.0" promptText="Book" style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 9; -fx-background-color: white; -fx-cursor: hand;" unFocusColor="#adadad00">
-         <padding>
-            <Insets left="15.0" />
-         </padding>
-      </JFXComboBox>
       <JFXTextField fx:id="txtQty" alignment="CENTER" editable="false" focusColor="#15a5ff" layoutX="58.0" layoutY="256.0" prefHeight="33.0" prefWidth="221.0" promptText="Quantity" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: white;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="15.0" />
@@ -108,5 +98,7 @@
             <TableColumn fx:id="colReturnDate" prefWidth="109.0" text="Return Date" />
          </columns>
       </TableView>
+      <ComboBox fx:id="comboMember" layoutX="49.0" layoutY="169.0" prefHeight="32.0" prefWidth="235.0" promptText="Member" />
+      <ComboBox fx:id="comboBook" layoutX="49.0" layoutY="215.0" prefHeight="32.0" prefWidth="235.0" promptText="Book" />
    </children>
 </AnchorPane>

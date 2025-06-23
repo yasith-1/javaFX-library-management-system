@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="640.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IssuedBookFormController">
+<AnchorPane prefHeight="683.0" prefWidth="647.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IssuedBookFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="647.0" />
       <Label layoutX="283.0" layoutY="25.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Issue Book" textFill="WHITE">
@@ -51,33 +51,28 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="comboBook" layoutX="284.0" layoutY="126.0" prefHeight="32.0" prefWidth="281.0" promptText="Select a book" style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-cursor: hand;">
+      <JFXTextField fx:id="txtQty" editable="false" focusColor="#15a5ff" layoutX="276.0" layoutY="237.0" prefHeight="32.0" prefWidth="289.0" style="-fx-text-fill: white; -fx-cursor: hand; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <padding>
             <Insets left="10.0" />
-         </padding></JFXComboBox>
-      <JFXComboBox fx:id="comboMember" layoutX="284.0" layoutY="182.0" prefHeight="32.0" prefWidth="281.0" promptText="Select a member" style="-fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-cursor: hand;">
-         <padding>
-            <Insets left="10.0" />
-         </padding></JFXComboBox>
-      <JFXTextField fx:id="txtQty" editable="false" focusColor="#15a5ff" layoutX="276.0" layoutY="237.0" prefHeight="32.0" prefWidth="289.0" promptText="Defalut book count : 1" style="-fx-text-fill: white; -fx-cursor: hand;" unFocusColor="#aeaeae">
-         <padding>
-            <Insets left="10.0" />
-         </padding></JFXTextField>
+         </padding>
+         <font>
+            <Font size="15.0" />
+         </font></JFXTextField>
       <DatePicker fx:id="returnDate" layoutX="285.0" layoutY="295.0" prefHeight="32.0" prefWidth="281.0" promptText="Select return date" style="-fx-cursor: hand; -fx-background-color: white;">
          <padding>
             <Insets left="10.0" />
          </padding></DatePicker>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="378.0" onAction="#addIssueBookOnActionBtn" prefHeight="40.0" prefWidth="201.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Issue Book">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="378.0" onAction="#addIssueBookOnActionBtn" prefHeight="32.0" prefWidth="164.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Issue Book">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="341.0" layoutY="378.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="201.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="354.0" layoutY="378.0" onAction="#clearOnActionBtn" prefHeight="32.0" prefWidth="164.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="issueBookTable" layoutX="29.0" layoutY="457.0" prefHeight="222.0" prefWidth="590.0">
+      <TableView fx:id="issueBookTable" layoutX="29.0" layoutY="447.0" prefHeight="201.0" prefWidth="590.0">
          <columns>
             <TableColumn fx:id="colMemberId" prefWidth="99.0" text="Member" />
             <TableColumn fx:id="colBookId" prefWidth="96.0" text="Book" />
@@ -87,5 +82,7 @@
             <TableColumn fx:id="colReturnDate" prefWidth="109.0" text="Return Date" />
          </columns>
       </TableView>
+      <ComboBox fx:id="comboBook" layoutX="284.0" layoutY="126.0" prefHeight="32.0" prefWidth="281.0" promptText="Select a Book" />
+      <ComboBox fx:id="comboMember" layoutX="285.0" layoutY="182.0" prefHeight="32.0" prefWidth="281.0" promptText="Select a Member" />
    </children>
 </AnchorPane>
