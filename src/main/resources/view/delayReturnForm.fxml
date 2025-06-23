@@ -63,18 +63,18 @@
       </Label>
       <TableView fx:id="dellayReturnOverviewTable" layoutX="16.0" layoutY="438.0" prefHeight="177.0" prefWidth="730.0">
         <columns>
-          <TableColumn fx:id="colMemberId" prefWidth="83.0" text="Member ID" />
-          <TableColumn fx:id="colBookId" prefWidth="101.0" text="Book ID" />
-            <TableColumn fx:id="colMemberName" prefWidth="66.0" text="Name" />
-            <TableColumn fx:id="colIssueDate" prefWidth="89.0" text="Issue Date" />
+          <TableColumn fx:id="colMemberId" prefWidth="75.0" text="Member ID" />
+          <TableColumn fx:id="colBookId" prefWidth="91.0" text="Book ID" />
+            <TableColumn fx:id="colMemberName" prefWidth="102.0" text="Name" />
+            <TableColumn fx:id="colIssueDate" prefWidth="71.0" text="Issue Date" />
             <TableColumn fx:id="colDateToReturn" prefWidth="92.0" text="Date To Return" />
             <TableColumn fx:id="colReturnedDate" prefWidth="84.0" text="Returned Date" />
             <TableColumn fx:id="colReturnTime" prefWidth="93.0" text="Returned Time" />
-            <TableColumn fx:id="colDelayedDays" prefWidth="63.0" text="Overdue days" />
+            <TableColumn fx:id="colDelayedDays" prefWidth="63.0" text="Days miss" />
             <TableColumn fx:id="colTotalFineAmount" prefWidth="58.0" text="Amount" />
         </columns>
       </TableView>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="517.0" layoutY="634.0" onAction="#makeFineOnActionBtn" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: #B33771; -fx-background-radius: 10; -fx-cursor: hand;" text="Go to Fine" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="568.0" layoutY="634.0" onAction="#makeFineOnActionBtn" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: #B33771; -fx-background-radius: 10; -fx-cursor: hand;" text="Go to Fine" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>

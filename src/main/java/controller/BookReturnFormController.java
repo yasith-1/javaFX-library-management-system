@@ -1,6 +1,5 @@
 package controller;
 
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.ReturnBook;
 import javafx.collections.FXCollections;
@@ -54,7 +53,10 @@ public class BookReturnFormController implements Initializable {
             Alert.trigger(AlertType.WARNING, "Select book that return !");
             return;
         } else if (comboMember.getValue() == null) {
-            Alert.trigger(AlertType.WARNING, "Select member !");
+            Alert.trigger(AlertType.WARNING, "Select Member that return book !");
+            return;
+        }else if (returenedDateSelector.getValue() == null) {
+            Alert.trigger(AlertType.WARNING, "Select Book returning Date !");
             return;
         } else {
 //            All Ok
@@ -65,7 +67,7 @@ public class BookReturnFormController implements Initializable {
 
                     memberId,
                     bookId,
-                    LocalDate.now(),
+                    returenedDateSelector.getValue(),
                     LocalTime.now());
 
             Boolean isAdded = service.addReturnRecord(returnBook);

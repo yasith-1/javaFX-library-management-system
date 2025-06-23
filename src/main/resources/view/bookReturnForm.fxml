@@ -56,8 +56,8 @@
       </JFXButton>
       <TableView fx:id="returnBookTable" layoutX="26.0" layoutY="519.0" prefHeight="153.0" prefWidth="601.0">
         <columns>
-          <TableColumn fx:id="colMemberName" prefWidth="166.0" text="Member Name" />
-          <TableColumn fx:id="colBookName" prefWidth="158.0" text="Book Name" />
+          <TableColumn fx:id="colMemberName" prefWidth="140.0" text="Member Name" />
+          <TableColumn fx:id="colBookName" prefWidth="184.0" text="Book Name" />
             <TableColumn fx:id="colReurnDate" prefWidth="134.0" text="Returned Date" />
             <TableColumn fx:id="colReturnTime" prefWidth="140.0" text="Returned Time" />
         </columns>

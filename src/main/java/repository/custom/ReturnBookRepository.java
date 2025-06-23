@@ -14,7 +14,5 @@ public interface ReturnBookRepository extends CrudRepository<ReturnBookEntity, S
 
     Boolean deductbookQuantity(ReturnBookEntity entity);
 
-    Boolean removeIssuedBookRecord(ReturnBookEntity entity);
-
     List<ReturnBookEntity> returnBookList();
 }
