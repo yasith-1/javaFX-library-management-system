@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -7,8 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="450.0" prefWidth="650.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PendingFineController">
+<AnchorPane prefHeight="405.0" prefWidth="650.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PendingFineController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="650.0" />
       <Label layoutX="255.0" layoutY="26.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" textFill="WHITE">
@@ -21,7 +21,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <TableView layoutX="38.0" layoutY="124.0" prefHeight="233.0" prefWidth="568.0">
+      <TableView fx:id="pendingFineTable" layoutX="41.0" layoutY="115.0" prefHeight="215.0" prefWidth="568.0">
         <columns>
           <TableColumn fx:id="colMemberId" prefWidth="81.0" text="Member ID" />
           <TableColumn fx:id="colBookId" prefWidth="87.0" text="Book ID" />
@@ -29,5 +29,10 @@
             <TableColumn fx:id="colReturnDelayDays" prefWidth="181.0" text="Book return back delay Days" />
         </columns>
       </TableView>
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="441.0" layoutY="347.0" onAction="#reloadTableOnActionButton" prefHeight="36.0" prefWidth="168.0" style="-fx-background-color: #1B9CFC; -fx-background-radius: 10; -fx-cursor: hand;" text="Reload Table" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="17.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

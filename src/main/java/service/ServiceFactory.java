@@ -37,6 +37,8 @@ public class ServiceFactory {
                 return (T) new AuthorServiceImpl();
             case DELAYEDRETURN:
                 return (T) new DelayReturnServiceImpl();
+            case PENDINGFINE:
+                return (T) new PendingFineServiceImpl();
         }
         return null;
     }

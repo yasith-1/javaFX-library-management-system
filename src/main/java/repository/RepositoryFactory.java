@@ -1,6 +1,7 @@
 package repository;
 
 import repository.custom.impl.*;
+import service.custom.impl.PendingFineServiceImpl;
 import util.RepositoryType;
 
 public class RepositoryFactory {
@@ -30,6 +31,8 @@ public class RepositoryFactory {
                 return  (T) new AuthorRepositoryImpl();
             case DELAYEDRETURN:
                 return (T) new DelayReturnRepositoryImpl();
+            case PENDINGFINE:
+                return (T) new PendingFineRepositoryImpl();
         }
         return null;
     }

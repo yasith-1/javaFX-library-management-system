@@ -27,12 +27,12 @@
             <Image url="@../image/stageicon.png" />
          </image>
       </ImageView>
-      <Label fx:id="txtFineIdLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="106.0" prefHeight="28.0" prefWidth="113.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="F001" textFill="WHITE">
+      <Label fx:id="txtFineIdLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="102.0" prefHeight="28.0" prefWidth="113.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="F001" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <JFXTextArea fx:id="txtReason" focusColor="#15a5ff" layoutX="329.0" layoutY="263.0" prefHeight="40.0" prefWidth="284.0" promptText="Add your Reason here" style="-fx-prompt-text-fill: #37D67A; -fx-text-fill: white;" unFocusColor="#aeaeae">
+      <JFXTextArea fx:id="txtReason" focusColor="#15a5ff" layoutX="329.0" layoutY="266.0" prefHeight="40.0" prefWidth="284.0" promptText="Add your Reason here" style="-fx-prompt-text-fill: #37D67A; -fx-text-fill: white;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
@@ -63,7 +63,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="106.0" prefHeight="28.0" prefWidth="79.0" style="-fx-border-color: #b2bec3; -fx-label-padding: 2; -fx-border-radius: 10;" text="Fine ID : " textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="102.0" prefHeight="28.0" prefWidth="79.0" style="-fx-border-color: #b2bec3; -fx-label-padding: 2; -fx-border-radius: 10;" text="Fine ID : " textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
@@ -111,12 +111,12 @@
             <TableColumn fx:id="colStatus" prefWidth="69.0" resizable="false" text="Pay Status" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="155.0" prefHeight="28.0" prefWidth="294.0" style="-fx-border-color: red; -fx-label-padding: 2; -fx-border-radius: 5;" text="Check First who has fine to be pay ?" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="155.0" prefHeight="28.0" prefWidth="278.0" style="-fx-border-color: red; -fx-label-padding: 2; -fx-border-radius: 5;" text="Check First who has to be pay fine ?" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="199.0" onAction="#checkPendingFinesOnActionButton" prefHeight="36.0" prefWidth="168.0" style="-fx-background-color: green; -fx-background-radius: 10; -fx-cursor: hand;" text="Check" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="199.0" onAction="#checkPendingFinesOnActionButton" prefHeight="36.0" prefWidth="168.0" style="-fx-background-color: #1B9CFC; -fx-background-radius: 10; -fx-cursor: hand;" text="Check" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
