@@ -26,7 +26,7 @@ public class FineRepositoryImpl implements FineRepository {
             ResultSet result = CrudUtil.execute("SELECT `fine`.`id`,`reason`,`paid_date`,`paid_time`," +
                     "`amount`,`member`.`name`,`book`.`title`,`status` FROM `fine` INNER JOIN `member` " +
                     "ON fine.member_id = `member`.id INNER JOIN `book` ON fine.book_isbn=book.isbn\n" +
-                    " INNER JOIN fine_status ON fine.fine_status_id=fine_status.id ");
+                    " INNER JOIN fine_status ON fine.fine_status_id=fine_status.id");
 
             while (result.next()) {
                 FineEntity fineEntity = new FineEntity(

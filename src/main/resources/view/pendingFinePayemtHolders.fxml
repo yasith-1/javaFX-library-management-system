@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="405.0" prefWidth="650.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PendingFineController">
+<AnchorPane prefHeight="424.0" prefWidth="650.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PendingFineController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="650.0" />
       <Label layoutX="255.0" layoutY="26.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" textFill="WHITE">
@@ -16,23 +16,29 @@
             <Font name="Poppins Bold" size="28.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="18.0" prefHeight="57.0" prefWidth="345.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="Who has to pay fine ?" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="171.0" layoutY="18.0" prefHeight="57.0" prefWidth="308.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="Who were fine pay &amp; payable ?" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <TableView fx:id="pendingFineTable" layoutX="41.0" layoutY="115.0" prefHeight="215.0" prefWidth="568.0">
+      <TableView fx:id="pendingFineTable" layoutX="44.0" layoutY="156.0" prefHeight="206.0" prefWidth="568.0">
         <columns>
           <TableColumn fx:id="colMemberId" prefWidth="81.0" text="Member ID" />
           <TableColumn fx:id="colBookId" prefWidth="87.0" text="Book ID" />
-            <TableColumn fx:id="colMemberName" prefWidth="218.0" text="Member Name" />
-            <TableColumn fx:id="colReturnDelayDays" prefWidth="181.0" text="Book return back delay Days" />
+            <TableColumn fx:id="colMemberName" prefWidth="156.0" text="Member Name" />
+            <TableColumn fx:id="colBookName" prefWidth="110.0" text="BookName" />
+            <TableColumn fx:id="colReturnDelayDays" prefWidth="133.0" text="Days" />
         </columns>
       </TableView>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="441.0" layoutY="347.0" onAction="#reloadTableOnActionButton" prefHeight="36.0" prefWidth="168.0" style="-fx-background-color: #1B9CFC; -fx-background-radius: 10; -fx-cursor: hand;" text="Reload Table" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="444.0" layoutY="376.0" onAction="#reloadTableOnActionButton" prefHeight="36.0" prefWidth="168.0" style="-fx-background-color: #1B9CFC; -fx-background-radius: 10; -fx-cursor: hand;" text="Reload Table" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="44.0" layoutY="98.0" prefHeight="40.0" prefWidth="508.0" style="-fx-label-padding: 2; -fx-border-radius: 10;" text="Manually check and clarify data with fine payment form" textFill="WHITE">
+         <font>
+            <Font name="Poppins Italic" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

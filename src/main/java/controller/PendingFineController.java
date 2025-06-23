@@ -23,6 +23,7 @@ public class PendingFineController implements Initializable {
     public TableColumn colMemberName;
     public TableColumn colReturnDelayDays;
     public TableView pendingFineTable;
+    public TableColumn colBookName;
     PendingFineServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.PENDINGFINE);
 
     @Override
@@ -40,6 +41,7 @@ public class PendingFineController implements Initializable {
         colMemberId.setCellValueFactory(new PropertyValueFactory<>("memberId"));
         colBookId.setCellValueFactory(new PropertyValueFactory<>("bookIsbn"));
         colMemberName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colBookName.setCellValueFactory(new PropertyValueFactory<>("title"));
         colReturnDelayDays.setCellValueFactory(new PropertyValueFactory<>("delayedDays"));
 
         ObservableList<PendingFine> pendingFineObservableList = FXCollections.observableArrayList(pendingFineList);

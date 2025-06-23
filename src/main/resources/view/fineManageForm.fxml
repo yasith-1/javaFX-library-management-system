@@ -111,7 +111,7 @@
             <TableColumn fx:id="colStatus" prefWidth="69.0" resizable="false" text="Pay Status" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="155.0" prefHeight="28.0" prefWidth="278.0" style="-fx-border-color: red; -fx-label-padding: 2; -fx-border-radius: 5;" text="Check First who has to be pay fine ?" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="155.0" prefHeight="28.0" prefWidth="271.0" style="-fx-border-color: red; -fx-label-padding: 2; -fx-border-radius: 5;" text="Check all fine payed &amp; payable list" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>

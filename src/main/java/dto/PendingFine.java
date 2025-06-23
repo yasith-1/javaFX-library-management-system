@@ -11,5 +11,6 @@ public class PendingFine {
     private String memberId;
     private String bookIsbn;
     private String name;
+    private String title;
     private Integer delayedDays;
 }
