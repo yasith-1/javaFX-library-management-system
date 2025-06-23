@@ -51,7 +51,7 @@
          </font>
       </Label>
       <Separator layoutX="500.0" layoutY="76.0" prefHeight="4.0" prefWidth="299.0" style="-fx-background-color: #ced6e0;" />
-      <JFXTextField fx:id="txtName" editable="false" focusColor="#27ab9c" layoutX="512.0" layoutY="159.0" prefHeight="26.0" prefWidth="278.0" promptText="Full name" style="-fx-cursor: hand;">
+      <JFXTextField fx:id="txtName" focusColor="#27ab9c" layoutX="512.0" layoutY="159.0" prefHeight="26.0" prefWidth="278.0" promptText="Full name" style="-fx-cursor: hand;">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
@@ -61,7 +61,7 @@
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtEmail" editable="false" focusColor="#27ab9c" layoutX="512.0" layoutY="269.0" prefHeight="26.0" prefWidth="278.0" promptText="Email" style="-fx-cursor: hand;">
+      <JFXTextField fx:id="txtEmail" focusColor="#27ab9c" layoutX="512.0" layoutY="269.0" prefHeight="26.0" prefWidth="278.0" promptText="Email" style="-fx-cursor: hand;">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>

@@ -8,6 +8,7 @@ import repository.custom.impl.MemberRepositoryImpl;
 import service.custom.MemberService;
 import util.Mapper;
 import util.RepositoryType;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -65,5 +66,14 @@ public class MemberServiceImpl implements MemberService {
     public Boolean deleteMember(Member member) {
         MemberEntity memberEntity = modelMapper.map(member, MemberEntity.class);
         return repository.delete(memberEntity);
+    }
+
+    public Member findAdminExists(Member member) {
+        MemberEntity memberEntity = modelMapper.map(member, MemberEntity.class);
+        MemberEntity entity = repository.search(memberEntity);
+        if (entity != null) {
+            return modelMapper.map(entity, Member.class);
+        }
+        return null;
     }
 }

@@ -4,6 +4,7 @@ import entity.MemberEntity;
 import repository.custom.MemberRepository;
 import util.CrudUtil;
 import util.MapCollection;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -117,7 +118,30 @@ public class MemberRepositoryImpl implements MemberRepository {
 
     @Override
     public MemberEntity search(MemberEntity entity) {
-        return null;
+        try {
+            ResultSet resultSet = CrudUtil.execute("SELECT * FROM `member` " +
+                            "WHERE `nic`=? OR `email`=? AND `type_id`=?",
+                    entity.getNic(),
+                    entity.getEmail(),
+                    entity.getTypeId());
+
+            if (resultSet.next()) {
+                MemberEntity memberEntity = new MemberEntity(
+                        resultSet.getString("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("nic"),
+                        resultSet.getString("email"),
+                        resultSet.getString("address"),
+                        resultSet.getString("password"),
+                        resultSet.getString("type_id"));
+
+                return memberEntity;
+            }
+            return null;
+        } catch (SQLException e) {
+            e.getMessage();
+            return null;
+        }
     }
 
 }
