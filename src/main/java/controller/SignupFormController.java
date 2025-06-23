@@ -9,7 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import org.jasypt.util.password.BasicPasswordEncryptor;
 import org.mindrot.jbcrypt.BCrypt;
 import service.ServiceFactory;
 import service.custom.impl.MemberServiceImpl;

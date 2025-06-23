@@ -45,17 +45,23 @@ public class LoginFormController {
             if (existsAdmin != null) {
 //                check password
                 if (BCrypt.checkpw(passwordField.getText(), existsAdmin.getPassword())) {
-                    // login success redirect to dashboard
-//                    ----------------------------------------------------------------------------------------
+                    // login success redirect to dashboard-------------------------------------------------------------
                     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     stage.close();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboardForm.fxml"));
+                    Scene scene = new Scene(loader.load());
 
-                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dashboardForm.fxml"))));
-                    stage.setTitle("Dashboard");
-                    stage.setResizable(false);
-                    stage.getIcons().add(new Image("/image/stageicon.png"));
-                    stage.show();
-//                    ----------------------------------------------------------------------------------------
+//                   Get controller instance
+                    DashboardFormController controller = loader.getController();
+                    controller.setAdminName(existsAdmin.getName());  // <-- pass name here
+
+                    Stage stageDashboard = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                    stageDashboard.setScene(scene);
+                    stageDashboard.setTitle("Dashboard");
+                    stageDashboard.setResizable(false);
+                    stageDashboard.getIcons().add(new Image("/image/stageicon.png"));
+                    stageDashboard.show();
+//                    -----------------------------------------------------------------------------------------------------
                     return;
                 }
                 Alert.trigger(AlertType.ERROR, "Incorrect Password try again !");

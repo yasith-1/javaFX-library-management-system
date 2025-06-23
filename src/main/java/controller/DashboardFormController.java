@@ -21,6 +21,7 @@ import net.sf.jasperreports.view.JasperViewer;
 import service.ServiceFactory;
 import service.custom.DashboardService;
 import util.ServiceType;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -36,6 +37,7 @@ public class DashboardFormController implements Initializable {
     public Label lblTime;
     public Label issuedBookCountLbl;
     public Label authorCountLbl;
+    public Label adminName;
 
     DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
 
@@ -47,6 +49,10 @@ public class DashboardFormController implements Initializable {
         loadChartData();
         setDateAndTime();
         setDashboardData();
+    }
+
+    public void setAdminName(String name) {
+        adminName.setText(name);
     }
 
     private void updateDatabaseBookStatus() {

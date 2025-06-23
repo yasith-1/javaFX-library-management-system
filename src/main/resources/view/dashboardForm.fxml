@@ -208,7 +208,7 @@
       </JFXButton>
       <Line endX="703.0" endY="-11.0" layoutX="360.0" layoutY="86.0" startX="-360.0" startY="-11.0" stroke="#757575" />
       <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#627c908f" height="40.0" layoutX="838.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="150.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="838.0" layoutY="28.0" prefHeight="27.0" prefWidth="150.0" style="-fx-font-family: poppins;" text="Welcome Admin" textFill="WHITE">
+      <Label fx:id="adminName" alignment="CENTER" contentDisplay="CENTER" layoutX="838.0" layoutY="28.0" prefHeight="27.0" prefWidth="150.0" style="-fx-font-family: poppins;" text="Welcome Admin" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
