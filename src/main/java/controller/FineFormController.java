@@ -21,6 +21,7 @@ import service.custom.impl.FineServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -277,15 +278,6 @@ public class FineFormController implements Initializable {
         txtAmount.setText("");
     }
 
-    public void openFineOverviewOnActionBtn(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/delayReturnForm.fxml"))));
-        stage.setResizable(false);
-        stage.getIcons().add(new Image("/image/stageicon.png"));
-        stage.setTitle("Delay Return and Make Fines");
-        stage.show();
-    }
-
     public void setFineOnActionBtn(ActionEvent actionEvent) {
         if (comboMember.getValue() == null) {
             Alert.trigger(AlertType.WARNING, "Select a Member !");
@@ -298,10 +290,24 @@ public class FineFormController implements Initializable {
             String bookId = service.getBookMap().get(comboBook.getValue());
             Double totalFineAmount = service.getTotalFineAmount(memberId, bookId);
             if (totalFineAmount != null) {
+                if (totalFineAmount == 0.0) {
+                    Alert.trigger(AlertType.INFORMATION, "No need to pay fine , you return book earlier");
+                    txtAmount.setText(totalFineAmount.toString());
+                    return;
+                }
                 txtAmount.setText(totalFineAmount.toString());
                 return;
             }
             Alert.trigger(AlertType.ERROR, "Sorry fine amount not Found !");
         }
+    }
+
+    public void checkPendingFinesOnActionButton(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/pendingFinePayemtHolders.fxml"))));
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("/image/stageicon.png"));
+        stage.setTitle("Check Pending Fine Details");
+        stage.show();
     }
 }

@@ -5,6 +5,7 @@ import repository.custom.FineRepository;
 import util.CrudUtil;
 import util.Fine;
 import util.MapCollection;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -228,6 +229,9 @@ public class FineRepositoryImpl implements FineRepository {
                     "  AND member_has_book.book_isbn = ?\n", memberId, bookId);
 
             if (resultSet.next()) {
+                if (resultSet.getInt("delayed_days") < 0) {
+                    return 0.0;
+                }
                 return resultSet.getInt("delayed_days") * Fine.AMOUNT.getFee();
             }
             return null;

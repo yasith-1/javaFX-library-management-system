@@ -111,12 +111,12 @@
             <TableColumn fx:id="colStatus" prefWidth="69.0" resizable="false" text="Pay Status" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="155.0" prefHeight="28.0" prefWidth="271.0" style="-fx-border-color: #2e86de; -fx-label-padding: 2; -fx-border-radius: 5;" text="Check Book &amp; Member ID" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="155.0" prefHeight="28.0" prefWidth="294.0" style="-fx-border-color: red; -fx-label-padding: 2; -fx-border-radius: 5;" text="Check First who has fine to be pay ?" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="199.0" onAction="#openFineOverviewOnActionBtn" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Check">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="199.0" onAction="#checkPendingFinesOnActionButton" prefHeight="36.0" prefWidth="168.0" style="-fx-background-color: green; -fx-background-radius: 10; -fx-cursor: hand;" text="Check" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
