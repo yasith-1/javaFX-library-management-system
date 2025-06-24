@@ -31,7 +31,7 @@ public class DashboardFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        URL resource = this.getClass().getResource("/view/overview.fxml");
+        URL resource = this.getClass().getResource("/view/dashboardOverview.fxml");
 
         assert resource != null;
 
