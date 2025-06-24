@@ -64,9 +64,9 @@
                 <Font name="Poppins Regular" size="25.0" />
             </font>
         </Label>
-      <LineChart fx:id="lineChart" layoutX="336.0" layoutY="240.0" prefHeight="384.0" prefWidth="522.0" style="-fx-text-fill: white; -fx-background-color: 143CA7; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;">
+      <LineChart fx:id="lineChart" layoutX="336.0" layoutY="254.0" prefHeight="399.0" prefWidth="522.0" style="-fx-text-fill: white; -fx-background-color: 143CA7; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;">
         <xAxis>
-          <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
+          <CategoryAxis prefHeight="0.0" prefWidth="463.0" side="BOTTOM" tickLabelFill="WHITE" />
         </xAxis>
         <yAxis>
           <NumberAxis side="LEFT" tickLabelFill="WHITE">
@@ -143,7 +143,7 @@
          </cursor>
       </JFXButton>
       <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#627c908f" height="51.0" layoutX="16.0" layoutY="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="285.0" />
-      <Label fx:id="lblDate" contentDisplay="CENTER" layoutX="66.0" layoutY="21.0" prefHeight="35.0" prefWidth="94.0" style="-fx-font-family: poppins;" text="Date " textFill="#13fff7">
+      <Label fx:id="lblDate" contentDisplay="CENTER" layoutX="73.0" layoutY="21.0" prefHeight="35.0" prefWidth="81.0" style="-fx-font-family: poppins;" text="Date " textFill="#13fff7">
          <font>
             <Font size="15.0" />
          </font>
@@ -226,7 +226,7 @@
             <Font name="Poppins Bold" size="15.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="25.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="32.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/clock.png" />
          </image>

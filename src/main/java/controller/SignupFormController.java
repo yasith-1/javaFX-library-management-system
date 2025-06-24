@@ -15,6 +15,7 @@ import service.custom.impl.MemberServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
+
 import java.io.IOException;
 
 public class SignupFormController {
@@ -60,12 +61,21 @@ public class SignupFormController {
 
             Boolean isAdminAdded = service.addMember(admin);
             if (isAdminAdded) {
+                clearInputFields();
                 Alert.trigger(AlertType.INFORMATION, "Registered Successfully !");
-//                redirect(actionEvent);
+                redirect(actionEvent);
                 return;
             }
             Alert.trigger(AlertType.ERROR, "Registration Failed try again!");
         }
+    }
+
+    private void clearInputFields() {
+        txtName.setText("");
+        txtNic.setText("");
+        txtEmail.setText("");
+        txtAddress.setText("");
+        txtPassword.setText("");
     }
 
     public void redirectToLoginOnActionBtn(ActionEvent actionEvent) throws IOException {

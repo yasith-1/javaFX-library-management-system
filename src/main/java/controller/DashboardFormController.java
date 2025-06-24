@@ -52,7 +52,8 @@ public class DashboardFormController implements Initializable {
     }
 
     public void setAdminName(String name) {
-        adminName.setText(name);
+        String[] fname = name.split(" ");
+        adminName.setText(fname[0].toUpperCase());
     }
 
     private void updateDatabaseBookStatus() {
