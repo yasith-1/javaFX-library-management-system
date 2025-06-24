@@ -19,12 +19,12 @@
             <Image url="@../image/login.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="511.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="510.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../todo-list-application/src/main/resources/images/lock.png" />
+            <Image url="@../image/lock.png" />
          </image>
       </ImageView>
-      <Label layoutX="555.0" layoutY="25.0" text="Admin LOGIN" textFill="#e8e8e8">
+      <Label layoutX="555.0" layoutY="25.0" style="-fx-font-family: poppins;" text="Admin LOGIN" textFill="#e8e8e8">
          <font>
             <Font name="Poppins Bold" size="26.0" />
          </font>

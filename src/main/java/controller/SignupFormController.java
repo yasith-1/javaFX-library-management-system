@@ -3,6 +3,7 @@ package controller;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import dto.Member;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -31,7 +32,7 @@ public class SignupFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        txtName.requestFocus();
+        Platform.runLater(() -> txtName.requestFocus());
     }
 
     public void RegisterOnActionButton(ActionEvent actionEvent) throws IOException {
