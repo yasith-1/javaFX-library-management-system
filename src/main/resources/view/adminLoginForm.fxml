@@ -29,12 +29,12 @@
             <Font name="Poppins Bold" size="26.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtEmailORnic" focusColor="#27ab9c" layoutX="482.0" layoutY="178.0" prefHeight="26.0" prefWidth="278.0" promptText="Email OR NIC" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;">
+      <JFXTextField fx:id="txtEmailORnic" focusColor="#27ab9c" layoutX="482.0" layoutY="178.0" prefHeight="26.0" prefWidth="278.0" promptText="Email OR NIC" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1; -fx-text-fill: white;">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField fx:id="passwordField" focusColor="#27ab9c" layoutX="482.0" layoutY="241.0" prefHeight="26.0" prefWidth="278.0" promptText="Password" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;">
+      <JFXPasswordField fx:id="passwordField" focusColor="#27ab9c" layoutX="482.0" layoutY="241.0" prefHeight="26.0" prefWidth="278.0" promptText="Password" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1; -fx-text-fill: white;">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
