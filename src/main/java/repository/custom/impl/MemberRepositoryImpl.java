@@ -2,6 +2,8 @@ package repository.custom.impl;
 
 import entity.MemberEntity;
 import repository.custom.MemberRepository;
+import util.Alert;
+import util.AlertType;
 import util.CrudUtil;
 import util.MapCollection;
 
@@ -71,6 +73,15 @@ public class MemberRepositoryImpl implements MemberRepository {
     @Override
     public Boolean add(MemberEntity entity) {
         try {
+//            check first this entity member already in a table ?
+            ResultSet resultSet = CrudUtil.execute("SELECT * FROM `member` WHERE `nic`=? AND `email`=?",
+                    entity.getNic(), entity.getEmail());
+
+            if (resultSet.next()){
+                Alert.trigger(AlertType.WARNING,"Sorry this Admin already Registered !");
+                return false;
+            }
+
             Boolean result = CrudUtil.execute("INSERT INTO `member` VALUES (?,?,?,?,?,?,?)",
                     entity.getId(),
                     entity.getName(),

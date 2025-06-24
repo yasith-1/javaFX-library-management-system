@@ -29,47 +29,47 @@
             <Font name="Poppins Bold" size="26.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtNic" focusColor="#27ab9c" layoutX="512.0" layoutY="215.0" prefHeight="33.0" prefWidth="122.0" promptText="NIC" style="-fx-cursor: hand;">
+      <JFXTextField fx:id="txtNic" focusColor="#27ab9c" layoutX="521.0" layoutY="214.0" prefHeight="33.0" prefWidth="122.0" promptText="NIC" style="-fx-cursor: hand;">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField fx:id="txtPassword" focusColor="#27ab9c" layoutX="512.0" layoutY="323.0" prefHeight="26.0" prefWidth="278.0" promptText="Password" style="-fx-cursor: hand;">
+      <JFXPasswordField fx:id="txtPassword" focusColor="#27ab9c" layoutX="521.0" layoutY="322.0" prefHeight="26.0" prefWidth="278.0" promptText="Password" style="-fx-cursor: hand;">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXPasswordField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="503.0" layoutY="380.0" onAction="#RegisterOnActionButton" prefHeight="37.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #0a3d62; -fx-cursor: hand;" text="Register" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="522.0" layoutY="373.0" onAction="#RegisterOnActionButton" prefHeight="37.0" prefWidth="278.0" style="-fx-background-radius: 10; -fx-background-color: #0a3d62; -fx-cursor: hand;" text="Register" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#bcbbbb45" height="37.0" layoutX="494.0" layoutY="99.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="313.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="505.0" layoutY="108.0" prefHeight="20.0" prefWidth="291.0" text="Make sure your informations are correct." textFill="#402323">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#bcbbbb45" height="37.0" layoutX="504.0" layoutY="99.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="313.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="515.0" layoutY="108.0" prefHeight="20.0" prefWidth="291.0" text="Make sure your informations are correct." textFill="#402323">
          <font>
             <Font name="Poppins Regular" size="14.0" />
          </font>
       </Label>
       <Separator layoutX="500.0" layoutY="76.0" prefHeight="4.0" prefWidth="299.0" style="-fx-background-color: #ced6e0;" />
-      <JFXTextField fx:id="txtName" focusColor="#27ab9c" layoutX="512.0" layoutY="159.0" prefHeight="26.0" prefWidth="278.0" promptText="Full name" style="-fx-cursor: hand;">
+      <JFXTextField fx:id="txtName" focusColor="#27ab9c" layoutX="521.0" layoutY="158.0" prefHeight="26.0" prefWidth="278.0" promptText="Full name" style="-fx-cursor: hand;">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAddress" focusColor="#27ab9c" layoutX="661.0" layoutY="214.0" prefHeight="33.0" prefWidth="131.0" promptText="City" style="-fx-cursor: hand;">
+      <JFXTextField fx:id="txtAddress" focusColor="#27ab9c" layoutX="670.0" layoutY="213.0" prefHeight="33.0" prefWidth="131.0" promptText="City" style="-fx-cursor: hand;">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtEmail" focusColor="#27ab9c" layoutX="512.0" layoutY="269.0" prefHeight="26.0" prefWidth="278.0" promptText="Email" style="-fx-cursor: hand;">
+      <JFXTextField fx:id="txtEmail" focusColor="#27ab9c" layoutX="521.0" layoutY="268.0" prefHeight="26.0" prefWidth="278.0" promptText="Email" style="-fx-cursor: hand;">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextField>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff0a" height="44.0" layoutX="503.0" layoutY="424.0" stroke="#eeeeee" strokeType="INSIDE" width="278.0" />
-      <Hyperlink layoutX="529.0" layoutY="433.0" onAction="#redirectToLoginOnActionBtn" prefHeight="26.0" prefWidth="241.0" text="Already have an account ? Login --&gt;" textFill="#0d9fdd">
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#2197ff29" height="37.0" layoutX="516.0" layoutY="422.0" stroke="#eeeeee" strokeType="INSIDE" width="291.0" />
+      <Hyperlink layoutX="537.0" layoutY="426.0" onAction="#redirectToLoginOnActionBtn" prefHeight="29.0" prefWidth="254.0" text="Already have an account ? Login --&gt;" textFill="#0c668a">
          <font>
-            <Font size="14.0" />
+            <Font size="15.0" />
          </font>
       </Hyperlink>
    </children>
