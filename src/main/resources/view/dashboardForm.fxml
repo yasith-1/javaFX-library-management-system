@@ -64,7 +64,7 @@
                 <Font name="Poppins Regular" size="25.0" />
             </font>
         </Label>
-      <LineChart fx:id="lineChart" layoutX="336.0" layoutY="254.0" prefHeight="399.0" prefWidth="522.0" style="-fx-text-fill: white; -fx-background-color: 143CA7; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;">
+      <LineChart fx:id="lineChart" layoutX="336.0" layoutY="254.0" prefHeight="388.0" prefWidth="522.0" style="-fx-text-fill: white; -fx-background-color: 143CA7; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;">
         <xAxis>
           <CategoryAxis prefHeight="0.0" prefWidth="463.0" side="BOTTOM" tickLabelFill="WHITE" />
         </xAxis>

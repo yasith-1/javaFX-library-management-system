@@ -15,7 +15,6 @@ import service.custom.impl.MemberServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
-
 import java.io.IOException;
 
 public class LoginFormController {
@@ -48,7 +47,7 @@ public class LoginFormController {
                     // login success redirect to dashboard-------------------------------------------------------------
                     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     stage.close();
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboardForm.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/second_dashboard.fxml"));
                     Scene scene = new Scene(loader.load());
 
 //                   Get controller instance

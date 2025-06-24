@@ -8,71 +8,58 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="683.0" prefWidth="647.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IssuedBookFormController">
+<AnchorPane prefHeight="611.0" prefWidth="764.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IssuedBookFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="647.0" />
-      <Label layoutX="283.0" layoutY="25.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Issue Book" textFill="WHITE">
-         <font>
-            <Font name="Poppins Bold" size="28.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="54.0" fitWidth="60.0" layoutX="211.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/stageicon.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="78.0" layoutY="126.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" layoutY="130.0" text="Select Book : " textFill="WHITE">
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="66.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="54.0" text="Select Book : " textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="78.0" layoutY="182.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="87.0" layoutY="186.0" text="Select Member : " textFill="WHITE">
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="66.0" layoutY="106.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="110.0" text="Select Member : " textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="78.0" layoutY="237.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="241.0" text="Issue quantity : " textFill="WHITE">
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="66.0" layoutY="161.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="165.0" text="Issue quantity : " textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="78.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="299.0" text="Return Date : " textFill="WHITE">
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#0f588a" height="32.0" layoutX="66.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="223.0" text="Return Date : " textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtQty" editable="false" focusColor="#15a5ff" layoutX="276.0" layoutY="237.0" prefHeight="32.0" prefWidth="289.0" style="-fx-text-fill: white; -fx-cursor: hand; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtQty" editable="false" focusColor="#15a5ff" layoutX="284.0" layoutY="161.0" prefHeight="32.0" prefWidth="326.0" style="-fx-text-fill: white; -fx-cursor: hand; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <padding>
-            <Insets left="10.0" />
+            <Insets left="2.0" />
          </padding>
          <font>
             <Font size="15.0" />
          </font></JFXTextField>
-      <DatePicker fx:id="returnDate" layoutX="285.0" layoutY="295.0" prefHeight="32.0" prefWidth="281.0" promptText="Select return date" style="-fx-cursor: hand; -fx-background-color: white;">
+      <DatePicker fx:id="returnDate" layoutX="283.0" layoutY="219.0" prefHeight="32.0" prefWidth="326.0" promptText="Select return date" style="-fx-cursor: hand; -fx-background-color: white;">
          <padding>
             <Insets left="10.0" />
          </padding></DatePicker>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="378.0" onAction="#addIssueBookOnActionBtn" prefHeight="32.0" prefWidth="164.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Issue Book">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="213.0" layoutY="306.0" onAction="#addIssueBookOnActionBtn" prefHeight="32.0" prefWidth="164.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Issue Book">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="354.0" layoutY="378.0" onAction="#clearOnActionBtn" prefHeight="32.0" prefWidth="164.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="416.0" layoutY="306.0" onAction="#clearOnActionBtn" prefHeight="32.0" prefWidth="164.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="issueBookTable" layoutX="29.0" layoutY="447.0" prefHeight="201.0" prefWidth="590.0">
+      <TableView fx:id="issueBookTable" layoutX="70.0" layoutY="383.0" prefHeight="201.0" prefWidth="652.0">
          <columns>
             <TableColumn fx:id="colMemberId" prefWidth="99.0" text="Member" />
             <TableColumn fx:id="colBookId" prefWidth="96.0" text="Book" />
@@ -82,7 +69,7 @@
             <TableColumn fx:id="colReturnDate" prefWidth="109.0" text="Return Date" />
          </columns>
       </TableView>
-      <ComboBox fx:id="comboBook" layoutX="284.0" layoutY="126.0" prefHeight="32.0" prefWidth="281.0" promptText="Select a Book" />
-      <ComboBox fx:id="comboMember" layoutX="285.0" layoutY="182.0" prefHeight="32.0" prefWidth="281.0" promptText="Select a Member" />
+      <ComboBox fx:id="comboBook" layoutX="282.0" layoutY="50.0" prefHeight="32.0" prefWidth="326.0" promptText="Select a Book" />
+      <ComboBox fx:id="comboMember" layoutX="283.0" layoutY="106.0" prefHeight="32.0" prefWidth="326.0" promptText="Select a Member" />
    </children>
 </AnchorPane>

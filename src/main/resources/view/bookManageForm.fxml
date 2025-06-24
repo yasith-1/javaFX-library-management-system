@@ -12,99 +12,88 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="645.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BookManageFormController">
+<AnchorPane prefHeight="611.0" prefWidth="764.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BookManageFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="645.0" />
-      <Label layoutX="256.0" layoutY="25.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Manage Book" textFill="WHITE">
-         <font>
-            <Font name="Poppins Bold" size="28.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="54.0" fitWidth="60.0" layoutX="184.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/stageicon.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="162.0" layoutX="35.0" layoutY="310.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
-      <JFXTextField fx:id="txtTile" focusColor="#15a5ff" layoutX="35.0" layoutY="180.0" prefHeight="33.0" prefWidth="256.0" promptText="Book Title" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="162.0" layoutX="55.0" layoutY="216.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="285.0" />
+      <JFXTextField fx:id="txtTile" focusColor="#15a5ff" layoutX="55.0" layoutY="95.0" prefHeight="33.0" prefWidth="271.0" promptText="Book Title" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtCopies" focusColor="#15a5ff" layoutX="35.0" layoutY="245.0" prefHeight="33.0" prefWidth="256.0" promptText="Book Copies Count" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtCopies" focusColor="#15a5ff" layoutX="55.0" layoutY="152.0" prefHeight="33.0" prefWidth="271.0" promptText="Book Copies Count" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <TableView fx:id="bookTable" layoutX="21.0" layoutY="500.0" prefHeight="177.0" prefWidth="604.0" style="-fx-background-color: white;">
+      <TableView fx:id="bookTable" layoutX="55.0" layoutY="424.0" prefHeight="162.0" prefWidth="655.0" style="-fx-background-color: white;">
          <columns>
             <TableColumn fx:id="colIsbn" prefWidth="75.0" text="Book ID" />
-            <TableColumn fx:id="colTitle" prefWidth="83.0" text="Title" />
-            <TableColumn fx:id="colAuthor" prefWidth="87.0" text="Author" />
-            <TableColumn fx:id="colCategory" prefWidth="103.0" text="Category" />
-            <TableColumn fx:id="colCopies" prefWidth="102.0" text="Copies" />
-            <TableColumn fx:id="colStatus" prefWidth="152.0" text="Status" />
+            <TableColumn fx:id="colTitle" prefWidth="161.0" text="Title" />
+            <TableColumn fx:id="colAuthor" prefWidth="138.0" text="Author" />
+            <TableColumn fx:id="colCategory" prefWidth="108.0" text="Category" />
+            <TableColumn fx:id="colCopies" prefWidth="81.0" text="Copies" />
+            <TableColumn fx:id="colStatus" prefWidth="91.0" text="Status" />
          </columns>
       </TableView>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="242.0" onAction="#updateBookOnActionBtn" prefHeight="32.0" prefWidth="221.0" style="-fx-background-color: #37D67A; -fx-background-radius: 20; -fx-cursor: hand;" text="Update Book">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="150.0" onAction="#updateBookOnActionBtn" prefHeight="36.0" prefWidth="285.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Update Book">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="109.0" layoutX="326.0" layoutY="112.0" stroke="#0f598a" strokeType="INSIDE" width="295.0" />
-      <JFXTextField fx:id="txtSearchField" alignment="CENTER" focusColor="#15a5ff" layoutX="348.0" layoutY="122.0" prefHeight="33.0" prefWidth="245.0" promptText="Search Book by ID or Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #37D67A;" unFocusColor="#aeaeae">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="109.0" layoutX="413.0" layoutY="21.0" stroke="#0f598a" strokeType="INSIDE" width="295.0" />
+      <JFXTextField fx:id="txtSearchField" alignment="CENTER" focusColor="#15a5ff" layoutX="435.0" layoutY="31.0" prefHeight="33.0" prefWidth="245.0" promptText="Search Book by ID or Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #37D67A;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="287.0" onAction="#deleteBookOnActionBtn" prefHeight="33.0" prefWidth="221.0" style="-fx-background-color: #ED4C67; -fx-background-radius: 20; -fx-cursor: hand;" text="Delete Book" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="203.0" onAction="#deleteBookOnActionBtn" prefHeight="36.0" prefWidth="285.0" style="-fx-background-color: #ED4C67; -fx-background-radius: 10; -fx-cursor: hand;" text="Delete Book" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="334.0" onAction="#clearOnActionBtn" prefHeight="33.0" prefWidth="221.0" style="-fx-background-color: #718093; -fx-background-radius: 20; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="253.0" onAction="#clearOnActionBtn" prefHeight="36.0" prefWidth="285.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="416.0" layoutY="170.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="503.0" layoutY="79.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="83.0" layoutX="327.0" layoutY="391.0" stroke="#0f598a" strokeType="INSIDE" width="295.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="347.0" layoutY="423.0" prefHeight="23.0" prefWidth="256.0" text="Double click row that you want to" textFill="#04e49d" wrapText="true">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="83.0" layoutX="414.0" layoutY="306.0" stroke="#0f598a" strokeType="INSIDE" width="295.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="434.0" layoutY="338.0" prefHeight="23.0" prefWidth="256.0" text="Double click row that you want to" textFill="#04e49d" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="407.0" layoutY="446.0" text=" UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="494.0" layoutY="361.0" text=" UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="463.0" layoutY="398.0" text="NOTICE" textFill="RED">
+      <Label layoutX="550.0" layoutY="313.0" text="NOTICE" textFill="RED">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="429.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="516.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/notice.png" />
          </image>
       </ImageView>
-      <Label fx:id="txtIdLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="138.0" layoutY="110.0" prefHeight="28.0" prefWidth="113.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="B001" textFill="WHITE">
+      <Label fx:id="txtIdLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="35.0" prefHeight="28.0" prefWidth="113.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="B001" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="110.0" prefHeight="28.0" prefWidth="104.0" style="-fx-border-color: #b2bec3; -fx-label-padding: 2; -fx-border-radius: 10;" text="Book ID :" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="37.0" prefHeight="28.0" prefWidth="104.0" style="-fx-border-color: #b2bec3; -fx-label-padding: 2; -fx-border-radius: 10;" text="Book ID :" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboCategory" layoutX="57.0" layoutY="327.0" prefHeight="28.0" prefWidth="227.0" promptText="Select Book Category" />
-      <ComboBox fx:id="comboStatus" layoutX="57.0" layoutY="373.0" prefHeight="28.0" prefWidth="227.0" promptText="Book Availability" />
-      <ComboBox fx:id="comboAuthor" layoutX="57.0" layoutY="421.0" prefHeight="28.0" prefWidth="227.0" promptText="Select Author" />
+      <ComboBox fx:id="comboCategory" layoutX="86.0" layoutY="235.0" prefHeight="28.0" prefWidth="227.0" promptText="Select Book Category" />
+      <ComboBox fx:id="comboStatus" layoutX="86.0" layoutY="281.0" prefHeight="28.0" prefWidth="227.0" promptText="Book Availability" />
+      <ComboBox fx:id="comboAuthor" layoutX="86.0" layoutY="329.0" prefHeight="28.0" prefWidth="227.0" promptText="Select Author" />
    </children>
 </AnchorPane>

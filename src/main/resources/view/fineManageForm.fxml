@@ -8,95 +8,82 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="650.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FineFormController">
+<AnchorPane prefHeight="611.0" prefWidth="764.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FineFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="650.0" />
-      <Label layoutX="255.0" layoutY="26.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Fine Payments" textFill="WHITE">
-         <font>
-            <Font name="Poppins Bold" size="28.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="54.0" fitWidth="60.0" layoutX="183.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/stageicon.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="txtFineIdLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="102.0" prefHeight="28.0" prefWidth="113.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="F001" textFill="WHITE">
+      <Label fx:id="txtFineIdLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="113.0" prefHeight="28.0" prefWidth="113.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="F001" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <JFXTextArea fx:id="txtReason" focusColor="#15a5ff" layoutX="329.0" layoutY="266.0" prefHeight="40.0" prefWidth="284.0" promptText="Add your Reason here" style="-fx-prompt-text-fill: #37D67A; -fx-text-fill: white;" unFocusColor="#aeaeae">
+      <JFXTextArea fx:id="txtReason" focusColor="#15a5ff" layoutX="351.0" layoutY="178.0" prefHeight="42.0" prefWidth="366.0" promptText="Add your Reason here" style="-fx-prompt-text-fill: #37D67A; -fx-text-fill: white;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextArea>
-      <JFXTextField fx:id="txtAmount" editable="false" focusColor="#15a5ff" layoutX="329.0" layoutY="330.0" prefHeight="34.0" prefWidth="168.0" promptText="Add Fine Amount" style="-fx-prompt-text-fill: #37D67A; -fx-text-fill: white;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtAmount" editable="false" focusColor="#15a5ff" layoutX="351.0" layoutY="242.0" prefHeight="34.0" prefWidth="214.0" promptText="Add Fine Amount" style="-fx-prompt-text-fill: #37D67A; -fx-text-fill: white;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextField>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="151.0" layoutX="26.0" layoutY="274.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="392.0" onAction="#clearOnActionBtn" prefHeight="36.0" prefWidth="284.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="165.0" layoutX="39.0" layoutY="176.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="351.0" layoutY="304.0" onAction="#clearOnActionBtn" prefHeight="36.0" prefWidth="366.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="102.0" prefHeight="28.0" prefWidth="79.0" style="-fx-border-color: #b2bec3; -fx-label-padding: 2; -fx-border-radius: 10;" text="Fine ID : " textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="113.0" prefHeight="28.0" prefWidth="79.0" style="-fx-border-color: #b2bec3; -fx-label-padding: 2; -fx-border-radius: 10;" text="Fine ID : " textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="452.0" onAction="#addFineOnActionBtn" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Add Fine">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="374.0" onAction="#addFineOnActionBtn" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Add Fine">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="236.0" layoutY="452.0" onAction="#updateFineOnActionBtn" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Update Fine">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="290.0" layoutY="374.0" onAction="#updateFineOnActionBtn" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Update Fine">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="435.0" layoutY="452.0" onAction="#deleteFineOnActionBtn" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #e84118; -fx-background-radius: 10; -fx-cursor: hand;" text="Delete Fine" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="534.0" layoutY="374.0" onAction="#deleteFineOnActionBtn" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #e84118; -fx-background-radius: 10; -fx-cursor: hand;" text="Delete Fine" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="151.0" layoutX="324.0" layoutY="98.0" stroke="#0f598a" strokeType="INSIDE" width="294.0" />
-      <JFXTextField fx:id="txtSearchFieldMemberName" alignment="CENTER" focusColor="#15a5ff" layoutX="349.0" layoutY="107.0" prefHeight="33.0" prefWidth="245.0" promptText="Member name OR ID" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="64.0" layoutX="39.0" layoutY="23.0" stroke="#0f598a" strokeType="INSIDE" width="685.0" />
+      <JFXTextField fx:id="txtSearchFieldMemberName" alignment="CENTER" focusColor="#15a5ff" layoutX="69.0" layoutY="39.0" prefHeight="33.0" prefWidth="245.0" promptText="Member name OR ID" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="433.0" layoutY="199.0" onAction="#searchOnActionBtn" prefHeight="18.0" prefWidth="92.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="602.0" layoutY="38.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="103.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="txtSearchFieldBookName" alignment="CENTER" focusColor="#15a5ff" layoutX="349.0" layoutY="152.0" prefHeight="33.0" prefWidth="245.0" promptText="Book name OR ID" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
+      <JFXTextField fx:id="txtSearchFieldBookName" alignment="CENTER" focusColor="#15a5ff" layoutX="346.0" layoutY="39.0" prefHeight="33.0" prefWidth="245.0" promptText="Book name OR ID" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #b2bec3;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <TableView fx:id="fineTable" editable="true" layoutX="16.0" layoutY="517.0" prefHeight="165.0" prefWidth="619.0">
+      <TableView fx:id="fineTable" editable="true" layoutX="44.0" layoutY="440.0" prefHeight="151.0" prefWidth="676.0">
         <columns>
           <TableColumn fx:id="colFineId" prefWidth="47.0" resizable="false" text="Fine ID" />
-            <TableColumn fx:id="colMemberName" prefWidth="109.0" resizable="false" text="Member Name" />
-            <TableColumn fx:id="colBookName" prefWidth="82.0" resizable="false" text="Book Name" />
-            <TableColumn fx:id="colReason" prefWidth="114.0" resizable="false" text="Reason" />
-            <TableColumn fx:id="colDate" prefWidth="65.0" resizable="false" text="Paid Date" />
-            <TableColumn fx:id="colTime" prefWidth="72.0" resizable="false" text="Paid Time" />
-            <TableColumn fx:id="colAmount" prefWidth="60.0" resizable="false" text="Amount" />
-            <TableColumn fx:id="colStatus" prefWidth="69.0" resizable="false" text="Pay Status" />
+            <TableColumn fx:id="colMemberName" prefWidth="116.0" resizable="false" text="Member Name" />
+            <TableColumn fx:id="colBookName" prefWidth="93.0" resizable="false" text="Book Name" />
+            <TableColumn fx:id="colReason" prefWidth="96.0" resizable="false" text="Reason" />
+            <TableColumn fx:id="colDate" prefWidth="84.0" resizable="false" text="Paid Date" />
+            <TableColumn fx:id="colTime" prefWidth="85.0" resizable="false" text="Paid Time" />
+            <TableColumn fx:id="colAmount" prefWidth="90.0" resizable="false" text="Amount" />
+            <TableColumn fx:id="colStatus" prefWidth="64.0" resizable="false" text="Pay Status" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="168.0" prefHeight="35.0" prefWidth="284.0" style="-fx-border-color: red; -fx-label-padding: 2; -fx-border-radius: 5;" text="Check all fine payed &amp; payable list" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="288.0" layoutY="110.0" prefHeight="35.0" prefWidth="284.0" style="-fx-border-color: red; -fx-label-padding: 2; -fx-border-radius: 5;" text="Check all fine payed &amp; payable list" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
@@ -104,18 +91,18 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </Label>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="102.0" layoutY="217.0" onAction="#checkPendingFinesOnActionButton" prefHeight="28.0" prefWidth="120.0" style="-fx-background-color: #1B9CFC; -fx-background-radius: 10; -fx-cursor: hand;" text="Check" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="597.0" layoutY="109.0" onAction="#checkPendingFinesOnActionButton" prefHeight="28.0" prefWidth="120.0" style="-fx-background-color: #1B9CFC; -fx-background-radius: 10; -fx-cursor: hand;" text="Check" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="510.0" layoutY="331.0" onAction="#setFineOnActionBtn" prefHeight="36.0" prefWidth="103.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Set Fine">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="611.0" layoutY="243.0" onAction="#setFineOnActionBtn" prefHeight="36.0" prefWidth="103.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Set Fine">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <ComboBox fx:id="comboMember" layoutX="42.0" layoutY="291.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Member" />
-      <ComboBox fx:id="comboBook" layoutX="42.0" layoutY="335.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Book" />
-      <ComboBox fx:id="comboFineStatus" layoutX="42.0" layoutY="379.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Status" />
+      <ComboBox fx:id="comboMember" layoutX="55.0" layoutY="193.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Member" />
+      <ComboBox fx:id="comboBook" layoutX="55.0" layoutY="242.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Book" />
+      <ComboBox fx:id="comboFineStatus" layoutX="55.0" layoutY="289.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Status" />
    </children>
 </AnchorPane>
