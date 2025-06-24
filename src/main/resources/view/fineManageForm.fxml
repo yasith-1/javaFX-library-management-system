@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="611.0" prefWidth="764.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FineFormController">
    <children>
-      <Label fx:id="txtFineIdLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="113.0" prefHeight="28.0" prefWidth="113.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="F001" textFill="WHITE">
+      <Label fx:id="txtFineIdLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="140.0" layoutY="113.0" prefHeight="28.0" prefWidth="113.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="F001" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
@@ -29,13 +29,13 @@
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </JFXTextField>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="165.0" layoutX="39.0" layoutY="176.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="271.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="165.0" layoutX="51.0" layoutY="176.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="259.0" />
       <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="351.0" layoutY="304.0" onAction="#clearOnActionBtn" prefHeight="36.0" prefWidth="366.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="113.0" prefHeight="28.0" prefWidth="79.0" style="-fx-border-color: #b2bec3; -fx-label-padding: 2; -fx-border-radius: 10;" text="Fine ID : " textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="113.0" prefHeight="28.0" prefWidth="79.0" style="-fx-border-color: #b2bec3; -fx-label-padding: 2; -fx-border-radius: 10;" text="Fine ID : " textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
@@ -61,7 +61,7 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="602.0" layoutY="38.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="103.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="611.0" layoutY="38.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="103.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -71,7 +71,7 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <TableView fx:id="fineTable" editable="true" layoutX="44.0" layoutY="440.0" prefHeight="151.0" prefWidth="676.0">
+      <TableView fx:id="fineTable" editable="true" layoutX="53.0" layoutY="440.0" prefHeight="151.0" prefWidth="667.0">
         <columns>
           <TableColumn fx:id="colFineId" prefWidth="47.0" resizable="false" text="Fine ID" />
             <TableColumn fx:id="colMemberName" prefWidth="116.0" resizable="false" text="Member Name" />
@@ -79,7 +79,7 @@
             <TableColumn fx:id="colReason" prefWidth="96.0" resizable="false" text="Reason" />
             <TableColumn fx:id="colDate" prefWidth="84.0" resizable="false" text="Paid Date" />
             <TableColumn fx:id="colTime" prefWidth="85.0" resizable="false" text="Paid Time" />
-            <TableColumn fx:id="colAmount" prefWidth="90.0" resizable="false" text="Amount" />
+            <TableColumn fx:id="colAmount" resizable="false" text="Amount" />
             <TableColumn fx:id="colStatus" prefWidth="64.0" resizable="false" text="Pay Status" />
         </columns>
       </TableView>
@@ -101,8 +101,8 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <ComboBox fx:id="comboMember" layoutX="55.0" layoutY="193.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Member" />
-      <ComboBox fx:id="comboBook" layoutX="55.0" layoutY="242.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Book" />
-      <ComboBox fx:id="comboFineStatus" layoutX="55.0" layoutY="289.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Status" />
+      <ComboBox fx:id="comboMember" layoutX="62.0" layoutY="193.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Member" />
+      <ComboBox fx:id="comboBook" layoutX="62.0" layoutY="242.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Book" />
+      <ComboBox fx:id="comboFineStatus" layoutX="62.0" layoutY="289.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Status" />
    </children>
 </AnchorPane>
