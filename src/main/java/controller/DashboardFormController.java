@@ -1,5 +1,6 @@
 package controller;
 
+import database.DBConnection;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -14,8 +15,14 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
@@ -125,7 +132,16 @@ public class DashboardFormController implements Initializable {
     }
 
     @FXML
-    void issueBookReportOnActionBtn(ActionEvent event) {
+    void issueBookReportOnActionBtn(ActionEvent event) throws JRException {
+        JasperDesign design = JRXmlLoader.load("src/main/resources/reports/issued_book_report.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(design);
+        try {
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+//            JasperExportManager.exportReportToPdfFile(jasperPrint, "issue_book.pdf");
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
