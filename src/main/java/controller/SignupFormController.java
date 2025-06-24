@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTextField;
 import dto.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -15,17 +16,23 @@ import service.custom.impl.MemberServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
-
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SignupFormController {
+public class SignupFormController implements Initializable {
+    public JFXTextField txtName;
     public JFXTextField txtNic;
     public JFXPasswordField txtPassword;
-    public JFXTextField txtName;
     public JFXTextField txtAddress;
     public JFXTextField txtEmail;
 
     MemberServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.MEMBER);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtName.requestFocus();
+    }
 
     public void RegisterOnActionButton(ActionEvent actionEvent) throws IOException {
         if (txtName.getText().isEmpty()) {
@@ -92,4 +99,6 @@ public class SignupFormController {
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.show();
     }
+
+
 }

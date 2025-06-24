@@ -12,59 +12,80 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="476.0" prefWidth="835.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupFormController">
-   <children>
-      <ImageView fitHeight="475.0" fitWidth="440.0" pickOnBounds="true" smooth="false" style="-fx-blend-mode: HARD_LIGHT;">
-         <image>
-            <Image url="@../image/register.gif" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="41.0" layoutX="524.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/author.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="571.0" layoutY="20.0" text="Admin Signup" textFill="#f2f2f2">
-         <font>
-            <Font name="Poppins Bold" size="26.0" />
-         </font>
-      </Label>
-      <JFXTextField fx:id="txtNic" focusColor="#2ecc71" layoutX="487.0" layoutY="179.0" prefHeight="33.0" prefWidth="156.0" promptText="NIC" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;" unFocusColor="#ababab">
-         <font>
-            <Font name="Poppins Regular" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXPasswordField fx:id="txtPassword" focusColor="#2ecc71" layoutX="486.0" layoutY="287.0" prefHeight="33.0" prefWidth="313.0" promptText="Password" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;" unFocusColor="#ababab">
-         <font>
-            <Font name="Poppins Regular" size="15.0" />
-         </font>
-      </JFXPasswordField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="487.0" layoutY="358.0" onAction="#RegisterOnActionButton" prefHeight="35.0" prefWidth="313.0" style="-fx-background-radius: 10; -fx-background-color: #2ecc71; -fx-cursor: hand;" text="Register" textFill="#282828">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </JFXButton>
-      <Separator layoutX="494.0" layoutY="66.0" prefHeight="4.0" prefWidth="299.0" style="-fx-background-color: gray;" />
-      <JFXTextField fx:id="txtName" focusColor="#2ecc71" layoutX="487.0" layoutY="119.0" prefHeight="33.0" prefWidth="313.0" promptText="Full name" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;" unFocusColor="#ababab">
-         <font>
-            <Font name="Poppins Regular" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField fx:id="txtAddress" focusColor="#2ecc71" layoutX="657.0" layoutY="178.0" prefHeight="33.0" prefWidth="144.0" promptText="City" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;" unFocusColor="#ababab">
-         <font>
-            <Font name="Poppins Regular" size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField fx:id="txtEmail" focusColor="#2ecc71" layoutX="486.0" layoutY="233.0" prefHeight="33.0" prefWidth="313.0" promptText="Email" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;" unFocusColor="#ababab">
-         <font>
-            <Font name="Poppins Regular" size="15.0" />
-         </font>
-      </JFXTextField>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#2197ff45" height="37.0" layoutX="489.0" layoutY="414.0" stroke="#eeeeee" strokeType="INSIDE" strokeWidth="0.0" width="313.0" />
-      <Hyperlink layoutX="518.0" layoutY="418.0" onAction="#redirectToLoginOnActionBtn" prefHeight="29.0" prefWidth="254.0" text="Already have an account ? Login --&gt;" textFill="#4dccff">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Hyperlink>
-   </children>
+<AnchorPane prefHeight="476.0" prefWidth="835.0" style="-fx-background-color: #0a3d62;"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.SignupFormController">
+    <children>
+        <ImageView fitHeight="475.0" fitWidth="440.0" pickOnBounds="true" smooth="false"
+                   style="-fx-blend-mode: HARD_LIGHT;">
+            <image>
+                <Image url="@../image/register.gif"/>
+            </image>
+        </ImageView>
+        <ImageView fitHeight="37.0" fitWidth="41.0" layoutX="524.0" layoutY="18.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../image/author.png"/>
+            </image>
+        </ImageView>
+        <Label layoutX="571.0" layoutY="20.0" text="Admin Signup" textFill="#f2f2f2">
+            <font>
+                <Font name="Poppins Bold" size="26.0"/>
+            </font>
+        </Label>
+
+        <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="487.0" layoutY="358.0"
+                   onAction="#RegisterOnActionButton" prefHeight="35.0" prefWidth="313.0"
+                   style="-fx-background-radius: 10; -fx-background-color: #2ecc71; -fx-cursor: hand;" text="Register"
+                   textFill="#282828">
+            <font>
+                <Font name="System Bold" size="16.0"/>
+            </font>
+        </JFXButton>
+        <Separator layoutX="494.0" layoutY="66.0" prefHeight="4.0" prefWidth="299.0"
+                   style="-fx-background-color: gray;"/>
+        <JFXTextField fx:id="txtName" focusColor="#2ecc71" layoutX="487.0" layoutY="119.0" prefHeight="33.0"
+                      prefWidth="313.0" promptText="Full name" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;"
+                      unFocusColor="#ababab">
+            <font>
+                <Font name="Poppins Regular" size="15.0"/>
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtNic" focusColor="#2ecc71" layoutX="487.0" layoutY="179.0" prefHeight="33.0"
+                      prefWidth="156.0" promptText="NIC" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;"
+                      unFocusColor="#ababab">
+            <font>
+                <Font name="Poppins Regular" size="15.0"/>
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtAddress" focusColor="#2ecc71" layoutX="657.0" layoutY="178.0" prefHeight="33.0"
+                      prefWidth="144.0" promptText="City" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;"
+                      unFocusColor="#ababab">
+            <font>
+                <Font name="Poppins Regular" size="15.0"/>
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtEmail" focusColor="#2ecc71" layoutX="486.0" layoutY="233.0" prefHeight="33.0"
+                      prefWidth="313.0" promptText="Email" style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;"
+                      unFocusColor="#ababab">
+            <font>
+                <Font name="Poppins Regular" size="15.0"/>
+            </font>
+        </JFXTextField>
+        <JFXPasswordField fx:id="txtPassword" focusColor="#2ecc71" layoutX="486.0" layoutY="287.0" prefHeight="33.0"
+                          prefWidth="313.0" promptText="Password"
+                          style="-fx-cursor: hand; -fx-prompt-text-fill: #ecf0f1;" unFocusColor="#ababab">
+            <font>
+                <Font name="Poppins Regular" size="15.0"/>
+            </font>
+        </JFXPasswordField>
+        <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#2197ff45" height="37.0" layoutX="489.0" layoutY="414.0"
+                   stroke="#eeeeee" strokeType="INSIDE" strokeWidth="0.0" width="313.0"/>
+        <Hyperlink layoutX="518.0" layoutY="418.0" onAction="#redirectToLoginOnActionBtn" prefHeight="29.0"
+                   prefWidth="254.0" text="Already have an account ? Login --&gt;" textFill="#4dccff">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Hyperlink>
+    </children>
 </AnchorPane>
