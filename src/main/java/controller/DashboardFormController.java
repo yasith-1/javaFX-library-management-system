@@ -19,7 +19,6 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;

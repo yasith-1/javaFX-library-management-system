@@ -1,8 +1,5 @@
 package controller;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,14 +11,11 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import service.ServiceFactory;
 import service.custom.DashboardService;
 import util.ServiceType;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 public class OverviewController implements Initializable {
@@ -30,7 +24,6 @@ public class OverviewController implements Initializable {
     public Label memberCountLbl;
     public Label issuedBookCountLbl;
     public Label authorCountLbl;
-    public Label adminName;
 
     DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
 
@@ -62,7 +55,7 @@ public class OverviewController implements Initializable {
     private void loadChartData() {
         lineChart.getData().clear(); // removes old series
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("Library Stats");
+        series.setName("");
 
         series.getData().add(new XYChart.Data<>("Members", dashboardService.getMemberCount()));
         series.getData().add(new XYChart.Data<>("Authors", dashboardService.getAuthorCount()));

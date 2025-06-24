@@ -47,7 +47,7 @@ public class LoginFormController {
                     // login success redirect to dashboard-------------------------------------------------------------
                     Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     stage.close();
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/second_dashboard.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboardForm.fxml"));
                     Scene scene = new Scene(loader.load());
 
 //                   Get controller instance
