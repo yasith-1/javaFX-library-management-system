@@ -5,63 +5,44 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="760.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DelayReturnFormController">
+<AnchorPane prefHeight="611.0" prefWidth="764.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DelayReturnFormController">
    <children>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="285.0" layoutX="4.0" layoutY="402.0" stroke="#0f598a" strokeType="INSIDE" width="749.0" />
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="218.0" layoutX="24.0" layoutY="105.0" stroke="#0f598a" strokeType="INSIDE" width="707.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d4c79" height="90.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="760.0" />
-      <Label layoutX="190.0" layoutY="26.0" style="-fx-font-family: poppins; -fx-font-weight: 900;" text="Delay Returns &amp; Fine Overview" textFill="WHITE">
-         <font>
-            <Font name="Poppins Bold" size="28.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="54.0" fitWidth="60.0" layoutX="118.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/stageicon.png" />
-         </image>
-      </ImageView>
-      <TableView fx:id="membersTable" layoutX="54.0" layoutY="177.0" prefHeight="130.0" prefWidth="318.0">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="201.0" layoutX="37.0" layoutY="30.0" stroke="#0f598a" strokeType="INSIDE" width="694.0" />
+      <TableView fx:id="membersTable" layoutX="70.0" layoutY="102.0" prefHeight="107.0" prefWidth="318.0">
         <columns>
           <TableColumn fx:id="colMId" prefWidth="89.0" text="Member ID" />
-          <TableColumn fx:id="colMName" prefWidth="197.0" text="Member Name" />
+          <TableColumn fx:id="colMName" prefWidth="227.0" text="Member Name" />
         </columns>
       </TableView>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#1180b800" height="32.0" layoutX="79.0" layoutY="121.0" stroke="#1770a8" strokeType="INSIDE" width="255.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="126.0" text="Fine Non-paid Members" textFill="#d3d3d3" wrapText="true">
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#1180b800" height="32.0" layoutX="70.0" layoutY="45.0" stroke="#1770a8" strokeType="INSIDE" width="318.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="50.0" text="Fine Non-paid Members" textFill="#d3d3d3" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#1180b800" height="82.0" layoutX="450.0" layoutY="121.0" stroke="#1770a8" strokeType="INSIDE" width="236.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="441.0" layoutY="126.0" prefHeight="23.0" prefWidth="255.0" text="Select Late Reutn available" textFill="#d3d3d3" wrapText="true">
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#1180b800" height="66.0" layoutX="413.0" layoutY="44.0" stroke="#1770a8" strokeType="INSIDE" width="304.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="430.0" layoutY="51.0" prefHeight="23.0" prefWidth="277.0" text="Select Late Reutn available member " textFill="#d3d3d3" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="472.0" layoutY="151.0" text="member that you want to" textFill="#d3d3d3" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="464.0" layoutY="74.0" text=" that you want to  overview" textFill="#d3d3d3" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboMembers" layoutX="441.0" layoutY="229.0" onAction="#memberSelectionComboBoxOnAction" prefHeight="32.0" prefWidth="255.0" promptText="Select member for make fine" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="536.0" layoutY="175.0" text=" overview" textFill="#d3d3d3" wrapText="true">
-         <font>
-            <Font name="Poppins Regular" size="15.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#1180b800" height="46.0" layoutX="129.0" layoutY="336.0" stroke="#44bd32" strokeType="INSIDE" strokeWidth="0.9" width="487.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="141.0" layoutY="343.0" prefHeight="32.0" prefWidth="465.0" text="Overview of Late Return &amp; Pay Fine Available Member" textFill="#d3d3d3" wrapText="true">
+      <ComboBox fx:id="comboMembers" layoutX="413.0" layoutY="139.0" onAction="#memberSelectionComboBoxOnAction" prefHeight="32.0" prefWidth="304.0" promptText="Select member for make fine" />
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#1180b800" height="46.0" layoutX="135.0" layoutY="266.0" stroke="#44bd32" strokeType="INSIDE" strokeWidth="0.9" width="487.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="273.0" prefHeight="32.0" prefWidth="465.0" text="Overview of Late Return &amp; Pay Fine Available Member" textFill="#d3d3d3" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </Label>
-      <TableView fx:id="dellayReturnOverviewTable" layoutX="16.0" layoutY="438.0" prefHeight="177.0" prefWidth="730.0">
+      <TableView fx:id="dellayReturnOverviewTable" layoutX="16.0" layoutY="349.0" prefHeight="177.0" prefWidth="730.0">
         <columns>
           <TableColumn fx:id="colMemberId" prefWidth="75.0" text="Member ID" />
           <TableColumn fx:id="colBookId" prefWidth="91.0" text="Book ID" />
@@ -74,7 +55,7 @@
             <TableColumn fx:id="colTotalFineAmount" prefWidth="58.0" text="Amount" />
         </columns>
       </TableView>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="568.0" layoutY="634.0" onAction="#makeFineOnActionBtn" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: #B33771; -fx-background-radius: 10; -fx-cursor: hand;" text="Go to Fine" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="569.0" layoutY="552.0" onAction="#nonPaidMemberReportOnActionBtn" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: #1B9CFC; -fx-background-radius: 10; -fx-cursor: hand;" text="View as Report" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>

@@ -88,8 +88,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#627c908f" height="51.0" layoutX="24.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="285.0" />
-      <Label fx:id="lblDate" contentDisplay="CENTER" layoutX="81.0" layoutY="22.0" prefHeight="35.0" prefWidth="81.0" style="-fx-font-family: poppins;" text="Date " textFill="#13fff7">
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#627c908f" height="51.0" layoutX="3.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="306.0" />
+      <Label fx:id="lblDate" contentDisplay="CENTER" layoutX="69.0" layoutY="22.0" prefHeight="35.0" prefWidth="81.0" style="-fx-font-family: poppins;" text="Date " textFill="#13fff7">
          <font>
             <Font size="15.0" />
          </font>
@@ -109,7 +109,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="40.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="34.0" fitWidth="31.0" layoutX="28.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/clock.png" />
          </image>
@@ -154,7 +154,7 @@
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblTime" contentDisplay="CENTER" layoutX="186.0" layoutY="22.0" prefHeight="35.0" prefWidth="115.0" style="-fx-font-family: poppins;" text="Time" textFill="#13fff7">
+      <Label fx:id="lblTime" contentDisplay="CENTER" layoutX="175.0" layoutY="22.0" prefHeight="35.0" prefWidth="115.0" style="-fx-font-family: poppins;" text="Time" textFill="#13fff7">
          <font>
             <Font size="15.0" />
          </font>
@@ -198,6 +198,6 @@
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="root" layoutX="304.0" layoutY="76.0" prefHeight="611.0" prefWidth="764.0" />
+      <AnchorPane fx:id="root" layoutX="304.0" layoutY="81.0" prefHeight="611.0" prefWidth="768.0" />
    </children>
 </AnchorPane>

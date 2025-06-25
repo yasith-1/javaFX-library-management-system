@@ -19,6 +19,7 @@ import service.custom.impl.IssuedBookServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
+
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -65,7 +66,7 @@ public class IssuedBookFormController implements Initializable {
         } else if (txtQty.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "Add book count !");
             return;
-        } else if (returnDate.getValue() == null ) {
+        } else if (returnDate.getValue() == null) {
             Alert.trigger(AlertType.WARNING, "Select return date !");
             return;
         } else if (returnDate.getValue().isBefore(LocalDate.now())) {
@@ -97,15 +98,23 @@ public class IssuedBookFormController implements Initializable {
     }
 
     private void clearDataFields() {
-        comboBook.setValue(null);
-        comboMember.setValue(null);
+        if (!comboBook.getItems().contains("Select Book")) {
+            comboBook.getItems().add(0, "Select Book");
+        }
+        comboBook.setValue("Select Book");
+
+        if (!comboMember.getItems().contains("Select Member")) {
+            comboMember.getItems().add(0, "Select Member");
+        }
+        comboMember.setValue("Select Member");
+
         returnDate.setValue(null);
     }
 
     private void loadTable() {
         List<IssuedBook> issuedBookList = service.getIssuedBookList();
-        if (issuedBookList == null){
-            Alert.trigger(AlertType.WARNING,"No available data in table now !");
+        if (issuedBookList == null) {
+            Alert.trigger(AlertType.WARNING, "No available data in table now !");
             return;
         }
 

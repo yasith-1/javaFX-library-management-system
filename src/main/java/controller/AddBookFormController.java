@@ -16,6 +16,7 @@ import service.custom.impl.BookServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -63,19 +64,19 @@ public class AddBookFormController implements Initializable {
 //        validating Input fields------------------
 
         if (txtTile.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING,"Enter book title!");
+            Alert.trigger(AlertType.WARNING, "Enter book title!");
             return;
         } else if (txtCopies.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING,"Enter book copies count !");
+            Alert.trigger(AlertType.WARNING, "Enter book copies count !");
             return;
         } else if (comboCategory.getValue() == null) {
-            Alert.trigger(AlertType.WARNING,"Select a book category !");
+            Alert.trigger(AlertType.WARNING, "Select a book category !");
             return;
         } else if (comboStatus.getValue() == null) {
-            Alert.trigger(AlertType.WARNING,"Select a book status !");
+            Alert.trigger(AlertType.WARNING, "Select a book status !");
             return;
         } else if (comboAuthor.getValue() == null) {
-            Alert.trigger(AlertType.WARNING,"Select a book author !");
+            Alert.trigger(AlertType.WARNING, "Select a book author !");
             return;
         } else {
 
@@ -99,17 +100,17 @@ public class AddBookFormController implements Initializable {
                 Boolean isAdded = service.addBook(book);
                 if (isAdded) {
 //                    Book added successfully ...........
-                    Alert.trigger(AlertType.INFORMATION,"Book Added Successfully  !");
+                    Alert.trigger(AlertType.INFORMATION, "Book Added Successfully  !");
                     clearField();
                     setAutogenarateBookId();
                     loadBookTable();
                 } else {
 //                    Book is not added  ...........
-                    Alert.trigger(AlertType.ERROR,"Book doessn't Added ..");
+                    Alert.trigger(AlertType.ERROR, "Book doessn't Added ..");
                     clearField();
                 }
             } else {
-                Alert.trigger(AlertType.WARNING,"Invalid Book copies count...");
+                Alert.trigger(AlertType.WARNING, "Invalid Book copies count...");
             }
         }
     }
@@ -117,10 +118,24 @@ public class AddBookFormController implements Initializable {
     private void clearField() {
         txtTile.setText("");
         txtCopies.setText("");
-        comboCategory.setValue(null);
-        comboStatus.setValue(null);
-        comboAuthor.setValue(null);
+
+        // Ensure default items exist before setting them
+        if (!comboCategory.getItems().contains("Select Category")) {
+            comboCategory.getItems().add(0, "Select Category");
+        }
+        comboCategory.setValue("Select Category");
+
+        if (!comboStatus.getItems().contains("Select Status")) {
+            comboStatus.getItems().add(0, "Select Status");
+        }
+        comboStatus.setValue("Select Status");
+
+        if (!comboAuthor.getItems().contains("Select Author")) {
+            comboAuthor.getItems().add(0, "Select Author");
+        }
+        comboAuthor.setValue("Select Author");
     }
+
 
     //    check value is a number or no ?-------------
     private Boolean checkIsNumber(String value) {

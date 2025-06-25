@@ -28,6 +28,15 @@ import java.util.ResourceBundle;
 
 public class DashboardFormController implements Initializable {
 
+    public Label windowHeaderLbl;
+    @FXML
+    private Label adminName;
+    @FXML
+    private Label lblDate;
+    @FXML
+    private Label lblTime;
+    @FXML
+    private AnchorPane root;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -47,21 +56,6 @@ public class DashboardFormController implements Initializable {
 //        ----------------------------------------------------------------------------------------
         setDateAndTime();
     }
-
-    public Label windowHeaderLbl;
-
-    @FXML
-    private Label adminName;
-
-    @FXML
-    private Label lblDate;
-
-    @FXML
-    private Label lblTime;
-
-    @FXML
-    private AnchorPane root;
-
 
     public void setAdminName(String name) {
         String[] fname = name.split(" ");
@@ -122,12 +116,19 @@ public class DashboardFormController implements Initializable {
 
     @FXML
     void delayedReturnOverVuewOnActionBtn(ActionEvent event) throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/delayReturnForm.fxml"))));
-        stage.setResizable(false);
-        stage.getIcons().add(new Image("/image/stageicon.png"));
-        stage.setTitle("Delay Return and Make Fines");
-        stage.show();
+        windowHeaderLbl.setText("Non-paid Members Data");
+        URL resource = this.getClass().getResource("/view/delayReturnForm.fxml");
+
+        assert resource != null;
+
+        Parent load = null;
+        try {
+            load = FXMLLoader.load(resource);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        this.root.getChildren().clear();
+        this.root.getChildren().add(load);
     }
 
     @FXML
