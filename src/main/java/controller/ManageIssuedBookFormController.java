@@ -18,6 +18,7 @@ import service.custom.impl.IssuedBookServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -161,8 +162,8 @@ public class ManageIssuedBookFormController implements Initializable {
 
     private void loadTable() {
         List<IssuedBook> issuedBookList = service.getIssuedBookList();
-        if (issuedBookList == null){
-            Alert.trigger(AlertType.WARNING,"No available data in table now !");
+        if (issuedBookList == null) {
+            Alert.trigger(AlertType.WARNING, "No available data in table now !");
             return;
         }
         colMemberId.setCellValueFactory(new PropertyValueFactory<>("memberId"));
@@ -199,8 +200,16 @@ public class ManageIssuedBookFormController implements Initializable {
     }
 
     private void clearDataFields() {
-        comboBook.setValue(null);
-        comboMember.setValue(null);
+        if (!comboBook.getItems().contains("Book")) {
+            comboBook.getItems().add(0, "Book");
+        }
+        comboBook.setValue("Book");
+
+        if (!comboMember.getItems().contains("Member")) {
+            comboMember.getItems().add(0, "Member");
+        }
+        comboMember.setValue("Member");
+
         txtQty.setText("");
     }
 

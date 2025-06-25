@@ -270,11 +270,27 @@ public class FineFormController implements Initializable {
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
+        clearDate();
+    }
+
+    private void clearDate() {
+        if (!comboMember.getItems().contains("Select Member")) {
+            comboMember.getItems().add(0, "Select Member");
+        }
+        comboMember.setValue("Select Member");
+
+        if (!comboBook.getItems().contains("Select Book")) {
+            comboBook.getItems().add(0, "Select Book");
+        }
+        comboBook.setValue("Select Book");
+
+        if (!comboFineStatus.getItems().contains("Select Status")) {
+            comboFineStatus.getItems().add(0, "Select Status");
+        }
+        comboFineStatus.setValue("Select Status");
+
         txtSearchFieldBookName.setText("");
         txtSearchFieldMemberName.setText("");
-        comboMember.setValue("");
-        comboBook.setValue("");
-        comboFineStatus.setValue("");
         txtReason.setText("");
         txtAmount.setText("");
     }

@@ -50,7 +50,7 @@
             <Font name="Poppins Regular" size="25.0" />
          </font>
       </Label>
-      <LineChart fx:id="lineChart" layoutX="31.0" layoutY="175.0" prefHeight="401.0" prefWidth="522.0" style="-fx-text-fill: white; -fx-background-color: 143CA7; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;">
+      <LineChart fx:id="lineChart" layoutX="31.0" layoutY="175.0" prefHeight="389.0" prefWidth="522.0" style="-fx-text-fill: white; -fx-background-color: 143CA7; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;">
          <xAxis>
             <CategoryAxis prefHeight="0.0" prefWidth="463.0" side="BOTTOM" tickLabelFill="WHITE" />
          </xAxis>
@@ -62,7 +62,7 @@
             </NumberAxis>
          </yAxis>
          <padding>
-            <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+            <Insets bottom="25.0" left="5.0" right="5.0" top="10.0" />
          </padding>
       </LineChart>
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="168.0" layoutX="579.0" layoutY="38.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="150.0" />

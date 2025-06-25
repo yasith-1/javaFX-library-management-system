@@ -1,6 +1,5 @@
 package controller;
 
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.Book;
 import javafx.collections.FXCollections;
@@ -17,6 +16,7 @@ import service.custom.impl.BookServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -139,13 +139,28 @@ public class BookManageFormController implements Initializable {
         clearField();
     }
 
+
     private void clearField() {
         txtTile.setText("");
         txtCopies.setText("");
-        comboCategory.setValue(null);
-        comboStatus.setValue(null);
-        comboAuthor.setValue(null);
+
+        // Ensure default items exist
+        if (!comboCategory.getItems().contains("Select Category")) {
+            comboCategory.getItems().add(0, "Select Category");
+        }
+        comboCategory.setValue("Select Category");
+
+        if (!comboStatus.getItems().contains("Select Status")) {
+            comboStatus.getItems().add(0, "Select Status");
+        }
+        comboStatus.setValue("Select Status");
+
+        if (!comboAuthor.getItems().contains("Select Author")) {
+            comboAuthor.getItems().add(0, "Select Author");
+        }
+        comboAuthor.setValue("Select Author");
     }
+
 
     //    check value is a number or no ?-------------
     private Boolean checkIsNumber(String value) {

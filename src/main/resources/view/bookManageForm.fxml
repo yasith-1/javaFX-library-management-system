@@ -25,7 +25,7 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <TableView fx:id="bookTable" layoutX="55.0" layoutY="424.0" prefHeight="162.0" prefWidth="655.0" style="-fx-background-color: white;">
+      <TableView fx:id="bookTable" layoutX="55.0" layoutY="411.0" prefHeight="175.0" prefWidth="655.0" style="-fx-background-color: white;">
          <columns>
             <TableColumn fx:id="colIsbn" prefWidth="75.0" text="Book ID" />
             <TableColumn fx:id="colTitle" prefWidth="161.0" text="Title" />
@@ -40,8 +40,8 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="109.0" layoutX="413.0" layoutY="21.0" stroke="#0f598a" strokeType="INSIDE" width="295.0" />
-      <JFXTextField fx:id="txtSearchField" alignment="CENTER" focusColor="#15a5ff" layoutX="435.0" layoutY="31.0" prefHeight="33.0" prefWidth="245.0" promptText="Search Book by ID or Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #37D67A;" unFocusColor="#aeaeae">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="109.0" layoutX="413.0" layoutY="21.0" stroke="#0f598a" strokeType="INSIDE" width="285.0" />
+      <JFXTextField fx:id="txtSearchField" alignment="CENTER" focusColor="#15a5ff" layoutX="433.0" layoutY="33.0" prefHeight="33.0" prefWidth="245.0" promptText="Search Book by ID or Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #37D67A;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
@@ -87,13 +87,13 @@
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="37.0" prefHeight="28.0" prefWidth="104.0" style="-fx-border-color: #b2bec3; -fx-label-padding: 2; -fx-border-radius: 10;" text="Book ID :" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="37.0" prefHeight="28.0" prefWidth="104.0" style="-fx-border-color: #b2bec3; -fx-label-padding: 2; -fx-border-radius: 10;" text="Book ID :" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboCategory" layoutX="86.0" layoutY="235.0" prefHeight="28.0" prefWidth="227.0" promptText="Select Book Category" />
-      <ComboBox fx:id="comboStatus" layoutX="86.0" layoutY="281.0" prefHeight="28.0" prefWidth="227.0" promptText="Book Availability" />
+      <ComboBox fx:id="comboCategory" layoutX="86.0" layoutY="235.0" prefHeight="28.0" prefWidth="227.0" promptText="Select Category" />
+      <ComboBox fx:id="comboStatus" layoutX="86.0" layoutY="281.0" prefHeight="28.0" prefWidth="227.0" promptText="Select Status" />
       <ComboBox fx:id="comboAuthor" layoutX="86.0" layoutY="329.0" prefHeight="28.0" prefWidth="227.0" promptText="Select Author" />
    </children>
 </AnchorPane>

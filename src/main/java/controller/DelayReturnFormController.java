@@ -73,18 +73,6 @@ public class DelayReturnFormController implements Initializable {
         membersTable.setItems(delayReturns);
     }
 
-    public void makeFineOnActionBtn(ActionEvent actionEvent) throws IOException {
-        Stage oldStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        oldStage.close();
-
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/fineManageForm.fxml"))));
-        stage.setResizable(false);
-        stage.getIcons().add(new Image("/image/stageicon.png"));
-        stage.setTitle("Delay Return and Make Fines");
-        stage.show();
-    }
-
     public void memberSelectionComboBoxOnAction(ActionEvent actionEvent) {
         String memberId = memberMap.get(comboMembers.getValue());
         loadDelayReturnOverviewTable(memberId);
@@ -109,5 +97,8 @@ public class DelayReturnFormController implements Initializable {
 
         ObservableList<DelayReturn> delayReturnsOverviews = FXCollections.observableArrayList(delayReturnOverviewList);
         dellayReturnOverviewTable.setItems(delayReturnsOverviews);
+    }
+
+    public void nonPaidMemberReportOnActionBtn(ActionEvent actionEvent) {
     }
 }

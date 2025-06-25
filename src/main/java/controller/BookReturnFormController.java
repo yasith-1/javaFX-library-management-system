@@ -16,8 +16,8 @@ import service.custom.impl.ReturnBookServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
+
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -55,7 +55,7 @@ public class BookReturnFormController implements Initializable {
         } else if (comboMember.getValue() == null) {
             Alert.trigger(AlertType.WARNING, "Select Member that return book !");
             return;
-        }else if (returenedDateSelector.getValue() == null) {
+        } else if (returenedDateSelector.getValue() == null) {
             Alert.trigger(AlertType.WARNING, "Select Book returning Date !");
             return;
         } else {
@@ -81,8 +81,17 @@ public class BookReturnFormController implements Initializable {
     }
 
     public void clearOnActionBtn(ActionEvent actionEvent) {
-        comboBook.setValue(null);
-        comboMember.setValue(null);
+        if (!comboBook.getItems().contains("Select Book")) {
+            comboBook.getItems().add(0, "Select Book");
+        }
+        comboBook.setValue("Select Book");
+
+        if (!comboMember.getItems().contains("Select Member")) {
+            comboMember.getItems().add(0, "Select Member");
+        }
+        comboMember.setValue("Select Member");
+
+        returenedDateSelector.setValue(null);
         txtBookName.setText("");
         txtMemberName.setText("");
     }
@@ -140,8 +149,8 @@ public class BookReturnFormController implements Initializable {
 
     private void loadReturnBookTable() {
         List<ReturnBook> allReturnBookList = service.getAllReturnBookList();
-        if (allReturnBookList == null){
-            Alert.trigger(AlertType.WARNING,"No available data in table now !");
+        if (allReturnBookList == null) {
+            Alert.trigger(AlertType.WARNING, "No available data in table now !");
             return;
         }
 

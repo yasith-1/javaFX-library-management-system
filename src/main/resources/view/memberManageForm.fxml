@@ -108,6 +108,6 @@
             <Insets left="3.0" />
          </padding>
       </JFXTextField>
-      <ComboBox fx:id="comMemberType" layoutX="50.0" layoutY="362.0" prefHeight="33.0" prefWidth="316.0" promptText="Select type" />
+      <ComboBox fx:id="comMemberType" layoutX="50.0" layoutY="362.0" prefHeight="33.0" prefWidth="316.0" promptText="Select Member Type" />
    </children>
 </AnchorPane>

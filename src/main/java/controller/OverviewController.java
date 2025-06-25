@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
@@ -54,8 +55,10 @@ public class OverviewController implements Initializable {
 
     private void loadChartData() {
         lineChart.getData().clear(); // removes old series
+        lineChart.setLegendSide(Side.TOP); // Move legend to top to avoid overlap
+
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("");
+        series.setName("Library Stat");
 
         series.getData().add(new XYChart.Data<>("Members", dashboardService.getMemberCount()));
         series.getData().add(new XYChart.Data<>("Authors", dashboardService.getAuthorCount()));

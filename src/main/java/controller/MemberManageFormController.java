@@ -1,6 +1,5 @@
 package controller;
 
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.Member;
 import javafx.collections.FXCollections;
@@ -194,6 +193,11 @@ public class MemberManageFormController implements Initializable {
         txtMemberNIC.setText("");
         txtMemberEmail.setText("");
         txtMemberAddress.setText("");
-        comMemberType.setValue(null);
+
+        if (!comMemberType.getItems().contains("Select Member Type")) {
+            comMemberType.getItems().add(0, "Select Member Type");
+        }
+        comMemberType.setValue("Select Member Type");
     }
+
 }
