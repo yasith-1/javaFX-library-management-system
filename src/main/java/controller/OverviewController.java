@@ -84,5 +84,4 @@ public class OverviewController implements Initializable {
         loadChartData();
         setDashboardData();
     }
-
 }

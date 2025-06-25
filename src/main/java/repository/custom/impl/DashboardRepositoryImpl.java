@@ -26,14 +26,12 @@ public class DashboardRepositoryImpl implements DashboardRepository {
     @Override
     public Integer totalMembersCount() {
         try {
-            ResultSet resultSet = CrudUtil.execute("SELECT COUNT(id) FROM `member`");
+            ResultSet resultSet = CrudUtil.execute("SELECT COUNT(id) FROM `member` WHERE `type_id`=?","T2");
 
             if (resultSet.next()) {
                 return Integer.parseInt(resultSet.getString(1));
             }
-
             return 0;
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

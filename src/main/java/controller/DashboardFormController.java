@@ -9,16 +9,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -66,12 +64,11 @@ public class DashboardFormController implements Initializable {
         timeline.play();
     }
 
-
     public void dashboardOverviewOnActionBtn(ActionEvent actionEvent) {
         loadInitialDashboardOverview();
     }
 
-    private void loadInitialDashboardOverview(){
+    private void loadInitialDashboardOverview() {
         URL resource = this.getClass().getResource("/view/dashboardOverview.fxml");
 
         assert resource != null;
@@ -270,5 +267,4 @@ public class DashboardFormController implements Initializable {
         this.root.getChildren().clear();
         this.root.getChildren().add(load);
     }
-
 }

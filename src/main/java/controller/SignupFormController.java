@@ -100,6 +100,4 @@ public class SignupFormController implements Initializable {
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.show();
     }
-
-
 }
