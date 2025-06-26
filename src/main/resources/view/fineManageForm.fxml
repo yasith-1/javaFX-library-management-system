@@ -30,7 +30,7 @@
          </font>
       </JFXTextField>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#0f588a" height="165.0" layoutX="51.0" layoutY="176.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="259.0" />
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="351.0" layoutY="304.0" onAction="#clearOnActionBtn" prefHeight="36.0" prefWidth="366.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="351.0" layoutY="304.0" onAction="#clearOnActionBtn" prefHeight="36.0" prefWidth="168.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -40,12 +40,12 @@
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="374.0" onAction="#addFineOnActionBtn" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Add Fine">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="374.0" onAction="#addFineOnActionBtn" prefHeight="40.0" prefWidth="213.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Add Fine">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="290.0" layoutY="374.0" onAction="#updateFineOnActionBtn" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Update Fine">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="374.0" onAction="#updateFineOnActionBtn" prefHeight="40.0" prefWidth="213.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Update Fine">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -104,5 +104,10 @@
       <ComboBox fx:id="comboMember" layoutX="62.0" layoutY="193.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Member" />
       <ComboBox fx:id="comboBook" layoutX="62.0" layoutY="242.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Book" />
       <ComboBox fx:id="comboFineStatus" layoutX="62.0" layoutY="289.0" prefHeight="28.0" prefWidth="235.0" promptText="Select Status" />
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="546.0" layoutY="304.0" onAction="#fineReportOnActionBtn" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: #1B9CFC; -fx-background-radius: 10; -fx-cursor: hand;" text="View as Report" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="17.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
