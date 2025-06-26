@@ -255,14 +255,15 @@ public class DashboardFormController implements Initializable {
     }
 
     @FXML
-    void issueBookReportOnActionBtn(ActionEvent event) throws JRException {
-        JasperDesign design = JRXmlLoader.load("src/main/resources/reports/issued_book_report.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(design);
+    void issueBookReportOnActionBtn(ActionEvent event) {
         try {
+            JasperDesign design = JRXmlLoader.load("src/main/resources/reports/issued_book_report.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(design);
+
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
 //            JasperExportManager.exportReportToPdfFile(jasperPrint, "issue_book.pdf");
             JasperViewer.viewReport(jasperPrint, false);
-        } catch (SQLException e) {
+        } catch (SQLException | JRException e) {
             throw new RuntimeException(e);
         }
     }

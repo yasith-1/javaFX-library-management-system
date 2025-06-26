@@ -1,6 +1,7 @@
 package controller;
 
 import com.jfoenix.controls.JFXTextField;
+import database.DBConnection;
 import dto.ReturnBook;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +12,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import service.ServiceFactory;
 import service.custom.impl.ReturnBookServiceImpl;
 import util.Alert;
@@ -18,6 +23,7 @@ import util.AlertType;
 import util.ServiceType;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -178,5 +184,18 @@ public class BookReturnFormController implements Initializable {
     private void fillFoundedBookData(ReturnBook returnBook) {
         comboMember.setValue(returnBook.getMemberId());
         comboBook.setValue(returnBook.getIsbn());
+    }
+
+    public void returnBookReportActionBtn(ActionEvent actionEvent) {
+        try {
+            JasperDesign design = JRXmlLoader.load("src/main/resources/reports/returnbook_report.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(design);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+//            JasperExportManager.exportReportToPdfFile(jasperPrint, "issue_book.pdf");
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (SQLException | JRException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
