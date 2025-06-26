@@ -82,5 +82,10 @@
             <Image url="@../image/notice.png" />
          </image>
       </ImageView>
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="492.0" layoutY="312.0" onAction="#categoryReportOnActionBtn" prefHeight="36.0" prefWidth="183.0" style="-fx-background-color: #1B9CFC; -fx-background-radius: 10; -fx-cursor: hand;" text="View as Report" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="17.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
