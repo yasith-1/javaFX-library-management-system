@@ -1,6 +1,5 @@
 package controller;
 
-import database.DBConnection;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -12,14 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
-
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
@@ -254,17 +247,19 @@ public class DashboardFormController implements Initializable {
         this.root.getChildren().add(load);
     }
 
-    @FXML
-    void issueBookReportOnActionBtn(ActionEvent event) {
-        try {
-            JasperDesign design = JRXmlLoader.load("src/main/resources/reports/issued_book_report.jrxml");
-            JasperReport jasperReport = JasperCompileManager.compileReport(design);
+    public void openReportCenterOnActionBtn(ActionEvent actionEvent) {
+        windowHeaderLbl.setText("View Reports & Download");
+        URL resource = this.getClass().getResource("/view/downloadReportForm.fxml");
 
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
-//            JasperExportManager.exportReportToPdfFile(jasperPrint, "issue_book.pdf");
-            JasperViewer.viewReport(jasperPrint, false);
-        } catch (SQLException | JRException e) {
+        assert resource != null;
+
+        Parent load = null;
+        try {
+            load = FXMLLoader.load(resource);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        this.root.getChildren().clear();
+        this.root.getChildren().add(load);
     }
 }

@@ -180,7 +180,7 @@
             <Image url="@../image/btnicon.png" />
          </image>
       </ImageView>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="643.0" onAction="#issueBookReportOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Reports Center" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="643.0" onAction="#openReportCenterOnActionBtn" prefHeight="41.0" prefWidth="264.0" style="-fx-background-color: #3c6382; -fx-background-radius: 10;" text="Reports Center" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>

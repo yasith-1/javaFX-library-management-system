@@ -60,7 +60,7 @@
          </font>
       </JFXButton>
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="40.0" layoutX="54.0" layoutY="394.0" stroke="#0f598a" strokeType="INSIDE" width="655.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="214.0" layoutY="403.0" prefHeight="23.0" prefWidth="399.0" text="Double click row that you want to  UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="182.0" layoutY="403.0" prefHeight="23.0" prefWidth="399.0" text="Double click row that you want to  UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
