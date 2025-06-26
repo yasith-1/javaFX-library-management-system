@@ -1,9 +1,7 @@
 package controller;
 
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import database.DBConnection;
 import dto.Fine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,19 +16,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
 import service.ServiceFactory;
 import service.custom.impl.FineServiceImpl;
-import util.Alert;
-import util.AlertType;
+import alert.Alert;
+import alert.AlertType;
+import util.Report;
 import util.ServiceType;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -335,15 +329,6 @@ public class FineFormController implements Initializable {
     }
 
     public void fineReportOnActionBtn(ActionEvent actionEvent) {
-        try {
-            JasperDesign design = JRXmlLoader.load("src/main/resources/reports/fine_report.jrxml");
-            JasperReport jasperReport = JasperCompileManager.compileReport(design);
-
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
-//            JasperExportManager.exportReportToPdfFile(jasperPrint, "issue_book.pdf");
-            JasperViewer.viewReport(jasperPrint, false);
-        } catch (SQLException | JRException e) {
-            throw new RuntimeException(e);
-        }
+        Report.openReport("fine_report.jrxml");
     }
 }

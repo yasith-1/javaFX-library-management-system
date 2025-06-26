@@ -1,30 +1,21 @@
 package controller;
 
-import database.DBConnection;
+import alert.Alert;
+import alert.AlertType;
 import dto.DelayReturn;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
 import service.ServiceFactory;
 import service.custom.impl.DelayReturnServiceImpl;
 import util.*;
-import java.io.IOException;
+
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -106,15 +97,6 @@ public class DelayReturnFormController implements Initializable {
     }
 
     public void nonPaidMemberReportOnActionBtn(ActionEvent actionEvent) {
-        try {
-            JasperDesign design = JRXmlLoader.load("src/main/resources/reports/nonpaidDelay_report.jrxml");
-            JasperReport jasperReport = JasperCompileManager.compileReport(design);
-
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
-//            JasperExportManager.exportReportToPdfFile(jasperPrint, "issue_book.pdf");
-            JasperViewer.viewReport(jasperPrint, false);
-        } catch (SQLException | JRException e) {
-            throw new RuntimeException(e);
-        }
+        Report.openReport("nonpaidDelay_report.jrxml");
     }
 }

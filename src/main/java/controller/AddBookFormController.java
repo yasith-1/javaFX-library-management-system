@@ -13,8 +13,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.ServiceFactory;
 import service.custom.impl.BookServiceImpl;
-import util.Alert;
-import util.AlertType;
+import alert.Alert;
+import alert.AlertType;
 import util.ServiceType;
 
 import java.net.URL;

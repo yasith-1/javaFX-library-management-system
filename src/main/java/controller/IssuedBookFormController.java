@@ -16,8 +16,8 @@ import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 import service.ServiceFactory;
 import service.custom.impl.IssuedBookServiceImpl;
-import util.Alert;
-import util.AlertType;
+import alert.Alert;
+import alert.AlertType;
 import util.ServiceType;
 
 import java.net.URL;

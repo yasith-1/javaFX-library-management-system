@@ -1,7 +1,6 @@
 package controller;
 
 import com.jfoenix.controls.JFXTextField;
-import database.DBConnection;
 import dto.Author;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,17 +9,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
 import service.ServiceFactory;
 import service.custom.impl.AuthorServiceImpl;
-import util.Alert;
-import util.AlertType;
+import alert.Alert;
+import alert.AlertType;
+import util.Report;
 import util.ServiceType;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -160,15 +155,6 @@ public class AuthorManageFormController implements Initializable {
     }
 
     public void authorReportActionBtn(ActionEvent actionEvent) {
-        try {
-            JasperDesign design = JRXmlLoader.load("src/main/resources/reports/author_report.jrxml");
-            JasperReport jasperReport = JasperCompileManager.compileReport(design);
-
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
-//            JasperExportManager.exportReportToPdfFile(jasperPrint, "issue_book.pdf");
-            JasperViewer.viewReport(jasperPrint, false);
-        } catch (SQLException | JRException e) {
-            System.out.println(e.getMessage());
-        }
+        Report.openReport("author_report.jrxml");
     }
 }

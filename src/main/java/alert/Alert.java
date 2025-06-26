@@ -1,4 +1,4 @@
-package util;
+package alert;
 
 import javafx.geometry.Pos;
 import javafx.util.Duration;

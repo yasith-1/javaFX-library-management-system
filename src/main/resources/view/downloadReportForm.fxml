@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="611.0" prefWidth="764.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.downloadReportFormController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="48.0" prefHeight="49.0" prefWidth="214.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="Book Report" textFill="WHITE">
@@ -115,7 +114,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="528.0" layoutY="56.0" onAction="#bookReportDownloadOnActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="528.0" layoutY="56.0" onAction="#downloadBookOnActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -127,7 +126,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="528.0" layoutY="122.0" onAction="#categoryReportActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="528.0" layoutY="122.0" onAction="#downloadCatergoryActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -139,7 +138,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="528.0" layoutY="186.0" onAction="#authorReportActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="528.0" layoutY="186.0" onAction="#downloadAuthorActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -151,7 +150,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="528.0" layoutY="253.0" onAction="#memberReportActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="528.0" layoutY="253.0" onAction="#downloadMemberActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -163,7 +162,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="529.0" layoutY="319.0" onAction="#issueBookReportActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="529.0" layoutY="319.0" onAction="#downloadIssueBookActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -175,7 +174,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="529.0" layoutY="385.0" onAction="#fineReportActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="529.0" layoutY="385.0" onAction="#downloadFinectionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -187,7 +186,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="529.0" layoutY="452.0" onAction="#nonPaidReportActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
+      <JFXButton alignment="BOTTOM_LEFT" contentDisplay="RIGHT" layoutX="529.0" layoutY="452.0" onAction="#downloadNonPaidActionBtn" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-cursor: hand;" text="Downlod Report">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>

@@ -12,8 +12,8 @@ import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 import service.ServiceFactory;
 import service.custom.impl.MemberServiceImpl;
-import util.Alert;
-import util.AlertType;
+import alert.Alert;
+import alert.AlertType;
 import util.ServiceType;
 import java.io.IOException;
 

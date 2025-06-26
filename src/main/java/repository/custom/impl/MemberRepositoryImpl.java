@@ -2,8 +2,8 @@ package repository.custom.impl;
 
 import entity.MemberEntity;
 import repository.custom.MemberRepository;
-import util.Alert;
-import util.AlertType;
+import alert.Alert;
+import alert.AlertType;
 import util.CrudUtil;
 import util.MapCollection;
 
