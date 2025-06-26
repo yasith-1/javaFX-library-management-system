@@ -30,7 +30,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <Circle fill="#46473d41" layoutX="150.0" layoutY="107.0" radius="31.0" stroke="#dadada" strokeType="INSIDE" />
+      <Circle fill="#46473d41" layoutX="150.0" layoutY="107.0" radius="31.0" stroke="#909090" strokeType="INSIDE" />
       <Label fx:id="memberCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="124.0" layoutY="89.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
          <font>
             <Font name="Poppins Regular" size="25.0" />
@@ -47,7 +47,7 @@
             <Image url="@../image/book.png" />
          </image>
       </ImageView>
-      <Circle fill="#46473d41" layoutX="427.0" layoutY="108.0" radius="31.0" stroke="#dadada" strokeType="INSIDE" />
+      <Circle fill="#46473d41" layoutX="427.0" layoutY="108.0" radius="31.0" stroke="#909090" strokeType="INSIDE" />
       <Label fx:id="bookCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="401.0" layoutY="89.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
          <font>
             <Font name="Poppins Regular" size="25.0" />
@@ -69,7 +69,7 @@
          </padding>
       </LineChart>
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#3c6382" height="186.0" layoutX="581.0" layoutY="21.0" stroke="#bcbcbc" strokeType="INSIDE" strokeWidth="0.5" width="150.0" />
-      <Circle fill="#46473d41" layoutX="657.0" layoutY="160.0" radius="31.0" stroke="#dadada" strokeType="INSIDE" />
+      <Circle fill="#46473d41" layoutX="657.0" layoutY="160.0" radius="31.0" stroke="#909090" strokeType="INSIDE" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="594.0" layoutY="85.0" prefHeight="41.0" prefWidth="126.0" text="Total Authors" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="19.0" />
@@ -102,7 +102,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <Circle fill="#46473d41" layoutX="655.0" layoutY="399.0" radius="31.0" stroke="#dadada" strokeType="INSIDE" />
+      <Circle fill="#46473d41" layoutX="655.0" layoutY="399.0" radius="31.0" stroke="#909090" strokeType="INSIDE" />
       <Label fx:id="issuedBookCountLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="629.0" layoutY="382.0" prefHeight="34.0" prefWidth="51.0" style="-fx-font-weight: 900; -fx-font-family: poppins;" text="53" textFill="#20ff2f">
          <font>
             <Font name="Poppins Regular" size="25.0" />
