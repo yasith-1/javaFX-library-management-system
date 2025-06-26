@@ -196,37 +196,37 @@ public class FineFormController implements Initializable {
         }
     }
 
-    public void searchOnActionBtn(ActionEvent actionEvent) {
-        if (txtSearchFieldMemberName.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING, "Enter a Member !");
-            return;
-        } else if (txtSearchFieldBookName.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING, "Enter a  Book !");
-            return;
-        } else {
-//            All validated
-            String memberId = service.getMemberMap().get(txtSearchFieldMemberName.getText());
-            String bookId = service.getBookMap().get(txtSearchFieldBookName.getText());
-
-            Fine fine = new Fine(
-                    txtFineIdLbl.getText(),
-                    null,
-                    null,
-                    null,
-                    null,
-                    memberId == null ? txtSearchFieldMemberName.getText() : memberId,
-                    bookId == null ? txtSearchFieldBookName.getText() : bookId,
-                    null);
-
-            Fine foundedFine = service.searchFine(fine);
-            if (foundedFine != null) {
-//                call data set method
-                setFoundedData(foundedFine);
-                return;
-            }
-            Alert.trigger(AlertType.ERROR, "Fine not found try again !");
-        }
-    }
+//    public void searchOnActionBtn(ActionEvent actionEvent) {
+//        if (txtSearchFieldMemberName.getText().isEmpty()) {
+//            Alert.trigger(AlertType.WARNING, "Enter a Member !");
+//            return;
+//        } else if (txtSearchFieldBookName.getText().isEmpty()) {
+//            Alert.trigger(AlertType.WARNING, "Enter a  Book !");
+//            return;
+//        } else {
+////            All validated
+//            String memberId = service.getMemberMap().get(txtSearchFieldMemberName.getText());
+//            String bookId = service.getBookMap().get(txtSearchFieldBookName.getText());
+//
+//            Fine fine = new Fine(
+//                    txtFineIdLbl.getText(),
+//                    null,
+//                    null,
+//                    null,
+//                    null,
+//                    memberId == null ? txtSearchFieldMemberName.getText() : memberId,
+//                    bookId == null ? txtSearchFieldBookName.getText() : bookId,
+//                    null);
+//
+//            Fine foundedFine = service.searchFine(fine);
+//            if (foundedFine != null) {
+////                call data set method
+//                setFoundedData(foundedFine);
+//                return;
+//            }
+//            Alert.trigger(AlertType.ERROR, "Fine not found try again !");
+//        }
+//    }
 
     private void setFoundedData(Fine fine) {
         txtFineIdLbl.setText(fine.getId());

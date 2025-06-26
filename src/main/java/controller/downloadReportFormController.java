@@ -15,7 +15,7 @@ public class downloadReportFormController {
 
     @FXML
     void categoryReportOnActionBtn(ActionEvent event) {
-        Report.openReport("category_report.jrxm");
+        Report.openReport("category_report.jrxml");
     }
 
     @FXML
