@@ -1,6 +1,7 @@
 package controller;
 
 import com.jfoenix.controls.JFXTextField;
+import database.DBConnection;
 import dto.Author;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,12 +10,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import service.ServiceFactory;
 import service.custom.impl.AuthorServiceImpl;
 import util.Alert;
 import util.AlertType;
 import util.ServiceType;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -75,7 +81,7 @@ public class AuthorManageFormController implements Initializable {
         } else {
 //            Validate text fields and ensure those all filled
             Author author = new Author(txtAuthorId.getText(), txtAuthorName.getText());
-            Boolean isUpdated= service.updateAuthor(author);
+            Boolean isUpdated = service.updateAuthor(author);
             if (isUpdated) {
 //                    Author updated successfully ...........
                 clearField();
@@ -100,7 +106,7 @@ public class AuthorManageFormController implements Initializable {
         } else {
 //            Validate text fields and ensure those all filled
             Author author = new Author(txtAuthorId.getText(), txtAuthorName.getText());
-            Boolean isDeleted= service.deleteAuthor(author);
+            Boolean isDeleted = service.deleteAuthor(author);
             if (isDeleted) {
 //                    Author Delete successfully ...........
                 clearField();
@@ -151,5 +157,18 @@ public class AuthorManageFormController implements Initializable {
     private void setFoundedData(Author author) {
         txtAuthorId.setText(author.getId());
         txtAuthorName.setText(author.getName());
+    }
+
+    public void authorReportActionBtn(ActionEvent actionEvent) {
+        try {
+            JasperDesign design = JRXmlLoader.load("src/main/resources/reports/author_report.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(design);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+//            JasperExportManager.exportReportToPdfFile(jasperPrint, "issue_book.pdf");
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (SQLException | JRException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

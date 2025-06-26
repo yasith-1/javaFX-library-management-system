@@ -40,7 +40,7 @@
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="491.0" layoutY="272.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="161.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="491.0" layoutY="254.0" onAction="#clearOnActionBtn" prefHeight="40.0" prefWidth="161.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
@@ -82,5 +82,10 @@
             <Image url="@../image/notice.png" />
          </image>
       </ImageView>
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="491.0" layoutY="307.0" onAction="#authorReportActionBtn" prefHeight="40.0" prefWidth="161.0" style="-fx-background-color: #3498db; -fx-background-radius: 10; -fx-cursor: hand;" text="Open as report" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="17.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

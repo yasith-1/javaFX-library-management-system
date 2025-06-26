@@ -1,0 +1,128 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="author_report" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d6552770-0da7-483f-aa83-f60c2580b6e5">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="lms-system"/>
+	<query language="SQL"><![CDATA[SELECT * FROM `author`]]></query>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="author"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="author"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="image" uuid="cd68e4fb-61ec-4aa3-9fa1-be9cb5bb5276" x="20" y="11" width="60" height="55">
+			<expression><![CDATA["D:/ICET/JAVA-FX/library-management-system/src/main/resources/image/btnicon.png"]]></expression>
+		</element>
+		<element kind="staticText" uuid="5daae55a-8da2-4edb-b9e9-3b039ba0b060" x="120" y="11" width="258" height="59" forecolor="#23ABAD" fontSize="22.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Authors Report]]></text>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#23ABAD"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#23ABAD"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="a7691f22-315e-4d48-abc3-6684231a438c" x="420" y="10" width="124" height="30" fontSize="11.0" pattern="MMMMM dd, yyyy" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="89e8fd74-cad6-4d99-9582-e4ef5e78311f" x="420" y="42" width="123" height="30" fontSize="11.0" pattern="HH:mm" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="37" splitType="Stretch">
+		<element kind="staticText" uuid="ebc7e02d-7f08-40a7-8f61-744deb20d2a8" x="0" y="0" width="278" height="37" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Author ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a34bf19-e664-4ba9-b4ee-45f97c44cebb"/>
+			<box>
+				<pen lineStyle="Solid"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="5e0527c8-94ae-4e47-8e2c-a5ee2af3c9a2" x="278" y="0" width="277" height="37" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Author Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9cbcb641-f1c9-44cb-8bcc-3b980f283f12"/>
+			<box>
+				<pen lineStyle="Solid"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<element kind="textField" uuid="3c69bce1-1936-4d8e-bb7e-c15f2e135f21" x="0" y="0" width="278" height="36" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a34bf19-e664-4ba9-b4ee-45f97c44cebb"/>
+				<box>
+					<pen lineStyle="Solid" lineColor="#FFFFFF"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="110451f0-df91-4ec5-ae4b-6c1a22f6b5c5" x="278" y="0" width="277" height="36" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9cbcb641-f1c9-44cb-8bcc-3b980f283f12"/>
+				<box>
+					<pen lineStyle="Solid" lineColor="#FFFFFF"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="72" splitType="Stretch">
+		<element kind="staticText" uuid="5bc2c048-c7dd-47bf-bbc6-eb27fd931708" x="100" y="0" width="212" height="42" fontSize="13.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Library Management System]]></text>
+			<box>
+				<pen lineStyle="Solid"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="bdcf069b-9d29-45ae-9f5c-849b138e5398" x="312" y="0" width="110" height="42" pattern="MMMMM dd, yyyy" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+			<box>
+				<pen lineStyle="Solid"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="b568b872-26d8-4a94-a07c-6fb5d30bde28" x="189" y="58" width="176" height="14" forecolor="#23ABAD" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Developed by : Yashith Prabhashwara]]></text>
+		</element>
+	</pageFooter>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

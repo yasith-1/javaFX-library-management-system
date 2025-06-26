@@ -6,8 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -25,7 +23,7 @@
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <TableView fx:id="bookTable" layoutX="55.0" layoutY="411.0" prefHeight="175.0" prefWidth="655.0" style="-fx-background-color: white;">
+      <TableView fx:id="bookTable" layoutX="55.0" layoutY="447.0" prefHeight="139.0" prefWidth="655.0" style="-fx-background-color: white;">
          <columns>
             <TableColumn fx:id="colIsbn" prefWidth="75.0" text="Book ID" />
             <TableColumn fx:id="colTitle" prefWidth="161.0" text="Title" />
@@ -35,53 +33,38 @@
             <TableColumn fx:id="colStatus" prefWidth="91.0" text="Status" />
          </columns>
       </TableView>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="150.0" onAction="#updateBookOnActionBtn" prefHeight="36.0" prefWidth="285.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Update Book">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="172.0" onAction="#updateBookOnActionBtn" prefHeight="36.0" prefWidth="285.0" style="-fx-background-color: #37D67A; -fx-background-radius: 10; -fx-cursor: hand;" text="Update Book">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="109.0" layoutX="413.0" layoutY="21.0" stroke="#0f598a" strokeType="INSIDE" width="285.0" />
-      <JFXTextField fx:id="txtSearchField" alignment="CENTER" focusColor="#15a5ff" layoutX="433.0" layoutY="33.0" prefHeight="33.0" prefWidth="245.0" promptText="Search Book by ID or Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #37D67A;" unFocusColor="#aeaeae">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="109.0" layoutX="413.0" layoutY="33.0" stroke="#0f598a" strokeType="INSIDE" width="285.0" />
+      <JFXTextField fx:id="txtSearchField" alignment="CENTER" focusColor="#15a5ff" layoutX="433.0" layoutY="45.0" prefHeight="33.0" prefWidth="245.0" promptText="Search Book by ID or Name" style="-fx-cursor: hand; -fx-text-fill: white; -fx-prompt-text-fill: #37D67A;" unFocusColor="#aeaeae">
          <font>
             <Font name="Poppins Regular" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="203.0" onAction="#deleteBookOnActionBtn" prefHeight="36.0" prefWidth="285.0" style="-fx-background-color: #ED4C67; -fx-background-radius: 10; -fx-cursor: hand;" text="Delete Book" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="225.0" onAction="#deleteBookOnActionBtn" prefHeight="36.0" prefWidth="285.0" style="-fx-background-color: #ED4C67; -fx-background-radius: 10; -fx-cursor: hand;" text="Delete Book" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="253.0" onAction="#clearOnActionBtn" prefHeight="36.0" prefWidth="285.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="275.0" onAction="#clearOnActionBtn" prefHeight="36.0" prefWidth="285.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear all" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="503.0" layoutY="79.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="503.0" layoutY="91.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="83.0" layoutX="414.0" layoutY="306.0" stroke="#0f598a" strokeType="INSIDE" width="295.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="434.0" layoutY="338.0" prefHeight="23.0" prefWidth="256.0" text="Double click row that you want to" textFill="#04e49d" wrapText="true">
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#0f5b8a00" height="40.0" layoutX="54.0" layoutY="394.0" stroke="#0f598a" strokeType="INSIDE" width="655.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="214.0" layoutY="403.0" prefHeight="23.0" prefWidth="399.0" text="Double click row that you want to  UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="494.0" layoutY="361.0" text=" UPDATE  or DELETE" textFill="#04e49d" wrapText="true">
-         <font>
-            <Font name="Poppins Regular" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="550.0" layoutY="313.0" text="NOTICE" textFill="RED">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="25.0" fitWidth="27.0" layoutX="516.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/notice.png" />
-         </image>
-      </ImageView>
       <Label fx:id="txtIdLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="35.0" prefHeight="28.0" prefWidth="113.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="B001" textFill="WHITE">
          <font>
             <Font name="Poppins Regular" size="15.0" />
@@ -95,5 +78,10 @@
       <ComboBox fx:id="comboCategory" layoutX="86.0" layoutY="235.0" prefHeight="28.0" prefWidth="227.0" promptText="Select Category" />
       <ComboBox fx:id="comboStatus" layoutX="86.0" layoutY="281.0" prefHeight="28.0" prefWidth="227.0" promptText="Select Status" />
       <ComboBox fx:id="comboAuthor" layoutX="86.0" layoutY="329.0" prefHeight="28.0" prefWidth="227.0" promptText="Select Author" />
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="331.0" onAction="#bookReportActionBtn" prefHeight="40.0" prefWidth="285.0" style="-fx-background-color: #3498db; -fx-background-radius: 10; -fx-cursor: hand;" text="Open as report" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="17.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

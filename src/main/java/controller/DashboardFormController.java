@@ -136,20 +136,6 @@ public class DashboardFormController implements Initializable {
     }
 
     @FXML
-    void issueBookReportOnActionBtn(ActionEvent event) throws JRException {
-        JasperDesign design = JRXmlLoader.load("src/main/resources/reports/issued_book_report.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(design);
-        try {
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
-//            JasperExportManager.exportReportToPdfFile(jasperPrint, "issue_book.pdf");
-            JasperViewer.viewReport(jasperPrint, false);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    @FXML
     void issuebookOnActionBtn(ActionEvent event) {
         windowHeaderLbl.setText("Issue Books");
         URL resource = this.getClass().getResource("/view/bookIssueForm.fxml");
@@ -266,5 +252,18 @@ public class DashboardFormController implements Initializable {
         }
         this.root.getChildren().clear();
         this.root.getChildren().add(load);
+    }
+
+    @FXML
+    void issueBookReportOnActionBtn(ActionEvent event) throws JRException {
+        JasperDesign design = JRXmlLoader.load("src/main/resources/reports/issued_book_report.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(design);
+        try {
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+//            JasperExportManager.exportReportToPdfFile(jasperPrint, "issue_book.pdf");
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
