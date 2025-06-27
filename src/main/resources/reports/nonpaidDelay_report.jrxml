@@ -77,7 +77,7 @@ INNER JOIN fine_status ON fine.fine_status_id = fine_status.id;
 			</box>
 		</element>
 		<element kind="staticText" uuid="b326c865-09c2-4960-9b4b-3e32a786a00b" x="120" y="11" width="258" height="59" forecolor="#23ABAD" fontSize="22.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[Late Books Return Report]]></text>
+			<text><![CDATA[Books Late Returns Report]]></text>
 			<box>
 				<pen lineWidth="1.0" lineStyle="Solid"/>
 				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#23ABAD"/>
@@ -86,7 +86,7 @@ INNER JOIN fine_status ON fine.fine_status_id = fine_status.id;
 				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 			</box>
 		</element>
-		<element kind="textField" uuid="ad6d3725-d9b6-422e-a5b7-4426c12ec7d8" x="420" y="42" width="123" height="30" fontSize="11.0" pattern="h:mm a" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="textField" uuid="ad6d3725-d9b6-422e-a5b7-4426c12ec7d8" x="420" y="42" width="124" height="30" fontSize="11.0" pattern="h:mm a" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[new java.util.Date()]]></expression>
 			<box>
 				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
