@@ -47,7 +47,7 @@ public class downloadReportFormController {
     //    Download reports
 
     public void downloadBookOnActionBtn(ActionEvent actionEvent) {
-        Report.downloadReport("author_report.jrxml", "book-report.pdf");
+        Report.downloadReport("book_report.jrxml", "book-report.pdf");
     }
 
     public void downloadCatergoryActionBtn(ActionEvent actionEvent) {

@@ -15,6 +15,7 @@ import alert.Alert;
 import alert.AlertType;
 import util.Report;
 import util.ServiceType;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -36,10 +37,19 @@ public class AuthorManageFormController implements Initializable {
 
     }
 
+
+    //      This method is used to set the auto-generated author ID in the text field.
     private void setAutoGenaratedId() {
-        txtAuthorId.setText(service.getAuthoryId());
+        String newId = service.getAuthoryId();
+        if (newId != null) {
+            txtAuthorId.setText(newId);
+        } else {
+            txtAuthorId.setText("");
+            Alert.trigger(AlertType.WARNING, "Something went wrong, ID not generated.");
+        }
     }
 
+    //      This method is used to add a new author when the action button is clicked.
     public void addAuthorOnActionBtn(ActionEvent actionEvent) {
         if (txtAuthorId.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "Author Id missing ..");
@@ -66,9 +76,10 @@ public class AuthorManageFormController implements Initializable {
         }
     }
 
+    //      This method is used to update an existing author when the action button is clicked.
     public void updateAuthorOnActionBtn(ActionEvent actionEvent) {
         if (txtAuthorId.getText().isEmpty()) {
-            Alert.trigger(AlertType.WARNING, "Author Id missing ..");
+            Alert.trigger(AlertType.WARNING, "Author Id not found ..");
             return;
         } else if (txtAuthorName.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "Select Auhor from table that you want to update !");
@@ -91,6 +102,7 @@ public class AuthorManageFormController implements Initializable {
         }
     }
 
+    //      This method is used to delete an existing author when the action button is clicked.
     public void deleteAuthorOnActionBtn(ActionEvent actionEvent) {
         if (txtAuthorId.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "Author Id missing ..");
@@ -116,6 +128,7 @@ public class AuthorManageFormController implements Initializable {
     }
 
 
+    //      This method is used to clear the author name field when the action button is clicked.
     public void clearOnActionBtn(ActionEvent actionEvent) {
         clearField();
     }
@@ -124,6 +137,7 @@ public class AuthorManageFormController implements Initializable {
         txtAuthorName.setText("");
     }
 
+    //      This method is used to load the author table with data from the service.
     private void loadAuthorTable() {
         List<Author> authorList = service.getAuthorList();
         if (authorList == null) {
@@ -149,11 +163,13 @@ public class AuthorManageFormController implements Initializable {
         });
     }
 
+    //      This method is used to set the data of the selected author in the text fields.
     private void setFoundedData(Author author) {
         txtAuthorId.setText(author.getId());
         txtAuthorName.setText(author.getName());
     }
 
+    //      This method is used to open the author report when the action button is clicked.
     public void authorReportActionBtn(ActionEvent actionEvent) {
         Report.openReport("author_report.jrxml");
     }
