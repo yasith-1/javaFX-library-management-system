@@ -109,7 +109,7 @@ A comprehensive **Library Management System** built with JavaFX that provides co
 
 <summary>🖼️ Manage Categories </summary>
 
-![manage-book](https://github.com/user-attachments/assets/77ab1184-0ebf-485c-bf2a-83f8328787cf)
+![manage-categories](https://github.com/user-attachments/assets/c67696a9-ff23-4a89-904c-40b17172cfb8)
 
 </details>
 
@@ -117,7 +117,7 @@ A comprehensive **Library Management System** built with JavaFX that provides co
 
 <summary>🖼️ Manage Authors </summary>
 
-![manage-book](https://github.com/user-attachments/assets/77ab1184-0ebf-485c-bf2a-83f8328787cf)
+![manage-author](https://github.com/user-attachments/assets/203ed4f5-26e9-4c03-8364-c6057580dcd8)
 
 </details>
 
@@ -125,7 +125,7 @@ A comprehensive **Library Management System** built with JavaFX that provides co
 
 <summary>🖼️ Manage Members </summary>
 
-![manage-book](https://github.com/user-attachments/assets/77ab1184-0ebf-485c-bf2a-83f8328787cf)
+![manage-member](https://github.com/user-attachments/assets/3129f016-04a8-4f3f-9b0c-ac84013b53d6)
 
 </details>
 
@@ -133,11 +133,49 @@ A comprehensive **Library Management System** built with JavaFX that provides co
 
 <summary>🖼️ Issue Book </summary>
 
-![manage-book](https://github.com/user-attachments/assets/77ab1184-0ebf-485c-bf2a-83f8328787cf)
+![issue-book](https://github.com/user-attachments/assets/6ecd9872-6bae-4bec-9ecc-c648e043c045)
 
 </details>
 
+<details>
 
+<summary>🖼️ Manage Issue Book </summary>
+
+![manage-issue-book](https://github.com/user-attachments/assets/6a8a7246-5772-4043-816a-3819a5d4241e)
+
+</details>
+
+<details>
+
+<summary>🖼️ Manage Return Book </summary>
+
+![return-book](https://github.com/user-attachments/assets/6d50a175-2671-4261-a28c-d93ee0a2d010)
+
+</details>
+
+<details>
+
+<summary>🖼️ Make Fine </summary>
+
+![fine](https://github.com/user-attachments/assets/9583180b-453d-48f3-a176-de250d04ed70)
+
+</details>
+
+<details>
+
+<summary>🖼️ Non-paid Members </summary>
+
+![non-paid-members](https://github.com/user-attachments/assets/8b5d7d01-2c9d-432b-a98c-2c16c3c0da83)
+
+</details>
+
+<details>
+
+<summary>🖼️ Report Center </summary>
+
+![report-center](https://github.com/user-attachments/assets/148ad5fa-75fb-4b95-9edb-cd355f1af733)
+
+</details>
 
 
 *Clean and intuitive interface for easy navigation*
@@ -238,7 +276,7 @@ A comprehensive **Library Management System** built with JavaFX that provides co
 
 <div align="center">
 
-### 👨‍💻 Developer : Yasith Prabaswara
+### 👨‍💻 Developer : Yashith Prabhashwara
 
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yasithprabaswara1@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yashith-prabhashwara-a1aa471a6/)
