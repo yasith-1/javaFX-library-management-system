@@ -1,6 +1,10 @@
 package controller;
 
+import com.google.inject.Guice;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 import com.jfoenix.controls.JFXTextField;
+import config.AppModule;
 import dto.Book;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,10 +16,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.ServiceFactory;
+import service.custom.BookService;
 import service.custom.impl.BookServiceImpl;
 import alert.Alert;
 import alert.AlertType;
 import util.ServiceType;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;

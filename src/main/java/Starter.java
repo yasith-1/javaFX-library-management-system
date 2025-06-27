@@ -11,6 +11,8 @@ public class Starter extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
+        // Load the admin login form FXML file
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/adminLoginForm.fxml"))));
         stage.setResizable(false);
         stage.setTitle("Admin Dashboard");
