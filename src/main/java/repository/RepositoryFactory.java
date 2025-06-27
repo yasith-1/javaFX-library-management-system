@@ -26,14 +26,15 @@ public class RepositoryFactory {
             case RETURNBOOK:
                 return (T) new ReturnBookRepositoryImpl();
             case FINE:
-               return  (T) new FineRepositoryImpl();
+                return (T) new FineRepositoryImpl();
             case AUTHOR:
-                return  (T) new AuthorRepositoryImpl();
+                return (T) new AuthorRepositoryImpl();
             case DELAYEDRETURN:
                 return (T) new DelayReturnRepositoryImpl();
             case PENDINGFINE:
                 return (T) new PendingFineRepositoryImpl();
+            default:
+                throw new IllegalArgumentException("Unknown RepositoryType: " + type);
         }
-        return null;
     }
 }

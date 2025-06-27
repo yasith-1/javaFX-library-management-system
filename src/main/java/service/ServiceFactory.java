@@ -39,8 +39,9 @@ public class ServiceFactory {
                 return (T) new DelayReturnServiceImpl();
             case PENDINGFINE:
                 return (T) new PendingFineServiceImpl();
+            default:
+                throw new IllegalArgumentException("Unknown RepositoryType: " + type);
         }
-        return null;
     }
 
 }
