@@ -17,7 +17,6 @@ import alert.Alert;
 import alert.AlertType;
 import util.Report;
 import util.ServiceType;
-
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.List;
@@ -44,6 +43,8 @@ public class BookReturnFormController implements Initializable {
         fetchTableRowData();
     }
 
+
+//     This method loads the book and member data into the combo boxes.
     private void loadComboBoxData() {
         comboBook.getItems().addAll(service.getBookMap().keySet());
         comboMember.getItems().addAll(service.getMemberMap().keySet());
@@ -81,6 +82,7 @@ public class BookReturnFormController implements Initializable {
         }
     }
 
+    // This method clears the form fields and resets the combo boxes to their default state.
     public void clearOnActionBtn(ActionEvent actionEvent) {
         if (!comboBook.getItems().contains("Select Book")) {
             comboBook.getItems().add(0, "Select Book");
@@ -97,6 +99,7 @@ public class BookReturnFormController implements Initializable {
         txtMemberName.setText("");
     }
 
+    // This method deletes a return book record based on the selected book and member.
     public void deleteOnActionBtn(ActionEvent actionEvent) {
         if (comboBook.getValue() == null) {
             Alert.trigger(AlertType.WARNING, "Select book that return !");
@@ -122,6 +125,7 @@ public class BookReturnFormController implements Initializable {
         }
     }
 
+    // This method searches for a return book record based on the book name and member name.
     public void searchOnActionBtn(ActionEvent actionEvent) {
         if (txtBookName.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "Enter Book Name !");
@@ -143,11 +147,13 @@ public class BookReturnFormController implements Initializable {
         }
     }
 
+    // This method sets the data of a found return book into the combo boxes.
     private void setReturnBookData(ReturnBook returnBook) {
         comboMember.setValue(returnBook.getMemberId());
         comboBook.setValue(returnBook.getIsbn());
     }
 
+    // This method loads the return book data into the table view.
     private void loadReturnBookTable() {
         List<ReturnBook> allReturnBookList = service.getAllReturnBookList();
         if (allReturnBookList == null) {
@@ -164,7 +170,7 @@ public class BookReturnFormController implements Initializable {
         returnBookTable.setItems(observableReturnBookList);
     }
 
-
+    // This method fetches the data of a return book when a row in the table is double-clicked.
     private void fetchTableRowData() {
         returnBookTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) { // double-click
@@ -176,11 +182,13 @@ public class BookReturnFormController implements Initializable {
         });
     }
 
+    // This method fills the form fields with the data of a found return book.
     private void fillFoundedBookData(ReturnBook returnBook) {
         comboMember.setValue(returnBook.getMemberId());
         comboBook.setValue(returnBook.getIsbn());
     }
 
+    // This method opens a report for return books.
     public void returnBookReportActionBtn(ActionEvent actionEvent) {
         Report.openReport("returnbook_report.jrxml");
     }
