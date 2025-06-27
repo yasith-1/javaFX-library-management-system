@@ -1,5 +1,7 @@
 package repository.custom.impl;
 
+import alert.Alert;
+import alert.AlertType;
 import entity.BookEntity;
 import repository.custom.BookRepository;
 import util.CrudUtil;
@@ -26,6 +28,7 @@ public class BookRepositoryImpl implements BookRepository {
                 return null;
             }
         } catch (Exception e) {
+            Alert.trigger( AlertType.ERROR, "Failed to retrieve last book ID: " + e.getMessage());
             return null;
         }
     }
@@ -39,7 +42,8 @@ public class BookRepositoryImpl implements BookRepository {
             }
             return gerneMap;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            Alert.trigger( AlertType.ERROR, "Failed to retrieve genres: " + e.getMessage());
+            return null;
         }
 
     }
@@ -53,6 +57,7 @@ public class BookRepositoryImpl implements BookRepository {
             }
             return authorMap;
         } catch (Exception e) {
+            Alert.trigger( AlertType.ERROR, "Failed to retrieve authors: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
