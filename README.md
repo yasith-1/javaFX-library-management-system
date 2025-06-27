@@ -1,5 +1,4 @@
 # 📚 Library Management System
-
 <div align="center">
 
 ![GitHub stars](https://img.shields.io/github/stars/yasith-1/javaFX-library-management-system?style=for-the-badge&logo=github&color=yellow)
