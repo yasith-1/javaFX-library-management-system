@@ -20,7 +20,7 @@ public class AuthorRepositoryImpl implements AuthorRepository {
             }
             return null;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+//            System.out.println(e.getMessage());
             Alert.trigger(AlertType.ERROR, "Failed to genarate Id" + e.getMessage());
             return null;
         }
@@ -41,7 +41,7 @@ public class AuthorRepositoryImpl implements AuthorRepository {
             }
             return authorEntityArrayList;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+//            System.out.println(e.getMessage());
             Alert.trigger(AlertType.ERROR, "Failed to create authorList" + e.getMessage());
         }
         return authorEntityArrayList;
@@ -56,7 +56,7 @@ public class AuthorRepositoryImpl implements AuthorRepository {
 
             return result;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+//            System.out.println(e.getMessage());
             Alert.trigger(AlertType.ERROR, "Failed to add author" + e.getMessage());
             return false;
         }
@@ -71,7 +71,7 @@ public class AuthorRepositoryImpl implements AuthorRepository {
 
             return result;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+//            System.out.println(e.getMessage());
             Alert.trigger(AlertType.ERROR, "Failed to update author" + e.getMessage());
             return false;
         }
@@ -84,7 +84,7 @@ public class AuthorRepositoryImpl implements AuthorRepository {
 
             return result;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+//            System.out.println(e.getMessage());
             Alert.trigger(AlertType.ERROR, "Failed to delete author" + e.getMessage());
             return false;
         }
