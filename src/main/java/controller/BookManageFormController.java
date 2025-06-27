@@ -47,6 +47,7 @@ public class BookManageFormController implements Initializable {
         fetchTableRowData();
     }
 
+    //    Load all combo box data from database----------------
     private void loadAllComboBoxData() {
         //        service.GetBookGerneMap() <-- book gerne map reference
         comboCategory.getItems().addAll(service.getBookGerneMap().keySet());
@@ -58,8 +59,6 @@ public class BookManageFormController implements Initializable {
     }
 
     public void updateBookOnActionBtn(ActionEvent actionEvent) {
-        //        validating Input fields------------------
-
         if (txtTile.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "Enter book title !");
             return;
@@ -110,6 +109,7 @@ public class BookManageFormController implements Initializable {
             }
         }
     }
+
 
     public void deleteBookOnActionBtn(ActionEvent actionEvent) {
         if (txtIdLbl.getText().isEmpty()) {
@@ -179,6 +179,7 @@ public class BookManageFormController implements Initializable {
         return false;
     }
 
+    //    Search book by Book-----------------------------
     public void searchOnActionBtn(ActionEvent actionEvent) {
         if (txtSearchField.getText().isEmpty()) {
             Alert.trigger(AlertType.WARNING, "Fill the search field first...");
@@ -202,6 +203,7 @@ public class BookManageFormController implements Initializable {
         Alert.trigger(AlertType.ERROR, "Sorry Book not found try again !");
     }
 
+    //    Load all book data into table-------------------
     private void loadBookTable() {
         List<Book> bookList = service.getBookList();
         if (bookList == null) {
@@ -220,6 +222,7 @@ public class BookManageFormController implements Initializable {
         bookTable.setItems(observableList);
     }
 
+    //    Fetch table row data on double click----------------
     private void fetchTableRowData() {
         bookTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) { // double-click
@@ -231,6 +234,7 @@ public class BookManageFormController implements Initializable {
         });
     }
 
+    //    Fill founded book data into text fields----------------
     private void fillFoundedBookData(Book book) {
         txtIdLbl.setText(book.getIsbn());
         txtTile.setText(book.getTitle());
@@ -240,6 +244,7 @@ public class BookManageFormController implements Initializable {
         comboAuthor.setValue((Object) book.getAuthorId());
     }
 
+    //    Open book report-----------------------------
     public void bookReportActionBtn(ActionEvent actionEvent) {
         Report.openReport("book_report.jrxml");
     }
