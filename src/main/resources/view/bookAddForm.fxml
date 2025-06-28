@@ -59,7 +59,7 @@
       <ComboBox fx:id="comboCategory" layoutX="419.0" layoutY="76.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Category" />
       <ComboBox fx:id="comboStatus" layoutX="419.0" layoutY="128.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Status" />
       <ComboBox fx:id="comboAuthor" layoutX="419.0" layoutY="179.0" prefHeight="32.0" prefWidth="235.0" promptText="Select Author" />
-      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="254.0" onAction="#bookAdvanceSearchOnActionBtn" prefHeight="38.0" prefWidth="244.0" style="-fx-background-color: #2c3e50; -fx-border-color: #dcdde1; -fx-border-radius: 10; -fx-background-radius: 10; -fx-cursor: hand;" text="Open Advance Search" textFill="WHITE">
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="415.0" layoutY="254.0" onAction="#bookAdvanceSearchOnActionBtn" prefHeight="38.0" prefWidth="244.0" style="-fx-background-color: #18dcff; -fx-background-radius: 10; -fx-cursor: hand;" text="Open Advance Search">
          <font>
             <Font name="Poppins Regular" size="17.0" />
          </font>
