@@ -62,6 +62,7 @@ public class DashboardFormController implements Initializable {
     }
 
     private void loadInitialDashboardOverview() {
+        windowHeaderLbl.setText("Dashboard Overview");
         URL resource = this.getClass().getResource("/view/dashboardOverview.fxml");
 
         assert resource != null;
@@ -78,7 +79,7 @@ public class DashboardFormController implements Initializable {
 
     @FXML
     void addBookOnActionBtn(ActionEvent event) {
-        windowHeaderLbl.setText("Add Books");
+        windowHeaderLbl.setText("Add New Book");
         URL resource = this.getClass().getResource("/view/bookAddForm.fxml");
 
         assert resource != null;
