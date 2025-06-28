@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="611.0" prefWidth="764.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.downloadReportFormController">
+<AnchorPane prefHeight="611.0" prefWidth="764.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DownloadReportFormController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="48.0" prefHeight="49.0" prefWidth="214.0" style="-fx-border-color: #37D67A; -fx-label-padding: 2; -fx-border-radius: 10;" text="Book Report" textFill="WHITE">
          <font>

@@ -86,7 +86,7 @@ public class bookAdvanceSearchFormController implements Initializable {
         if (!comboTitle.getItems().contains("Select Book")) {
             comboTitle.getItems().add(0, "Select Book");
         }
-        comboTitle.setValue("Select Book");
+        comboTitle.setValue("Select Boook");
 
         if (!comboAuthor.getItems().contains("Select Author")) {
             comboAuthor.getItems().add(0, "Select Author");
