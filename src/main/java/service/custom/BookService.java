@@ -14,6 +14,8 @@ public interface BookService extends SuperService {
 
     HashMap<String, String> getStatusMap();
 
+    HashMap<String, String> getBookMap();
+
     Boolean addBook(Book book);
 
     Boolean updateBook(Book book);
@@ -23,4 +25,6 @@ public interface BookService extends SuperService {
     Book searchByBook(Book book);
 
     List<Book> getBookList();
+
+    List<Book> searchBooks(String title, String author, String category);
 }

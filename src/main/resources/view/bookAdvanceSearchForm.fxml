@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="431.0" prefWidth="700.0" style="-fx-background-color: #0a3d62;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.bookAdvanceSearchFormController">
+   <children>
+      <Rectangle fill="#102e4a" height="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0" />
+      <ImageView fitHeight="39.0" fitWidth="42.0" layoutX="231.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/btnicon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="286.0" layoutY="26.0" text="Book Advance Search" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboTitle" layoutX="24.0" layoutY="92.0" prefHeight="27.0" prefWidth="206.0" promptText="Select Book" />
+      <ComboBox fx:id="comboAuthor" layoutX="249.0" layoutY="92.0" prefHeight="27.0" prefWidth="206.0" promptText="Select Author" />
+      <ComboBox fx:id="comboCategory" layoutX="471.0" layoutY="92.0" prefHeight="27.0" prefWidth="206.0" promptText="Select Category" />
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="476.0" layoutY="139.0" onAction="#searchOnActionBtn" prefHeight="36.0" prefWidth="198.0" style="-fx-background-color: #fbc531; -fx-background-radius: 10; -fx-cursor: hand;" text="Search">
+         <font>
+            <Font name="Poppins Regular" size="17.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tableBooDetail" layoutX="27.0" layoutY="211.0" prefHeight="190.0" prefWidth="651.0">
+        <columns>
+          <TableColumn fx:id="colBookName" prefWidth="234.0" text="Book Name" />
+          <TableColumn fx:id="colAuthorName" prefWidth="217.0" text="Author Name" />
+            <TableColumn fx:id="colCategoryName" prefWidth="199.0" text="Category" />
+        </columns>
+      </TableView>
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="137.0" onAction="#clearOnActionBtn" prefHeight="28.0" prefWidth="206.0" style="-fx-background-color: #718093; -fx-background-radius: 10; -fx-cursor: hand;" text="Clear data" textFill="WHITE">
+         <font>
+            <Font name="Poppins Regular" size="17.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

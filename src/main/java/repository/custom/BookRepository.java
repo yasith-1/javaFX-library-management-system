@@ -2,6 +2,7 @@ package repository.custom;
 
 import entity.BookEntity;
 import repository.CrudRepository;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,5 +18,9 @@ public interface BookRepository extends CrudRepository<BookEntity, String> {
 
     HashMap<String, String> getAllStatus();
 
+    HashMap<String, String> getAllBooks();
+
     List<BookEntity> getBookEntityList();
+
+    List<BookEntity> searchBooks(String title, String author, String category);
 }

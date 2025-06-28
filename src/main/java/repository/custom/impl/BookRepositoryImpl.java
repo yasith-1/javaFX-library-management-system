@@ -17,6 +17,7 @@ public class BookRepositoryImpl implements BookRepository {
     private HashMap<String, String> gerneMap = MapCollection.getInstance().getGerneMap();
     private HashMap<String, String> authorMap = MapCollection.getInstance().getAuthorMap();
     private HashMap<String, String> statusMap = MapCollection.getInstance().getBookStatusMap();
+    private HashMap<String, String> bookMap = MapCollection.getInstance().getBookMap();
 
     @Override
     public String getLastBookId() {
@@ -28,7 +29,7 @@ public class BookRepositoryImpl implements BookRepository {
                 return null;
             }
         } catch (Exception e) {
-            Alert.trigger( AlertType.ERROR, "Failed to retrieve last book ID: " + e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve last book ID: " + e.getMessage());
             return null;
         }
     }
@@ -42,7 +43,7 @@ public class BookRepositoryImpl implements BookRepository {
             }
             return gerneMap;
         } catch (Exception e) {
-            Alert.trigger( AlertType.ERROR, "Failed to retrieve genres: " + e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve genres: " + e.getMessage());
             return null;
         }
 
@@ -57,7 +58,7 @@ public class BookRepositoryImpl implements BookRepository {
             }
             return authorMap;
         } catch (Exception e) {
-            Alert.trigger( AlertType.ERROR, "Failed to retrieve authors: " + e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve authors: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -70,6 +71,19 @@ public class BookRepositoryImpl implements BookRepository {
                 statusMap.put(resultSet.getString("status"), resultSet.getString("id"));
             }
             return statusMap;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public HashMap<String, String> getAllBooks() {
+        try {
+            ResultSet resultset = CrudUtil.execute("SELECT `title` ,`isbn` FROM `book` WHERE `status_id`=?", "S001");
+            while (resultset.next()) {
+                bookMap.put(resultset.getString("title"), resultset.getString("isbn"));
+            }
+            return bookMap;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -163,6 +177,46 @@ public class BookRepositoryImpl implements BookRepository {
                         resultset.getString("author_name"));
 
                 return bookEntity;
+            }
+            return null;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public List<BookEntity> searchBooks(String title, String author, String category) {
+        ArrayList<BookEntity> bookEntityList = new ArrayList<>();
+        try {
+            ResultSet resultset = CrudUtil.execute("SELECT \n" +
+                            "    book.title,\n" +
+                            "    author.name AS author_name,\n" +
+                            "    gerne.name AS gerne_name\n" +
+                            "FROM \n" +
+                            "    book\n" +
+                            "INNER JOIN \n" +
+                            "    book_status ON book.status_id = book_status.id\n" +
+                            "INNER JOIN \n" +
+                            "    gerne ON book.gerne_id = gerne.gerne_id\n" +
+                            "INNER JOIN \n" +
+                            "    author ON book.author_id = author.id\n" +
+                            "WHERE \n" +
+                            "    book.title = ?\n" +
+                            "    OR book.gerne_id = ?\n" +
+                            "    OR book.author_id = ?\n",
+                    title, category, author);
+            if (resultset.next()) {
+                BookEntity bookEntity = new BookEntity(
+                        null,
+                        resultset.getString("title"),
+                        null,
+                        null,
+                        resultset.getString("gerne_name"),
+                        resultset.getString("author_name"));
+
+                bookEntityList.add(bookEntity);
+                return bookEntityList;
             }
             return null;
         } catch (Exception e) {

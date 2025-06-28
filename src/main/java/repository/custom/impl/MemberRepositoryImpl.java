@@ -154,5 +154,4 @@ public class MemberRepositoryImpl implements MemberRepository {
             return null;
         }
     }
-
 }
