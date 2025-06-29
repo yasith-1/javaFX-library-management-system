@@ -26,7 +26,7 @@ public class MemberRepositoryImpl implements MemberRepository {
             }
             return null;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve last member ID: " + e.getMessage());
             return null;
         }
     }
@@ -51,7 +51,7 @@ public class MemberRepositoryImpl implements MemberRepository {
             }
             return memberEntityArrayList;
         } catch (SQLException e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve members list: " + e.getMessage());
             return null;
         }
     }
@@ -65,7 +65,7 @@ public class MemberRepositoryImpl implements MemberRepository {
             }
             return memberTypeMap;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve member types: " + e.getMessage());
             return null;
         }
     }
@@ -77,8 +77,8 @@ public class MemberRepositoryImpl implements MemberRepository {
             ResultSet resultSet = CrudUtil.execute("SELECT * FROM `member` WHERE `nic`=? AND `email`=?",
                     entity.getNic(), entity.getEmail());
 
-            if (resultSet.next()){
-                Alert.trigger(AlertType.WARNING,"Sorry this Admin already Registered !");
+            if (resultSet.next()) {
+                Alert.trigger(AlertType.WARNING, "Sorry this Admin already Registered !");
                 return false;
             }
 
@@ -93,7 +93,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 
             return result;
         } catch (SQLException e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to add member: " + e.getMessage());
             return false;
         }
     }
@@ -111,7 +111,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 
             return result;
         } catch (SQLException e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to update member: " + e.getMessage());
             return false;
         }
     }
@@ -122,7 +122,7 @@ public class MemberRepositoryImpl implements MemberRepository {
             Boolean result = CrudUtil.execute("DELETE FROM `member` WHERE `id`=?", entity.getId());
             return result;
         } catch (SQLException e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to delete member: " + e.getMessage());
             return false;
         }
     }
@@ -150,7 +150,7 @@ public class MemberRepositoryImpl implements MemberRepository {
             }
             return null;
         } catch (SQLException e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to search member: " + e.getMessage());
             return null;
         }
     }

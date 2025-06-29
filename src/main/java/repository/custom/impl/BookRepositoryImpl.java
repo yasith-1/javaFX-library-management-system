@@ -72,6 +72,7 @@ public class BookRepositoryImpl implements BookRepository {
             }
             return statusMap;
         } catch (Exception e) {
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve book statuses: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -85,6 +86,7 @@ public class BookRepositoryImpl implements BookRepository {
             }
             return bookMap;
         } catch (Exception e) {
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve books: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -108,6 +110,7 @@ public class BookRepositoryImpl implements BookRepository {
 
             return bookEntityList;
         } catch (Exception e) {
+            Alert.trigger(AlertType.ERROR, "Failed to create book list: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -125,7 +128,7 @@ public class BookRepositoryImpl implements BookRepository {
 
             return result;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to add book: " + e.getMessage());
             return false;
         }
     }
@@ -143,7 +146,7 @@ public class BookRepositoryImpl implements BookRepository {
 
             return result;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to update book: " + e.getMessage());
             return false;
         }
     }
@@ -154,7 +157,7 @@ public class BookRepositoryImpl implements BookRepository {
             boolean result = CrudUtil.execute("DELETE FROM `book` WHERE `isbn`=?", entity.getIsbn()); // <-- if record delete statement true else false
             return result;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to delete book: " + e.getMessage());
             return false;
         }
     }
@@ -180,7 +183,7 @@ public class BookRepositoryImpl implements BookRepository {
             }
             return null;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to search book: " + e.getMessage());
             return null;
         }
     }
@@ -220,7 +223,7 @@ public class BookRepositoryImpl implements BookRepository {
             }
             return null;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to search books: " + e.getMessage());
             return null;
         }
     }

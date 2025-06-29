@@ -1,10 +1,13 @@
 package repository.custom.impl;
 
+import alert.Alert;
+import alert.AlertType;
 import database.DBConnection;
 import entity.ReturnBookEntity;
 import repository.custom.ReturnBookRepository;
 import util.CrudUtil;
 import util.MapCollection;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,7 +40,7 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
             }
             return returnBookEntitiesList;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve return book list: " + e.getMessage());
             return null;
         }
 
@@ -52,6 +55,7 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
             }
             return memberMap;
         } catch (Exception e) {
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve members: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -65,6 +69,7 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
             }
             return bookMap;
         } catch (Exception e) {
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve books: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -98,6 +103,7 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
             try {
                 DBConnection.getInstance().getConnection().setAutoCommit(true);
             } catch (SQLException e) {
+                Alert.trigger(AlertType.ERROR, "Failed to reset auto-commit: " + e.getMessage());
                 throw new RuntimeException(e);
             }
         }
@@ -112,7 +118,7 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
                     entity.getIsbn());
             return result;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to renew book quantity: " + e.getMessage());
             return false;
         }
     }
@@ -125,7 +131,7 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
                     entity.getIsbn());
             return result;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to deduct book quantity: " + e.getMessage());
             return false;
         }
     }
@@ -161,6 +167,7 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
             try {
                 DBConnection.getInstance().getConnection().setAutoCommit(true);
             } catch (SQLException e) {
+                Alert.trigger(AlertType.ERROR, "Failed to reset auto-commit: " + e.getMessage());
                 throw new RuntimeException(e);
             }
         }
@@ -184,9 +191,8 @@ public class ReturnBookRepositoryImpl implements ReturnBookRepository {
                         null);
             }
             return null;
-
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to search return book: " + e.getMessage());
             return null;
         }
     }

@@ -1,5 +1,7 @@
 package repository.custom.impl;
 
+import alert.Alert;
+import alert.AlertType;
 import entity.FineEntity;
 import repository.custom.FineRepository;
 import util.CrudUtil;
@@ -43,7 +45,7 @@ public class FineRepositoryImpl implements FineRepository {
             }
             return fineEntityArrayList;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve fine list: " + e.getMessage());
             return null;
         }
     }
@@ -64,7 +66,7 @@ public class FineRepositoryImpl implements FineRepository {
             }
             return 0.0;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to calculate delayed days: " + e.getMessage());
             return 0.0;
         }
     }
@@ -78,7 +80,7 @@ public class FineRepositoryImpl implements FineRepository {
             }
             return bookMap;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve book set: " + e.getMessage());
             return null;
         }
     }
@@ -92,7 +94,7 @@ public class FineRepositoryImpl implements FineRepository {
             }
             return memberMap;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve member set: " + e.getMessage());
             return null;
         }
     }
@@ -106,7 +108,7 @@ public class FineRepositoryImpl implements FineRepository {
             }
             return fineStatusMap;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve fine status set: " + e.getMessage());
             return null;
         }
     }
@@ -121,6 +123,7 @@ public class FineRepositoryImpl implements FineRepository {
                 return null;
             }
         } catch (Exception e) {
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve last fine ID: " + e.getMessage());
             return null;
         }
     }
@@ -140,7 +143,7 @@ public class FineRepositoryImpl implements FineRepository {
 
             return result;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to add fine: " + e.getMessage());
             return false;
         }
     }
@@ -160,7 +163,7 @@ public class FineRepositoryImpl implements FineRepository {
 
             return result;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to update fine: " + e.getMessage());
             return false;
         }
     }
@@ -174,7 +177,7 @@ public class FineRepositoryImpl implements FineRepository {
                     entity.getBookIsbn());
             return result;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to delete fine: " + e.getMessage());
             return false;
         }
     }
@@ -206,7 +209,7 @@ public class FineRepositoryImpl implements FineRepository {
             }
             return null;
         } catch (Exception e) {
-            e.getMessage();
+            Alert.trigger(AlertType.ERROR, "Failed to search fine: " + e.getMessage());
             return null;
         }
     }
@@ -236,6 +239,7 @@ public class FineRepositoryImpl implements FineRepository {
             }
             return null;
         } catch (SQLException e) {
+            Alert.trigger(AlertType.ERROR, "Failed to calculate total fine amount: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }

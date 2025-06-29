@@ -1,5 +1,7 @@
 package repository.custom.impl;
 
+import alert.Alert;
+import alert.AlertType;
 import entity.CategoryEntity;
 import repository.custom.CategoryRepository;
 import util.CrudUtil;
@@ -18,6 +20,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
             }
             return null;
         } catch (Exception e) {
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve last category ID: " + e.getMessage());
             System.out.println(e.getMessage());
             return null;
         }
@@ -38,7 +41,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
             }
             return categoryEntityList;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve category list: " + e.getMessage());
             return null;
         }
     }
@@ -52,7 +55,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
             return result;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to add category: " + e.getMessage());
             return false;
         }
     }
@@ -67,7 +70,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
             return result;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to update category: " + e.getMessage());
             return false;
         }
     }
@@ -79,7 +82,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
             return result;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to delete category: " + e.getMessage());
             return false;
         }
     }

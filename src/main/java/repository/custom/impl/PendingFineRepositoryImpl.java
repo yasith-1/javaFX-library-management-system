@@ -1,5 +1,7 @@
 package repository.custom.impl;
 
+import alert.Alert;
+import alert.AlertType;
 import entity.PendingFineEntity;
 import repository.custom.PendingFineRepository;
 import util.CrudUtil;
@@ -38,6 +40,7 @@ public class PendingFineRepositoryImpl implements PendingFineRepository {
             }
             return pendingFineEntityArrayList;
         } catch (SQLException e) {
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve pending fines: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }

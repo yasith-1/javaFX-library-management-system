@@ -1,10 +1,14 @@
 package repository.custom.impl;
 
+import alert.Alert;
+import alert.AlertType;
 import entity.DelayReturnEntity;
+import org.checkerframework.checker.units.qual.A;
 import repository.custom.DelayReturnRepository;
 import util.CrudUtil;
 import util.Fine;
 import util.MapCollection;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,6 +28,7 @@ public class DelayReturnRepositoryImpl implements DelayReturnRepository {
             }
             return memberMap;
         } catch (Exception e) {
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve members: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -71,7 +76,7 @@ public class DelayReturnRepositoryImpl implements DelayReturnRepository {
             }
             return delayReturnEntityMemberList;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve delayed return members: " + e.getMessage());
             return null;
         }
     }
@@ -105,7 +110,7 @@ public class DelayReturnRepositoryImpl implements DelayReturnRepository {
             }
             return delayReturnEntityMemberNameList;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve delayed return member names: " + e.getMessage());
             return null;
         }
     }
@@ -152,7 +157,7 @@ public class DelayReturnRepositoryImpl implements DelayReturnRepository {
             }
             return delayReturnEntityOverviewList;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            Alert.trigger(AlertType.ERROR, "Failed to retrieve delayed return overview: " + e.getMessage());
             return null;
         }
     }
