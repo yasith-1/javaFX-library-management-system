@@ -1,7 +1,6 @@
 package util;
 
 import database.DBConnection;
-
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
