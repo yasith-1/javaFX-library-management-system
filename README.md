@@ -222,7 +222,8 @@ A comprehensive **Library Management System** built with JavaFX that provides co
 
 ## 🎯 Core Functionalities
 
-<table>
+<div align="center">
+   <table>
 <tr>
 <td width="50%">
 
@@ -268,6 +269,7 @@ A comprehensive **Library Management System** built with JavaFX that provides co
 </td>
 </tr>
 </table>
+</div>
 
 ---
 
