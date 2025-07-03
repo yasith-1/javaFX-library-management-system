@@ -2,6 +2,7 @@ package controller;
 
 import alert.Alert;
 import alert.AlertType;
+import com.google.inject.Inject;
 import dto.Book;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,9 +13,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.ServiceFactory;
+import service.custom.BookService;
 import service.custom.impl.BookServiceImpl;
 import util.ServiceType;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -29,6 +30,10 @@ public class bookAdvanceSearchFormController implements Initializable {
     public TableColumn colAuthorName;
     public TableColumn colCategoryName;
 
+    // Assuming you have a service to fetch the data
+//    BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
+    @Inject
+    BookService service;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,9 +48,6 @@ public class bookAdvanceSearchFormController implements Initializable {
         //        service.GetBookGerneMap() <-- book status map reference
         comboTitle.getItems().addAll(service.getBookMap().keySet());
     }
-
-    // Assuming you have a service to fetch the data
-    BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
 
     public void searchOnActionBtn(ActionEvent actionEvent) {
 
@@ -86,7 +88,7 @@ public class bookAdvanceSearchFormController implements Initializable {
         if (!comboTitle.getItems().contains("Select Book")) {
             comboTitle.getItems().add(0, "Select Book");
         }
-        comboTitle.setValue("Select Boook");
+        comboTitle.setValue("Select Book");
 
         if (!comboAuthor.getItems().contains("Select Author")) {
             comboAuthor.getItems().add(0, "Select Author");

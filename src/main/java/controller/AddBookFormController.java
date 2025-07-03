@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -47,12 +48,14 @@ public class AddBookFormController implements Initializable {
     public ComboBox comboStatus;
     public ComboBox comboAuthor;
 
+    private Injector injector;
     //    BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
     @Inject
     BookService service;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+         injector = Guice.createInjector(new AppModule());
         setAutogenarateBookId();
         loadAllComboBoxData();
         loadBookTable();
@@ -196,7 +199,15 @@ public class AddBookFormController implements Initializable {
 
     public void bookAdvanceSearchOnActionBtn(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/bookAdvanceSearchForm.fxml"))));
+        URL resource = this.getClass().getResource("/view/bookAdvanceSearchForm.fxml");
+
+        assert resource != null;
+
+        FXMLLoader loader = new FXMLLoader(resource);
+        loader.setControllerFactory(injector::getInstance);
+        Parent load = loader.load();
+
+        stage.setScene(new Scene(load));
         stage.setTitle("Book Advance Search Form");
         stage.setResizable(false);
         stage.getIcons().add(new Image("/image/stageicon.png"));
