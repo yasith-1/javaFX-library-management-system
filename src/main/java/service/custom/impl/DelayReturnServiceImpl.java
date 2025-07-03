@@ -1,9 +1,11 @@
 package service.custom.impl;
 
+import com.google.inject.Inject;
 import dto.DelayReturn;
 import entity.DelayReturnEntity;
 import org.modelmapper.ModelMapper;
 import repository.RepositoryFactory;
+import repository.custom.DelayReturnRepository;
 import repository.custom.impl.DelayReturnRepositoryImpl;
 import service.custom.DelayReturnService;
 import util.Mapper;
@@ -15,7 +17,9 @@ import java.util.List;
 
 public class DelayReturnServiceImpl implements DelayReturnService {
 
-    DelayReturnRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.DELAYEDRETURN);
+//    DelayReturnRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.DELAYEDRETURN);
+    @Inject
+    DelayReturnRepository repository;
     ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override

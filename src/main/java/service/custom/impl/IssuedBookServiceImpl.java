@@ -1,20 +1,21 @@
 package service.custom.impl;
 
+import com.google.inject.Inject;
 import dto.IssuedBook;
 import entity.IssuedBookEntity;
 import org.modelmapper.ModelMapper;
-import repository.RepositoryFactory;
-import repository.custom.impl.IssuedBookRepositoryImpl;
+import repository.custom.IssuedBookRepository;
 import service.custom.IssuedBookService;
 import util.Mapper;
-import util.RepositoryType;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class IssuedBookServiceImpl implements IssuedBookService {
-    IssuedBookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.ISSUEDBOOK);
+    //    IssuedBookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.ISSUEDBOOK);
+    @Inject
+    IssuedBookRepository repository;
+
     ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override

@@ -13,10 +13,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import service.ServiceFactory;
 import service.custom.DashboardOverviewService;
-import util.ServiceType;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -77,8 +74,8 @@ public class DashboardOverviewController implements Initializable {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
 
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/adminSignupForm.fxml"))));
-        stage.setTitle("Register Form");
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/adminLoginForm.fxml"))));
+        stage.setTitle("Login Form");
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.show();
     }

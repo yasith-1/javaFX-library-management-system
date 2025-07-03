@@ -1,20 +1,21 @@
 package service.custom.impl;
 
+import com.google.inject.Inject;
 import dto.Fine;
 import entity.FineEntity;
 import org.modelmapper.ModelMapper;
-import repository.RepositoryFactory;
-import repository.custom.impl.FineRepositoryImpl;
+import repository.custom.FineRepository;
 import service.custom.FineService;
 import util.Mapper;
-import util.RepositoryType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class FineServiceImpl implements FineService {
 
-    FineRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.FINE);
+    //    FineRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.FINE);
+    @Inject
+    FineRepository repository;
     ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override

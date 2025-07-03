@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.JFXTextField;
 import dto.Category;
 import javafx.collections.FXCollections;
@@ -9,13 +10,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import service.ServiceFactory;
-import service.custom.impl.CategoryServiceImpl;
+import service.custom.CategoryService;
 import alert.Alert;
 import alert.AlertType;
 import util.Report;
-import util.ServiceType;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -27,7 +25,9 @@ public class CategoryManageFormController implements Initializable {
     public TableColumn colCategoryId;
     public TableColumn colCategoryName;
 
-    CategoryServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.CATEGORY);
+//    CategoryServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.CATEGORY);
+    @Inject
+    CategoryService service;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

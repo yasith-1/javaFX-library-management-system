@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import dto.PendingFine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,11 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import service.ServiceFactory;
-import service.custom.impl.PendingFineServiceImpl;
+import service.custom.PendingFineService;
 import alert.Alert;
 import alert.AlertType;
-import util.ServiceType;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -24,7 +23,10 @@ public class PendingFineController implements Initializable {
     public TableColumn colReturnDelayDays;
     public TableView pendingFineTable;
     public TableColumn colBookName;
-    PendingFineServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.PENDINGFINE);
+
+    //    PendingFineServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.PENDINGFINE);
+    @Inject
+    PendingFineService service;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

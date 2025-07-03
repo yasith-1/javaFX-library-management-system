@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.JFXTextField;
 import dto.IssuedBook;
 import javafx.collections.FXCollections;
@@ -14,12 +15,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
-import service.ServiceFactory;
-import service.custom.impl.IssuedBookServiceImpl;
+import service.custom.IssuedBookService;
 import alert.Alert;
 import alert.AlertType;
-import util.ServiceType;
-
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -41,7 +39,9 @@ public class IssuedBookFormController implements Initializable {
     public TableColumn colReturnDate;
 
 
-    IssuedBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.ISSUEDBOOK);
+//    IssuedBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.ISSUEDBOOK);
+    @Inject
+    IssuedBookService service;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

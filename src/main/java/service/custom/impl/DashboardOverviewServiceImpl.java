@@ -1,11 +1,8 @@
 package service.custom.impl;
 
 import com.google.inject.Inject;
-import repository.RepositoryFactory;
 import repository.custom.DashboardRepository;
-import repository.custom.impl.DashboardRepositoryImpl;
 import service.custom.DashboardOverviewService;
-import util.RepositoryType;
 
 public class DashboardOverviewServiceImpl implements DashboardOverviewService {
 

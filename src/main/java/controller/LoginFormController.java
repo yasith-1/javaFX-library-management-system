@@ -1,27 +1,42 @@
 package controller;
 
+import com.google.inject.Guice;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import config.AppModule;
 import dto.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
-import service.ServiceFactory;
-import service.custom.impl.MemberServiceImpl;
+import service.custom.MemberService;
 import alert.Alert;
 import alert.AlertType;
-import util.ServiceType;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginFormController {
+public class LoginFormController implements Initializable {
     public JFXPasswordField passwordField;
     public JFXTextField txtEmailORnic;
 
-    MemberServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.MEMBER);
+    private Injector injector;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        injector = Guice.createInjector(new AppModule());
+    }
+
+    //    MemberServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.MEMBER);
+    @Inject
+    MemberService service;
 
     public void LoginOnActionButton(ActionEvent actionEvent) throws IOException {
         if (txtEmailORnic.getText().isEmpty()) {
@@ -74,7 +89,15 @@ public class LoginFormController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.close();
 
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/adminSignupForm.fxml"))));
+        URL resource = this.getClass().getResource("/view/adminSignupForm.fxml");
+
+        assert resource != null;
+
+        FXMLLoader loader = new FXMLLoader(resource);
+        loader.setControllerFactory(injector::getInstance);
+        Parent load = loader.load();
+
+        stage.setScene(new Scene(load));
         stage.setTitle("Register Form");
         stage.setResizable(false);
         stage.getIcons().add(new Image("/image/stageicon.png"));

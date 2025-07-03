@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import dto.Fine;
@@ -17,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import service.ServiceFactory;
+import service.custom.FineService;
 import service.custom.impl.FineServiceImpl;
 import alert.Alert;
 import alert.AlertType;
@@ -49,7 +51,10 @@ public class FineFormController implements Initializable {
     public ComboBox comboBook;
     public ComboBox comboFineStatus;
 
-    FineServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.FINE);
+//    FineServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.FINE);
+    @Inject
+    FineService service;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

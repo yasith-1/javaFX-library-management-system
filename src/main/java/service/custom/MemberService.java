@@ -18,4 +18,6 @@ public interface MemberService extends SuperService {
     Boolean updateMember(Member member);
 
     Boolean deleteMember(Member member);
+
+    Member findAdminExists(Member member);
 }

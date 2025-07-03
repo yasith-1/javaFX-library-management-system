@@ -1,21 +1,22 @@
 package service.custom.impl;
 
+import com.google.inject.Inject;
 import dto.Member;
 import entity.MemberEntity;
 import org.modelmapper.ModelMapper;
-import repository.RepositoryFactory;
-import repository.custom.impl.MemberRepositoryImpl;
+import repository.custom.MemberRepository;
 import service.custom.MemberService;
 import util.Mapper;
-import util.RepositoryType;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class MemberServiceImpl implements MemberService {
 
-    MemberRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.MEMBER);
+    //    MemberRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.MEMBER);
+    @Inject
+    MemberRepository repository;
+
     ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override
@@ -68,6 +69,7 @@ public class MemberServiceImpl implements MemberService {
         return repository.delete(memberEntity);
     }
 
+    @Override
     public Member findAdminExists(Member member) {
         MemberEntity memberEntity = modelMapper.map(member, MemberEntity.class);
         MemberEntity entity = repository.search(memberEntity);

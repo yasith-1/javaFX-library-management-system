@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.JFXTextField;
 import dto.Member;
 import javafx.collections.FXCollections;
@@ -11,12 +12,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import service.ServiceFactory;
-import service.custom.impl.MemberServiceImpl;
+import service.custom.MemberService;
 import alert.Alert;
 import alert.AlertType;
 import util.Report;
-import util.ServiceType;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -37,7 +36,9 @@ public class MemberManageFormController implements Initializable {
     public ComboBox comMemberType;
 
 
-    MemberServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.MEMBER);
+//    MemberServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.MEMBER);
+    @Inject
+    MemberService service;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

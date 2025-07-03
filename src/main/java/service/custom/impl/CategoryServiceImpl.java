@@ -1,19 +1,20 @@
 package service.custom.impl;
 
+import com.google.inject.Inject;
 import dto.Category;
 import entity.CategoryEntity;
 import org.modelmapper.ModelMapper;
-import repository.RepositoryFactory;
-import repository.custom.impl.CategoryRepositoryImpl;
+import repository.custom.CategoryRepository;
 import service.custom.CategoryService;
 import util.Mapper;
-import util.RepositoryType;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryServiceImpl implements CategoryService {
 
-    CategoryRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.CATEGORY);
+    //    CategoryRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.CATEGORY);
+    @Inject
+    CategoryRepository repository;
     ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override
@@ -44,13 +45,13 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Boolean updateCategory(Category category){
+    public Boolean updateCategory(Category category) {
         CategoryEntity categoryEntity = modelMapper.map(category, CategoryEntity.class);
         return repository.update(categoryEntity);
     }
 
     @Override
-    public Boolean deleteCategory(Category category){
+    public Boolean deleteCategory(Category category) {
         CategoryEntity categoryEntity = modelMapper.map(category, CategoryEntity.class);
         return repository.delete(categoryEntity);
     }

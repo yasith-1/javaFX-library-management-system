@@ -2,6 +2,7 @@ package controller;
 
 import alert.Alert;
 import alert.AlertType;
+import com.google.inject.Inject;
 import dto.DelayReturn;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,9 +13,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.ServiceFactory;
+import service.custom.DelayReturnService;
 import service.custom.impl.DelayReturnServiceImpl;
 import util.*;
-
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
@@ -36,7 +37,9 @@ public class DelayReturnFormController implements Initializable {
     public TableColumn colReturnTime;
     public TableColumn colTotalFineAmount;
 
-    DelayReturnServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.DELAYEDRETURN);
+//    DelayReturnServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.DELAYEDRETURN);
+    @Inject
+    DelayReturnService service;
     HashMap<String, String> memberMap;
 
     @Override
