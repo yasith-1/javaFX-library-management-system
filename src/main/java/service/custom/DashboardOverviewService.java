@@ -2,7 +2,7 @@ package service.custom;
 
 import service.SuperService;
 
-public interface DashboardService extends SuperService {
+public interface DashboardOverviewService extends SuperService {
     Integer getBookCount();
 
     Integer getMemberCount();

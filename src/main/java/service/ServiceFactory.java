@@ -20,7 +20,7 @@ public class ServiceFactory {
     public <T extends SuperService> T getServiceType(ServiceType type) {
         switch (type) {
             case DASHBOARD:
-                return (T) new DashboardServiceImpl();
+                return (T) new DashboardOverviewServiceImpl();
             case BOOK:
                 return (T) new BookServiceImpl();
             case CATEGORY:

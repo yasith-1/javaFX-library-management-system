@@ -1,9 +1,11 @@
 package service.custom.impl;
 
+import com.google.inject.Inject;
 import dto.Book;
 import entity.BookEntity;
 import org.modelmapper.ModelMapper;
 import repository.RepositoryFactory;
+import repository.custom.BookRepository;
 import repository.custom.impl.BookRepositoryImpl;
 import service.custom.BookService;
 import util.Mapper;
@@ -15,7 +17,13 @@ import java.util.List;
 
 public class BookServiceImpl implements BookService {
 
-    BookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.BOOK);
+    //    BookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.BOOK);
+
+    // Using dependency injection to get the repository instance
+    @Inject
+    BookRepository repository;
+
+    // Using a singleton instance of ModelMapper for mapping between DTO and entity
     ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
 

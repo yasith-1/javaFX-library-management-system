@@ -10,7 +10,7 @@ public class AppModule extends AbstractModule {
     @Override
     protected void configure() {
 //        Service bindings
-        bind(DashboardService.class).to(DashboardServiceImpl.class);
+        bind(DashboardOverviewService.class).to(DashboardOverviewServiceImpl.class);
         bind(BookService.class).to(BookServiceImpl.class);
         bind(AuthorService.class).to(AuthorServiceImpl.class);
         bind(CategoryService.class).to(CategoryServiceImpl.class);
@@ -32,6 +32,5 @@ public class AppModule extends AbstractModule {
         bind(MemberRepository.class).to(MemberRepositoryImpl.class);
         bind(PendingFineRepository.class).to(PendingFineRepositoryImpl.class);
         bind(ReturnBookRepository.class).to(ReturnBookRepositoryImpl.class);
-
     }
 }

@@ -77,7 +77,7 @@ public class DashboardFormController implements Initializable {
         assert resource != null;
         Parent load = null;
         try {
-            FXMLLoader loader = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
             loader.setControllerFactory(injector::getInstance);
             load = loader.load();
         } catch (IOException e) {
@@ -97,7 +97,9 @@ public class DashboardFormController implements Initializable {
 
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -115,7 +117,9 @@ public class DashboardFormController implements Initializable {
 
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -132,7 +136,9 @@ public class DashboardFormController implements Initializable {
 
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -149,7 +155,9 @@ public class DashboardFormController implements Initializable {
 
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -166,7 +174,9 @@ public class DashboardFormController implements Initializable {
 
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -183,7 +193,9 @@ public class DashboardFormController implements Initializable {
 
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -200,7 +212,9 @@ public class DashboardFormController implements Initializable {
 
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -217,7 +231,9 @@ public class DashboardFormController implements Initializable {
 
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -234,7 +250,9 @@ public class DashboardFormController implements Initializable {
 
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -251,7 +269,9 @@ public class DashboardFormController implements Initializable {
 
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -267,7 +287,9 @@ public class DashboardFormController implements Initializable {
 
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

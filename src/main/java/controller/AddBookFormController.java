@@ -47,7 +47,9 @@ public class AddBookFormController implements Initializable {
     public ComboBox comboStatus;
     public ComboBox comboAuthor;
 
-    BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
+    //    BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
+    @Inject
+    BookService service;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

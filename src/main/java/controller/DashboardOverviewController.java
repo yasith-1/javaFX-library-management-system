@@ -14,23 +14,23 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import service.ServiceFactory;
-import service.custom.DashboardService;
+import service.custom.DashboardOverviewService;
 import util.ServiceType;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class OverviewController implements Initializable {
+public class DashboardOverviewController implements Initializable {
 
     public Label bookCountLbl;
     public Label memberCountLbl;
     public Label issuedBookCountLbl;
     public Label authorCountLbl;
 
-    //    DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
+//    DashboardOverviewService service = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
     @Inject
-    DashboardService service;
+    DashboardOverviewService service;
 
     public LineChart<String, Number> lineChart;
 
