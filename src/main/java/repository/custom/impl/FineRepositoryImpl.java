@@ -7,7 +7,6 @@ import repository.custom.FineRepository;
 import util.CrudUtil;
 import util.Fine;
 import util.MapCollection;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

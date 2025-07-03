@@ -1,5 +1,8 @@
 package controller;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import config.AppModule;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -11,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -29,8 +33,13 @@ public class DashboardFormController implements Initializable {
     @FXML
     private AnchorPane root;
 
+    private Injector injector;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Initialize the Guice injector
+        injector = Guice.createInjector(new AppModule());
+        // Set the admin name
         loadInitialDashboardOverview();
         setDateAndTime();
     }
@@ -66,13 +75,15 @@ public class DashboardFormController implements Initializable {
         URL resource = this.getClass().getResource("/view/dashboardOverview.fxml");
 
         assert resource != null;
-
         Parent load = null;
         try {
-            load = FXMLLoader.load(resource);
+            FXMLLoader loader = FXMLLoader.load(resource);
+            loader.setControllerFactory(injector::getInstance);
+            load = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         this.root.getChildren().clear();
         this.root.getChildren().add(load);
     }
