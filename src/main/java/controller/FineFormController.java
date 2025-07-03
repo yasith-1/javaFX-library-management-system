@@ -1,14 +1,18 @@
 package controller;
 
+import com.google.inject.Guice;
 import com.google.inject.Inject;
+import com.google.inject.Injector;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import config.AppModule;
 import dto.Fine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -51,13 +55,16 @@ public class FineFormController implements Initializable {
     public ComboBox comboBook;
     public ComboBox comboFineStatus;
 
-//    FineServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.FINE);
+    private Injector injector;
+
+    //    FineServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.FINE);
     @Inject
     FineService service;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        injector = Guice.createInjector(new AppModule());
         setAutogenaratedFineId();
         loadAllComboboxData();
         loadFineTable();
@@ -225,14 +232,14 @@ public class FineFormController implements Initializable {
 //
 //            Fine foundedFine = service.searchFine(fine);
 //            if (foundedFine != null) {
-////                call data set method
+
+    /// /                call data set method
 //                setFoundedData(foundedFine);
 //                return;
 //            }
 //            Alert.trigger(AlertType.ERROR, "Fine not found try again !");
 //        }
 //    }
-
     private void setFoundedData(Fine fine) {
         txtFineIdLbl.setText(fine.getId());
         comboMember.setValue(fine.getMemberId());
@@ -326,7 +333,13 @@ public class FineFormController implements Initializable {
 
     public void checkPendingFinesOnActionButton(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/pendingFinePayemtHolders.fxml"))));
+        URL resource = getClass().getResource("/view/pendingFinePayemtHolders.fxml");
+        assert resource != null;
+
+        FXMLLoader loader = new FXMLLoader(resource);
+        loader.setControllerFactory(injector::getInstance);
+        Parent root = loader.load();
+        stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.getIcons().add(new Image("/image/stageicon.png"));
         stage.setTitle("Check Pending Fine Details");
