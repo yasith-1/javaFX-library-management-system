@@ -1,9 +1,11 @@
 package service.custom.impl;
 
+import com.google.inject.Inject;
 import dto.ReturnBook;
 import entity.ReturnBookEntity;
 import org.modelmapper.ModelMapper;
 import repository.RepositoryFactory;
+import repository.custom.ReturnBookRepository;
 import repository.custom.impl.ReturnBookRepositoryImpl;
 import service.custom.ReturnBookService;
 import util.Mapper;
@@ -15,7 +17,9 @@ import java.util.List;
 
 public class ReturnBookServiceImpl implements ReturnBookService {
 
-    ReturnBookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.RETURNBOOK);
+//    ReturnBookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.RETURNBOOK);
+    @Inject
+    ReturnBookRepository repository;
     ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override
@@ -50,6 +54,7 @@ public class ReturnBookServiceImpl implements ReturnBookService {
         return null;
     }
 
+    @Override
     public List<ReturnBook> getAllReturnBookList() {
         List<ReturnBook> returnBookList = new ArrayList<>();
         List<ReturnBookEntity> returnBookEntities = repository.returnBookList();

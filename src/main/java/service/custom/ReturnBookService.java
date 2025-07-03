@@ -4,6 +4,7 @@ import dto.ReturnBook;
 import service.SuperService;
 
 import java.util.HashMap;
+import java.util.List;
 
 public interface ReturnBookService extends SuperService {
     HashMap<String, String> getBookMap();
@@ -15,4 +16,6 @@ public interface ReturnBookService extends SuperService {
     Boolean deleteReturnRecord(ReturnBook returnBookDto);
 
     ReturnBook searchReturnRecord(ReturnBook returnBookDto);
+
+    List<ReturnBook> getAllReturnBookList();
 }

@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.JFXTextField;
 import dto.ReturnBook;
 import javafx.collections.FXCollections;
@@ -12,11 +13,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.ServiceFactory;
+import service.custom.ReturnBookService;
 import service.custom.impl.ReturnBookServiceImpl;
 import alert.Alert;
 import alert.AlertType;
 import util.Report;
 import util.ServiceType;
+
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.List;
@@ -34,7 +37,9 @@ public class BookReturnFormController implements Initializable {
     public ComboBox comboMember;
     public ComboBox comboBook;
 
-    ReturnBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.RETURNBOOK);
+    //        ReturnBookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.RETURNBOOK);
+    @Inject
+    ReturnBookService service;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -44,7 +49,7 @@ public class BookReturnFormController implements Initializable {
     }
 
 
-//     This method loads the book and member data into the combo boxes.
+    //     This method loads the book and member data into the combo boxes.
     private void loadComboBoxData() {
         comboBook.getItems().addAll(service.getBookMap().keySet());
         comboMember.getItems().addAll(service.getMemberMap().keySet());

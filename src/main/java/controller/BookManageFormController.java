@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.JFXTextField;
 import dto.Book;
 import javafx.collections.FXCollections;
@@ -12,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.ServiceFactory;
+import service.custom.BookService;
 import service.custom.impl.BookServiceImpl;
 import alert.Alert;
 import alert.AlertType;
@@ -38,7 +40,9 @@ public class BookManageFormController implements Initializable {
     public TableColumn colStatus;
     public Label txtIdLbl;
 
-    BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
+//    BookServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.BOOK);
+    @Inject
+    BookService service;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
