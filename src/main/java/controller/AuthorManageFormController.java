@@ -10,14 +10,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import service.ServiceFactory;
 import service.custom.AuthorService;
-import service.custom.impl.AuthorServiceImpl;
 import alert.Alert;
 import alert.AlertType;
 import util.Report;
-import util.ServiceType;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -40,7 +36,6 @@ public class AuthorManageFormController implements Initializable {
         fetchTableRowData();
 
     }
-
 
     //      This method is used to set the auto-generated author ID in the text field.
     private void setAutoGenaratedId() {

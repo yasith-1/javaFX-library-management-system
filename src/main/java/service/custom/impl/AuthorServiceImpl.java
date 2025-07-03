@@ -4,12 +4,9 @@ import com.google.inject.Inject;
 import dto.Author;
 import entity.AuthorEntity;
 import org.modelmapper.ModelMapper;
-import repository.RepositoryFactory;
 import repository.custom.AuthorRepository;
-import repository.custom.impl.AuthorRepositoryImpl;
 import service.custom.AuthorService;
 import util.Mapper;
-import util.RepositoryType;
 
 import java.util.ArrayList;
 import java.util.List;
