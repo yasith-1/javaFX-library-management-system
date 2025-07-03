@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.DashboardService;
 import util.ServiceType;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,7 +28,9 @@ public class OverviewController implements Initializable {
     public Label issuedBookCountLbl;
     public Label authorCountLbl;
 
-    DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
+    //    DashboardService dashboardService = ServiceFactory.getInstance().getServiceType(ServiceType.DASHBOARD);
+    @Inject
+    DashboardService service;
 
     public LineChart<String, Number> lineChart;
 
@@ -38,7 +42,7 @@ public class OverviewController implements Initializable {
     }
 
     private void updateDatabaseBookStatus() {
-        Boolean isStatusUpdate = dashboardService.updateBookStatus();
+        Boolean isStatusUpdate = service.updateBookStatus();
         if (isStatusUpdate) {
             System.out.println("All book status loaded & Updated !");
             return;
@@ -47,10 +51,10 @@ public class OverviewController implements Initializable {
     }
 
     private void setDashboardData() {
-        bookCountLbl.setText(String.valueOf(dashboardService.getBookCount()));
-        authorCountLbl.setText(String.valueOf(dashboardService.getAuthorCount()));
-        memberCountLbl.setText(String.valueOf(dashboardService.getMemberCount()));
-        issuedBookCountLbl.setText(String.valueOf(dashboardService.getIssuedBookCount()));
+        bookCountLbl.setText(String.valueOf(service.getBookCount()));
+        authorCountLbl.setText(String.valueOf(service.getAuthorCount()));
+        memberCountLbl.setText(String.valueOf(service.getMemberCount()));
+        issuedBookCountLbl.setText(String.valueOf(service.getIssuedBookCount()));
     }
 
     private void loadChartData() {
@@ -60,10 +64,10 @@ public class OverviewController implements Initializable {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Library Stat");
 
-        series.getData().add(new XYChart.Data<>("Members", dashboardService.getMemberCount()));
-        series.getData().add(new XYChart.Data<>("Authors", dashboardService.getAuthorCount()));
-        series.getData().add(new XYChart.Data<>("Books", dashboardService.getBookCount()));
-        series.getData().add(new XYChart.Data<>("Issued Books", dashboardService.getIssuedBookCount()));
+        series.getData().add(new XYChart.Data<>("Members", service.getMemberCount()));
+        series.getData().add(new XYChart.Data<>("Authors", service.getAuthorCount()));
+        series.getData().add(new XYChart.Data<>("Books", service.getBookCount()));
+        series.getData().add(new XYChart.Data<>("Issued Books", service.getIssuedBookCount()));
 
         lineChart.getData().add(series);
     }
