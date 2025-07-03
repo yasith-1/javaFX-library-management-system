@@ -1,6 +1,5 @@
 package controller;
 
-import com.google.inject.Inject;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import dto.Member;
@@ -13,10 +12,11 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
-import service.custom.MemberService;
+import service.ServiceFactory;
 import alert.Alert;
 import alert.AlertType;
-
+import service.custom.impl.MemberServiceImpl;
+import util.ServiceType;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,9 +28,7 @@ public class SignupFormController implements Initializable {
     public JFXTextField txtAddress;
     public JFXTextField txtEmail;
 
-    //    MemberServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.MEMBER);
-    @Inject
-    MemberService service;
+    MemberServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.MEMBER);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

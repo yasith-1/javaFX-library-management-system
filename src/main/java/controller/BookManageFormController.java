@@ -12,14 +12,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import service.ServiceFactory;
 import service.custom.BookService;
-import service.custom.impl.BookServiceImpl;
 import alert.Alert;
 import alert.AlertType;
 import util.Report;
-import util.ServiceType;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;

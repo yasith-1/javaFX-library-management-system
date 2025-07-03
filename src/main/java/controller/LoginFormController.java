@@ -16,27 +16,22 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
+import service.ServiceFactory;
 import service.custom.MemberService;
 import alert.Alert;
 import alert.AlertType;
+import service.custom.impl.MemberServiceImpl;
+import util.ServiceType;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginFormController implements Initializable {
+public class LoginFormController {
     public JFXPasswordField passwordField;
     public JFXTextField txtEmailORnic;
 
-    private Injector injector;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        injector = Guice.createInjector(new AppModule());
-    }
-
-    //    MemberServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.MEMBER);
-    @Inject
-    MemberService service;
+        MemberServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.MEMBER);
 
     public void LoginOnActionButton(ActionEvent actionEvent) throws IOException {
         if (txtEmailORnic.getText().isEmpty()) {
@@ -90,11 +85,8 @@ public class LoginFormController implements Initializable {
         stage.close();
 
         URL resource = this.getClass().getResource("/view/adminSignupForm.fxml");
-
         assert resource != null;
-
         FXMLLoader loader = new FXMLLoader(resource);
-        loader.setControllerFactory(injector::getInstance);
         Parent load = loader.load();
 
         stage.setScene(new Scene(load));

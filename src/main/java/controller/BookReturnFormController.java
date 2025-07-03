@@ -12,14 +12,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import service.ServiceFactory;
 import service.custom.ReturnBookService;
-import service.custom.impl.ReturnBookServiceImpl;
 import alert.Alert;
 import alert.AlertType;
 import util.Report;
-import util.ServiceType;
-
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.List;

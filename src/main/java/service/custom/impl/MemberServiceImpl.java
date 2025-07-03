@@ -4,19 +4,19 @@ import com.google.inject.Inject;
 import dto.Member;
 import entity.MemberEntity;
 import org.modelmapper.ModelMapper;
+import repository.RepositoryFactory;
 import repository.custom.MemberRepository;
+import repository.custom.impl.MemberRepositoryImpl;
 import service.custom.MemberService;
 import util.Mapper;
+import util.RepositoryType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class MemberServiceImpl implements MemberService {
 
-    //    MemberRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.MEMBER);
-    @Inject
-    MemberRepository repository;
-
+    MemberRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.MEMBER);
     ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override
