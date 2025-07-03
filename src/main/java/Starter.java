@@ -11,14 +11,19 @@ import java.net.URL;
 
 public class Starter extends Application {
 
+    private Injector injector;
+
     public static void main(String[] args) {
         launch();
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
-        Injector injector = Guice.createInjector(new AppModule());
+    public void init() {
+        injector = Guice.createInjector(new AppModule());
+    }
 
+    @Override
+    public void start(Stage stage) throws Exception {
         URL resource = getClass().getResource("/view/adminLoginForm.fxml");
         assert resource != null;
 
