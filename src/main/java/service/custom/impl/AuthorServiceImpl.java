@@ -1,9 +1,11 @@
 package service.custom.impl;
 
+import com.google.inject.Inject;
 import dto.Author;
 import entity.AuthorEntity;
 import org.modelmapper.ModelMapper;
 import repository.RepositoryFactory;
+import repository.custom.AuthorRepository;
 import repository.custom.impl.AuthorRepositoryImpl;
 import service.custom.AuthorService;
 import util.Mapper;
@@ -14,7 +16,13 @@ import java.util.List;
 
 public class AuthorServiceImpl implements AuthorService {
 
-    AuthorRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.AUTHOR);
+    // old way of getting instance of the repository
+    // AuthorRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.AUTHOR);
+
+    // new way of getting instance of the repository using dependency injection
+    @Inject
+    AuthorRepository repository;
+
     ModelMapper modelMapper = Mapper.getInstance().getModelMapper();
 
     @Override

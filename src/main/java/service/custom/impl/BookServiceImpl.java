@@ -17,6 +17,7 @@ import java.util.List;
 
 public class BookServiceImpl implements BookService {
 
+    // old way of getting the repository instance
     //    BookRepositoryImpl repository = RepositoryFactory.getInstance().getRepositoryType(RepositoryType.BOOK);
 
     // Using dependency injection to get the repository instance

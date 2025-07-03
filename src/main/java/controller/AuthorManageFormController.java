@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.JFXTextField;
 import dto.Author;
 import javafx.collections.FXCollections;
@@ -10,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import service.ServiceFactory;
+import service.custom.AuthorService;
 import service.custom.impl.AuthorServiceImpl;
 import alert.Alert;
 import alert.AlertType;
@@ -27,7 +29,9 @@ public class AuthorManageFormController implements Initializable {
     public TableColumn colAuthorName;
     public TableColumn colAuthorId;
 
-    AuthorServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.AUTHOR);
+//    AuthorServiceImpl service = ServiceFactory.getInstance().getServiceType(ServiceType.AUTHOR);
+    @Inject
+    AuthorService service;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
