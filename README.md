@@ -25,7 +25,7 @@ A comprehensive **Library Management System** built with JavaFX that provides co
 - 🔍 **Advanced Search** - Quick and efficient search functionality
 - 💾 **Data Persistence** - Reliable database integration
 
----
+</br>
 
 ## 🚀 Quick Start
 
@@ -48,12 +48,69 @@ A comprehensive **Library Management System** built with JavaFX that provides co
 ![2025-06-27 (LMS)](https://github.com/user-attachments/assets/d590203a-b255-40d4-801c-ffa0e2aa3b83)
 
 
-4. **Build and Run:**
+3. **Build and Run:**
    ```bash
    mvn clean install
    ```
 
 ---
+
+## 🔄️ Dependencies
+
+- javafx-controls
+- javafx-fxml
+- jfoenix
+- mysql-connector-j
+- controlsfx
+- lombok
+- modelmapper
+- jasperreports
+- jasperreports-pdf
+- poi-ooxml
+- jasperreports-fonts
+- log4j-core
+- jbcrypt
+- guice
+
+---
+
+## ♻️ Build Plugin
+```bash
+   <plugins>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>Main</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version> <!-- Use the latest version -->
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                            <shadedClassifierName>project-classifier</shadedClassifierName>
+                            <outputFile>shade\${project.artifactId}.jar</outputFile>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>Main</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+   ```
 
 ## 🛠️ Technology Stack
 
