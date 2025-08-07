@@ -17,7 +17,7 @@ public class DBConnection {
             props.load(new FileInputStream("config.properties")); // from project root
 
             String url = props.getProperty("DB_URL");
-            String user = props.getProperty("DB_USER");
+            String user = props.getProperty("DB_ROOT");
             String pass = props.getProperty("DB_PASS");
 
             connection = DriverManager.getConnection(url, user, pass);
@@ -31,7 +31,7 @@ public class DBConnection {
         return connection;
     }
 
-    public static synchronized DBConnection getInstance() throws SQLException {
+    public static  DBConnection getInstance() throws SQLException {
         return instance == null ? instance = new DBConnection() : instance;
     }
 }
