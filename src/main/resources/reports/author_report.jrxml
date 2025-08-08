@@ -16,7 +16,7 @@
 	<background splitType="Stretch"/>
 	<title height="79" splitType="Stretch">
 		<element kind="image" uuid="cd68e4fb-61ec-4aa3-9fa1-be9cb5bb5276" x="20" y="11" width="60" height="55">
-			<expression><![CDATA["D:/ICET/JAVA-FX/library-management-system/src/main/resources/image/btnicon.png"]]></expression>
+			<expression><![CDATA["src/main/resources/image/btnicon.png"]]></expression>
 		</element>
 		<element kind="staticText" uuid="5daae55a-8da2-4edb-b9e9-3b039ba0b060" x="120" y="11" width="258" height="59" forecolor="#23ABAD" fontSize="22.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<text><![CDATA[Authors Report]]></text>

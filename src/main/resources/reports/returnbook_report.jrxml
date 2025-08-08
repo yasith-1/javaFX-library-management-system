@@ -36,7 +36,7 @@
 			</box>
 		</element>
 		<element kind="image" uuid="a391026f-5f4f-43d1-bb78-3481ee4dba8a" x="20" y="11" width="60" height="55">
-			<expression><![CDATA["D:/ICET/JAVA-FX/library-management-system/src/main/resources/image/btnicon.png"]]></expression>
+			<expression><![CDATA["src/main/resources/image/btnicon.png"]]></expression>
 			<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5">
 				<pen lineWidth="1.0" lineStyle="Solid"/>
 				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>

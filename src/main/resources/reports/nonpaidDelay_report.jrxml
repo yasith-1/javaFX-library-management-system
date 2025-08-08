@@ -67,7 +67,7 @@ INNER JOIN fine_status ON fine.fine_status_id = fine_status.id;
 	<background splitType="Stretch"/>
 	<title height="79" splitType="Stretch">
 		<element kind="image" uuid="0e1db890-3cd0-4012-8176-faefe27c0645" x="20" y="11" width="60" height="55">
-			<expression><![CDATA["D:/ICET/JAVA-FX/library-management-system/src/main/resources/image/btnicon.png"]]></expression>
+			<expression><![CDATA["src/main/resources/image/btnicon.png"]]></expression>
 			<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5">
 				<pen lineWidth="1.0" lineStyle="Solid"/>
 				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>

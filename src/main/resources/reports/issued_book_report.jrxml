@@ -80,7 +80,7 @@
 			</box>
 		</element>
 		<element kind="image" uuid="f7e935c4-175a-4433-b489-828a188dfbd1" x="20" y="11" width="60" height="55">
-			<expression><![CDATA["D:/ICET/JAVA-FX/library-management-system/src/main/resources/image/btnicon.png"]]></expression>
+			<expression><![CDATA["src/main/resources/image/btnicon.png"]]></expression>
 		</element>
 	</title>
 	<pageHeader height="35" splitType="Stretch"/>

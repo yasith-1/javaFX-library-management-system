@@ -31,7 +31,7 @@
 	<background splitType="Stretch"/>
 	<title height="79" splitType="Stretch">
 		<element kind="image" uuid="301de428-1d67-48d0-aa08-790e0e292a0d" x="20" y="11" width="60" height="55">
-			<expression><![CDATA["D:/ICET/JAVA-FX/library-management-system/src/main/resources/image/btnicon.png"]]></expression>
+			<expression><![CDATA["src/main/resources/image/btnicon.png"]]></expression>
 		</element>
 		<element kind="staticText" uuid="83fdaed6-b664-4287-b00e-2560118b4b71" x="120" y="11" width="258" height="59" forecolor="#23ABAD" fontSize="22.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<text><![CDATA[Books Report]]></text>
