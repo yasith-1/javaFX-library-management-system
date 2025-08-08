@@ -6,7 +6,7 @@ import util.Report;
 
 public class DownloadReportFormController {
 
-    // -------- Open Reports -------- //
+    // -------- Open Reports ---------------------------------------------------------------------------------------- //
 
     @FXML
     void bookReportActionBtn(ActionEvent event) {
@@ -43,7 +43,7 @@ public class DownloadReportFormController {
         openReport("nonpaidDelay_report.jrxml");
     }
 
-    // -------- Download Reports -------- //
+    // -------- Download Reports ------------------------------------------------------------------------------------ //
     @FXML
     void downloadBookOnActionBtn(ActionEvent event) {
         downloadReport("book_report.jrxml", "book-report.pdf");

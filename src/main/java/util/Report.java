@@ -8,6 +8,7 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
+
 import java.io.InputStream;
 import java.io.File;
 import java.sql.SQLException;
@@ -23,9 +24,12 @@ public class Report {
                 return;
             }
 
+            // Load the JasperDesign from the InputStream
             JasperDesign design = JRXmlLoader.load(reportStream);
+            // Compile the JasperDesign to create a JasperReport
             JasperReport jasperReport = JasperCompileManager.compileReport(design);
 
+            // Fill the report with data from the database connection
             JasperPrint jasperPrint = JasperFillManager.fillReport(
                     jasperReport, null, DBConnection.getInstance().getConnection());
 
